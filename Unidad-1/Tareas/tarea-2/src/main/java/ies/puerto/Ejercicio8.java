@@ -1,40 +1,34 @@
 package ies.puerto;
 import java.util.Scanner;
-
-
 /**
- * Desarrolla un algoritmo que permita calcular el promedio de notas;
- * finaliza cuando N = 0.
+ * Desarrolle un algoritmo que permita calcular
+ * Promedio de Notas; finaliza cuando N = 0.
  */
+
 public class Ejercicio8 {
     public static void main(String[] args) {
         Scanner lecture = new Scanner(System.in);
 
-
         int suma = 0;
         int contador = 0;
-
+        int nota;
 
         System.out.print("Para finalizar introduzca 0. ");
-        while (true) {
-            System.out.print("Ingrese una nota:");
-            int nota = lecture.nextInt();
 
-            if (nota == 0) {
-                break; // Salir del bucle si se ingresa 0
-            }
+        System.out.print("Ingrese una nota:");
+        nota = lecture.nextInt();
 
-
+        while (nota != 0) {
             suma += nota;
-            contador++;
+            contador += 1;
+
+            System.out.print("Ingrese una nota:");
+            nota = lecture.nextInt();
         }
 
-
         if (contador > 0) {
-            double promedio = (double) suma / contador;
+            int promedio = suma / contador;
             System.out.println("El promedio de las notas es: " + promedio);
-        } else {
-            System.out.println("No se ingresaron notas.");
         }
     }
 }
