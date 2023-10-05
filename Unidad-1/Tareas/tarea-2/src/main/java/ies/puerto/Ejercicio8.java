@@ -10,10 +10,8 @@ public class Ejercicio8 {
     public static void main(String[] args) {
         Scanner lecture = new Scanner(System.in);
 
-
         int suma = 0;
         int contador = 0;
-
 
         System.out.print("Para finalizar introduzca 0. ");
         while (true) {
@@ -28,7 +26,6 @@ public class Ejercicio8 {
             suma += nota;
             contador++;
         }
-
 
         if (contador > 0) {
             double promedio = (double) suma / contador;
