@@ -1,0 +1,194 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><div align=\"justify\">\n\n# Título tarea\n\n<!-- Recuerda que\n\n## 1. Subtítulo tarea\n\n### 1.1 Subtítulo de la tarea\n\n-- Incluir imagenes\n\n<div align=\"center\">\n    <img src=\"images/diagrama-flujo.png\"/> \n</div>\n\n-->\n\n## Descripción del ejercicio\n\n## Diagrama de flujos\n\n## Pseudocódigo\n\n## Referencias\n\n\n</div>\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+--- a/README.md	(revision 980c94380cd684910cbf5d402c061f2078f562ba)
++++ b/README.md	(date 1696257766653)
+@@ -1,6 +1,6 @@
+ <div align="justify">
+ 
+-# Título tarea
++# Tarea 2
+ 
+ <!-- Recuerda que
+ 
+@@ -15,16 +15,87 @@
+ </div>
+ 
+ -->
++# Índice
++
++- Ejercicio 1
++- Ejercicio 2
++- Ejercicio 3
++- Ejercicio 4
++
++## Ejercicio 1 <a name="ejercicio1"></a>
++
++## Descripción del ejercicio:
++Clase que realiza el ejercicio numero 1 de las tareas.
++
++## Diagrama de Flujo:
++
++## Pseudocódigo:
++- Inicio.
++- Inicializar variables: A, B.
++- Solicitar la introducción de dos valores.
++- Leer los dos valores.
++- Asignarlos a las variables A y B.
++- Si A = B Entonces vuelve a 3 porque los valores deben ser distintos.
++- Si A>B Entonces Escribir A, “Es el mayor”.
++- De lo contrario: Escribir B, “Es el mayor”.
++- Fin.
++
++## Ejercicio 2 
++
++## Descripción del ejercicio
++Desarrolle un algoritmo que permita leer tres valores y almacenarlos en las variables A, B y C respectivamente.
++El algoritmo debe imprimir cual es el mayor y cual es el menor. Recuerde constatar que los tres valores introducidos por
++el teclado sean valores distintos. Presente un mensaje de alerta en caso de que se detecte la introducción de valores iguales.
++
++## Diagrama de Flujo
++
++## Pseudocódigo
++- Inicio.
++- Leer valores.
++- Verificar si los tres valores son distintos:
++- Si dos o más son iguales → mostramos mensaje → volvemos a pedir valores
++- SI son diferentes:
++- Si A>B>C → A mayor, i B>C → B segundo, C tercero.
++- Si B>A>C → B es mayor, si A>C → A segundo, C tercero.
++- Si C>A>B → Si B>A → B segundo, A tercero // Si A>B → A segundo, B tercero.
++- Fin.
++
++## Descripción del ejercicio
++
++
++## Diagrama de flujos
++
++## Pseudocódigo
++
++## Referencias
++
++## Ejercicio 3 <a name="ejercicio3"></a>
++
++## Descripción del ejercicio
++Clase que realiza el ejercicio numero 1 de las tareas.
++
++### Diagrama de Flujo
++
++### Pseudocódigo
++- Inicio.
++- Inicializar variables: A, B.
++- Solicitar la introducción de dos valores.
++- Leer los dos valores.
++- Asignarlos a las variables A y B.
++- Si A = B Entonces vuelve a 3 porque los valores deben ser distintos.
++- Si A>B Entonces Escribir A, “Es el mayor”.
++- De lo contrario: Escribir B, “Es el mayor”.
++- Fin.
+ 
+ ## Descripción del ejercicio
+ 
++
+ ## Diagrama de flujos
+ 
+ ## Pseudocódigo
+ 
+ ## Referencias
+ 
+-
+ </div>
+ 
+ 
+Index: src/main/java/es/iespuerto/Ejercicio8.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/es/iespuerto/Ejercicio8.java b/src/main/java/ies/puerto/Ejercicio8.java
+rename from src/main/java/es/iespuerto/Ejercicio8.java
+rename to src/main/java/ies/puerto/Ejercicio8.java
+--- a/src/main/java/es/iespuerto/Ejercicio8.java	(revision 980c94380cd684910cbf5d402c061f2078f562ba)
++++ b/src/main/java/ies/puerto/Ejercicio8.java	(date 1696255953027)
+@@ -12,8 +12,7 @@
+ 
+ 
+         int suma = 0;
+-        int contador = 0; // cantidad de elementos o eventos que
+-        // ocurren durante la ejecución del programa.
++        int contador = 0;
+ 
+ 
+         System.out.print("Para finalizar introduzca 0. ");
+@@ -21,7 +20,6 @@
+             System.out.print("Ingrese una nota:");
+             int nota = lecture.nextInt();
+ 
+-
+             if (nota == 0) {
+                 break; // Salir del bucle si se ingresa 0
+             }
+Index: ../../README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><div align=\"justify\">\n\n# Ejercicios\n\n- [Ejercicio 1](#ejercicio1)\n- [Ejercicio 2](#ejercicio2)\n- [Ejercicio 3](#ejercicio3)\n- [Ejercicio 4](#ejercicio4)\n\n## Ejercicio 1 <a name=\"ejercicio1\"></a>\nDesarrolle un algoritmo que permita leer dos valores distintos, determinar cual de los dos valores es el\nmayor y escribirlo.\n\n### Diagrama de Flujo\n<img src=images/diagrama1.png>\n\n### Pseudocódigo\n- Inicio.\n- Inicializar variables: A = 0, B = 0.\n- Solicitar la introducción de dos valores distintos.\n- Leer los dos valores.\n- Asignarlos a las variables A y B.\n- Si A = B Entonces vuelve a 3 porque los valores deben ser distintos.\n- Si A>B Entonces Escribir A, “Es el mayor”.\n- De lo contrario: Escribir B, “Es el mayor”.\n- Fin_Si.\n- Fin.\n\n## Ejercicio 2 <a name=\"ejercicio2\"></a>\nDesarrolle un algoritmo que permita leer tres valores y almacenarlos en las variables A, B y C\nrespectivamente. El algoritmo debe imprimir cual es el mayor y cual es el menor. Recuerde constatar que\nlos tres valores introducidos por el teclado sean valores distintos. Presente un mensaje de alerta en caso de\nque se detecte la introducción de valores iguales.\n\n### Diagrama de Flujo\n<img src=images/diagrama2.png>\n\n\n### Pseudocódigo\n-  Inicio.\n- Inicializar las variables A, B y C.\n- Leer los tres valores.\n- Almacenar en las variables A, B y C.\n- Si A > B y A > C Entonces.\n- Escribir A “Es el mayor”.\n- Si/no.\n- Si B > A y B > C Entonces Escribir B “Es el mayor”.\n- Si/no.\n- Escribir C “Es el mayor”.\n- Fin_Si.\n- Fin_Si.\n- Fin.\n  \n## Ejercicio 3 <a name=\"ejercicio3\"></a>\nDesarrolle un algoritmo que realice la sumatoria de los números enteros comprendidos entre el 1 y el 10,\nes decir, 1 + 2 + 3 + …. + 10.\n\n### Diagrama de Flujo\n<img src=images/diagrama3.png>\n\n\n### Pseudocódigo\n- Inicio.\n- Declaración de variables: N= 0, Suma = 0.\n- Asignación Contador : N = N + 1.\n- Asignación Acumulador: Suma = Suma + N.\n- Si N = 10 Entonces Escribir Suma.\n- De lo contrario, Repetir desde el paso 3.\n- Fin_Si.\n- Fin.\n## Ejercicio 4 <a name=\"ejercicio4\"></a>\nDeterminar la hipotenusa de un triángulo rectángulo conocidas las longitudes de sus dos catetos.\nDesarrolle el algoritmo correspondiente.\n\n### Diagrama de Flujo\n<img src=images/diagrama4.png>\n\n### Pseudocódigo\n- Inicio\n- Declaración de Variables: CatA= n, CatB=m.\n- Leer el valor de cada cateto.\n- Almacenarlo en la variable CatA y CatB.\n- Calcular el valor de Hip con la\nformula indicada.\n- Escribir el valor de la Hipotenusa.\n- Si Hip=/= Nº real repetir paso 4.\n- Fin.\n</div>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../README.md b/../../README.md
+--- a/../../README.md	(revision 980c94380cd684910cbf5d402c061f2078f562ba)
++++ b/../../README.md	(date 1695824545603)
+@@ -11,6 +11,7 @@
+ Desarrolle un algoritmo que permita leer dos valores distintos, determinar cual de los dos valores es el
+ mayor y escribirlo.
+ 
++
+ ### Diagrama de Flujo
+ <img src=images/diagrama1.png>
+ 
+Index: src/main/java/es/iespuerto/Ejercicio1.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/es/iespuerto/Ejercicio1.java b/src/main/java/ies/puerto/Ejercicio1.java
+rename from src/main/java/es/iespuerto/Ejercicio1.java
+rename to src/main/java/ies/puerto/Ejercicio1.java
+--- a/src/main/java/es/iespuerto/Ejercicio1.java	(revision 980c94380cd684910cbf5d402c061f2078f562ba)
++++ b/src/main/java/ies/puerto/Ejercicio1.java	(date 1696255078689)
+@@ -16,9 +16,6 @@
+ 			valorA = lectura.nextInt();
+ 			System.out.println("Valor de la variable A:"+valorA);
+ 
+-
+-
+-
+ 			System.out.println("Ingrese el valor de la variable B: ");
+ 			valorB = lectura.nextInt();
+ 			System.out.println("Valor de la variable B:"+valorB);
+diff --git a/src/main/java/es/iespuerto/Ejercicio5.java b/src/main/java/ies/puerto/Ejercicio5.java
+rename from src/main/java/es/iespuerto/Ejercicio5.java
+rename to src/main/java/ies/puerto/Ejercicio5.java
+diff --git a/src/main/java/es/iespuerto/Ejercicio6.java b/src/main/java/ies/puerto/Ejercicio6.java
+rename from src/main/java/es/iespuerto/Ejercicio6.java
+rename to src/main/java/ies/puerto/Ejercicio6.java
+diff --git a/src/main/java/es/iespuerto/Ejercicio9.java b/src/main/java/ies/puerto/Ejercicio9.java
+rename from src/main/java/es/iespuerto/Ejercicio9.java
+rename to src/main/java/ies/puerto/Ejercicio9.java
+diff --git a/src/main/java/es/iespuerto/Ejercicio2.java b/src/main/java/ies/puerto/Ejercicio2.java
+rename from src/main/java/es/iespuerto/Ejercicio2.java
+rename to src/main/java/ies/puerto/Ejercicio2.java
+diff --git a/src/main/java/es/iespuerto/Ejercicio3.java b/src/main/java/ies/puerto/Ejercicio3.java
+rename from src/main/java/es/iespuerto/Ejercicio3.java
+rename to src/main/java/ies/puerto/Ejercicio3.java
+diff --git a/src/main/java/es/iespuerto/Ejercicio4.java b/src/main/java/ies/puerto/Ejercicio4.java
+rename from src/main/java/es/iespuerto/Ejercicio4.java
+rename to src/main/java/ies/puerto/Ejercicio4.java
+diff --git a/src/main/java/es/iespuerto/Ejercicio7.java b/src/main/java/ies/puerto/Ejercicio7.java
+rename from src/main/java/es/iespuerto/Ejercicio7.java
+rename to src/main/java/ies/puerto/Ejercicio7.java

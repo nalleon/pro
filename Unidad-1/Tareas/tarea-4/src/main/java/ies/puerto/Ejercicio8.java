@@ -11,8 +11,10 @@ public class Ejercicio8 {
 
         int suma = 0;
         int contador = 0;
+<<<<<<< HEAD
+=======
         int nota;
-
+>>>>>>> 68d740d101af5a02f52d3ac12508409a4d5c83f1
 
         System.out.print("Para finalizar introduzca 0. ");
 

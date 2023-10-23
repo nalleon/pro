@@ -11,22 +11,27 @@ public class Ejercicio2 {
     public static void main(String[] args) {
         Scanner lecture = new Scanner(System.in);
 
+
         int valorA;
         int valorB;
         int valorC;
+
 
         do {
             System.out.println("Ingrese el valor de A");
             valorA = lecture.nextInt();
             System.out.println("El valor de A es:" + valorA);
 
+
             System.out.println("Ingrese el valor de B");
             valorB = lecture.nextInt();
             System.out.println("El valor de B es:" + valorB);
 
+
             System.out.println("Ingrese el valor de C");
             valorC = lecture.nextInt();
             System.out.println("El valor de A es:" + valorC);
+
 
             if ((valorA == valorB) || (valorA == valorC) || (valorB == valorC)) {
                 System.out.println("Dos o mas valores son iguales.");
@@ -43,6 +48,7 @@ public class Ejercicio2 {
                 System.out.println("El valor C es el menor.");
             } else {
                 System.out.println("El valor A es el menor.");
+
 
             }
         } else {

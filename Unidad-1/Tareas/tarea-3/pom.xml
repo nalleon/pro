@@ -5,13 +5,28 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ies.puerto</groupId>
-    <artifactId>Tarea1</artifactId>
+    <artifactId>Tarea2</artifactId>
     <version>1.0.0</version>
 
+
+    <!-- Propiedades del proyecto -->
     <properties>
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
+
+    <!-- Dependencias del proyecto -->
+
+    <dependencies>
+
+    </dependencies>
+
+    <build>
+        <!-- Conjunto de Plujins a ejecutar: documentacion, etc-->
+        <plugins>
+
+        </plugins>
+    </build>
 
 </project>
