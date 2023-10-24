@@ -6,24 +6,22 @@ package ies.puerto;
  * @author Nabil
  */
 public class Ejercicio2 {
-    public String esPrimo (int numero){
-        if (numero == 2 || numero ==3){
-            return "Es primo.";
+
+
+    public String signoNumero (int numero) {
+        if (numero > 0) {
+            return "positivo";
+        } else {
+            return "negativo";
         }
-        if (numero <=1 || numero % 2 == 0 || numero % 3 == 0 ) {
-            return "No es primo.";
-        }
-        for (int i = 2; i < numero; i++) {
-            if (numero % i == 0) {
-                return "No es primo.";
-            }
-        }
-        return "Es primo.";
     }
-
-        while (numeroPositivo < 0) {
-
+        public String esPar(int numero){
+        String resultado = "impar";
+        if (numero % 2 == 0) {
+            resultado = "par";
         }
-        
+        return resultado;
     }
 }
+
+
