@@ -23,7 +23,7 @@ public class Ejercicio3Test {
     public void ordenarMayorNumerosTest() {
         ejercicio3 = new Ejercicio3();
         String metodoTres = ejercicio3.ordenarMayorNumeros(1,2,3,4,5);
-        Assertions.assertEquals(metodoTres, "5,4,3,2,1","No se ha obtenido el resultado esperado.");
+        Assertions.assertEquals("5,4,3,2,1", metodoTres ,"No se ha obtenido el resultado esperado.");
     }
     @Test
     public void ordenarMenorNumerosTest() {

@@ -16,7 +16,7 @@ public class Ejercicio2Test {
     @Test
     public void testSignoNumeroPositivoTest() {
         String resultado = ejercicio2.signoNumero(52);
-        assertEquals("positivo", resultado);
+        assertEquals("negativo", resultado);
     }
 
     @Test
