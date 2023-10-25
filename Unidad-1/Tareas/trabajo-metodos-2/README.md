@@ -1,5 +1,5 @@
 <div align="justify">
-
+Nabil León Álvarez - 1º DAM.
 # Creación de métodos y pruebas
 
 ## Índice
@@ -43,7 +43,12 @@ Realiza un programa que contenga los suficientes métodos para: pedir 5 números
 - Pseudocódigo:
 ```
 - Inicio
-
+- Inicializar funcion introduccionNumeros y la variable entera numero
+- Refinamiento:
+- Metodo numero 1: Metodo que reciba cinco numeros y que haga print por consola.
+- Metodo numero 2: Metodo que suma los 5 numeros que nos devuelve el metodo 1.
+- Metodo numero 3: Metodo que ordena de mayor a menor lo que nos devuelve el metodo 1.
+- Metodo numero 4: Metodo que ordena de menor a mayor lo que nos devuelve el metodo 1. 
 - Fin
 ```
 
