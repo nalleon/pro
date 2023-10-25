@@ -13,22 +13,27 @@ public class Ejercicio2Test {
     public void before() {
         ejercicio2 = new Ejercicio2();
     }
-
     @Test
-    public void signoPositivoNumeroTestOK() {
-        assertEquals("positivo", ejercicio2.signoNumero(9));
-    }
-    @Test
-    public void signoNegativoNumeroTestOK() {
-        assertEquals("negativo", ejercicio2.signoNumero(-134));
+    public void testSignoNumeroPositivoTest() {
+        String resultado = ejercicio2.signoNumero(52);
+        assertEquals("positivo", resultado);
     }
 
     @Test
-    public void esParTestOK() {
-        assertEquals("par", ejercicio2.esPar(-1222));
+    public void testSignoNumeroNegativoTest() {
+        String resultado = ejercicio2.signoNumero(-333);
+        assertEquals("negativo", resultado);
     }
+
     @Test
-    public void esImparTestOK() {
-        assertEquals("impar", ejercicio2.esPar(45));
+    public void testEsParTest() {
+        String resultado = ejercicio2.esPar(-66680);
+        assertEquals("par", resultado);
+    }
+
+    @Test
+    public void testEsParImparTest() {
+        String resultado = ejercicio2.esPar(7777);
+        assertEquals("impar", resultado);
     }
 }

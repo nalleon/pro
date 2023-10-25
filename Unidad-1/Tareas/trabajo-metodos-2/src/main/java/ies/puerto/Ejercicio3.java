@@ -6,21 +6,18 @@ package ies.puerto;
  * @author Nabil
  */
 public class Ejercicio3 {
-    public static void
-    public int introduccirNumeroA (int valorA) {
-        return valorA;
+
+    public int introduccionNumero (int numero){
+        for (int i=0; i<5; i++) {
+            System.out.println(numero);
+        }
+
+        return numero;
     }
-    public int introduccirNumeroB (int valorB) {
-        return valorB;
-    }
-    public int introduccirNumeroC (int valorC) {
-        return valorC;
-    }
-    public int introduccirNumeroD (int valorD) {
-        return valorD;
-    }
-    public int introduccirNumeroE (int valorE) {
-        return valorE;
+
+    public int sumaNumero (){
+
+        return 0;
     }
 }
 
