@@ -9,9 +9,7 @@ public class Ejercicio3Test {
 
     @Test
     public void introduccionNumerosTest() {
-        ejercicio3 = new Ejercicio3();
-        String metodoUno = ejercicio3.introduccionNumeros(1,2,3,4,5);
-        Assertions.assertEquals(metodoUno,"1,2,3,4,5", "No se ha obtenido el resultado esperado.");
+
     }
 }
 

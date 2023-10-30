@@ -6,18 +6,24 @@ package ies.puerto;
  */
     public class Ejercicio1 {
 
-
+    /**
+     * Funcion que calcula una suma de los elementos de un array
+     * @return la suma de los numeros
+     */
     public int calcularSuma() {
-        int[] array = {1, 2, 3, 4, 5};
+        int[] numeros = {1, 2, 3, 4, 5};
         int suma = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            suma += array[i];
+        for (int i = 0; i < numeros.length; i++) {
+            suma += numeros[i];
         }
         return suma;
     }
-    public void mostrarResultado (){
-        System.out.println(calcularSuma());
-        return;
+
+    /**
+     * Funcion que muestra el resultado de la suma.
+     * @return resultado de la suma.
+     */
+    public String mostrarResultado (){
+        return "La suma de los elementos es: " + calcularSuma();
     }
 }

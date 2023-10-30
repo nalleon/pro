@@ -9,13 +9,13 @@ public class Ejercicio1Test {
 
     @Test
     public void calcularSumaOKTest() {
-        float resultado = ejercicio1.calcularSuma();
-        Assertions.assertEquals(100, resultado, "No se ha obtenido el resultado esperado.");
+        int resultado = ejercicio1.calcularSuma();
+        Assertions.assertEquals(15, resultado, "No se ha obtenido el resultado esperado.");
     }
     @Test
     public void mostrarResultadoOKTest() {
-        float resultado = ejercicio1.calcularSuma();
-        Assertions.assertEquals(100, resultado, "No se ha obtenido el resultado esperado.");
+        String resultado = ejercicio1.mostrarResultado();
+        Assertions.assertEquals("La suma de los elementos es: " +15, resultado, "No se ha obtenido el resultado esperado.");
     }
 }
 
