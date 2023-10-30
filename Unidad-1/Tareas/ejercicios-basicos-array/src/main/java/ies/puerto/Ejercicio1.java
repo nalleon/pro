@@ -24,6 +24,7 @@ package ies.puerto;
      * @return resultado de la suma.
      */
     public String mostrarResultado (){
+
         return "La suma de los elementos es: " + calcularSuma();
     }
 }
