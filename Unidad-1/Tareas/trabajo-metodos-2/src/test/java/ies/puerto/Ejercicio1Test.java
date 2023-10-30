@@ -9,12 +9,17 @@ public class Ejercicio1Test {
 
   @Test
     public void calcularSueldoHorasOKTest() {
-        int resultado= ejercicio1.calcularSueldoHoras(10);
+        float resultado= ejercicio1.calcularSueldoHoras(10);
       Assertions.assertEquals(100, resultado, "No se ha obtenido el resultado esperado.");
     }
     @Test
-    public void calcularSueldoHorasMayorOKTest() {
-        int resultado= ejercicio1.calcularSueldoHoras(40);
+    public void calcularSueldoHoras400OKTest() {
+        float resultado= ejercicio1.calcularSueldoHoras(40);
         Assertions.assertEquals(400, resultado, "No se ha obtenido el resultado esperado.");
+    }
+    @Test
+    public void calcularSueldoHoras205OKTest() {
+        float resultado= ejercicio1.calcularSueldoHoras(20.5f);
+        Assertions.assertEquals(205, resultado, "No se ha obtenido el resultado esperado.");
     }
 }
