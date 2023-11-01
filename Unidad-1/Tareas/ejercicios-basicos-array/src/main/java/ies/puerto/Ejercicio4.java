@@ -4,13 +4,20 @@ package ies.puerto;
  * @author Nabil
  */
 public class Ejercicio4 {
-    public int numerosPares(int valorA, int valorB, int valorC) {
-        int [] numeros = {valorA, valorB, valorC};
+    /**
+     * Funcion que imprime todos los numeros pares de un array entero
+     * @param numeros valores a recorrer
+     * @return el numero de pares
+     */
+    public int numerosPares(int [] numeros) {
+        int contador =0;
         for (int i = 0; i < numeros.length; i++) {
             if (numeros[i] % 2 == 0) {
-                System.out.println(numeros[i]);
+                System.out.println(numeros[i]+ ";");
+                contador++;
             }
         }
-        return numerosPares(valorA, valorB, valorC);
+        return contador;
+
     }
 }

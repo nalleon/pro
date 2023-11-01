@@ -9,8 +9,14 @@ public class Ejercicio4Test {
     @Test
     public void esParOKTest() {
         int[] numerosTest = {2, 7, 62};
-        int resultado = ejercicio4.numerosPares(2, 7, 62);
-        Assertions.assertEquals("2, 62", resultado, "No se ha obtenido el resultado esperado.");
+        int resultado = ejercicio4.numerosPares(numerosTest);
+        Assertions.assertEquals(2, resultado, "No se ha obtenido el resultado esperado.");
     }
 
+    @Test
+    public void esParNegativoOKTest() {
+        int[] numerosTest = {-32, -47, 927};
+        int resultado = ejercicio4.numerosPares(numerosTest);
+        Assertions.assertEquals(1, resultado, "No se ha obtenido el resultado esperado.");
+    }
 }

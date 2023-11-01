@@ -1,8 +1,11 @@
 package ies.puerto;
 
 /**
- * @author
+ * Dada una matriz cuadrada, encuentra su transpuesta.
+ * @author Nabil
  */
 
 public class Ejercico6 {
+
+
 }

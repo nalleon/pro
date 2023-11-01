@@ -5,24 +5,23 @@ package ies.puerto;
  * indica si no está presente.
  * @author nabil
  */
-public class Ejercicio5 {
-    public static int encontrarPosicion(int[] numeros, int valor) {
-        for (int i = 0; i < numeros.length; i++) {
-            if (numeros[i] == valor) {
-                return i;
+    public class Ejercicio5 {
+    /**
+     * Funcion que busca un valor en el array e imprime su posicion
+     * @param numeros valores del array
+     * @param valor a encontrar
+     * @return la posicion en el array
+     */
+        public static int encontrarPosicion(int[] numeros, int valor) {
+            for (int i = 0; i < numeros.length; i++) {
+                if (numeros[i] == valor) {
+                    System.out.println("El valor " + valor + " se encuentra en la posición " + i + " del array.");
+                    return i;
+                }
             }
+            System.out.println("El valor " + valor + " no se encuentra en el array.");
+            return -1;
         }
-        return -1;
     }
 
-    public int mostrarPosicion (int[] numeros, int valorBuscado) {
-        int posicion = encontrarPosicion(numeros, valorBuscado);
 
-        System.out.println("El valor " + valorBuscado + " no se encuentra en el array.");
-        if (posicion != -1) {
-            System.out.println("El valor " + valorBuscado + " se encuentra en la posición " + posicion + " del array.");
-
-    }
-        return posicion;
-    }
-}
