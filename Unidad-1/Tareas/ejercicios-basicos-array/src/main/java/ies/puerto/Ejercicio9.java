@@ -14,7 +14,7 @@ public class Ejercicio9 {
      * @param resultado arreglo de enteros
      * @return retorna resultado
      */
-    public int [] arrayOrdenadoCombinado(int[] primerArray, int[] segundoArray, int[] resultado) {
+    public int arrayOrdenadoCombinado(int[] primerArray, int[] segundoArray, int[] resultado) {
         int i = 0;
         int j = 0;
         int k = 0;
