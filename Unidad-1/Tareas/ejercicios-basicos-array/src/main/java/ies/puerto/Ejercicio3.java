@@ -10,7 +10,7 @@ public class Ejercicio3 {
      * @param valorA primer valor
      * @param valorB segundo valor
      * @param valorC tercer valor
-     * @return el número mayor
+     * @return el numero mayor
      */
  public int calcularMayor (int valorA, int valorB, int valorC){
      int [] numeros = {valorA, valorB, valorC};
