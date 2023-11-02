@@ -1,4 +1,7 @@
 package ies.puerto;
+
+import java.util.Arrays;
+
 /**
  * Elimina elementos duplicados de un array, y muestra finalmente los valores iniciales
  * del array y el resultado final.
@@ -27,8 +30,13 @@ public class Ejercicio8 {
       * @param numeros a mostrar
       * @return array sin suplicados y original
       */
-     public int mostrarArrays (int [] numeros){
-
- return 0;
+     public boolean mostrarArrays (int [] numeros, int valor) {
+             for (int i = 0; i < numeros.length; i++) {
+                 if (numeros[i] == valor) {
+                     return true;
+                 }
+             }
+             return false;
+         }
      }
-}
+

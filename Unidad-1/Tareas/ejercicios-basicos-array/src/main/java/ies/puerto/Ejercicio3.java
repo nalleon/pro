@@ -7,15 +7,12 @@ package ies.puerto;
 public class Ejercicio3 {
     /**
      * Funcion que calcula que numero es el mayor
-     * @param valorA primer valor
-     * @param valorB segundo valor
-     * @param valorC tercer valor
+     * @param numeros a evaluar
      * @return el numero mayor
      */
- public int calcularMayor (int valorA, int valorB, int valorC){
-     int [] numeros = {valorA, valorB, valorC};
+ public int calcularMayor (int [] numeros){
      int maximo = numeros [0];
-      for (int i = 0; i < numeros.length; i++){
+      for (int i = 1; i < numeros.length; i++){
           if (numeros[i] > maximo) {
           maximo = numeros[i];
           }
@@ -24,13 +21,10 @@ public class Ejercicio3 {
  }
     /**
      * Funcion que calcula que numero es el menor
-     * @param valorA el primer valor
-     * @param valorB el segundo valor
-     * @param valorC el tercer valor
+     * @param numeros array a evaluar
      * @return el numero menor
      */
-    public int calcularMenor(int valorA, int valorB, int valorC){
-        int [] numeros = {valorA, valorB, valorC};
+    public int calcularMenor(int [] numeros ){
         int minimo = numeros [0];
         for (int i = 1; i < numeros.length; i++){
             if (numeros[i] < minimo) {

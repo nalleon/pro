@@ -10,7 +10,10 @@ public class Ejercicio4 {
      * @return el numero de pares
      */
     public int numerosPares(int [] numeros) {
-        int contador =0;
+        /**
+         * @param contador cuenta el numero de pares.
+         */
+        int contador = 0;
         for (int i = 0; i < numeros.length; i++) {
             if (numeros[i] % 2 == 0) {
                 System.out.println(numeros[i]+ ";");
