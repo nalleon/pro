@@ -25,7 +25,7 @@ public class Ejercicio6 {
 
     /**
      * Funcion que muestra la matriz en consola
-     * @param matriz que se mostara
+     * @param matriz que se mostrara
      * @return su traspuesta
      */
     public int [][] mostrarTraspuesta (int [][]matriz) {

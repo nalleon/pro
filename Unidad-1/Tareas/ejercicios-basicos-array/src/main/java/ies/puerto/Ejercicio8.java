@@ -16,9 +16,15 @@ public class Ejercicio8 {
       */
      public int eliminarDuplicados (int [] numeros, int [] numerosCopia){
      numerosCopia=numeros;
-
+     Arrays.sort(numerosCopia);
+     int [] resultado = new int[numerosCopia.length];
      for (int i = 0; i < numerosCopia.length; i++) {
-          numerosCopia[i] = 0;
+         for (int j=i+1; j < numerosCopia.length; j++) {
+             if (numerosCopia[i] != numerosCopia[j]) {
+                 resultado[i] = numerosCopia[j];
+             }
+         }
+          return resultado [i];
      }
 
 

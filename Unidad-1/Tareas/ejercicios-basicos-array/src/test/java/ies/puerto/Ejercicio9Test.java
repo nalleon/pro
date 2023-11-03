@@ -14,7 +14,7 @@ public class Ejercicio9Test {
         int[] segundoArray = {2, 4, 6, 8, 10};
         int[] resultadoOK = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int[] resultado = new int[resultadoOK.length];
-        ejercicio9.arrayOrdenadoCombinado(primerArray, segundoArray, resultado);
+        ejercicio9.arrayOrdenadoCombinado(primerArray, segundoArray);
         Assertions.assertArrayEquals(resultadoOK, resultado, "No se ha obtenido el resultado esperado.");
     }
     @Test
@@ -23,7 +23,7 @@ public class Ejercicio9Test {
         int[] segundoArray = {23, 45, 61, 84, 255};
         int[] resultadoOK = {12, 23, 34, 45, 55, 61, 79, 84, 93, 255};
         int[] resultado = new int[resultadoOK.length];
-        ejercicio9.arrayOrdenadoCombinado(primerArray, segundoArray, resultado);
+        ejercicio9.arrayOrdenadoCombinado(primerArray, segundoArray);
         Assertions.assertArrayEquals(resultadoOK, resultado, "No se ha obtenido el resultado esperado.");
     }
 

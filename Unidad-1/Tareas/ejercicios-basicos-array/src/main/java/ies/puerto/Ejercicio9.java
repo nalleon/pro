@@ -10,10 +10,16 @@ public class Ejercicio9 {
      * Funcion que ordena y combina dos array en orden ascendente.
      * @param primerArray  arreglo de enteros
      * @param segundoArray arreglo de enteros
-     * @param resultado    arreglo de enteros
      * @return retorna resultado
      */
-    public int arrayOrdenadoCombinado(int[] primerArray, int[] segundoArray, int[] resultado) {
+    public int arrayOrdenadoCombinado(int[] primerArray, int[] segundoArray) {
+        int[] arrayCombinado = new int[primerArray.length + segundoArray.length];
+
+        for (int i = 0; i < arrayCombinado.length; i++) {
+            System.out.println(arrayCombinado[i] + " ");
+        }
+
+
      return 0;
     }
 }

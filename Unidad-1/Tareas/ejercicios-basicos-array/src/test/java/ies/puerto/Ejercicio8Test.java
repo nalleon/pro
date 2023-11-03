@@ -14,5 +14,4 @@ public class Ejercicio8Test {
         int  resultado = ejercicio8.eliminarDuplicados(numeros, numerosCopia);
         Assertions.assertEquals(resultadoOK, resultado, "No se ha obtenido el resultado esperado.");
     }
-
 }
