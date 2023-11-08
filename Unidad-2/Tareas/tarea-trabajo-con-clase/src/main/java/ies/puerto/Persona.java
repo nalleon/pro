@@ -103,7 +103,7 @@ public class Persona {
 
     public String imprimir(){
 
-        return "Nombre" + nombre + "Edad" + edad + "Email" + email + "Teléfono" + telefono;
+        return "Nombre:" + nombre + ", Edad:" + edad + ", Email:" + email + ", Telefono:" + telefono;
     }
 }
 
