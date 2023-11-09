@@ -17,37 +17,8 @@ public class Estudiante {
 
     public Estudiante () {}
 
-
     /**
-     * Constructor de la clase
-     * @param nombre  del estudiante
-     */
-    public Estudiante (String nombre) {
-        this.nombre = nombre;
-    }
-    /**
-     * Constructor de la clase
-     * @param nombre  del estudiante
-     * @param edad  del estudiante
-     */
-    public Estudiante (String nombre, int edad) {
-        this.nombre = nombre;
-        this.edad = edad;
-    }
-    /**
-     * Constructor de la clase
-     * @param nombre  del estudiante
-     * @param edad  del estudiante
-     * @param carrera del estudiante
-     */
-    public Estudiante (String nombre, int edad, String carrera) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.carrera = carrera;
-    }
-
-    /**
-     * Constructor de la clase
+     * Constructor de la clase con todos sus parametros
      * @param nombre  del estudiante
      * @param edad  del estudiante
      * @param carrera del estudiante

@@ -3,8 +3,11 @@ package ies.puerto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 public class PersonaTest {
+    String nombre = "Nabil";
+    int edad = 18;
+    int anioPublicacion = 1984;
 
-    Persona persona = new Persona();
+    Persona persona;
 
     @Test
     public void imprimirTest(){

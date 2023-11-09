@@ -16,24 +16,7 @@ package ies.puerto;
         public CuentaBancaria () {}
 
         /**
-         * Constructor de la clase
-         * @param numeroCuenta de la cuenta
-         */
-        public CuentaBancaria (int numeroCuenta){
-            this.numeroCuenta = numeroCuenta;
-        }
-
-        /**
-         * Constructor de la clase
-         * @param numeroCuenta de la cuenta
-         * @param nombreTitular de la cuenta
-         */
-        public CuentaBancaria (int numeroCuenta, String nombreTitular) {
-            this.numeroCuenta = numeroCuenta;
-            this.nombreTitular = nombreTitular;
-        }
-        /**
-         * Constructor de la clase
+         * Constructor de la clase con todos sus parametros
          * @param numeroCuenta de la cuenta
          * @param nombreTitular de la cuenta
          * @param saldo de la cuenta

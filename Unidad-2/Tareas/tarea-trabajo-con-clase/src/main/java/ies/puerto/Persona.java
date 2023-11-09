@@ -15,42 +15,10 @@ public class Persona {
     /**
      * Constructor por defecto de la clase.
      */
-    public Persona() {
-
-    }
+    public Persona() {}
 
     /**
-     * Constructor de la clase
-     * @param nombre de la persona
-     */
-    public Persona (String nombre){
-        this.nombre = nombre;
-    }
-
-    /**
-     * Constructor de la clase
-     * @param nombre de la persona
-     * @param edad de la persona
-     */
-    public Persona (String nombre, int edad) {
-        this.nombre = nombre;
-        this.edad = edad;
-    }
-
-    /**
-     * Constructor de la clase
-     * @param nombre de la persona
-     * @param edad de la persona
-     * @param email de la persona
-     */
-    public Persona (String nombre, int edad, String email){
-        this.nombre = nombre;
-        this.edad = edad;
-        this.email = email;
-    }
-
-    /**
-     * Constructor de la clase
+     * Constructor de la clase con todos sus parametros
      * @param nombre de la persona
      * @param edad de la persona
      * @param email de la persona

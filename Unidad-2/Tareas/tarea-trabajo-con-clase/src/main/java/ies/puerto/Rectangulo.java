@@ -22,7 +22,7 @@ public class Rectangulo {
         this.largo = largo;
     }
     /**
-     * Constructor de la clase
+     * Constructor de la clase con todos sus parametros
      * @param largo del rectangulo
      * @param ancho  del rectangulo
      */
