@@ -18,7 +18,7 @@ public class Ejercicio1 {
             if (arrayOfVarious[mid] == value) {
                 return mid;
             }
-            if (arrayOfVarious[mid] < value) {
+             else if (arrayOfVarious[mid] < value) {
                 start = mid + 1;
             } else {
               end = mid - 1;

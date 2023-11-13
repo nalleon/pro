@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class Ejercicio4Test {
 
-    Ejercicio4 ejercicio4;
+    Ejercicio4 ejercicio4 = new Ejercicio4();
     String owner = "Nabil";
     double salary = 1230;
     @BeforeEach
@@ -35,13 +35,25 @@ public class Ejercicio4Test {
     @Test
     public void depositMoneyTestOK(){
         double money = 135.47;
-        double resultOK = 1365.47;
+        boolean resultOK = true;
+        Assertions.assertEquals(resultOK, ejercicio4.depositMoney(money),"Expected result not found.");
+    }
+    @Test
+    public void cantDepositMoneyTestOK(){
+        double money = -11;
+        boolean resultOK = false;
         Assertions.assertEquals(resultOK, ejercicio4.depositMoney(money),"Expected result not found.");
     }
     @Test
     public void withdrawMoneyTestOK(){
         double money = 135.47;
-        double resultOK = 1094.53;
+        boolean resultOK = true;
+        Assertions.assertEquals(resultOK, ejercicio4.withdrawMoney(money),"Expected result not found.");
+    }
+    @Test
+    public void cantWithdrawMoneyTestOK(){
+        double money = 1234;
+        boolean resultOK = false;
         Assertions.assertEquals(resultOK, ejercicio4.withdrawMoney(money),"Expected result not found.");
     }
     @Test
