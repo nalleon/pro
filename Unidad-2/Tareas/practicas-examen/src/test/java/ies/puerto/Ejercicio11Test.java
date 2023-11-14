@@ -10,8 +10,8 @@ public class Ejercicio11Test {
     @Test
     public void showNumbersTest (){
         int number = 1;
-        int result = ejercicio11.showNumbers(number);
-        int resultOK = 123;
+        String result = ejercicio11.showNumbers(number);
+        String resultOK = "1 \n2 3 \n4 5 6 \n7 8 9 10 \n";
         Assertions.assertEquals(resultOK, result, "Expected result not found");
 
 
