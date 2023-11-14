@@ -45,9 +45,13 @@ public class Ejercicio4 {
      * @param money to deposit
      * @return total of money
      */
-    public double depositMoney (double money) {
-        double result = salary + money;
-        return result;
+    public boolean depositMoney (double money) {
+        double result = 0;
+        if (money > 0) {
+            result = this.salary + money;
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -55,9 +59,13 @@ public class Ejercicio4 {
      * @param money to withdraw
      * @return total of money
      */
-    public double withdrawMoney (double money) {
-        double result = salary - money;
-        return result;
+    public boolean withdrawMoney (double money) {
+        double result = 0;
+        if ((this.salary - money) > 0) {
+            result = this.salary - money;
+            return true;
+        }
+        return false;
     }
 
     /**
