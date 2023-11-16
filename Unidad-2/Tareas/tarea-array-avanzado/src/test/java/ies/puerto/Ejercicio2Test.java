@@ -14,8 +14,15 @@ public class Ejercicio2Test {
         Assertions.assertArrayEquals(resultOK, result, "Expected result was not found.");
     }
     @Test
-    public void arrayMapperInterruptedTestOK (){
+    public void arrayMapperInterruptedNegativeTestOK (){
         int [] array = {1,2,3,4,5,6,7,-8,9,10};
+        int [] result = ejercicio2.arrayMapper(array);
+        int [] resultOK = {1,2,3,4,5,6,7};
+        Assertions.assertArrayEquals(resultOK, result, "Expected result was not found.");
+    }
+    @Test
+    public void arrayMapperInterrupted0TestOK (){
+        int [] array = {1,2,3,4,5,6,7,0,9,10};
         int [] result = ejercicio2.arrayMapper(array);
         int [] resultOK = {1,2,3,4,5,6,7};
         Assertions.assertArrayEquals(resultOK, result, "Expected result was not found.");

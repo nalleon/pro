@@ -7,59 +7,31 @@ import org.junit.jupiter.api.Test;
 public class Ejercicio4Test {
 
     Ejercicio4 ejercicio4 = new Ejercicio4();
-    String owner = "Nabil";
-    double salary = 1230;
-    @BeforeEach
-    public void beforeEach (){
-        ejercicio4 = new Ejercicio4(owner, salary);
-    }
 
+    int [] [] matrix = {{1, 2, 3, 4, 5},{1, 2, 3, 4, 5},{1, 2, 3, 4, 5},{1, 2, 3, 4, 5},{1, 2, 3, 4, 5}};
     @Test
-     public void constructorTestOK(){
-        Assertions.assertEquals(owner, ejercicio4.getOwner(), "Expected result not found.");
-        Assertions.assertEquals(salary, ejercicio4.getSalary(), "Expected result not found.");
-    }
-
-    @Test
-    public void setGetOwnerTestOK(){
-        String anotherOwner = "Claus";
-        ejercicio4.setOwner(anotherOwner);
-        Assertions.assertEquals(anotherOwner, ejercicio4.getOwner(), "Expected result not found.");
+    public void showMatrixTestOK(){
+        int [][] result = ejercicio4.showMatrix5x5(matrix);
+        int [][] resultOK = {{1, 2, 3, 4, 5}, {1, 2, 3, 4, 5}, {1, 2, 3, 4, 5}, {1, 2, 3, 4, 5}, {1, 2, 3, 4, 5}};
+        Assertions.assertArrayEquals(resultOK, result,"Expected result nor found");
     }
     @Test
-    public void setGetSalaryTestOK(){
-        double anotherSalary = 5000;
-        ejercicio4.setSalary(anotherSalary);
-        Assertions.assertEquals(anotherSalary, ejercicio4.getSalary(), "Expected result not found.");
+    public void matrixIsNot5x5TestOK(){
+        int [] [] matrix5x4 = {{1, 2, 3, 4, 5},{1, 2, 3, 4, 5},{1, 2, 3, 4, 5},{1, 2, 3, 4, 5}};
+        int [][] result = ejercicio4.showMatrix5x5(matrix5x4);
+        int [][] resultOK = null;
+        Assertions.assertEquals(resultOK, result,"Expected result nor found");
     }
     @Test
-    public void depositMoneyTestOK(){
-        double money = 135.47;
-        boolean resultOK = true;
-        Assertions.assertEquals(resultOK, ejercicio4.depositMoney(money),"Expected result not found.");
+    public void sumRowMatrixTestOK(){
+        int [] result = ejercicio4.sumRowMatrix(matrix);
+        int [] resultOK = {15,15,15,15,15};
+        Assertions.assertArrayEquals(resultOK, result,"Expected result nor found");
     }
     @Test
-    public void cantDepositMoneyTestOK(){
-        double money = -11;
-        boolean resultOK = false;
-        Assertions.assertEquals(resultOK, ejercicio4.depositMoney(money),"Expected result not found.");
+    public void sumColumsMatrixTestOK(){
+        int [] result = ejercicio4.sumColumnsMatrix(matrix);
+        int [] resultOK = {5, 10, 15, 20, 25};
+        Assertions.assertArrayEquals(resultOK, result,"Expected result nor found");
     }
-    @Test
-    public void withdrawMoneyTestOK(){
-        double money = 135.47;
-        boolean resultOK = true;
-        Assertions.assertEquals(resultOK, ejercicio4.withdrawMoney(money),"Expected result not found.");
-    }
-    @Test
-    public void cantWithdrawMoneyTestOK(){
-        double money = 1234;
-        boolean resultOK = false;
-        Assertions.assertEquals(resultOK, ejercicio4.withdrawMoney(money),"Expected result not found.");
-    }
-    @Test
-    public void showInformationTestOK(){
-        String resultOK = "Owner:" + owner + ", Salary:" + salary;
-        Assertions.assertEquals(resultOK, ejercicio4.showInformation(),"Expected result not found.");
-    }
-
 }
