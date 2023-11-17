@@ -16,7 +16,7 @@ public class Ejercicio1Test {
     }
     @Test
     public void valueNotesBigger10OKTest (){
-        float[] notes = {-1.5f, 2.5f, 3.5f, 4.5f, 55.5f};
+        float[] notes = {1.5f, 2.5f, 3.5f, 4.5f, 55.5f};
         String result = ejercicio1.valueNotesOK(notes);
         String resultOK = "Notes values are not valid";
         Assertions.assertEquals(resultOK, result, "Expected result not found");

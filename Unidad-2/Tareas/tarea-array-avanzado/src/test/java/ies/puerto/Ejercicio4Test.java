@@ -13,25 +13,25 @@ public class Ejercicio4Test {
     public void showMatrixTestOK(){
         int [][] result = ejercicio4.showMatrix5x5(matrix);
         int [][] resultOK = {{1, 2, 3, 4, 5}, {1, 2, 3, 4, 5}, {1, 2, 3, 4, 5}, {1, 2, 3, 4, 5}, {1, 2, 3, 4, 5}};
-        Assertions.assertArrayEquals(resultOK, result,"Expected result nor found");
+        Assertions.assertArrayEquals(resultOK, result,"Expected result not found");
     }
     @Test
     public void matrixIsNot5x5TestOK(){
         int [] [] matrix5x4 = {{1, 2, 3, 4, 5},{1, 2, 3, 4, 5},{1, 2, 3, 4, 5},{1, 2, 3, 4, 5}};
         int [][] result = ejercicio4.showMatrix5x5(matrix5x4);
         int [][] resultOK = null;
-        Assertions.assertEquals(resultOK, result,"Expected result nor found");
+        Assertions.assertEquals(resultOK, result,"Expected result not found");
     }
     @Test
     public void sumRowMatrixTestOK(){
         int [] result = ejercicio4.sumRowMatrix(matrix);
         int [] resultOK = {15,15,15,15,15};
-        Assertions.assertArrayEquals(resultOK, result,"Expected result nor found");
+        Assertions.assertArrayEquals(resultOK, result,"Expected result not found");
     }
     @Test
     public void sumColumsMatrixTestOK(){
         int [] result = ejercicio4.sumColumnsMatrix(matrix);
         int [] resultOK = {5, 10, 15, 20, 25};
-        Assertions.assertArrayEquals(resultOK, result,"Expected result nor found");
+        Assertions.assertArrayEquals(resultOK, result,"Expected result not found");
     }
 }

@@ -10,7 +10,7 @@ public class Ejercicio3 {
      * @return array1 + array2
      */
     public int [] arraySum (int [] array1, int [] array2){
-      int elementLength = (array1.length + array2.length)/2;
+      int elementLength = array1.length;
         int[] array3 = new int[elementLength];
        for (int i =0; i < elementLength; i++){
                array3[i]= array1[i] + array2[i];

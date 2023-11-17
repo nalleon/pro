@@ -9,8 +9,8 @@ public class Ejercicio7Test {
     int [][] kms = {{1,2,3,4,5,6,7},{1,2,3,4,5,6,7},{1,2,3,4,5,6,7},{1,2,3,4,5,6,7},{1,2,3,4,5,6,7}};
     @Test
     public void kmPerDriverTestOK(){
-        String result = ejercicio7.kmPerDriver(names, kms);
-        String resultOK = "nabil:28\nosama:28\npoleo:28\nhector:28\nidaira:28\n";
-        Assertions.assertEquals(resultOK, result, "Expected result not found");
+        String [][] result = ejercicio7.kmPerDriver(names, kms);
+        String [][] resultOK = {{"nabil", "28"},{"osama", "28"},{"poleo", "28"},{"hector", "28"},{"idaira", "28"}};
+        Assertions.assertArrayEquals(resultOK, result, "Expected result not found");
     }
 }
