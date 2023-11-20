@@ -12,7 +12,7 @@ public class Ejercicio7 {
      * @return total ok km per driver
      */
     public String [][] kmPerDriver (String [] names, int [][] kms){
-       String [][] totalKMS= {{}};
+       String [][] totalKMS= new String[][];
         for (int i=0; i < names.length; i++){
             int kmsCounter=0;
             for (int j=0; j < kms.length; j++){
