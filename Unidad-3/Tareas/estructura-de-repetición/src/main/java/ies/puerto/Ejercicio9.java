@@ -14,5 +14,13 @@ public class Ejercicio9 {
             }
             System.out.println(array[i]);
         }
+        System.out.println();
+        for (int i = 0; i < array.length; i++){
+            if (array[i] > 50) {
+                System.out.println(array[i]);
+            }
+        }
     }
+
+
 }
