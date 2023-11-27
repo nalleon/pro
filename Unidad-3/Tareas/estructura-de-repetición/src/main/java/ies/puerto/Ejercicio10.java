@@ -14,5 +14,12 @@ public class Ejercicio10 {
             }
             System.out.println(array[i]);
         }
+        System.out.println();
+
+        for (int i =0; i < array.length; i++) {
+            if (array[i] > 0) {
+                System.out.println(array[i]);
+            }
+        }
     }
 }
