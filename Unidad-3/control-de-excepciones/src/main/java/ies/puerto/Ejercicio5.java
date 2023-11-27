@@ -11,7 +11,7 @@ public class Ejercicio5 {
     public static void main(String[] args) throws Exception {
     String strMathExpression = askMathExpression();
     int expression = convertStrIntMathExpression(strMathExpression);
-        System.out.println(" " + expression);
+        System.out.println("Expression is: " + expression);
     }
 
     public static String askMathExpression (){

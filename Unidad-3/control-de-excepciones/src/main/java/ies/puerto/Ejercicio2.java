@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Crea un programa que solicite al usuario ingresar un número como texto y luego intente convertirlo a un entero. 
  * Maneja la excepción NumberFormatException si el usuario ingresa algo que no es un número.
- * @author 
+ * @author Nabil
  */
 public class Ejercicio2 {
     public static void main(String[] args) throws Exception {
@@ -15,7 +15,7 @@ public class Ejercicio2 {
     }
 
     /**
-     * Function that asks through keyboard a number
+     * Function that asks a number via console
      * @return selected number
      */
     public  static String askNumber (){
@@ -26,6 +26,13 @@ public class Ejercicio2 {
 
         return number;
     }
+
+    /**
+     * Function that converts the string number into an integer
+     * @param strNumber to convert
+     * @return integer number
+     * @throws Exception if the string is not a number
+     */
     
     public static int convertStrIntNumbers(String strNumber) throws Exception {
         int result = 0;
