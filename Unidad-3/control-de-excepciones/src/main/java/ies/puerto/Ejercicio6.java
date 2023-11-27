@@ -12,22 +12,26 @@ public class Ejercicio6 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ingresa una fecha en formato correcto(por ejemplo, 19-03-1997):");
-        String fechaString = scanner.nextLine();
+        System.out.println("Insert a date:");
+        String dateString = scanner.nextLine();
 
-        try {
-
-            Date fecha = convertirAFecha(fechaString);
-
-            System.out.println("Fecha convertida con éxito: " + fecha);
-        } catch (ParseException e) {
-            System.out.println("Formato de fecha incorrecto. Asegúrate de usar el formato adecuado.");
-        }
+            Date date = convertDate(dateString);
     }
 
-    private static Date convertirAFecha(String fechaString) throws ParseException {
-        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
-
-        return formato.parse(fechaString);
+    /**
+     * Funtion that transforms the date into a format (dd-mm-yyyy)
+     * @param dateString to transform
+     * @return date
+     */
+    private static Date convertDate (String dateString) {
+        Date date = null;
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            date = format.parse(dateString);
+        } catch (ParseException e) {
+            System.out.println("Capturing an exception because date is incorrect.");
+            throw new RuntimeException(e);
+        }
+        return date;
     }
 }

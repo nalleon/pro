@@ -1,7 +1,5 @@
 package ies.puerto;
 import java.util.Scanner;
-public class Ejercicio4 {
-
 
 /**
  * Crea un programa que intente acceder a un método de un objeto que es null.
@@ -13,15 +11,18 @@ public class Ejercicio4 {
         String test = text();
     }
 
+    /**
+     * Function yh
+     * @return
+     * @throws Exception
+     */
     public static String text() throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Insert a text:");
-        String text = scanner.next();
+
+        String text = null;
 
         try {
 
             int lenght = text.length();
-            System.out.println("Text's lenght:" + lenght);
 
         } catch (NullPointerException exception) {
 

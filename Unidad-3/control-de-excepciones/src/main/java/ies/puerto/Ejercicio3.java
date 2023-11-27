@@ -1,9 +1,12 @@
 package ies.puerto;
 import java.util.Scanner;
 
+/**
+ * Declara un array de 3 elementos e intenta acceder al cuarto elemento.
+ * Maneja la excepción ArrayIndexOutOfBoundsException.
+ * @author Nabil
+ */
 public class Ejercicio3 {
-    public class Ejercicio3 {
-
         public static void main(String[] args) throws Exception {
             int[] arrayPosition = arrayPosition();
         }
@@ -28,4 +31,3 @@ public class Ejercicio3 {
             return array;
         }
     }
-}

@@ -9,10 +9,32 @@ import java.util.Scanner;
  */
 public class Ejercicio7 {
 
-    public static void main(String[] args) {
-    int postiveNumber = askPositiveNumber();
+    public static void main(String[] args) throws NegativeNumberException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Insert an integer number bigger or smaller than 0: ");
+        int number = scanner.nextInt();
+        if (isPositive(number)){
+            System.out.println("Number: " + number + " is positive.");
+        }
+
+
+
+        // int postiveNumber = askPositiveNumber();
     }
 
+    
+    public static boolean isPositive (int number) throws NegativeNumberException {
+        if (number < 0) {
+            throw new NegativeNumberException("Number: " + number + " is negative");
+        }
+
+        return true;
+    }
+    
+    /**
+     * Function that ask via console a number
+     * @return if number < 0 str: number can not be negative
+     */
     public static  int askPositiveNumber (){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Insert a positive number:");

@@ -16,6 +16,10 @@ public class Ejercicio8 {
         int division = division(askNumber1, askNumber2);
     }
 
+    /**
+     * Function that ask for a number via console
+     * @return number, if not an integer number e
+     */
     public static int askNumber1 (){
         Scanner scanner = new Scanner(System.in);
         int number1 = 0;
@@ -24,12 +28,15 @@ public class Ejercicio8 {
             number1 = scanner.nextInt();
 
         } catch (InputMismatchException e){
-            System.out.println("Expression is not a number");
+            System.out.println("Expression is not an integer number");
             throw e;
         }
         return number1;
     }
-
+    /**
+     * Function that ask for a number via console
+     * @return number, if not an integer number e
+     */
     public static int askNumber2 (){
         Scanner scanner = new Scanner(System.in);
         int number2 = 0;
@@ -45,6 +52,12 @@ public class Ejercicio8 {
         return number2;
     }
 
+    /**
+     * Function that calculates the division of two numbers
+     * @param number1 to operate with
+     * @param number2 to operate with
+     * @return result
+     */
     public static int division (int number1, int number2){
         int result = number1 / number2;
         System.out.println("Division is: " + result);
