@@ -7,6 +7,11 @@ public class Ejercicio9 {
         conditionsMethod(condition);
     }
 
+    /**
+     * Function that
+     * @param condition
+     * @throws MyException
+     */
     public static void conditionsMethod (boolean condition) throws MyException {
         if (condition){
            // throw new MyException("MyException shows a message.");

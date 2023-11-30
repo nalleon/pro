@@ -10,26 +10,27 @@ import java.util.Scanner;
  * @author Nabil
  */
 public class Ejercicio8 {
-    public static void main(String[] args) {
-        int askNumber1 = askNumber1();
-        int askNumber2 = askNumber2();
-        int division = division(askNumber1, askNumber2);
+    public static void main(String[] args) throws ArithmeticException{
+        float askNumber1 = askNumber1();
+        float askNumber2 = askNumber2();
+        float division = division(askNumber1, askNumber2);
+
     }
 
     /**
      * Function that ask for a number via console
      * @return number, if not an integer number e
      */
-    public static int askNumber1 (){
+    public static float askNumber1 (){
         Scanner scanner = new Scanner(System.in);
-        int number1 = 0;
+        float number1 = 0;
         System.out.println("Insert a value:");
         try {
-            number1 = scanner.nextInt();
+            number1 = scanner.nextFloat();
 
-        } catch (InputMismatchException e){
-            System.out.println("Expression is not an integer number");
-            throw e;
+        } catch (ArithmeticException e){
+            System.out.println("Expression is not a number");
+            throw new InputMismatchException("Insert a valid value for a number.");
         }
         return number1;
     }
@@ -37,18 +38,17 @@ public class Ejercicio8 {
      * Function that ask for a number via console
      * @return number, if not an integer number e
      */
-    public static int askNumber2 (){
+    public static float askNumber2 (){
         Scanner scanner = new Scanner(System.in);
-        int number2 = 0;
+        float number2 = 0;
         System.out.println("Insert another value:");
         try {
-            number2 = scanner.nextInt();
+            number2 = scanner.nextFloat();
 
-        } catch (InputMismatchException e){
+        } catch (ArithmeticException e){
             System.out.println("Expression is not a number");
-            throw e;
+            throw new InputMismatchException("Insert a valid value for a number.");
         }
-
         return number2;
     }
 
@@ -58,8 +58,11 @@ public class Ejercicio8 {
      * @param number2 to operate with
      * @return result
      */
-    public static int division (int number1, int number2){
-        int result = number1 / number2;
+    public static float division (float number1, float number2) throws ArithmeticException {
+        float result = number1 / number2;
+        if (number2 == 0){
+            throw new ArithmeticException("Can not divide by 0.");
+        }
         System.out.println("Division is: " + result);
         return result;
     }

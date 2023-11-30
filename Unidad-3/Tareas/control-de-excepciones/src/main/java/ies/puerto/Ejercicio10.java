@@ -1,5 +1,7 @@
 package ies.puerto;
 
+import java.util.Scanner;
+
 /**
  * Crea una excepción personalizada llamada NombreInvalidoException que se lance cuando un método reciba
  * un nombre nulo o vacío como argumento. Implementa una clase que contenga un método
@@ -11,6 +13,13 @@ public class Ejercicio10 {
         boolean condition = true;
         name(condition);
 
+        // Scanner scanner = new Scanner(System.in);
+        // String name = null;
+        // System.out.println("Enter a name: ");
+        // name = scanner.next();
+        //    if (name == null | name.isEmpty()){
+        //      throw new InvalidNameException(1, "InvalidNameException shows a message");
+        //  }
     }
 
     public static void name (boolean condition) throws InvalidNameException {
