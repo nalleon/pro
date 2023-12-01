@@ -14,6 +14,7 @@ public class Ejercicio8 {
         Date todaysDate = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String updatedDate = dateFormat.format(todaysDate);
+        System.out.println("Current date is: " + updatedDate);
     }
 
 }

@@ -10,9 +10,11 @@ import java.util.Calendar;
 public class Ejercicio3 {
     public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH) + 1;
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        System.out.println("Today's date is: " + year + "-" + month + "-" + day);
+        calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR));
+        calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH));
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.get(Calendar.DAY_OF_MONTH));
+
+        System.out.println("Today's date is: " + calendar.get(Calendar.YEAR) + "/" + (calendar.get(Calendar.MONTH)) + "/" + calendar.get(Calendar.DAY_OF_MONTH));
     }
 }
+
