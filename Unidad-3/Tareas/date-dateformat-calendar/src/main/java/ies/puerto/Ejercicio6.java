@@ -17,7 +17,6 @@ public class Ejercicio6 {
 
         System.out.println("Insert a date: ");
         String strAnotherDate = scanner.nextLine();
-
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         Date anotherDate;
 

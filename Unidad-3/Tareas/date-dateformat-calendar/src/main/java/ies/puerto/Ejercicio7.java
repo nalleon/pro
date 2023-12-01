@@ -21,18 +21,12 @@ public class Ejercicio7 {
 
         Calendar calendar2 = Calendar.getInstance();
         calendar2.set(Calendar.YEAR, 2023);
-        calendar2.set(Calendar.MONTH, 2);
-        calendar2.set(Calendar.DAY_OF_MONTH, 1);
+        calendar2.set(Calendar.MONTH, 3);
+        calendar2.set(Calendar.DAY_OF_MONTH, 12);
 
        long end = calendar2.getTimeInMillis();
        long start = calendar.getTimeInMillis();
-       long days = (end - start)/(24*60*60*1000);
-        System.out.println("Difference is of " + days + " days.");
 
-
-
+       System.out.println("Difference is of " + Math.abs((end - start)/(24*60*60*1000)) + " days.");
     }
-
-
-
 }

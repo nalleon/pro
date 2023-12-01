@@ -10,11 +10,8 @@ import java.util.Calendar;
 public class Ejercicio9 {
     public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
+        int firstDayMonth = calendar.getActualMinimum(Calendar.DAY_OF_MONTH);
 
-        calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR));
-        calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH));
-
-        System.out.println("First day is: " + (calendar.get(Calendar.DAY_OF_MONTH)) + "/" + (calendar.get(Calendar.MONTH)+1));
-
+        System.out.println("First day is: " + firstDayMonth + "/" + (calendar.get(Calendar.MONTH)+1));
     }
 }
