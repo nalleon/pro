@@ -16,11 +16,18 @@ public class Ejercicio2 {
         System.out.println("Insert another text: ");
         String str2 = scanner.nextLine();
 
-        if (str1.equals(str2)) {
-            System.out.println("Texts are the same.");
-        } else {
-            System.out.println("Texts are different.");
+        try {
+        if (str1.isEmpty() || str2.isEmpty()) {
+            throw new IllegalArgumentException("Input string cannot be empty.");
         }
-        // poner una exception si te pasan algo nulo
+          } catch (IllegalArgumentException e) {
+        System.out.println("Error:" + e.getMessage());
+
+            if (str1.equals(str2)) {
+                System.out.println("Texts are the same.");
+            } else {
+                System.out.println("Texts are different.");
+            }
+        }
     }
 }

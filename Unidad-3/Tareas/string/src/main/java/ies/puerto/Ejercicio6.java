@@ -13,13 +13,19 @@ public class Ejercicio6 {
 
         System.out.println("Insert a text: ");
         String str = scanner.nextLine();
-        String strTrimmed = str.trim();
+        String currentWord = "";
 
-        for (int i = 0; i < strTrimmed.length(); i++) {
-            if (strTrimmed.charAt(i) != ' '){
-                System.out.print("\n" + strTrimmed);
+        for (int i = 0; i < str.length(); i++) {
+            char currentChar = str.charAt(i);
+
+            if (currentChar != ' ') {
+                currentWord += currentChar;
+            } else if (!currentWord.isEmpty()) {
+                System.out.println(currentWord);
+                currentWord = "";
             }
+        } if (!currentWord.isEmpty()) {
+            System.out.println(currentWord);
         }
-        System.out.println(strTrimmed);
     }
 }

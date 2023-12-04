@@ -12,7 +12,7 @@ public class Ejercicio3 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Insert a text: ");
         String str = scanner.nextLine();
-        char [] vowels = {'a','A','e', 'E', 'i', 'I','o', 'O', 'u', 'U'};
+        char [] vowels = {'a','e', 'i', 'o', 'u','A', 'E', 'I', 'O', 'U'};
         int counter = 0;
 
         for (int i =0; i < str.length(); i++){
