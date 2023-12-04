@@ -1,78 +1,48 @@
 package ies.puerto;
 /**
+ * Escribe un programa que convierta un número entero en una cadena de
+ * texto y viceversa utilizando los métodos de la clase Integer.
  * @author Nabil
  */
-import java.util.Arrays;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Ejercicio2 {
 
-    private String nombre;
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Insert an integer number: ");
+            String strNumber = scanner.next();
+            int strToInt = strToInt(strNumber);
+            System.out.println(strToInt);
 
-    private int edad;
-    private double peso;
-    private double altura;
+            System.out.println("Insert another integer number: ");
+            int intNumber = scanner.nextInt();
 
-    public Ejercicio2 (){}
+            String intToStr = intToStr(intNumber);
+            System.out.println(intToStr);
 
-    public Ejercicio2(String nombre) {
-        this.nombre = nombre;
+        } catch (InputMismatchException e) {
+            System.out.println("InputMismatchException. Number is not valid, please use an integer number.");
+        }
     }
 
-    public Ejercicio2(String nombre, int edad) {
-        this.nombre = nombre;
-        this.edad = edad;
+    /**
+     * Function to convert a string into an int
+     * @param strNumber to convert
+     * @return strNumber as an int
+     */
+    public static Integer strToInt(String strNumber){
+        return Integer.parseInt(strNumber);
     }
 
-    public Ejercicio2(String nombre, int edad, double peso) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.peso = peso;
-    }
-
-    public Ejercicio2(String nombre, int edad, double peso, double altura) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.peso = peso;
-        this.altura = altura;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public double getPeso() {
-        return peso;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
-
-    public double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-
-    public double imc(){
-        return peso/(altura*altura);
-    }
-
-    public String print(){
-        return "";
+    /**
+     * Function to convert an int into a string
+     * @param intNumber to convert
+     * @return intNumber as a string
+     */
+    public static String intToStr(int intNumber){
+        return Integer.toString(intNumber);
     }
 }
