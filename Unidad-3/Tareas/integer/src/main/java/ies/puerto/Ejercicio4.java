@@ -8,5 +8,7 @@ import java.util.Arrays;
  * @author Nabil
  */
 public class Ejercicio4 {
+    public static void main(String[] args) {
 
+    }
 }
