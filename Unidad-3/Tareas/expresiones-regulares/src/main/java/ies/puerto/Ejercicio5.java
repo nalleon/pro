@@ -13,15 +13,16 @@ public class Ejercicio5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Insert a HTML etiquette with content (example:<p>Text</p>): ");
-        String text = scanner.next();
+        String text = scanner.nextLine();
 
-        String regex = "((^<[a-zA-Z])-([a-zA-Z0-9])";
+        String regex = "(<[a-zA-Z0-9])+>(.*?)<(/[a-zA-Z0-9]+>$)";
+        String trimText = text.trim();
 
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher (text);
+        Matcher matcher = pattern.matcher (trimText);
 
         if (matcher.matches()){
-            System.out.println("Text has been converted successfully.");
+            System.out.println(matcher.group(2));
         } else {
             System.out.println("Text could not be converted.");
         }

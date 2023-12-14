@@ -25,7 +25,6 @@ public class Ejercicio3 {
         }
     }
 
-
     public static boolean isPrime (int number){
         if (number == 0){
             return false;
