@@ -33,14 +33,13 @@ public class Persona {
        long end = dateOfBirth.getTime();
 
        long age = (Math.abs(start-end)/(1000*60*60*24))/365;
-        System.out.println(age);
 
         return age;
     }
 
     public String zodiacSigns (){
         Calendar calendar = Calendar.getInstance();
-
+        calendar.setTime(dateOfBirth);
         int month = calendar.get(Calendar.MONTH)+1;
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         String sign = "";
@@ -52,7 +51,7 @@ public class Persona {
         } else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
             sign = "Géminis";
         } else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) {
-            sign = "Cáncer";
+            sign = "Cancer";
         } else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) {
             sign = "Leo";
         } else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) {
@@ -79,8 +78,9 @@ public class Persona {
     }
 
     public static void main(String[] args) throws ParseException {
-        Persona persona = new Persona("Alan", "06/07/2005");
-        System.out.println("Age: " + persona.calculateAge(persona) + "years old.");
+        Persona persona = new Persona("Nabil", "06/07/2005");
+        System.out.println("Name: " + persona.name);
+        System.out.println("Age: " + persona.calculateAge(persona) + " years old");
         System.out.println("Zodiac sign: " +persona.zodiacSigns());
         System.out.println(persona.showInformation());
     }
