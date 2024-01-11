@@ -21,17 +21,33 @@ public class Ejercicio1 {
         }
 
         String[][] triangle = createTriangle(columns);
+        String[][] invertedTriangle = createInvertedTriangle(columns);
+        printTriangle(invertedTriangle);
         printTriangle(triangle);
 
 
     }
 
-
     public static String[][] createTriangle(int rows) {
-        String[][] triangle = new String[rows + 1][rows*2 - 1];
+        int columns = rows*2-1;
+        String[][] triangle = new String[rows][columns];
         int rightLimit = rows * 2 - 1;
         int leftLimit = 0;
-        for (int i = rows; i > 0; i--) {
+        for (int i = rows-1; i >= 0; i--) {
+            for (int j = leftLimit; j < rightLimit; j++) {
+                triangle[i][j] = "*";
+            }
+            rightLimit--;
+            leftLimit++;
+        }
+        return triangle;
+    }
+    public static String[][] createInvertedTriangle(int rows) {
+        int columns = rows*2-1;
+        String[][] triangle = new String[rows][columns];
+        int rightLimit = rows * 2 - 1;
+        int leftLimit = 0;
+        for (int i = 0; i <= rows-1; i++) {
             for (int j = leftLimit; j < rightLimit; j++) {
                 triangle[i][j] = "*";
             }

@@ -69,7 +69,6 @@ public class Persona {
         } else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
             sign = "Pisces";
         }
-
         return sign;
     }
 

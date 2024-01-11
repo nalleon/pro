@@ -11,7 +11,7 @@ public class PersonaTest {
 @Test
     public void ageTest () throws ParseException {
         Persona persona = new Persona("Nabil", "06/07/2005");
-        long result = persona.calculateEdad(persona);
+        long result = persona.calculateAge(persona);
         long resultOK = 18;
         Assertions.assertEquals(resultOK, result, "Expected result not found.");
     }
