@@ -1,4 +1,5 @@
 package ies.puerto;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
  * Crea una clase Persona con atributos como nombre, edad y dni. Añade métodos para obtener y establecer
@@ -7,11 +8,14 @@ import java.util.regex.Pattern;
  * Nota: Crea un programa que demuestre el comportamiento correcto del programa,
  * o test unitarios que sistituyen a este.
  */
-public class Persona {
+public abstract class Persona {
     private String name;
     private int age;
     private String dni;
 
+    public static void main(String[] args) {
+
+    }
     /**
      * Default constructor of the class
      */
@@ -73,9 +77,19 @@ public class Persona {
         this.dni = dni;
     }
 
-    public String validateDNI (String dni){
-        String regex = "";
+    public boolean validateDNI (){
+        String regex = "(\\d{8}[A-HJ-NP-TV-Z])";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(dni);
 
-        return dni;
+        return matcher.matches();
+    }
+    @Override
+    public String toString (){
+        return "Name: " +name+ "\nAge: " +age+ "\nDNI: " +dni;
+    }
+
+    public String greeting (){
+        return "Welcome to the app!";
     }
 }
