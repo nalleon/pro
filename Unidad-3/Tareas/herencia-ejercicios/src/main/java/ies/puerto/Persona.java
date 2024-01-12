@@ -1,4 +1,7 @@
 package ies.puerto;
+import ies.puerto.Acceso.Autenticacion;
+import ies.puerto.Excepciones.ValidacionException;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
@@ -12,6 +15,8 @@ public abstract class Persona {
     private String name;
     private int age;
     private String dni;
+
+    private final Autenticacion autenticacion = new Autenticacion();
 
     public static void main(String[] args) {
 
@@ -66,29 +71,40 @@ public abstract class Persona {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (autenticacion.validateDNI(dni)) {
+            this.age = age;
+        } else {
+            throw new ValidacionException("DNI is invalid.");
+        }
+
     }
 
     public String getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setDni(String dni) throws ValidacionException {
+        if (autenticacion.validateDNI(dni)) {
+            this.dni = dni;
+        } else {
+            throw new ValidacionException("DNI is invalid.");
+        }
     }
 
-    public boolean validateDNI (){
-        String regex = "(\\d{8}[A-HJ-NP-TV-Z])";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(dni);
 
-        return matcher.matches();
-    }
+    /**
+     * Method that shows information about the person
+     * @return information (name, age, dni)
+     */
     @Override
     public String toString (){
         return "Name: " +name+ "\nAge: " +age+ "\nDNI: " +dni;
     }
 
+    /**
+     * Method that creates a default greeting.
+     * @return greeting
+     */
     public String greeting (){
         return "Welcome to the app!";
     }

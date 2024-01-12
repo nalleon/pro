@@ -17,24 +17,6 @@ public class Estudiante extends Persona {
     /**
      * Constructor of the class
      * @param course of the student
-     */
-    public Estudiante (String course){
-        this.course = course;
-    }
-
-    /**
-     * Constructor of the class
-     * @param course of the student
-     * @param scores of the student
-     */
-    public  Estudiante (String course, float [] scores ){
-        this.course = course;
-        this.scores = scores;
-    }
-
-    /**
-     * Constructor of the class
-     * @param course of the student
      * @param scores of the student
      * @param name of the student
      * @param age of the student
@@ -66,11 +48,12 @@ public class Estudiante extends Persona {
 
     @Override
     public String toString (){
-        return "Course: " + course+ "\nScores: " + Arrays.toString(scores);
+        return super.toString() + "\nCourse: " + course+ "\nScores: " + Arrays.toString(scores);
     }
 
     @Override
     public String greeting (){
         return "Welcome to the app, " + getName() + "!";
+
     }
 }
