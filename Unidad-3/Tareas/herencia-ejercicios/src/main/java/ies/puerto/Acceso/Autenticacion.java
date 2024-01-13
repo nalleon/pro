@@ -14,9 +14,6 @@ public class Autenticacion {
     }
 
     public boolean validateAge(int age){
-        if (age >= 0){
-            return true;
-        }
-        return false;
+        return age >= 0;
     }
 }
