@@ -7,5 +7,4 @@ package ies.puerto.interfaz;
  */
 public interface IFormaGeometrica {
     public float calculateArea();
-    public  String toString();
 }

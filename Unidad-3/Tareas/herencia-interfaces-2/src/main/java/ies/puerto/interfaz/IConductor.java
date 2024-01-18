@@ -7,8 +7,7 @@ package ies.puerto.interfaz;
  */
 public interface IConductor {
 
-    void start();
-    void stop();
+    public String start();
+    public String stop();
 
-    public String toString ();
 }

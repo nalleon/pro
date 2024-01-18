@@ -8,7 +8,6 @@ import ies.puerto.interfaz.IFormaGeometrica;
 public class AppFiguraGeometrica {
     static IFormaGeometrica circulo;
     static  IFormaGeometrica cuadrado;
-
     static IFormaGeometrica rectangulo;
 
     public static void main(String[] args) {

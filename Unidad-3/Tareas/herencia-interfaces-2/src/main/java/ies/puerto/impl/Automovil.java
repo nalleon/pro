@@ -82,17 +82,17 @@ public class Automovil implements IConductor {
 
 
     @Override
-    public void start() {
-        System.out.println("The " + brand + " " + model + " has started moving.");
+    public String start() {
+        return "The " + brand + " " + model + " has started moving.";
     }
 
     @Override
-    public void stop() {
-        System.out.println("The " + brand + " " + model + " has stopped.");
+    public String stop() {
+       return "The " + brand + " " + model + " has stopped.";
     }
 
-    public void drive() {
-        System.out.println("The " + brand + " " + model + " is in moving at " + speed+ "km/h");
+    public String drive() {
+        return "The " + brand + " " + model + " is in moving at " + speed+ "km/h";
     }
 
     @Override

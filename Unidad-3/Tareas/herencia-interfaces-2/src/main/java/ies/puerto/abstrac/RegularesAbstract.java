@@ -25,4 +25,9 @@ public abstract class RegularesAbstract {
     public void setHeigth(float heigth) {
         this.heigth = heigth;
     }
+
+
+    public float calculateArea(){
+        return base*heigth;
+    }
 }
