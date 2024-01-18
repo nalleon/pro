@@ -1,6 +1,6 @@
 package ies.puerto;
 
-public interface InstrumentoMusical {
+public interface IInstrumentoMusical {
     void playNote(String note);
     void tune();
 

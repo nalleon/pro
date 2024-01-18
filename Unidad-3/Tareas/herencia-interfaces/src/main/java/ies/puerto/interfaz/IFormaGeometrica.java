@@ -5,7 +5,7 @@ package ies.puerto;
  * Implementa esta interfaz en dos clases: Circulo y Rectangulo. Proporciona implementaciones concretas
  * para calcular el área en ambas clases.
  */
-public interface FormaGeometrica {
+public interface IFormaGeometrica {
     void calculateArea();
    public  String toString();
 }

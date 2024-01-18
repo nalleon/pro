@@ -1,6 +1,6 @@
-package ies.puerto;
+package ies.puerto.interfaz;
 
-public interface ConexionRed {
+public interface IConexionRed {
     void connect();
     void showSpeed();
     public String toString();
