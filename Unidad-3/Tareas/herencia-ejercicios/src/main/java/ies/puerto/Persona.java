@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * Nota: Crea un programa que demuestre el comportamiento correcto del programa,
  * o test unitarios que sistituyen a este.
  */
-public abstract class Persona {
+public class Persona {
     private String name;
     private int age;
     private String dni;
@@ -70,13 +70,12 @@ public abstract class Persona {
         return age;
     }
 
-    public void setAge(int age) {
-        if (autenticacion.validateDNI(dni)) {
+    public void setAge(int age) throws ValidacionException {
+        if (autenticacion.validateAge(age)) {
             this.age = age;
         } else {
-            throw new ValidacionException("DNI is invalid.");
+            throw new ValidacionException("Age can not be negative or equals 0.");
         }
-
     }
 
     public String getDni() {

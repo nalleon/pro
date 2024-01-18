@@ -17,6 +17,22 @@ public class Estudiante extends Persona {
     /**
      * Constructor of the class
      * @param course of the student
+     */
+    public Estudiante (String course){
+        this.course = course;
+    }
+    /**
+     * Constructor of the class
+     * @param course of the student
+     * @param scores of the student
+     */
+    public  Estudiante (String course, float [] scores){
+        this.course = course;
+        this.scores = scores;
+    }
+    /**
+     * Constructor of the class
+     * @param course of the student
      * @param scores of the student
      * @param name of the student
      * @param age of the student

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/herencia.iml" filepath="$PROJECT_DIR$/.idea/herencia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/puerto.iml" filepath="$PROJECT_DIR$/puerto.iml" />
     </modules>
   </component>
 </project>
