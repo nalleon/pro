@@ -29,13 +29,13 @@ public class ConexionWifi implements IConexionRed {
     }
 
     @Override
-    public void connect() {
-        System.out.println("Connecting to Wifi");
+    public String connect() {
+        return "Connecting to Wifi";
     }
 
     @Override
-    public void showSpeed() {
-        System.out.println("> Connection speed: " + connectionSpeed + "Mbps");
+    public String showSpeed() {
+        return "> Connection speed: " + connectionSpeed + "Mbps";
     }
     @Override
     public String toString() {

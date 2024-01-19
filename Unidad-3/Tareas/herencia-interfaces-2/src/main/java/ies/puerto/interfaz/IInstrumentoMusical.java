@@ -1,9 +1,8 @@
 package ies.puerto.interfaz;
 
 public interface IInstrumentoMusical {
-    void playNote(String note);
-    void tune();
-
+    public String playNote(String note);
+    public String tune();
     public String toString ();
 
 }

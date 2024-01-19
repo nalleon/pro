@@ -38,13 +38,14 @@ public class ConexionEthernet implements IConexionRed {
     }
 
     @Override
-    public void connect() {
-        System.out.println("Connecting to Ethernet");
+    public String connect() {
+
+        return "Connecting to Ethernet";
     }
 
     @Override
-    public void showSpeed() {
-        System.out.println("> Connection speed: " + connectionSpeed + "Mbps");
+    public String showSpeed() {
+        return "> Connection speed: " + connectionSpeed + "Mbps";
     }
     @Override
     public String toString() {
