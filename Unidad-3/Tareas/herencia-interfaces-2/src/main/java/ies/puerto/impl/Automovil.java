@@ -1,5 +1,6 @@
 package ies.puerto.impl;
 
+import ies.puerto.abstrac.ConductorAbstract;
 import ies.puerto.interfaz.IConductor;
 
 /**
@@ -7,97 +8,16 @@ import ies.puerto.interfaz.IConductor;
  * Automovil que proporciona una implementación concreta para ambos métodos. Además,
  * agrega un método adicional conducir() que sea específico de la clase Automovil.
  */
-public class Automovil implements IConductor {
-
-    private String brand;
-    private String model;
-    private int speed;
-    public static void main(String[] args) {
-        Automovil automovil;
-        automovil = new Automovil("Nissan", "Qashqai", 70);
-        automovil.start();
-        automovil.drive();
-        automovil.stop();
-    }
+public class Automovil extends ConductorAbstract implements IConductor {
 
     /**
      * Default constructor of the class
      */
     public Automovil (){}
 
-    /**
-     * Constructor of the class
-     * @param brand of the car
-     */
-    public Automovil(String brand) {
-        this.brand = brand;
-    }
-    /**
-     * Constructor of the class
-     * @param brand of the car
-     * @param model of the car
-     */
-    public Automovil(String brand, String model) {
-        this.brand = brand;
-        this.model = model;
-    }
-    /**
-     * Constructor of the class
-     * @param brand of the car
-     * @param model of the car
-     * @param speed of the car
-     */
     public Automovil(String brand, String model, int speed) {
-        this.brand = brand;
-        this.model = model;
-        this.speed = speed;
+        super(brand, model, speed);
     }
 
-    /**
-     * Getters and setters
-     */
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-
-    @Override
-    public String start() {
-        return "The " + brand + " " + model + " has started moving.";
-    }
-
-    @Override
-    public String stop() {
-       return "The " + brand + " " + model + " has stopped.";
-    }
-
-    public String drive() {
-        return "The " + brand + " " + model + " is in moving at " + speed+ "km/h";
-    }
-
-    @Override
-    public String toString (){
-        return "> Data provided: " + brand + ", " + model + ", " + speed + "km/h";
-    }
 }
 
