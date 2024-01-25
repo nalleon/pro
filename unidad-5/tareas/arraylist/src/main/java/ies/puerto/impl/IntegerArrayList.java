@@ -14,8 +14,6 @@ public class IntegerArrayList implements IIntegerArrayList {
 
     public IntegerArrayList (){}
 
-
-
     public static List<Integer> addIntegerNumbers(){
         for (int i=1; i <= 10; i++){
             if (i % 2 == 0){
