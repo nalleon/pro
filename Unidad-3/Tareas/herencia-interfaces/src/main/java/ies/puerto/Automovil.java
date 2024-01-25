@@ -1,10 +1,13 @@
 package ies.puerto;
+
+import ies.puerto.interfaz.IConductor;
+
 /**
  * Crea una interfaz Conductor con dos métodos abstractos: arrancar() y detener(). Implementa la interfaz en una clase
  * Automovil que proporciona una implementación concreta para ambos métodos. Además,
  * agrega un método adicional conducir() que sea específico de la clase Automovil.
  */
-public class Automovil implements Conductor {
+public class Automovil implements IConductor {
 
     private String brand;
     private String model;
@@ -79,17 +82,17 @@ public class Automovil implements Conductor {
 
 
     @Override
-    public void start() {
-        System.out.println("The " + brand + " " + model + " has started moving.");
+    public String start() {
+        return "The " + brand + " " + model + " has started moving.";
     }
 
     @Override
-    public void stop() {
-        System.out.println("The " + brand + " " + model + " has stopped.");
+    public String stop() {
+        return "The " + brand + " " + model + " has stopped.";
     }
 
-    public void drive() {
-        System.out.println("The " + brand + " " + model + " is in moving at " + speed+ "km/h");
+    public String drive() {
+        return "The " + brand + " " + model + " is in moving at " + speed+ "km/h";
     }
 
     @Override

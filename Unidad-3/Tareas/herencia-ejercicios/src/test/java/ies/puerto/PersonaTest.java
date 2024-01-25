@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PersonaTest {
-<<<<<<< HEAD
+
  Persona persona = new Persona ();
-=======
+
     Persona persona = new Persona("Claus", 36, "12345678K");
     @Test
     void fullConstructorTest() {
@@ -15,7 +15,7 @@ public class PersonaTest {
         assertEquals(36, persona.getAge(),"Expected result not found.");
         assertEquals("12345678K", persona.getDni(),"Expected result not found.");
     }
->>>>>>> e5dba78027a6e28ab23115d5235e19b01f716d01
+
 
     @Test
     void setNameTest() {

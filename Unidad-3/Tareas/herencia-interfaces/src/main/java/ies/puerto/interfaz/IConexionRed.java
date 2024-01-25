@@ -1,4 +1,4 @@
-package ies.puerto;
+package ies.puerto.interfaz;
 
 public interface IConexionRed {
     void connect();

@@ -1,4 +1,4 @@
-package ies.puerto;
+package ies.puerto.interfaz;
 
 public interface IInstrumentoMusical {
     void playNote(String note);

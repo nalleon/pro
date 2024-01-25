@@ -13,6 +13,9 @@ public class AppPersona2 {
 
     static String dni1= "12345678T";
     static String dni2 = "98765432K";
+
+
+
     public static void main(String[] args) {
         ramon = new Persona(dni1, "Ramon", "Gonzalez", "Pérez");
         juan = new Persona(dni2, "Juan", "Gonzalez", "Pérez");
@@ -25,5 +28,7 @@ public class AppPersona2 {
         if (personas.contains(ramon2)){
             System.out.println("List contains: " + ramon);
         }
+
+        System.out.println(ramon.averageCalifications());
     }
 }

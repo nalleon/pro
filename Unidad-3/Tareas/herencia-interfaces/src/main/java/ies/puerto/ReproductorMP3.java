@@ -1,15 +1,17 @@
 package ies.puerto;
 
+import ies.puerto.interfaz.IReproductor;
+
 /**
  * Crea una interfaz llamada Reproductor que contenga dos métodos abstractos: reproducir() y detener(). Luego,
  * implementa la interfaz en una clase ReproductorMP3 que proporciona una implementación concreta para ambos métodos.
  */
-public class IReproductorMP3 implements IReproductor {
+public class ReproductorMP3 implements IReproductor {
     private String name;
     private String duration;
     public static void main(String[] args) {
-        IReproductorMP3 reproductorMP3;
-        reproductorMP3 = new IReproductorMP3("Return to Oblivion", "5:35");
+        ReproductorMP3 reproductorMP3;
+        reproductorMP3 = new ReproductorMP3("Return to Oblivion", "5:35");
 
         reproductorMP3.play();
         System.out.println();
@@ -19,12 +21,12 @@ public class IReproductorMP3 implements IReproductor {
     /**
      * Default constructor of the class
      */
-    public IReproductorMP3(){}
+    public ReproductorMP3(){}
     /**
      * Constructor of the class
      * @param name of the song
      */
-    public IReproductorMP3(String name){
+    public ReproductorMP3(String name){
         this.name = name;
     }
     /**
@@ -32,7 +34,7 @@ public class IReproductorMP3 implements IReproductor {
      * @param name of the song
      * @param duration of the song
      */
-    public IReproductorMP3(String name, String duration){
+    public ReproductorMP3(String name, String duration){
         this.name = name;
         this.duration = duration;
     }

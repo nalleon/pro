@@ -1,4 +1,4 @@
-package ies.puerto;
+package ies.puerto.interfaz;
 
 /**
  * Define una interfaz FormaGeometrica que contenga un método abstracto llamado calcularArea().

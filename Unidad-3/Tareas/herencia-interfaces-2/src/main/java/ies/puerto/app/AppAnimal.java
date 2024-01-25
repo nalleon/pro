@@ -23,6 +23,12 @@ public class AppAnimal {
             animales.add(mario);
         }
 
+        System.out.println(animales);
+        // RECORRER LISTAS
+        // For (each) o while
+        for (Animal animal:animales){
+            System.out.println(animal);
+        }
 
     }
 }

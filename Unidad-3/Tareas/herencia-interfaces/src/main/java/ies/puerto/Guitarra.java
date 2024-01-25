@@ -1,6 +1,8 @@
 package ies.puerto;
 
-public class Guitarra implements InstrumentoMusical {
+import ies.puerto.interfaz.IInstrumentoMusical;
+
+public class Guitarra implements IInstrumentoMusical {
     private String note;
     public static void main(String[] args) {
         Guitarra guitarra;

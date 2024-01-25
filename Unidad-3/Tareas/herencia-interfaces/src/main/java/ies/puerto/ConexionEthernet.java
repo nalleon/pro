@@ -1,6 +1,8 @@
 package ies.puerto;
 
-public class ConexionEthernet implements ConexionRed{
+import ies.puerto.interfaz.IConexionRed;
+
+public class ConexionEthernet implements IConexionRed {
 
     private float connectionSpeed;
 

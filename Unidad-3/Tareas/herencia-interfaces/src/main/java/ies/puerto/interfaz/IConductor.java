@@ -1,4 +1,4 @@
-package ies.puerto;
+package ies.puerto.interfaz;
 
 /**
  * Crea una interfaz Conductor con dos métodos abstractos: arrancar() y detener(). Implementa la interfaz en una clase
@@ -7,8 +7,8 @@ package ies.puerto;
  */
 public interface IConductor {
 
-    void start();
-    void stop();
+    public String start();
+    public String stop();
 
     public String toString ();
 }
