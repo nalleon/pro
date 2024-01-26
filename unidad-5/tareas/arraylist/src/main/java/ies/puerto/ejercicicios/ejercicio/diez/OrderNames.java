@@ -1,4 +1,4 @@
-package ies.puerto.impl;
+package ies.puerto.ejercicicios.ejercicio.diez;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,5 +21,10 @@ public class OrderNames {
     public static ArrayList<String> sortNames(ArrayList<String> myNameList){
         Collections.sort(myNameList);
         return  myNameList;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderNames{}";
     }
 }

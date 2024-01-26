@@ -1,4 +1,4 @@
-package ies.puerto.impl;
+package ies.puerto.ejercicicios.ejercicio.nueve;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -45,6 +45,11 @@ public class RegistroClientes extends Cliente {
         clientes.remove(cliente);
     }
 
+    /**
+     * Method to search a customer by number
+     * @param num of the customer
+     * @return customer if found, null if not
+     */
     public Cliente searchByNum (int num){
         for (Cliente cliente : clientes) {
             if (cliente.getNum() == num){
@@ -53,6 +58,12 @@ public class RegistroClientes extends Cliente {
         }
         return null;
     }
+
+    /**
+     * Method to allow a customer do a transaction
+     * @param num of the customer
+     * @param amount of money
+     */
     public String transaction(int num, float amount) {
         Cliente cliente = searchByNum(num);
         if (cliente == null) {

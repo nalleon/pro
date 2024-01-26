@@ -1,9 +1,13 @@
-package ies.puerto.impl;
+package ies.puerto.ejercicicios.ejercicio.cuatro;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class ArrayListComparison {
-    public static boolean haveCommonElement(ArrayList<Integer> list1, ArrayList<Integer> list2) {
+public class Ejercicio4 {
+
+    public Ejercicio4() {}
+
+    public static boolean haveCommonElement(List<Integer> list1, List<Integer> list2) {
         for (Integer element : list1) {
             if (list2.contains(element)) {
                 return true;
@@ -15,10 +19,6 @@ public class ArrayListComparison {
     @Override
     public String toString() {
         return "ArrayListComparison{}";
-    }
-
-    public ArrayListComparison() {
-        super();
     }
 
     @Override

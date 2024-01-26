@@ -1,4 +1,4 @@
-package ies.puerto.ejercicicios.ejercicio.tres;
+package ies.puerto.ejercicicios.ejercicio.tres.seis;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +71,15 @@ public class Alumno {
             sum+= calcification;
         }
         return sum/calcification.size();
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", calcification=" + calcification +
+                '}';
     }
 
     @Override

@@ -1,12 +1,12 @@
-package ies.puerto.ejercicicios.ejercicio.tres;
+package ies.puerto.ejercicicios.ejercicio.tres.seis;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AppAula {
+public class AppCurso {
 
-    static Aula dam1;
+    static Curso dam1;
 
 
     public static void main(String[] args) {
@@ -18,8 +18,13 @@ public class AppAula {
         alumnoList.add(alumno2);
 
 
-        dam1 = new Aula("1DAM", alumnoList);
+        dam1 = new Curso("1DAM", alumnoList);
 
         System.out.println("Average calcification of 1DAM: " +dam1.averageClassCalcification());
+
+        System.out.println(dam1.toString());
+        alumnoList.remove(alumno);
+        System.out.println(dam1.toString());
+
     }
 }

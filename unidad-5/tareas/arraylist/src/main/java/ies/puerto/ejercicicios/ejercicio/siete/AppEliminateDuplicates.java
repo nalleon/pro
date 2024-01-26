@@ -1,14 +1,11 @@
-package ies.puerto.app;
-
-import ies.puerto.impl.ArrayListDuplicates;
+package ies.puerto.ejercicicios.ejercicio.siete;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class AppArrayListDuplicates {
-
-
+public class AppEliminateDuplicates {
     public static void main(String[] args) {
-        ArrayList <String> myDuplicatesList = new ArrayList<>();
+        List<String> myDuplicatesList = new ArrayList<>();
         myDuplicatesList.add("Apple");
         myDuplicatesList.add("Apple");
         myDuplicatesList.add("Avocado");
@@ -18,8 +15,8 @@ public class AppArrayListDuplicates {
 
         System.out.println("> Original: " + myDuplicatesList);
 
-        ArrayListDuplicates arrayListDuplicates = new ArrayListDuplicates(myDuplicatesList);
-        ArrayList <String> myUniqueList = arrayListDuplicates.removeDuplicates();
+        Ejercicio7 ejercicio7 = new Ejercicio7(myDuplicatesList);
+        List <String> myUniqueList = ejercicio7.removeDuplicates();
         System.out.println("> Updated: " + myUniqueList);
     }
 }

@@ -1,7 +1,7 @@
-package ies.puerto.app;
+package ies.puerto.ejercicicios.ejercicio.nueve;
 
-import ies.puerto.impl.Cliente;
-import ies.puerto.impl.RegistroClientes;
+import ies.puerto.ejercicicios.ejercicio.nueve.Cliente;
+import ies.puerto.ejercicicios.ejercicio.nueve.RegistroClientes;
 
 public class AppClientes {
 
