@@ -2,14 +2,19 @@ package ies.puerto.ejercicicios.ejercicio.dos.cinco.ocho;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Escribe un método en una clase llamada OperacionesArrayList que reciba un ArrayList de cadenas y
  * devuelva la cantidad de elementos que comienzan con la letra 'A'. a la lista.
+ *
+ * Escribe un método en la clase OperacionesArrayList que reciba un ArrayList de números y
+ * devuelva una nueva lista con solo los números pares.
+ *
+ * Escribe un método en la clase OperacionesArrayList que reciba un ArrayList de enteros y
+ * devuelva true si todos los elementos son mayores que 10. a la lista.
  */
-public class Ejercicio2 {
+public class OperacionesArrayList {
     static List<String> myStrList;
     public static void main(String[] args) {
         myStrList = new ArrayList<>();
@@ -39,14 +44,6 @@ public class Ejercicio2 {
             }
         }
         return counter;
-    }
-    /**
-     * Method that verifies if a str starts with A
-     * @param element to evalue
-     * @return true if element starts with A, false if not
-     */
-    public static boolean strStartsWithA (String element){
-        return element.charAt(0) == 'A';
     }
 
     /**
@@ -86,5 +83,10 @@ public class Ejercicio2 {
             }
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Ejercicio2{}";
     }
 }

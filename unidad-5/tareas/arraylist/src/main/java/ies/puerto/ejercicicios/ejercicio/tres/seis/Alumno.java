@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Implementa una clase Alumno con atributos como nombre, apellido y calificaciones (un ArrayList de float). Crea instancias de esta clase para representar a varios alumnos
+ * y calcula el promedio de calificaciones. a la lista.
+ */
 public class Alumno {
     private String name;
     private String surname;

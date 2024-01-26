@@ -13,10 +13,13 @@ public class AppCurso {
 
        Alumno alumno = new Alumno("Nabil", "León", Arrays.asList(7f,5.5f,8f,8f));
        Alumno alumno2 = new Alumno("Idaira", "Gonzalez", Arrays.asList(10f,5.5f,6f,4f));
+        Alumno alumno3 = new Alumno("Yguanira", "Gonzalez");
         List<Alumno> alumnoList = new ArrayList<>();
         alumnoList.add(alumno);
         alumnoList.add(alumno2);
+        alumnoList.add(alumno3);
 
+        alumno.setName("Yilmar");
 
         dam1 = new Curso("1DAM", alumnoList);
 

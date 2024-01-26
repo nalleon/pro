@@ -4,27 +4,48 @@ import java.util.Objects;
 
 public class Cliente {
     private String name;
-    private int num;
+    private String num;
     private float balance;
 
+    /**
+     * Default constructor of the class
+     */
     public Cliente() {
     }
 
+    /**
+     * Constructor of the class
+     * @param name of the customer
+     */
     public Cliente(String name) {
         this.name = name;
     }
 
-    public Cliente(String name, int num) {
+
+    /**
+     * Constructor of the class
+     * @param name of the customer
+     * @param num  of the customer
+     */
+    public Cliente(String name, String num) {
         this.name = name;
         this.num = num;
     }
-
-    public Cliente(String name, int num, float balance) {
+    /**
+     * Constructor of the class
+     * @param name of the customer
+     * @param num  of the customer
+     * @param balance of the costumer
+     */
+    public Cliente(String name, String num, float balance) {
         this.name = name;
         this.num = num;
         this.balance = balance;
     }
 
+    /**
+     * Getters and setters
+     */
     public String getName() {
         return name;
     }
@@ -33,11 +54,11 @@ public class Cliente {
         this.name = name;
     }
 
-    public int getNum() {
+    public String getNum() {
         return num;
     }
 
-    public void setNum(int num) {
+    public void setNum(String num) {
         this.num = num;
     }
 
@@ -49,6 +70,9 @@ public class Cliente {
         this.balance = balance;
     }
 
+    public  void  updateBalance(float amount){
+        this.balance += amount;
+    }
     @Override
     public String toString() {
         return "Cliente{" +
@@ -63,7 +87,7 @@ public class Cliente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
-        return num == cliente.num && Float.compare(balance, cliente.balance) == 0 && Objects.equals(name, cliente.name);
+        return Objects.equals(num, cliente.num);
     }
 
     @Override
