@@ -4,6 +4,7 @@ import ies.puerto.excepciones.ValidacionException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -118,6 +119,28 @@ public abstract class PersonaAbstrac {
      */
     public boolean validateAge(int age){
         return age >= 0;
+    }
+
+    @Override
+    public String toString() {
+        return "PersonaAbstrac{" +
+                "name='" + name + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", dni='" + dni + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonaAbstrac that = (PersonaAbstrac) o;
+        return Objects.equals(dni, that.dni);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dni);
     }
 }
 
