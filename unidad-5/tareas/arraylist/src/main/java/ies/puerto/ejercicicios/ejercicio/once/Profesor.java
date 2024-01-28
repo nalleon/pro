@@ -14,11 +14,11 @@ public class Profesor extends  Empleado {
      * @param birthDate of the professor
      * @param dni of the professor
      * @param workerName of the professor
-     * @param balance of the professor
+     * @param salary of the professor
      * @param speciality of the professor
      */
-    public Profesor(String name, String birthDate, String dni, String workerName, float balance, String speciality) {
-        super(name, birthDate, dni, workerName, balance);
+    public Profesor(String name, String birthDate, String dni, String workerName, float salary, String speciality) {
+        super(name, birthDate, dni, workerName, salary);
         this.speciality = speciality;
     }
 
@@ -33,4 +33,14 @@ public class Profesor extends  Empleado {
         this.speciality = speciality;
     }
 
+    @Override
+    public String toString() {
+        return "Profesor{" +  "name='" + super.getName() + '\'' +
+                ", birthDate='" + super.getBirthDate() + '\'' +
+                ", dni='" + super.getBirthDate() + '\'' +
+                "speciality='" + speciality + '\'' +
+                "jobName='" + super.getJobName() + '\'' +
+                ", salary=" + super.getSalary() +
+                '}';
+    }
 }

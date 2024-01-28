@@ -42,23 +42,32 @@ public class Alumno extends PersonaAbstrac {
      * Method that calculates the average grades for each student
      * @return float average grade
      */
-    public List <Float> averageGradesPerStudent (){
-        List <Float> result = new ArrayList<>();
-        if (studentsGrades.isEmpty()){
+    public List<Float> averageGradesPerStudent() {
+        List<Float> result = new ArrayList<>();
+        if (studentsGrades.isEmpty()) {
             return result;
         }
+
         float sum = 0f;
-        for (float grades : studentsGrades){
-            sum+= grades;
-            float average = sum/studentsGrades.size();
+        for (float grades : studentsGrades) {
+            sum += grades;
+        }
+
+        float average = sum / studentsGrades.size();
+
+        for (int i = 0; i < studentsGrades.size(); i++) {
             result.add(average);
         }
+
         return result;
     }
 
+
     @Override
     public String toString() {
-        return "Alumno{" +
+        return "Alumno{" +  "name='" + super.getName() + '\'' +
+                ", birthDate='" + super.getBirthDate() + '\'' +
+                ", dni='" + super.getDni() + '\'' +
                 "studentsGrades=" + studentsGrades +
                 '}';
     }

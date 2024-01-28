@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public abstract class Trabajador extends PersonaAbstrac {
 
-    private String workerName;
-    private float balance;
+    private String jobName;
+    private float salary;
 
     /**
      * Default constructor of the class
@@ -14,53 +14,53 @@ public abstract class Trabajador extends PersonaAbstrac {
 
     /**
      * Constructor of the class
-     * @param workerName of the worker
+     * @param jobName of the worker
      * @param balance of the worker
      */
-    public Trabajador(String workerName, float balance) {
-        this.workerName = workerName;
-        this.balance = balance;
+    public Trabajador(String jobName, float balance) {
+        this.jobName = jobName;
+        this.salary = balance;
     }
 
     /**
      * Constructor of the class
-     * @param workerName of the worker
+     * @param jobName of the worker
      * @param balance of the worker
      * @param name of the worker
      * @param birthDate of the worker
      * @param dni of the worker
      */
-    public Trabajador(String name, String birthDate, String dni, String workerName, float balance) {
+    public Trabajador(String name, String birthDate, String dni, String jobName, float balance) {
         super(name, birthDate, dni);
-        this.workerName = workerName;
-        this.balance = balance;
+        this.jobName = jobName;
+        this.salary = balance;
     }
 
     /**
      * Getters and setters
      */
 
-    public String getWorkerName() {
-        return workerName;
+    public String getJobName() {
+        return jobName;
     }
 
-    public void setWorkerName(String workerName) {
-        this.workerName = workerName;
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
     }
 
-    public float getBalance() {
-        return balance;
+    public float getSalary() {
+        return salary;
     }
 
-    public void setBalance(float balance) {
-        this.balance = balance;
+    public void setSalary(float salary) {
+        this.salary = salary;
     }
 
     @Override
     public String toString() {
         return "Trabajador{" +
-                "workerName='" + workerName + '\'' +
-                ", balance=" + balance +
+                "jobName='" + jobName + '\'' +
+                ", salary=" + salary +
                 '}';
     }
 
@@ -70,11 +70,11 @@ public abstract class Trabajador extends PersonaAbstrac {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Trabajador that = (Trabajador) o;
-        return Float.compare(balance, that.balance) == 0 && Objects.equals(workerName, that.workerName);
+        return Float.compare(salary, that.salary) == 0 && Objects.equals(jobName, that.jobName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), workerName, balance);
+        return Objects.hash(super.hashCode(), jobName, salary);
     }
 }

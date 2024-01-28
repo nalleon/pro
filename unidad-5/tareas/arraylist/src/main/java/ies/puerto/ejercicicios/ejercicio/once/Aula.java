@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Aula {
     private String className;
-    private List <Profesor> professorList;
+    private Profesor professor;
 
     private List <Alumno> studentList;
 
@@ -19,9 +19,9 @@ public class Aula {
      * Constructor of the class
      * @param className of the class
      */
-    public Aula(String className, List<Profesor> professorList, List<Alumno> studentList) {
+    public Aula(String className, Profesor professor, List<Alumno> studentList) {
         this.className = className;
-        this.professorList = professorList;
+        this.professor = professor;
         this.studentList = studentList;
     }
 
@@ -36,12 +36,12 @@ public class Aula {
         this.className = className;
     }
 
-    public List<Profesor> getProfessorList() {
-        return professorList;
+    public Profesor getProfessor() {
+        return professor;
     }
 
-    public void setProfessorList(List<Profesor> professorList) {
-        this.professorList = professorList;
+    public void setProfessor(Profesor professor) {
+        this.professor = professor;
     }
 
     public List<Alumno> getStudentList() {
@@ -56,7 +56,7 @@ public class Aula {
     public String toString() {
         return "Aula{" +
                 "className='" + className + '\'' +
-                ", professorList=" + professorList +
+                ", professorList=" + professor +
                 ", studentList=" + studentList +
                 '}';
     }
@@ -74,23 +74,21 @@ public class Aula {
         return Objects.hash(className);
     }
 
-    public float averageGradesClass (){
+    public float averageGradesClass() {
         float result = 0f;
-
         if (studentList == null || studentList.isEmpty()) {
             return result;
         }
 
         for (Alumno student : studentList) {
             List<Float> studentAverages = student.averageGradesPerStudent();
-
-            if (!studentAverages.isEmpty()) {
+             if (!studentAverages.isEmpty()) {
                 result += studentAverages.get(0);
-            }
+             }
         }
-
         return result / studentList.size();
     }
+
 }
 
 
