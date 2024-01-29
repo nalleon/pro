@@ -1,4 +1,4 @@
-package ies.puerto.ejercicicios.ejercicio.once;
+package ies.puerto.ejercicicios.ejercicio.once.abstracts;
 
 public abstract class Empleado extends  Trabajador {
     /**

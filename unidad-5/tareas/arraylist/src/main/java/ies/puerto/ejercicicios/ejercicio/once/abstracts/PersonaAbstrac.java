@@ -1,4 +1,4 @@
-package ies.puerto.ejercicicios.ejercicio.once;
+package ies.puerto.ejercicicios.ejercicio.once.abstracts;
 import ies.puerto.excepciones.ValidacionException;
 
 import java.text.ParseException;

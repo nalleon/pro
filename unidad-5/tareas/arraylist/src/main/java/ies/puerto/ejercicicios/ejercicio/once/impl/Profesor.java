@@ -1,6 +1,8 @@
-package ies.puerto.ejercicicios.ejercicio.once;
+package ies.puerto.ejercicicios.ejercicio.once.impl;
 
-public class Profesor extends  Empleado {
+import ies.puerto.ejercicicios.ejercicio.once.abstracts.Empleado;
+
+public class Profesor extends Empleado {
     private String speciality;
 
     /**
@@ -37,7 +39,7 @@ public class Profesor extends  Empleado {
     public String toString() {
         return "Profesor{" +  "name='" + super.getName() + '\'' +
                 ", birthDate='" + super.getBirthDate() + '\'' +
-                ", dni='" + super.getBirthDate() + '\'' +
+                ", dni='" + super.getDni() + '\'' +
                 "speciality='" + speciality + '\'' +
                 "jobName='" + super.getJobName() + '\'' +
                 ", salary=" + super.getSalary() +
