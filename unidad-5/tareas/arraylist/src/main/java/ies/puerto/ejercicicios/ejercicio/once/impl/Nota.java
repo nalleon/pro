@@ -1,4 +1,4 @@
-package ies.puerto.ejercicicios.ejercicio.once;
+package ies.puerto.ejercicicios.ejercicio.once.impl;
 
 import java.util.Objects;
 
@@ -62,11 +62,11 @@ public class Nota {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Nota nota = (Nota) o;
-        return Float.compare(value, nota.value) == 0 && Objects.equals(subjectName, nota.subjectName);
+        return Objects.equals(subjectName, nota.subjectName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(subjectName, value);
+        return Objects.hash(subjectName);
     }
 }

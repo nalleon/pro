@@ -1,9 +1,8 @@
-package ies.puerto.ejercicicios.ejercicio.once;
+package ies.puerto.ejercicicios.ejercicio.once.abstracts;
 
 import java.util.Objects;
 
 public abstract class Trabajador extends PersonaAbstrac {
-
     private String jobName;
     private float salary;
 

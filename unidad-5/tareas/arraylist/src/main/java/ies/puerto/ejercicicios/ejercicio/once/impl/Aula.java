@@ -1,4 +1,4 @@
-package ies.puerto.ejercicicios.ejercicio.once;
+package ies.puerto.ejercicicios.ejercicio.once.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -14,6 +14,7 @@ public class Aula {
      * Default constructor of the class
      */
     public Aula() {
+        this.studentList = new ArrayList<>();
     }
     /**
      * Constructor of the class
@@ -56,7 +57,7 @@ public class Aula {
     public String toString() {
         return "Aula{" +
                 "className='" + className + '\'' +
-                ", professorList=" + professor +
+                ", professor   =" + professor +
                 ", studentList=" + studentList +
                 '}';
     }
@@ -76,7 +77,7 @@ public class Aula {
 
     public float averageGradesClass() {
         float result = 0f;
-        if (studentList == null || studentList.isEmpty()) {
+        if (studentList.isEmpty()) {
             return result;
         }
 

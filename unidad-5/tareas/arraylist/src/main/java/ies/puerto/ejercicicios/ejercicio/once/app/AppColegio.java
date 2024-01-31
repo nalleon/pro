@@ -1,4 +1,9 @@
-package ies.puerto.ejercicicios.ejercicio.once;
+package ies.puerto.ejercicicios.ejercicio.once.app;
+
+import ies.puerto.ejercicicios.ejercicio.once.impl.Alumno;
+import ies.puerto.ejercicicios.ejercicio.once.impl.Aula;
+import ies.puerto.ejercicicios.ejercicio.once.impl.Colegio;
+import ies.puerto.ejercicicios.ejercicio.once.impl.Profesor;
 
 import java.text.ParseException;
 import java.util.ArrayList;

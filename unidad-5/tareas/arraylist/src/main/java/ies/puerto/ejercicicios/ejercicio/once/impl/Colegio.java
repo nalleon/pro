@@ -1,4 +1,4 @@
-package ies.puerto.ejercicicios.ejercicio.once;
+package ies.puerto.ejercicicios.ejercicio.once.impl;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -14,7 +14,9 @@ public class Colegio {
     /**
      * Default constructor of the class
      */
-    public Colegio() {}
+    public Colegio() {
+        this.classList = new ArrayList<>();
+    }
 
     /**
      * Constructor of the class
@@ -90,7 +92,7 @@ public class Colegio {
 
     public float averageGradesSchool (List <Aula> classList){
         float result = 0f;
-        if (classList == null){
+        if (classList.isEmpty()){
             return result;
         }
 
@@ -237,7 +239,7 @@ public class Colegio {
 
         for (Aula aula : classList) {
             List<Alumno> students = aula.getStudentList();
-            if (students != null && !students.isEmpty()) {
+            if (!students.isEmpty()) {
                 for (Alumno student : students) {
                     if (student.getDni().equals(dni)) {
                         return student.toString();
