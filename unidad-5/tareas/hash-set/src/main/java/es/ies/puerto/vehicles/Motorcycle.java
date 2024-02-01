@@ -1,10 +1,8 @@
-package es.ies.puerto.vehiculos;
+package es.ies.puerto.vehicles;
 
 import es.ies.puerto.abstracts.Vehicle;
 
 public class Motorcycle extends Vehicle {
-
-    private final int maxSpeed = 120;
 
     /**
      * Default constructor of the class
@@ -24,6 +22,6 @@ public class Motorcycle extends Vehicle {
 
     @Override
     public int maxSpeed() {
-        return maxSpeed;
+        return 120;
     }
 }

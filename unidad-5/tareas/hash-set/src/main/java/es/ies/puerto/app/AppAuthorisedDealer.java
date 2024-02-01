@@ -1,10 +1,8 @@
 package es.ies.puerto.app;
 
-import es.ies.puerto.vehiculos.AuthorisedDealer;
-import es.ies.puerto.vehiculos.Car;
-import es.ies.puerto.vehiculos.Motorcycle;
-
-import java.util.HashSet;
+import es.ies.puerto.vehicles.AuthorisedDealer;
+import es.ies.puerto.vehicles.Car;
+import es.ies.puerto.vehicles.Motorcycle;
 
 public class AppAuthorisedDealer {
 
@@ -29,6 +27,10 @@ public class AppAuthorisedDealer {
         System.out.println("> Adding cars: \ncar1: " + authorisedDealer.addCar(car1) + "\ncar2: " +authorisedDealer.
                 addCar(car2)  + "\ncar3: " + authorisedDealer.addCar(car3)  + "\ncar4: " + authorisedDealer.
                 addCar(car4)  + "\ncar5: " +authorisedDealer.addCar(car5));
+
+        System.out.println("> Adding the same cars again: \ncar1: " + authorisedDealer.addCar(car1) + "\ncar2: "
+                +authorisedDealer.addCar(car2)  + "\ncar3: " + authorisedDealer.addCar(car3)  + "\ncar4: "
+                + authorisedDealer.addCar(car4)  + "\ncar5: " +authorisedDealer.addCar(car5));
 
         System.out.println("> Removing car3: " + authorisedDealer.removeCar(car3));
 
@@ -55,6 +57,12 @@ public class AppAuthorisedDealer {
                 "\nmotorcycle2: " +authorisedDealer.addMotorcycle(motorcycle2)  + "\nmotorcycle3: " + authorisedDealer.
                 addMotorcycle(motorcycle3)  + "\nmotorcycle4: " + authorisedDealer.addMotorcycle(motorcycle4)
                 + "\nmotorcycle5: " +authorisedDealer.addMotorcycle(motorcycle5));
+
+        System.out.println("> Adding the same motorcycles again: \nmotorcycle1: "  +
+                authorisedDealer.addMotorcycle(motorcycle1) + "\nmotorcycle2: " +authorisedDealer.addMotorcycle
+                (motorcycle2)  + "\nmotorcycle3: " + authorisedDealer.addMotorcycle(motorcycle3)  + "\nmotorcycle4: "
+                + authorisedDealer.addMotorcycle(motorcycle4) + "\nmotorcycle5: " +
+                authorisedDealer.addMotorcycle(motorcycle5));;
 
         System.out.println("> Removing motorcycle3: " + authorisedDealer.removeMotorcycle(motorcycle3));
 

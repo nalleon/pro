@@ -1,9 +1,8 @@
-package es.ies.puerto.vehiculos;
+package es.ies.puerto.vehicles;
 
 import es.ies.puerto.abstracts.Vehicle;
 
 public class Car extends Vehicle {
-    private final int maxSpeed = 180;
 
     /**
      * Default constructor of the class
@@ -23,13 +22,7 @@ public class Car extends Vehicle {
 
     @Override
     public int maxSpeed() {
-        return maxSpeed;
+        return 180;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "maxSpeed=" + maxSpeed +
-                '}';
-    }
 }
