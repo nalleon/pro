@@ -1,8 +1,8 @@
 package es.ies.puerto.app;
 
-import es.ies.puerto.vehicles.AuthorisedDealer;
-import es.ies.puerto.vehicles.Car;
-import es.ies.puerto.vehicles.Motorcycle;
+import es.ies.puerto.vehicles.*;
+
+import java.util.Scanner;
 
 public class AppAuthorisedDealer {
 
@@ -11,6 +11,8 @@ public class AppAuthorisedDealer {
     public static void main(String[] args) {
         AuthorisedDealerCarTest();
         AuthorisedDealerMotorCycleTest();
+        AuthorisedDealerBikeTest();
+        AuthorisedDealerTruckTest();
         System.out.println("> AVG vehicles speed: " +authorisedDealer.averageVehiclesSpeed() + "km/h");
     }
 
@@ -75,6 +77,58 @@ public class AppAuthorisedDealer {
         System.out.println("> Searching for a motorcycle with license plate 'ZAB564': " +
                 authorisedDealer.searchMotorcycle("ZAB564"));
     }
+    public static void AuthorisedDealerBikeTest() {
+        Bike bike1 = new Bike("Trek","MountainBike","PQR456",30);
+        Bike bike2 = new Bike("Giant","Giant","MNO789",25);
+        Bike bike3 = new Bike("Specialized","RoadBike","JKL012",28);
+        Bike bike4 = new Bike("Cannondale","HybridBike","DEF345",26);
+        Bike bike5 = new Bike("Schwinn","Cruiser","MNO678",22);
+
+        System.out.println("> Adding bikes: \nbike1: " + authorisedDealer.addBike(bike1) +
+                "\nbike2: " +authorisedDealer.addBike(bike2) + "\nbike3: " + authorisedDealer.addBike(bike3) +
+                "\nbike4: " + authorisedDealer.addBike(bike4) + "\nbike5: " +authorisedDealer.addBike(bike5));
+
+        System.out.println("> Adding the same bikes again: \nbike1: " + authorisedDealer.addBike(bike1) +
+                "\nbike2: " +authorisedDealer.addBike(bike2) + "\nbike3: " + authorisedDealer.addBike(bike3) +
+                "\nbike4: " + authorisedDealer.addBike(bike4) + "\nbike5: " +authorisedDealer.addBike(bike5));
+
+        System.out.println("> Removing motorcycle3: " + authorisedDealer.removeBike(bike3));
+
+        System.out.println("> Adding again motorcycle3: " + authorisedDealer.addBike(bike3));
+
+        System.out.println("> AVG bikes speed: " + authorisedDealer.averageBikeSpeed() + "km/h");
+
+        System.out.println("> Searching for a bike with license plate 'DEF345': " +
+                authorisedDealer.searchBike("DEF345"));
+        System.out.println("> Searching for a motorcycle with license plate 'PQR453': " +
+                authorisedDealer.searchBike("PQR453"));
+    }
+
+    public static void AuthorisedDealerTruckTest() {
+        Truck truck1 = new Truck("Chevrolet","Silverado","UVW567",150);
+        Truck truck2 = new Truck("Ford","Ranger","LMN890",130);
+        Truck truck3 = new Truck("Toyota","Hilux","PQR123",140);
+        Truck truck4 = new Truck("Nissan","Navara","ABC456",145);
+        Truck truck5 = new Truck("Dodge","Ram","XYZ789",160);
 
 
+        System.out.println("> Adding bikes: \ntruck1: " + authorisedDealer.addTruck(truck1) + "\ntruck2: " +
+                authorisedDealer.addTruck(truck2) + "\ntruck3: " + authorisedDealer.addTruck(truck3) +
+                "\ntruck4: " + authorisedDealer.addTruck(truck4) + "\ntruck5: " + authorisedDealer.addTruck(truck5));
+
+        System.out.println("> Adding the same trucks again:  \ntruck1: " + authorisedDealer.addTruck(truck1) +
+                "\ntruck2: " + authorisedDealer.addTruck(truck2) + "\ntruck3: " + authorisedDealer.addTruck(truck3) +
+                "\ntruck4: " + authorisedDealer.addTruck(truck4) + "\ntruck5: " + authorisedDealer.addTruck(truck5));
+
+        System.out.println("> Removing motorcycle3: " + authorisedDealer.removeTruck(truck3));
+
+        System.out.println("> Adding again motorcycle3: " + authorisedDealer.removeTruck(truck3));
+
+        System.out.println("> AVG bikes speed: " + authorisedDealer.averageTruckSpeed() + "km/h");
+
+        System.out.println("> Searching for a bike with license plate 'LMN890': " +
+                authorisedDealer.searchTruck("LMN890"));
+        System.out.println("> Searching for a motorcycle with license plate 'ABC452': " +
+                authorisedDealer.searchTruck("ABC452"));
+    }
 }

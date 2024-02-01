@@ -24,4 +24,13 @@ public class Motorcycle extends Vehicle {
     public int maxSpeed() {
         return 120;
     }
+    @Override
+    public String toString() {
+        return "Motorcycle{" +
+                "brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", licensePlate='" + getLicensePlate() + '\'' +
+                ", speed=" + getSpeed() +
+                '}';
+    }
 }

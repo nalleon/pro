@@ -151,7 +151,7 @@ public class AuthorisedDealer {
     }
 
     /**
-     * Method to remove a car of the list
+     * Method to remove a bike of the list
      * @param bike to remove
      * @return if true bike is removed from the list, if not false
      */
@@ -163,13 +163,14 @@ public class AuthorisedDealer {
         return false;
     }
     /**
-     * Method to search for a car
-     * @param licensePlate of the cat
-     * @return car if the licensePlate equals another, null if not
+     * Method to search for a bike
+     * @param licensePlate of the bike
+     * @return bike if the licensePlate equals another, null if not
      */
     public Bike searchBike (String licensePlate){
+        Bike bike = bikeHashMap.get(licensePlate);
             if (bikeHashMap.containsKey(licensePlate)){
-                return bikeHashMap.get();
+                return bike;
         }
         return null;
     }
@@ -179,20 +180,86 @@ public class AuthorisedDealer {
      */
     public float averageBikeSpeed (){
         float result = 0f;
-        if (carHash.isEmpty()){
+        if (bikeHashMap.isEmpty()){
             return result;
         }
-        for (Car car : carHash){
-            result += car.getSpeed();
+
+        for (Bike bike : bikeHashMap.values()){
+            result += bike.getSpeed();
         }
-        return result/carHash.size();
+        return result/bikeHashMap.size();
+    }
+
+    /**
+     * Method to add a truck to the map
+     * @param truck to add
+     * @return if true truck has been added, if not false
+     */
+    public boolean addTruck (Truck truck){
+        if (!existTruckHashMap(truck)){
+            truckHashMap.put(truck.getLicensePlate(), truck);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Auxiliar method to "addTruck" and "removeTruck"
+     * @param truck to check if exists
+     * @return false if truckHashMap is empty, true if truckHashMap has the licensePlate
+     */
+    public boolean existTruckHashMap (Truck truck){
+        if (truckHashMap.isEmpty()){
+            return false;
+        }
+        return truckHashMap.containsKey(truck.getLicensePlate());
+    }
+
+    /**
+     * Method to remove a truck of the list
+     * @param truck to remove
+     * @return if true truck is removed from the list, if not false
+     */
+    public boolean removeTruck (Truck truck){
+        if (existTruckHashMap(truck)){
+            truckHashMap.remove(truck.getLicensePlate(), truck);
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Method to search for a truck
+     * @param licensePlate of the cat
+     * @return truck if the licensePlate equals another, null if not
+     */
+    public Truck searchTruck(String licensePlate){
+        Truck truck = truckHashMap.get(licensePlate);
+        if (truckHashMap.containsKey(licensePlate)){
+            return truck;
+        }
+        return null;
+    }
+
+    /**
+     * Method to calculate the average speed of a bike
+     */
+    public float averageTruckSpeed (){
+        float result = 0f;
+        if (truckHashMap.isEmpty()){
+            return result;
+        }
+
+        for (Truck truck : truckHashMap.values()){
+            result += truck.getSpeed();
+        }
+        return result/truckHashMap.size();
     }
 
     /**
      * Method to calculate the average speed of the vehicles
      */
     public float averageVehiclesSpeed (){
-        float speedSum = averageCarSpeed() + averageMotorcycleSpeed();
-        return speedSum/2;
+        float speedSum = averageCarSpeed() + averageMotorcycleSpeed() + averageBikeSpeed() + averageTruckSpeed();
+        return speedSum/4;
     }
 }

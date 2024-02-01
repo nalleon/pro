@@ -23,4 +23,14 @@ public class Truck extends Vehicle {
     public int maxSpeed() {
         return 160;
     }
+
+    @Override
+    public String toString() {
+        return "Truck{" +
+                "brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", licensePlate='" + getLicensePlate() + '\'' +
+                ", speed=" + getSpeed() +
+                '}';
+    }
 }

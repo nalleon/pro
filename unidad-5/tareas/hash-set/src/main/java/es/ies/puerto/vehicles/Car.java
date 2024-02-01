@@ -24,5 +24,13 @@ public class Car extends Vehicle {
     public int maxSpeed() {
         return 180;
     }
-
+    @Override
+    public String toString() {
+        return "Car{" +
+                "brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", licensePlate='" + getLicensePlate() + '\'' +
+                ", speed=" + getSpeed() +
+                '}';
+    }
 }
