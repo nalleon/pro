@@ -262,4 +262,49 @@ public class AuthorisedDealer {
         float speedSum = averageCarSpeed() + averageMotorcycleSpeed() + averageBikeSpeed() + averageTruckSpeed();
         return speedSum/4;
     }
+
+    /**
+     * Getters and setters
+     */
+    public List<Motorcycle> getMotorcycleList() {
+        return motorcycleList;
+    }
+
+    public void setMotorcycleList(List<Motorcycle> motorcycleList) {
+        this.motorcycleList = motorcycleList;
+    }
+
+    public HashSet<Car> getCarHash() {
+        return carHash;
+    }
+
+    public void setCarHash(HashSet<Car> carHash) {
+        this.carHash = carHash;
+    }
+
+    public HashMap<String, Bike> getBikeHashMap() {
+        return bikeHashMap;
+    }
+
+    public void setBikeHashMap(HashMap<String, Bike> bikeHashMap) {
+        this.bikeHashMap = bikeHashMap;
+    }
+
+    public HashMap<String, Truck> getTruckHashMap() {
+        return truckHashMap;
+    }
+
+    public void setTruckHashMap(HashMap<String, Truck> truckHashMap) {
+        this.truckHashMap = truckHashMap;
+    }
+
+    @Override
+    public String toString() {
+        return "AuthorisedDealer{" +
+                "motorcycleList=" + motorcycleList +
+                ", carHash=" + carHash +
+                ", bikeHashMap=" + bikeHashMap +
+                ", truckHashMap=" + truckHashMap +
+                '}';
+    }
 }

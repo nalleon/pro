@@ -19,6 +19,10 @@ public class Truck extends Vehicle {
         super(brand, model, licensePlate, speed);
     }
 
+    public Truck(String licensePlate) {
+        licensePlate = super.getLicensePlate();
+    }
+
     @Override
     public int maxSpeed() {
         return 160;

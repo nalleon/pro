@@ -20,6 +20,9 @@ public class Car extends Vehicle {
         super(brand, model, licensePlate, speed);
     }
 
+    public Car(String licensePlate) {
+    }
+
     @Override
     public int maxSpeed() {
         return 180;

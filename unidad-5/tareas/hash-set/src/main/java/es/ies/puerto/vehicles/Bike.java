@@ -19,6 +19,9 @@ public class Bike extends Vehicle {
         super(brand, model, licensePlate, speed);
     }
 
+    public Bike(String licensePlate) {
+    }
+
     @Override
     public int maxSpeed() {
         return 40;
