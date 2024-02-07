@@ -1,5 +1,6 @@
 package es.ies.puerto.impl;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -105,5 +106,40 @@ public class School {
         result += result/ classroomList.size();
 
         return result;
+    }
+
+    public int averageAgeTeacher () throws ParseException {
+        int result = 0;
+        if (classroomList.isEmpty()){
+            return result;
+        }
+
+        List <Teacher> classroomTeachers = new ArrayList<>();
+
+        for (Classroom classroom : classroomList){
+            Teacher teacher = classroom.getTeacher();
+            classroomTeachers.add(teacher);
+            } for (Teacher teacher : classroomTeachers){
+                 result += teacher.years(teacher.getBirthDate());
+        }
+        return result / classroomList.size();
+    }
+
+    public float averageAgeSalary () throws ParseException {
+        float result = 0;
+        if (classroomList.isEmpty()){
+            return result;
+        }
+
+        List<Teacher> teachers = new ArrayList<>();
+
+        for (Classroom classroom : classroomList){
+            Teacher teacher = classroom.getTeacher();
+            teachers.add(teacher);
+
+        } for (Teacher teacher : teachers){
+            result += teacher.getSalary();
+        }
+        return result / classroomList.size();
     }
 }

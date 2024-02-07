@@ -1,5 +1,6 @@
 package es.ies.puerto.impl;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -105,5 +106,13 @@ public class Classroom {
         result += result/ studentList.size();
 
         return result;
+    }
+
+    public int averageAgeStudent () throws ParseException {
+        int resultStudent = 0;
+        for (Student student : studentList){
+            resultStudent += student.years(student.getBirthDate());
+        }
+        return resultStudent / studentList.size();
     }
 }

@@ -2,6 +2,10 @@ package es.ies.puerto.impl;
 
 import es.ies.puerto.abstracts.Employee;
 
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Teacher extends Employee {
     private String specialty;
 
@@ -56,4 +60,6 @@ public class Teacher extends Employee {
 
         return result;
     }
+
+
 }
