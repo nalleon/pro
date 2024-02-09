@@ -19,23 +19,6 @@ public class AppStoreTest {
     }
 
     public static void gettersSettersTest (){
-        System.out.println(supermarket.getFoodHashSet()+"\n");
-        System.out.println(supermarket.getElectronicList()+"\n");
-        System.out.println(supermarket.getSouvenirHashMap()+"\n");
-
-        Food1.setName("Test");
-        Food1.setPrice(3.5f);
-        Food1.setDateOfEntrance("2024-08-23");
-        Food1.setUdi("udi10");
-        Electronic1.setName("Test");
-        Electronic1.setPrice(3.5f);
-        Electronic1.setDateOfEntrance("2024-08-23");
-        Electronic1.setUdi("udi10");
-        souvenir1.setName("Test");
-        souvenir1.setPrice(3.5f);
-        souvenir1.setDateOfEntrance("2024-08-23");
-        souvenir1.setUdi("udi10");
-
         supermarket.setFoodHashSet(new HashSet<>(Arrays.asList(Food4, Food5, Food6)));
         supermarket.setElectronicList( new ArrayList<>(Arrays.asList(Electronic4, Electronic5, Electronic6)));
         supermarket.setSouvenirHashMap(new HashMap<String, Souvenir>() {{
@@ -43,7 +26,6 @@ public class AppStoreTest {
             put(souvenir5.getUdi(), souvenir5);
             put(souvenir6.getUdi(), souvenir6);
         }});
-        System.out.println();
 
         System.out.println(supermarket.getFoodHashSet()+"\n");
         System.out.println(supermarket.getElectronicList()+"\n");
@@ -51,28 +33,28 @@ public class AppStoreTest {
     }
 
     public static void  addTest (){
-        System.out.println(supermarket.addFood(Food1));
-        System.out.println(supermarket.addElectronic(Electronic1));
-        System.out.println(supermarket.addSouvenir(souvenir1));
+        System.out.println(supermarket.addFood(Food1)+"\n");
+        System.out.println(supermarket.addElectronic(Electronic1)+"\n");
+        System.out.println(supermarket.addSouvenir(souvenir1)+"\n");
     }
 
     public static void removeTest(){
-        System.out.println(supermarket.removeFood(Food1));
-        System.out.println(supermarket.removeElectronic(Electronic1));
-        System.out.println(supermarket.removeSouvenir(souvenir1));
+        System.out.println(supermarket.removeFood(Food1)+"\n");
+        System.out.println(supermarket.removeElectronic(Electronic1)+"\n");
+        System.out.println(supermarket.removeSouvenir(souvenir1)+"\n");
     }
 
     public static void searchTest(){
-        System.out.println(supermarket.searchFood(Food2.getUdi()));
-        System.out.println(supermarket.searchElectronic(Electronic2.getUdi()));
-        System.out.println(supermarket.searchSouvenir(souvenir2.getUdi()));
+        System.out.println(supermarket.searchFood(Food2.getUdi())+"\n");
+        System.out.println(supermarket.searchElectronic(Electronic2.getUdi())+"\n");
+        System.out.println(supermarket.searchSouvenir(souvenir2.getUdi())+"\n");
     }
 
     public static void priceTest(){
-        System.out.println(supermarket.foodPrice());
-        System.out.println(supermarket.electronicsPrice());
-        System.out.println(supermarket.souvenirsPrice());
-        System.out.println(supermarket.productsPrice());
+        System.out.println(supermarket.foodPrice()+"\n");
+        System.out.println(supermarket.electronicsPrice()+"\n");
+        System.out.println(supermarket.souvenirsPrice()+"\n");
+        System.out.println(supermarket.productsPrice()+"\n");
     }
     static Food Food1 = new Food("Food1",2.50f,"2024-01-01","udi1");
     static Food Food2 = new Food("Food2",3.50f,"2024-01-02","udi2");
@@ -107,5 +89,4 @@ public class AppStoreTest {
                 put(souvenir3.getUdi(), souvenir3);
             }}
     );
-
 }
