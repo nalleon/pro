@@ -8,10 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Food extends ProductAbstrac {
-    public static void main(String[] args) {
-        Food Food1 = new Food("Food1",2.50f,"2024-01-01","udi1");
-
-    }
     public Food(String name, float price, String dateOfEntrance, String udi) {
         super(name, price, dateOfEntrance, udi);
     }
