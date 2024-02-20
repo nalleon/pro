@@ -43,4 +43,8 @@ public abstract class ArticuloAbstracts {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    public String toCSV(){
+        return name + id + dEntrance + price + dExpiration;
+    }
 }

@@ -197,7 +197,6 @@ public class SuperMarket {
      */
     public Souvenir obtainSouvenir (String udi){
         Souvenir souvenir = new Souvenir(udi);
-
         if (souvenirHashMap.isEmpty()){
             return null;
         }
@@ -212,7 +211,6 @@ public class SuperMarket {
 
         return null;
     }
-
     /**
      * Method to obtain a list of passed aliments
      * @return a hashset with only passed products

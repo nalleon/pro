@@ -107,7 +107,8 @@ public class Store {
 
     public static void menu () throws ParseException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("*************************\n" +
+        System.out.println(
+                "*************************\n" +
                 "* Welcome. What would you do?\n" +
                 "* 1. Add a product\n" +
                 "* 2. Show a product\n" +
@@ -134,7 +135,8 @@ public class Store {
 
     public static void addProductMenu () {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("*************************\n" +
+        System.out.println(
+                "*************************\n" +
                 "* Which type would you add?\n" +
                 "* 1. Aliment\n" +
                 "* 2. Electronic\n" +
@@ -172,7 +174,8 @@ public class Store {
 
     public static void showProductMenu () throws ParseException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("*************************\n" +
+        System.out.println(
+                "*************************\n" +
                 "* Which type would you show?\n" +
                 "* 1. Aliment\n" +
                 "* 2. Electronic\n" +
@@ -205,7 +208,8 @@ public class Store {
     }
     public static void removeProductMenu (){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("*************************\n" +
+        System.out.println(
+                "*************************\n" +
                 "* Which type would you remove?\n" +
                 "* 1. Aliment\n" +
                 "* 2. Electronic\n" +
@@ -244,7 +248,8 @@ public class Store {
 
     public static void modifyProductMenu (){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("*************************\n" +
+        System.out.println(
+                "*************************\n" +
                 "* Which type would you modify?\n" +
                 "* 1. Aliment\n" +
                 "* 2. Electronic\n" +
@@ -283,7 +288,6 @@ public class Store {
             default:
                 System.out.println("Type a valid option (1,2,3)");
         }
-
     }
 }
 

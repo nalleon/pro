@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AppBiblioteca {
     public static void main(String[] args) {
-        List<ArticuloAbstracts> alimentos = read("src/main/resources/alimentos.csv");
+        List<ArticuloAbstracts> alimentos = read("src/main/resources/alimentos.csv", "alimento");
         System.out.println(alimentos);
         List<ArticuloAbstracts> aparatos = readAparato("src/main/resources/aparatos.csv");
         System.out.println(aparatos);
