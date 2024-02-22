@@ -1,9 +1,8 @@
-package es.ies.puerto.presentacion.app;
-
-import es.ies.puerto.impl.*;
-import es.ies.puerto.modelo.impl.*;
-import es.ies.puerto.negocio.Tienda;
-
+import es.ies.puerto.modelo.impl.Alimento;
+import es.ies.puerto.modelo.impl.Aparato;
+import es.ies.puerto.modelo.impl.CuidadoPersonal;
+import es.ies.puerto.modelo.impl.Souvenir;
+import es.ies.puerto.negocio.TiendaNegocio;
 import java.text.ParseException;
 import java.util.*;
 
@@ -19,58 +18,59 @@ public class AppTiendaTest {
     }
 
     public static void setGetTest(){
-        tienda.setAlimentoHashSet(new HashSet<>(Arrays.asList(alimento1, alimento2, alimento3)));
-        tienda.setAparatoList(new ArrayList<>(Arrays.asList(aparato1,aparato2,aparato3)));
-        tienda.setCuidadoPersonalList(new ArrayList<>(Arrays.asList(cuidadoPersonal1, cuidadoPersonal2
+        tiendaNegocio.setAlimentoHashSet(new HashSet<>(Arrays.asList(alimento1, alimento2, alimento3)));
+        tiendaNegocio.setAparatoList(new ArrayList<>(Arrays.asList(aparato1,aparato2,aparato3)));
+        tiendaNegocio.setCuidadoPersonalList(new ArrayList<>(Arrays.asList(cuidadoPersonal1, cuidadoPersonal2
                 ,cuidadoPersonal3)));
 
         souvenirHashMap.put(souvenir1.getUdi(), souvenir1);
         souvenirHashMap.put(souvenir2.getUdi(), souvenir2);
         souvenirHashMap.put(souvenir3.getUdi(), souvenir3);
 
-        tienda.setSouvenirHashMap(souvenirHashMap);
+        tiendaNegocio.setSouvenirHashMap(souvenirHashMap);
 
-        System.out.println(tienda.getAlimentoHashSet());
-        System.out.println(tienda.getAparatoList());
-        System.out.println(tienda.getSouvenirHashMap());
-        System.out.println(tienda.getCuidadoPersonalList());
+        addHashMap();
+        System.out.println(tiendaNegocio.getAlimentoHashSet());
+        System.out.println(tiendaNegocio.getAparatoList());
+        System.out.println(tiendaNegocio.getSouvenirHashMap());
+        System.out.println(tiendaNegocio.getCuidadoPersonalList());
     }
 
     public static void addTest (){
-        System.out.println(tienda.addAlimento(alimento1));
-        System.out.println(tienda.addSouvenir(souvenir1));
-        System.out.println(tienda.addAparato(aparato1));
-        System.out.println(tienda.addCuidadoPersonal(cuidadoPersonal1));
+        System.out.println(tiendaNegocio.addAlimento(alimento1));
+        System.out.println(tiendaNegocio.addSouvenir(souvenir1));
+        System.out.println(tiendaNegocio.addAparato(aparato1));
+        System.out.println(tiendaNegocio.addCuidadoPersonal(cuidadoPersonal1));
     }
 
     public static void removeTest(){
-        System.out.println(tienda.removeAlimento(alimento1));
-        System.out.println(tienda.removeAparato(aparato1));
-        System.out.println(tienda.removeSouvenir(souvenir1));
-        System.out.println(tienda.removeCuidadoPersonal(cuidadoPersonal1));
+        System.out.println(tiendaNegocio.removeAlimento(alimento1));
+        System.out.println(tiendaNegocio.removeAparato(aparato1));
+        System.out.println(tiendaNegocio.removeSouvenir(souvenir1));
+        System.out.println(tiendaNegocio.removeCuidadoPersonal(cuidadoPersonal1));
     }
 
     public static void searchTest(){
-        System.out.println(tienda.obtainAlimento(alimento2.getUdi()));
-        System.out.println(tienda.obtainAparato(aparato2.getUdi()));
-        System.out.println(tienda.obtainSouvenir(souvenir2.getUdi()));
-        System.out.println(tienda.obtainCuidadoPersonal(cuidadoPersonal2.getUdi()));
+        System.out.println(tiendaNegocio.obtainAlimento(alimento2.getUdi()));
+        System.out.println(tiendaNegocio.obtainAparato(aparato2.getUdi()));
+        System.out.println(tiendaNegocio.obtainSouvenir(souvenir2.getUdi()));
+        System.out.println(tiendaNegocio.obtainCuidadoPersonal(cuidadoPersonal2.getUdi()));
     }
 
     public static void totalPriceTest() throws ParseException {
-        System.out.println(tienda.totalPriceFromAlimentos());
-        System.out.println(tienda.totalPriceFromAparatos());
-        System.out.println(tienda.totalPriceFromSouvenirs());
-        System.out.println(tienda.totalPriceFromCuidadoPersonal());
-        System.out.println(tienda.totalOfEachProduct());
+        System.out.println(tiendaNegocio.totalPriceFromAlimentos());
+        System.out.println(tiendaNegocio.totalPriceFromAparatos());
+        System.out.println(tiendaNegocio.totalPriceFromSouvenirs());
+        System.out.println(tiendaNegocio.totalPriceFromCuidadoPersonal());
+        System.out.println(tiendaNegocio.totalOfEachProduct());
     }
 
     public static void totalEarningTest(){
-        System.out.println(tienda.totalEarningAlimentos());
-        System.out.println(tienda.totalEarningAparatos());
-        System.out.println(tienda.totalEarningSouvenirs());
-        System.out.println(tienda.totalEarningCuidadoPersonal());
-        System.out.println(tienda.totalEarning());
+        System.out.println(tiendaNegocio.totalEarningAlimentos());
+        System.out.println(tiendaNegocio.totalEarningAparatos());
+        System.out.println(tiendaNegocio.totalEarningSouvenirs());
+        System.out.println(tiendaNegocio.totalEarningCuidadoPersonal());
+        System.out.println(tiendaNegocio.totalEarning());
     }
     static Alimento alimento1 = new Alimento("Manzanas",2.50f,"2024-01-09","ALM001",
             "2024-01-15");
@@ -103,6 +103,6 @@ public class AppTiendaTest {
     }
     static List<CuidadoPersonal> cuidadoPersonalList = new ArrayList<>(Arrays.asList(cuidadoPersonal1, cuidadoPersonal2
     ,cuidadoPersonal3));
-    static Tienda tienda = new Tienda(alimentoHashSet, aparatoList, souvenirHashMap,cuidadoPersonalList);
+    static TiendaNegocio tiendaNegocio = new TiendaNegocio(alimentoHashSet, aparatoList, souvenirHashMap,cuidadoPersonalList);
 
 }

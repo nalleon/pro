@@ -1,19 +1,21 @@
 package es.ies.puerto.presentacion.app;
-
+import es.ies.puerto.modelo.abstracts.ProductoAbstracts;
+import es.ies.puerto.modelo.fichero.csv.implementation.FileCSV;
 import es.ies.puerto.modelo.impl.Alimento;
 import es.ies.puerto.modelo.impl.Aparato;
 import es.ies.puerto.modelo.impl.CuidadoPersonal;
 import es.ies.puerto.modelo.impl.Souvenir;
-import es.ies.puerto.negocio.Tienda;
+import es.ies.puerto.negocio.TiendaNegocio;
 
-import java.util.Scanner;
-
-public class AppMenuTienda {
+import java.util.*;
+public class AppTienda {
+    static ProductoAbstracts productoAbstracts;
+    static TiendaNegocio tiendaNegocio = new (alimentoHashSet, aparatoList, souvenirHashMap,cuidadoPersonalList,
+    productoAbstractsList, fileCSV);
 
     public static void main(String[] args) {
         menu();
     }
-    static Tienda tienda = new Tienda();
 
     public static void menu(){
         Scanner scanner = new Scanner(System.in);
@@ -21,7 +23,7 @@ public class AppMenuTienda {
                 "* Welcome! What would you do?\n" +
                 "* 1. Add a Product\n" +
                 "* 2. Remove a Product\n" +
-                "* 3. Modify a Product" +
+                "* 3. Modify a Product\n" +
                 "* 4. Show a Product\n" +
                 "***********************************\n");
         int answer = scanner.nextInt();
@@ -38,6 +40,7 @@ public class AppMenuTienda {
                 break;
             case 4:
                 showProdructMenu();
+                break;
             default:
                 System.out.println("Incorrect option. Type a valid one (1,2,3,4)");
         }
@@ -49,30 +52,29 @@ public class AppMenuTienda {
                 "* What will you add?\n" +
                 "* 1. Food\n" +
                 "* 2. Objects\n" +
-                "* 3. Self-care product" +
+                "* 3. Self-care product\n" +
                 "* 4. Souvenir\n" +
                 "***********************************\n");
         int answer = scanner.nextInt();
 
         switch (answer){
             case 1:
-                Alimento alimento = new Alimento(askName(), askPrice(), askDateOfEntrance(), askUDI(),
-                        askDateOfExpiration());
-                tienda.addAlimento(alimento);
+                 productoAbstracts = new Alimento(askName(),askPrice(), askDateOfEntrance(),
+                         askUDI(), askDateOfExpiration());
+                 tiendaNegocio.addProducts(productoAbstracts);
                 break;
             case 2:
-                Aparato aparato = new Aparato(askName(), askPrice(), askUDI(),
-                        askDateOfExpiration());
-                tienda.addAparato(aparato);
+                productoAbstracts = new Aparato(askName(), askPrice(), askUDI(), askDateOfExpiration());
+                tiendaNegocio.addProducts(productoAbstracts);
                 break;
             case 3:
-                CuidadoPersonal cuidadoPersonal = new CuidadoPersonal(askName(), askPrice(), askDateOfEntrance(),
+                productoAbstracts = new CuidadoPersonal(askName(), askPrice(), askDateOfEntrance(),
                         askUDI(), askPopularity());
-                tienda.addCuidadoPersonal(cuidadoPersonal);
+                tiendaNegocio.addProducts(productoAbstracts);
                 break;
             case 4:
-                Souvenir souvenir = new Souvenir(askName(), askPrice(), askDateOfEntrance(), askUDI());
-                tienda.addSouvenir(souvenir);
+                productoAbstracts = new Souvenir(askName(), askPrice(), askDateOfEntrance(), askUDI());
+                tiendaNegocio.addProducts(productoAbstracts);
                 break;
             default:
                 System.out.println("Incorrect option. Type a valid one (1,2,3,4)");
@@ -85,7 +87,7 @@ public class AppMenuTienda {
                 "* What will you remove?\n" +
                 "* 1. Food\n" +
                 "* 2. Objects\n" +
-                "* 3. Self-care product" +
+                "* 3. Self-care product\n" +
                 "* 4. Souvenir\n" +
                 "***********************************\n");
         int answer = scanner.nextInt();
@@ -94,21 +96,18 @@ public class AppMenuTienda {
             case 1:
                 Alimento alimento = new Alimento(askName(), askPrice(), askDateOfEntrance(), askUDI(),
                         askDateOfExpiration());
-                tienda.removeAlimento(alimento);
                 break;
             case 2:
                 Aparato aparato = new Aparato(askName(), askPrice(), askDateOfEntrance(), askUDI());
-                tienda.removeAparato(aparato);
+
                 break;
             case 3:
                 CuidadoPersonal cuidadoPersonal = new CuidadoPersonal(askName(), askPrice(), askDateOfEntrance(),
                         askUDI(), askPopularity());
-                tienda.removeCuidadoPersonal(cuidadoPersonal);
                 break;
             case 4:
                 Souvenir souvenir = new Souvenir(askName(), askPrice(), askDateOfEntrance(),
                         askUDI());
-                tienda.removeSouvenir(souvenir);
                 break;
             default:
                 System.out.println("Incorrect option. Type a valid one (1,2,3,4)");
@@ -121,7 +120,7 @@ public class AppMenuTienda {
                 "* What will you remove?\n" +
                 "* 1. Food\n" +
                 "* 2. Objects\n" +
-                "* 3. Self-care product" +
+                "* 3. Self-care product\n" +
                 "* 4. Souvenir\n" +
                 "***********************************\n");
         int answer = scanner.nextInt();
@@ -132,34 +131,29 @@ public class AppMenuTienda {
             case 1:
                 Alimento alimento = new Alimento();
 
-                if (tienda.obtainAlimento(udi) != null){
-                     alimento = new Alimento(askName(), askPrice(), askDateOfEntrance(), udi,
+                    alimento = new Alimento(askName(), askPrice(), askDateOfEntrance(), udi,
                             askDateOfExpiration());
-                        tienda.addAlimento(alimento);
-                }
+
                 break;
             case 2:
                 Aparato aparato = new Aparato();
 
-                if (tienda.obtainAparato(udi) != null){
+
                     aparato = new Aparato(askName(), askPrice(), askDateOfEntrance(), udi);
-                    tienda.addAparato(aparato);
-                }
+
                 break;
             case 3:
                 CuidadoPersonal cuidadoPersonal = new CuidadoPersonal();
-                if (tienda.obtainCuidadoPersonal(udi) != null){
+
                     cuidadoPersonal = new CuidadoPersonal(askName(), askPrice(), askDateOfEntrance(), udi,
                             askPopularity());
-                    tienda.addCuidadoPersonal(cuidadoPersonal);
-                }
+
                 break;
             case 4:
                 Souvenir souvenir = new Souvenir();
-                if (tienda.obtainSouvenir(udi) != null){
+
                     souvenir = new Souvenir(askName(), askPrice(), askDateOfEntrance(), udi);
-                    tienda.addSouvenir(souvenir);
-                }
+
                 break;
             default:
                 System.out.println("Incorrect option. Type a valid one (1,2,3,4)");
@@ -172,24 +166,25 @@ public class AppMenuTienda {
                 "* What will you show?\n" +
                 "* 1. Food\n" +
                 "* 2. Objects\n" +
-                "* 3. Self-care product" +
+                "* 3. Self-care product\n" +
                 "* 4. Souvenir\n" +
-                "* 5. All" +
+                "* 5. All\n" +
                 "***********************************\n");
         int answer = scanner.nextInt();
         switch (answer){
             case 1:
-                System.out.println(tienda.getAlimentoHashSet());
+                System.out.println(tiendaNegocio);
                 break;
             case 2:
-                System.out.println(tienda.getAparatoList());
+
                 break;
             case 3:
-                System.out.println(tienda.getCuidadoPersonalList());
+
+                break;
             case 4:
-                System.out.println(tienda.getSouvenirHashMap());
+                break;
             case 5:
-                System.out.println(tienda);
+                break;
             default:
                 System.out.println("Incorrect option. Type a valid one (1,2,3,4,5)");
         }
@@ -229,4 +224,43 @@ public class AppMenuTienda {
         System.out.println("Popularity (int): ");
         return scanner.nextInt();
     }
+    /**
+     * Initialization of variables
+     */
+    static Alimento alimento1 = new Alimento("Manzanas",2.50f,"2024-01-09","ALM001",
+            "2024-01-15");
+    static Alimento alimento2 = new Alimento("Leche",1.99f,"2024-02-09","ALM002",
+            "2024-02-14");
+    static Alimento alimento3 = new Alimento("Arroz",3.75f,"2024-01-15","ALM003",
+            "2024-01-27");
+    static Aparato aparato1 = new Aparato("Televisor LED",499.99f,"2024-02-09","APA001");
+    static  Aparato aparato2 = new Aparato("Smartphone",799.99f,"2024-02-09","APA002");
+    static  Aparato aparato3 = new Aparato("Cafetera",39.99f,"2024-02-09","APA003");
+
+    static Souvenir souvenir1 = new Souvenir("Imán de nevera",1.99f,"2024-02-09","SOU001");
+    static Souvenir souvenir2 = new Souvenir("Llavero",0.99f,"2024-02-09","SOU002");
+    static Souvenir souvenir3 = new Souvenir("Taza de cafe",3.49f,"2024-02-09","SOU003");
+
+    static CuidadoPersonal cuidadoPersonal1 = new CuidadoPersonal("Champú",3.99f,"2024-02-09",
+            "CUI001", 7);
+    static CuidadoPersonal cuidadoPersonal2 = new CuidadoPersonal("Crema hidratante",5.49f,
+            "2024-02-09", "CUI002",8);
+
+    static CuidadoPersonal cuidadoPersonal3 = new CuidadoPersonal("Cepillo de dientes",2.29f,
+            "2024-02-09", "CUI003",6);
+    static HashSet<Alimento> alimentoHashSet = new HashSet<>(Arrays.asList(alimento1,alimento2,alimento3));
+    static List<Aparato> aparatoList = new ArrayList<>(Arrays.asList(aparato1,aparato2,aparato3));
+    static HashMap<String, Souvenir> souvenirHashMap = new HashMap<String, Souvenir>() {{
+        put(souvenir1.getUdi(), souvenir1);
+        put(souvenir2.getUdi(), souvenir2);
+        put(souvenir3.getUdi(), souvenir3);
+    }};
+
+    static List<CuidadoPersonal> cuidadoPersonalList = new ArrayList<>(Arrays.asList(cuidadoPersonal1, cuidadoPersonal2
+            ,cuidadoPersonal3));
+
+    static FileCSV fileCSV = new FileCSV();
+    static  List<ProductoAbstracts> productoAbstractsList = new ArrayList<>();
+
 }
+
