@@ -58,4 +58,9 @@ public class CuidadoPersonal extends ProductoRecomendableAbstracts {
                 ", popularity='" + popularity+ '\'' +
                 '}';
     }
+    @Override
+    public String toCsv() {
+        return getName()+DELIMITATOR +getPrice()+DELIMITATOR+getDateOfEntrance()+DELIMITATOR+getUdi()+
+                DELIMITATOR+getPopularity();
+    }
 }

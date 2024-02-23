@@ -39,4 +39,8 @@ public class Souvenir extends ProductoAbstracts {
                 ", udi='" + super.getUdi() + '\'' +
                 '}';
     }
+    @Override
+    public String toCsv() {
+        return getName()+DELIMITATOR +getPrice()+DELIMITATOR+getDateOfEntrance()+DELIMITATOR+getUdi();
+    }
 }

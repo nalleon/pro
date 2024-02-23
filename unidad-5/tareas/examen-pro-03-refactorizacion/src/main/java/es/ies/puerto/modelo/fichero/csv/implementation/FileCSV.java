@@ -53,7 +53,7 @@ public class FileCSV extends FicheroAbstract implements IFichero {
                                 break;
                             default:
                                 productoAbstractsList.add(splitToDefault(arrayElemento)) ;
-                                break;//Mostrar error;
+                                break;
                         }
                     }
                     i++;

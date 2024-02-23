@@ -1,7 +1,5 @@
 package es.ies.puerto.modelo.impl;
-
 import es.ies.puerto.modelo.abstracts.ProductoFrescoAbstracts;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,5 +55,10 @@ public class Alimento extends ProductoFrescoAbstracts {
                 ", udi='" + super.getUdi() + '\'' +
                 ", expireDate='" + super.getExpireDate() + '\'' +
                 '}';
+    }
+    @Override
+    public String toCsv() {
+        return getName()+DELIMITATOR +getPrice()+DELIMITATOR+getDateOfEntrance()+DELIMITATOR+getUdi()+
+                DELIMITATOR+getExpireDate();
     }
 }

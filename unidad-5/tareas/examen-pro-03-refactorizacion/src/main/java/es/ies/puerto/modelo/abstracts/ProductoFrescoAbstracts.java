@@ -43,4 +43,5 @@ public abstract class ProductoFrescoAbstracts extends ProductoAbstracts implemen
                 ", udi='" + super.getUdi() + '\'' +
                 '}';
     }
+
 }

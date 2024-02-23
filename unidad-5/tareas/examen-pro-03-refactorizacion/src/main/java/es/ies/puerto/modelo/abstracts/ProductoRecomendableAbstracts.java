@@ -19,5 +19,4 @@ public abstract class ProductoRecomendableAbstracts extends ProductoAbstracts im
                 ", udi='" + super.getUdi() + '\'' +
                 '}';
     }
-
 }

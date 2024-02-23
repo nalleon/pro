@@ -5,10 +5,12 @@ import es.ies.puerto.modelo.interfaces.IVendible;
 import java.util.Objects;
 
 public abstract class ProductoAbstracts implements IVendible {
+    public final String DELIMITATOR = ",";
     private String name;
     private float price;
     private String dateOfEntrance;
     private String udi;
+
     /**
      * Constructors of the class
      */
@@ -19,9 +21,6 @@ public abstract class ProductoAbstracts implements IVendible {
         this.price = price;
         this.dateOfEntrance = dateOfEntrance;
         this.udi = udi;
-    }
-
-    public ProductoAbstracts(String name, float price, String dateOfEntrance, String udi, int popularity) {
     }
 
     /**
@@ -60,6 +59,10 @@ public abstract class ProductoAbstracts implements IVendible {
         this.udi = udi;
     }
 
+    public String toCsv() {
+        return getName()+DELIMITATOR +getPrice()+DELIMITATOR+getDateOfEntrance()+DELIMITATOR+getUdi();
+    }
+
     /**
      * Method to String
      */
@@ -88,4 +91,5 @@ public abstract class ProductoAbstracts implements IVendible {
     public int hashCode() {
         return Objects.hash(udi);
     }
+
 }
