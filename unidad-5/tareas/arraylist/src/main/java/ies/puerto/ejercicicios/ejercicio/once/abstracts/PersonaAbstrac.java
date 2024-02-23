@@ -1,6 +1,4 @@
 package ies.puerto.ejercicicios.ejercicio.once.abstracts;
-import ies.puerto.excepciones.ValidacionException;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -78,11 +76,11 @@ public abstract class PersonaAbstrac {
         return dni;
     }
 
-    public void setDni(String dni) throws ValidacionException {
+    public void setDni(String dni) {
         if (validateDNI(dni)) {
             this.dni = dni;
         } else {
-            throw new ValidacionException("DNI is invalid.");
+            System.out.println("DNI is invalid.");
         }
     }
 
