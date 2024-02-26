@@ -43,7 +43,7 @@ public class Alimento extends ProductoFrescoAbstracts {
 
     @Override
     public boolean isProductExpired() throws ParseException {
-        return daysUntilExpiredProduct() > 5;
+        return daysUntilExpiredProduct() <= 5;
     }
 
     @Override

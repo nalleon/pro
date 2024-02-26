@@ -43,16 +43,16 @@ public class FileCSV extends FicheroAbstract implements IFichero {
                 int i = 0;
                 while ((linea = br.readLine()) != null) {
                     if (i>0) {
-                        String[] arrayElemento = linea.split(",");
+                        String[] arrayElement = linea.split(",");
                         switch (product) {
                             case "alimento":
-                                productoAbstractsList.add(splitToAlimento(arrayElemento));
+                                productoAbstractsList.add(splitToAlimento(arrayElement));
                                 break;
                             case "cuidado":
-                                productoAbstractsList.add(splitToCuidadoPersonal(arrayElemento));
+                                productoAbstractsList.add(splitToCuidadoPersonal(arrayElement));
                                 break;
                             default:
-                                productoAbstractsList.add(splitToDefault(arrayElemento)) ;
+                                productoAbstractsList.add(splitToDefault(arrayElement)) ;
                                 break;
                         }
                     }
@@ -62,7 +62,7 @@ public class FileCSV extends FicheroAbstract implements IFichero {
                 throw new RuntimeException(e);
             }
         } else {
-            System.out.println("El fichero no existe o no es un fichero válido.");
+            System.out.println("File does not exist or is not valid.");
         }
         return productoAbstractsList;
     }

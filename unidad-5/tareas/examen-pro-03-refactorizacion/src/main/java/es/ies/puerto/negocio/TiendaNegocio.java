@@ -22,6 +22,10 @@ public class TiendaNegocio {
         this.productoAbstractsList = new ArrayList<>();
     }
 
+    public TiendaNegocio(FileCSV fileCSV, List<ProductoAbstracts> productoAbstractsList) {
+        this.fileCSV = fileCSV;
+        this.productoAbstractsList = productoAbstractsList;
+    }
 
     /**
      * Getters and setters
@@ -54,22 +58,38 @@ public class TiendaNegocio {
                 '}';
     }
 
+    /**
+     * Method to obtain the full list of food products
+     * @return the full list of food (Alimento)
+     */
     public List<ProductoAbstracts> obtainAlimentosList() {
         return new ArrayList<>(fileCSV.obtainAlimentos());
     }
+    /**
+     * Method to obtain the full list of objects products
+     * @return the full list of objects (Aparato)
+     */
     public List<ProductoAbstracts> obtainAparatosList() {
         return new ArrayList<>(fileCSV.obtainAparatos());
     }
+    /**
+     * Method to obtain the full list of self-care products
+     * @return the full list of self-care (CuidadoPersonal)
+     */
     public List<ProductoAbstracts> obtainCuidadosPersonalesList() {
         return new ArrayList<>(fileCSV.obtainCuidadosPersonales());
     }
+    /**
+     * Method to obtain the full list of souvenirs products
+     * @return the full list of souvenirs (Souvenir)
+     */
     public List<ProductoAbstracts> obtainSouvernirsList() {
         return new ArrayList<>(fileCSV.obtainSouvenirs());
     }
 
 
     /**
-     * Auxiliar method to obtain the full list of products
+     * Method to obtain the full list of products
      * @return the full list of products
      */
     public List<ProductoAbstracts> obtainProducts() {
@@ -82,7 +102,7 @@ public class TiendaNegocio {
     }
 
     /**
-     * Method to obtain a certains product
+     * Method to obtain a certain product
      * @param udi to search in the list
      * @return the product if it exists, null if not
      */
@@ -125,10 +145,15 @@ public class TiendaNegocio {
      * @return a list of floats with the total price of each type of products
      */
     public List<Float> totalOfEachProduct() throws ParseException {
+        obtainSouvernirsList();
         return new ArrayList<>(Arrays.asList(totalPriceFromAlimentos(), totalPriceFromAparatos(),
                 totalPriceFromCuidadoPersonal(), totalPriceFromSouvenirs()));
     }
 
+    /**
+     * Method to calculate the total price of products of food type (Alimento)
+     * @return a float with the total price of each
+     */
     public Float totalPriceFromAlimentos() throws ParseException {
         float sum = 0f;
             for (ProductoAbstracts productoAbstracts : obtainAlimentosList()){
@@ -140,43 +165,53 @@ public class TiendaNegocio {
         return sum;
     }
 
+    /**
+     * Method to calculate the total price of products of objects type (Aparato)
+     * @return a float with the total price of each
+     */
     public Float totalPriceFromAparatos(){
         float sum=0f;
         for (ProductoAbstracts productoAbstracts : obtainAparatosList()){
-            Aparato aparato = (Aparato) productoAbstracts;
-            sum += aparato.maxPrice();
+            sum += productoAbstracts.maxPrice();
         }
         return sum;
     }
 
+    /**
+     * Method to calculate the total price of products of self-care type (CuidadoPersonal)
+     * @return a float with the total price of each
+     */
     public Float totalPriceFromCuidadoPersonal(){
         float sum=0f;
         for (ProductoAbstracts productoAbstracts : obtainCuidadosPersonalesList()){
-            CuidadoPersonal cuidadoPersonal = (CuidadoPersonal) productoAbstracts;
-            sum += cuidadoPersonal.maxPrice();
+            sum += productoAbstracts.maxPrice();
         }
         return sum;
     }
 
+    /**
+     * Method to calculate the total price of products of souvenirs type (Souvenir)
+     * @return a float with the total price of each
+     */
     public Float totalPriceFromSouvenirs() {
         float sum = 0f;
         for (ProductoAbstracts productoAbstracts : obtainSouvernirsList()) {
-            if (productoAbstracts instanceof Souvenir) {
-                Souvenir souvenir = (Souvenir) productoAbstracts;
-                sum += souvenir.maxPrice();
-            }
+                sum += productoAbstracts.maxPrice();
         }
         return sum;
     }
 
-        /**
-         * Method to calculate the total earning of teh shop
-         * @return a float with the total
-         */
+    /**
+     * Method to calculate the total earning of the shop
+     * @return a float with the total
+     */
         public float totalEarning () {
             float sumEarning = 0f;
             float sumNormal = 0f;
-
+            for (ProductoAbstracts productoAbstracts : obtainProducts()){
+                sumNormal+= productoAbstracts.getPrice();
+                sumEarning += productoAbstracts.maxPrice();
+            }
 
             return sumEarning - sumNormal;
         }

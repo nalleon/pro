@@ -220,7 +220,7 @@ public class AppTienda {
                 "* 6. Earnings of the shop\n" +
                 "***********************************\n");
         int answer = scanner.nextInt();
-
+        tiendaNegocio.obtainSouvernirsList();
         switch (answer){
             case 1:
                 System.out.println(tiendaNegocio.totalPriceFromAlimentos());
