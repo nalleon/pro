@@ -5,4 +5,8 @@ public class Alimento extends Articulo{
                     float precio, String fCaducidad, String fEntrada) {
         super(id, nombre, precio, fCaducidad, fEntrada);
     }
+    @Override
+    public String toCsv(){
+        return getNombre()+ DELIMITADOR +getPrecio()+DELIMITADOR+getfEntrada()+DELIMITADOR+getId();
+    }
 }

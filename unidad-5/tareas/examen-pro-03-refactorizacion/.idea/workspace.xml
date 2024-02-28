@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3d1bd5a9-4bd2-459b-a035-c4c65b9cb22e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../correcciones-para-examen/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../correcciones-para-examen/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../correcciones-para-examen/src/main/java/ies/puerto/modelo/entity/Alimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/../correcciones-para-examen/src/main/java/ies/puerto/modelo/entity/Alimento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../correcciones-para-examen/src/main/java/ies/puerto/modelo/fichero/csv/implementacion/FileCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/../correcciones-para-examen/src/main/java/ies/puerto/modelo/fichero/csv/implementacion/FileCsv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/abstracts/ProductoAbstracts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/abstracts/ProductoFrescoAbstracts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/abstracts/ProductoRecomendableAbstracts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/fichero/abstracts/FicheroAbstract.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/fichero/csv/implementation/FileCSV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/fichero/interfaces/IFichero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/impl/Alimento.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/impl/Aparato.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/impl/CuidadoPersonal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/impl/Souvenir.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/interfaces/IRecomendable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/interfaces/ISaludable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/modelo/interfaces/IVendible.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/negocio/TiendaNegocio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ies/puerto/presentacion/app/AppTienda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/alimentos.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/aparatos.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cuidado-personal.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/souvenirs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TiendaNegocioTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2cmGaAJ9B5PE09gk9MZIL5NusPh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/nabil/programacion"
+  }
+}]]></component>
+  <component name="RunManager" selected="JUnit.All in examen">
+    <configuration name="All in examen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="examen" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CuidadoPersonalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="examen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model.impl" />
+      <option name="MAIN_CLASS_NAME" value="model.impl.CuidadoPersonalTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TiendaNegocioTest.showAvailableProductsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="examen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="negocio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="negocio" />
+      <option name="MAIN_CLASS_NAME" value="negocio.TiendaNegocioTest" />
+      <option name="METHOD_NAME" value="showAvailableProductsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TiendaNegocioTest.totalEarningAlimentoListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="examen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="negocio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="negocio" />
+      <option name="MAIN_CLASS_NAME" value="negocio.TiendaNegocioTest" />
+      <option name="METHOD_NAME" value="totalEarningAlimentoListTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TiendaNegocioTest.totalPriceAlimentoListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="examen" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="negocio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="negocio" />
+      <option name="MAIN_CLASS_NAME" value="negocio.TiendaNegocioTest" />
+      <option name="METHOD_NAME" value="totalPriceAlimentoListTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="examen-pro-03-refactorizacion" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="examen-pro-03-refactorizacion" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in examen" />
+        <item itemvalue="JUnit.TiendaNegocioTest.showAvailableProductsTest" />
+        <item itemvalue="JUnit.TiendaNegocioTest.totalEarningAlimentoListTest" />
+        <item itemvalue="JUnit.TiendaNegocioTest.totalPriceAlimentoListTest" />
+        <item itemvalue="JUnit.CuidadoPersonalTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3d1bd5a9-4bd2-459b-a035-c4c65b9cb22e" name="Changes" comment="" />
+      <created>1708709400972</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708709400972</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

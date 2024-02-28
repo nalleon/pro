@@ -48,17 +48,17 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
                 int i = 0;
                 while ((linea = br.readLine()) != null) {
                     if (i>0) {
-                        String[] arrayElemento = linea.split(",");
+                        String[] arrayElement = linea.split(",");
                         switch (articulo) {
                             case "alimento":
-                                articulos.add(splitToAlimento(arrayElemento));
+                                articulos.add(splitToAlimento(arrayElement));
                                 break;
                             case "cuidado":
-                                articulos.add(splitToCuidadoPersonal(arrayElemento));
+                                articulos.add(splitToCuidadoPersonal(arrayElement));
                                 break;
                             default:
-                                articulos.add(splitToDefault(arrayElemento)) ;
-                                break;//Mostrar error;
+                                articulos.add(splitToDefault(arrayElement)) ;
+                                break;
                         }
                     }
                     i++;
