@@ -2,6 +2,7 @@ package es.ies.puerto.modelo.abstracts;
 
 import es.ies.puerto.modelo.interfaces.IVendible;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public abstract class ProductoAbstracts implements IVendible {
