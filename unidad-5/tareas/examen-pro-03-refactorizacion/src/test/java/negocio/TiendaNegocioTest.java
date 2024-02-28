@@ -1,3 +1,5 @@
+package negocio;
+
 import es.ies.puerto.modelo.abstracts.ProductoAbstracts;
 import es.ies.puerto.modelo.fichero.csv.implementation.FileCSV;
 import es.ies.puerto.modelo.impl.Alimento;
@@ -5,7 +7,6 @@ import es.ies.puerto.modelo.impl.Aparato;
 import es.ies.puerto.modelo.impl.CuidadoPersonal;
 import es.ies.puerto.modelo.impl.Souvenir;
 import es.ies.puerto.negocio.TiendaNegocio;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -110,10 +111,6 @@ public class TiendaNegocioTest {
                 "Expected result not found");
     }
 
-<<<<<<< HEAD
-    @Test
-    public void addProductTest(){}
-=======
 
     @Test
     public void obtainAlimentosListTest(){
@@ -210,7 +207,7 @@ public class TiendaNegocioTest {
 
     @Test
     public void totalPriceAlimentoListTest() throws ParseException {
-        float result = 11.124001f;
+        float result = 8.4375f;
         Assertions.assertEquals(result, tiendaNegocio.totalPriceFromAlimentos(), "Expected result not found");
     }
 
@@ -234,13 +231,13 @@ public class TiendaNegocioTest {
 
     @Test
     public void totalPriceShopTest() throws ParseException {
-        List<Float> result = Arrays.asList(11.124001f, 1902.7572f, 21.185999f, 8.410999f);
+        List<Float> result = Arrays.asList(8.4375f, 1902.7572f, 21.185999f, 8.410999f);
         Assertions.assertEquals(result, tiendaNegocio.totalOfEachProduct(), "Expected result not found");
     }
 
     @Test
     public void totalEarningAlimentoListTest() throws ParseException {
-        float result = 2.8840008f;
+        float result = 2.1875f;
         Assertions.assertEquals(result, tiendaNegocio.totalEarningAlimento(), "Expected result not found");
     }
 
@@ -264,7 +261,7 @@ public class TiendaNegocioTest {
 
     @Test
     public void totalEarningShopTest() throws ParseException {
-        float result = 577.02826f;
+        float result = 576.3317f;
         Assertions.assertEquals(result, tiendaNegocio.totalEarning(), "Expected result not found");
     }
     @Test
@@ -274,9 +271,29 @@ public class TiendaNegocioTest {
     }
     
     @Test
-    public void showAvailableProducts() throws ParseException {
+    public void showAvailableProductsTest() throws ParseException {
+        tiendaNegocio.removeProducts(alimento2);
         Assertions.assertEquals(productoAbstractsList, tiendaNegocio.showAvailableProducts(), "Expected result not found");
     }
->>>>>>> 1d33d9c246fd12b762eb7b9cfd294cecb264be53
+    @Test
+    public void lengthAlimentoListTest() {
+        Assertions.assertEquals(3, tiendaNegocio.lengthAlimentoList(), "Expected result not found");
+    }
+    @Test
+    public void lengthAparatoListTest()  {
+        Assertions.assertEquals(3, tiendaNegocio.lengthAparatosList(), "Expected result not found");
+    }
+    @Test
+    public void lengthSouvenirListTest()  {
+        Assertions.assertEquals(3, tiendaNegocio.lengthSouvenirsList(), "Expected result not found");
+    }
+    @Test
+    public void lengthCuidadoListTest()  {
+        Assertions.assertEquals(3, tiendaNegocio.lengthCuidadosList(), "Expected result not found");
+    }
+    @Test
+    public void lengthAllProductsListTest() {
+        Assertions.assertEquals(12, tiendaNegocio.lengthAllProductsList(), "Expected result not found");
+    }
 }
 

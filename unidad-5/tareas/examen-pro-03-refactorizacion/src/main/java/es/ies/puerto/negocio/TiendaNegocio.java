@@ -13,18 +13,10 @@ import java.util.*;
 public class TiendaNegocio {
     FileCSV fileCSV;
     private List<ProductoAbstracts> productoAbstractsList;
-<<<<<<< HEAD
-    private Set<ProductoAbstracts> alimentoList;
-    private List<ProductoAbstracts> aparatosList;
-    private List<ProductoAbstracts> cuidadoPersonalList;
-    private HashMap<ProductoAbstracts, String> souvenirList;
-
-=======
     private Set<ProductoAbstracts> alimentoList ;
     private List<ProductoAbstracts> aparatoList;
     private Map<String, ProductoAbstracts> souvenirHashMap;
     private List<ProductoAbstracts> cuidadoPersonalList;
->>>>>>> 1d33d9c246fd12b762eb7b9cfd294cecb264be53
 
     /**
      * Constructors of the class
@@ -48,15 +40,6 @@ public class TiendaNegocio {
         this.aparatoList = aparatoList;
         this.souvenirHashMap = souvenirHashMap;
         this.cuidadoPersonalList = cuidadoPersonalList;
-    }
-
-    public TiendaNegocio(FileCSV fileCSV, List<ProductoAbstracts> productoAbstractsList, Set<ProductoAbstracts> alimentoList, List<ProductoAbstracts> aparatosList, List<ProductoAbstracts> cuidadoPersonalList, HashMap<ProductoAbstracts, String> souvenirList) {
-        this.fileCSV = fileCSV;
-        this.productoAbstractsList = productoAbstractsList;
-        this.alimentoList = alimentoList;
-        this.aparatosList = aparatosList;
-        this.cuidadoPersonalList = cuidadoPersonalList;
-        this.souvenirList = souvenirList;
     }
 
     /**
@@ -87,14 +70,6 @@ public class TiendaNegocio {
         this.alimentoList = alimentoList;
     }
 
-<<<<<<< HEAD
-    public List<ProductoAbstracts> getAparatosList() {
-        return aparatosList;
-    }
-
-    public void setAparatosList(List<ProductoAbstracts> aparatosList) {
-        this.aparatosList = aparatosList;
-=======
     public List<ProductoAbstracts> getAparatoList() {
         return aparatoList;
     }
@@ -109,7 +84,6 @@ public class TiendaNegocio {
 
     public void setSouvenirHashMap(HashMap<String, ProductoAbstracts> souvenirHashMap) {
         this.souvenirHashMap = souvenirHashMap;
->>>>>>> 1d33d9c246fd12b762eb7b9cfd294cecb264be53
     }
 
     public List<ProductoAbstracts> getCuidadoPersonalList() {
@@ -120,17 +94,6 @@ public class TiendaNegocio {
         this.cuidadoPersonalList = cuidadoPersonalList;
     }
 
-<<<<<<< HEAD
-    public HashMap<ProductoAbstracts, String> getSouvenirList() {
-        return souvenirList;
-    }
-
-    public void setSouvenirList(HashMap<ProductoAbstracts, String> souvenirList) {
-        this.souvenirList = souvenirList;
-    }
-
-=======
->>>>>>> 1d33d9c246fd12b762eb7b9cfd294cecb264be53
     /**
      * Method toString
      */
@@ -219,33 +182,6 @@ public class TiendaNegocio {
             return true;
         }
         return obtainProducts().add(productoAbstracts);
-    }
-
-    public boolean addAlimento(Alimento alimento){
-        if (obtainAlimentosList().contains(alimento)){
-            return false;
-        }
-        return obtainAlimentosList().add(alimento);
-    }
-
-    public boolean addAparato(Aparato aparato){
-        if (obtainAparatosList().contains(aparato)){
-            return false;
-        }
-        return obtainAparatosList().add(aparato);
-    }
-    public boolean addSouvenir(Souvenir souvenir){
-        if (obtainSouvernirsList().contains(souvenir)){
-            return false;
-        }
-        return obtainSouvernirsList().add(souvenir);
-    }
-
-    public boolean addCuidado(CuidadoPersonal cuidadoPersonal){
-        if (obtainCuidadosPersonalesList().contains(cuidadoPersonal)){
-            return false;
-        }
-        return obtainCuidadosPersonalesList().add(cuidadoPersonal);
     }
 
     /**
@@ -421,5 +357,42 @@ public class TiendaNegocio {
         availableProducts.addAll(obtainCuidadosPersonalesList());
         availableProducts.addAll(obtainSouvernirsList().values());
         return availableProducts;
+    }
+
+    /**
+     * Method to obtain the size of the list of food
+     * @return the size of the list
+     */
+    public int lengthAlimentoList(){
+        return obtainAlimentosList().size();
+    }
+
+    /**
+     * Method to obtain the size of the list of items
+     * @return the size of the list
+     */
+    public int lengthAparatosList(){
+        return obtainAparatosList().size();
+    }
+    /**
+     * Method to obtain the size of the list of souvenirs
+     * @return the size of the list
+     */
+    public int lengthSouvenirsList(){
+        return obtainSouvernirsList().size();
+    }
+    /**
+     * Method to obtain the size of the list of self-care items
+     * @return the size of the list
+     */
+    public int lengthCuidadosList(){
+        return obtainCuidadosPersonalesList().size();
+    }
+    /**
+     * Method to obtain the size of the list of products
+     * @return the size of the list
+     */
+    public int lengthAllProductsList(){
+        return obtainProducts().size();
     }
 }
