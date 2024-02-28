@@ -13,6 +13,11 @@ import java.util.*;
 public class TiendaNegocio {
     private FileCSV fileCSV;
     private List<ProductoAbstracts> productoAbstractsList;
+    private Set<ProductoAbstracts> alimentoList;
+    private List<ProductoAbstracts> aparatosList;
+    private List<ProductoAbstracts> cuidadoPersonalList;
+    private HashMap<ProductoAbstracts, String> souvenirList;
+
 
     /**
      * Constructors of the class
@@ -25,6 +30,15 @@ public class TiendaNegocio {
     public TiendaNegocio(FileCSV fileCSV, List<ProductoAbstracts> productoAbstractsList) {
         this.fileCSV = fileCSV;
         this.productoAbstractsList = productoAbstractsList;
+    }
+
+    public TiendaNegocio(FileCSV fileCSV, List<ProductoAbstracts> productoAbstractsList, Set<ProductoAbstracts> alimentoList, List<ProductoAbstracts> aparatosList, List<ProductoAbstracts> cuidadoPersonalList, HashMap<ProductoAbstracts, String> souvenirList) {
+        this.fileCSV = fileCSV;
+        this.productoAbstractsList = productoAbstractsList;
+        this.alimentoList = alimentoList;
+        this.aparatosList = aparatosList;
+        this.cuidadoPersonalList = cuidadoPersonalList;
+        this.souvenirList = souvenirList;
     }
 
     /**
@@ -45,6 +59,38 @@ public class TiendaNegocio {
 
     public void setProductoAbstractsList(List<ProductoAbstracts> productoAbstractsList) {
         this.productoAbstractsList = productoAbstractsList;
+    }
+
+    public Set<ProductoAbstracts> getAlimentoList() {
+        return alimentoList;
+    }
+
+    public void setAlimentoList(Set<ProductoAbstracts> alimentoList) {
+        this.alimentoList = alimentoList;
+    }
+
+    public List<ProductoAbstracts> getAparatosList() {
+        return aparatosList;
+    }
+
+    public void setAparatosList(List<ProductoAbstracts> aparatosList) {
+        this.aparatosList = aparatosList;
+    }
+
+    public List<ProductoAbstracts> getCuidadoPersonalList() {
+        return cuidadoPersonalList;
+    }
+
+    public void setCuidadoPersonalList(List<ProductoAbstracts> cuidadoPersonalList) {
+        this.cuidadoPersonalList = cuidadoPersonalList;
+    }
+
+    public HashMap<ProductoAbstracts, String> getSouvenirList() {
+        return souvenirList;
+    }
+
+    public void setSouvenirList(HashMap<ProductoAbstracts, String> souvenirList) {
+        this.souvenirList = souvenirList;
     }
 
     /**
@@ -125,6 +171,33 @@ public class TiendaNegocio {
             return false;
         }
         return obtainProducts().add(productoAbstracts);
+    }
+
+    public boolean addAlimento(Alimento alimento){
+        if (obtainAlimentosList().contains(alimento)){
+            return false;
+        }
+        return obtainAlimentosList().add(alimento);
+    }
+
+    public boolean addAparato(Aparato aparato){
+        if (obtainAparatosList().contains(aparato)){
+            return false;
+        }
+        return obtainAparatosList().add(aparato);
+    }
+    public boolean addSouvenir(Souvenir souvenir){
+        if (obtainSouvernirsList().contains(souvenir)){
+            return false;
+        }
+        return obtainSouvernirsList().add(souvenir);
+    }
+
+    public boolean addCuidado(CuidadoPersonal cuidadoPersonal){
+        if (obtainCuidadosPersonalesList().contains(cuidadoPersonal)){
+            return false;
+        }
+        return obtainCuidadosPersonalesList().add(cuidadoPersonal);
     }
 
     /**

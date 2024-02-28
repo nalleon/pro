@@ -42,4 +42,6 @@ public class TiendaNegocioTest {
                 "Expected result not found");
     }
 
+    @Test
+    public void addProductTest(){}
 }
