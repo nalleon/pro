@@ -11,8 +11,12 @@ import java.text.ParseException;
 import java.util.*;
 
 public class TiendaNegocio {
-    private FileCSV fileCSV;
+    FileCSV fileCSV;
     private List<ProductoAbstracts> productoAbstractsList;
+    private Set<ProductoAbstracts> alimentoList ;
+    private List<ProductoAbstracts> aparatoList;
+    private Map<String, ProductoAbstracts> souvenirHashMap;
+    private List<ProductoAbstracts> cuidadoPersonalList;
 
     /**
      * Constructors of the class
@@ -20,11 +24,22 @@ public class TiendaNegocio {
     public TiendaNegocio(){
         this.fileCSV = new FileCSV();
         this.productoAbstractsList = new ArrayList<>();
+        this.alimentoList = new HashSet<>();
+        this.aparatoList=new ArrayList<>();
+        this.souvenirHashMap=new HashMap<>();
+        this.cuidadoPersonalList=new ArrayList<>();
     }
 
-    public TiendaNegocio(FileCSV fileCSV, List<ProductoAbstracts> productoAbstractsList) {
+    public TiendaNegocio(FileCSV fileCSV, List<ProductoAbstracts> productoAbstractsList, Set<ProductoAbstracts>
+            alimentoList, List<ProductoAbstracts> aparatoList, HashMap<String, ProductoAbstracts> souvenirHashMap,
+                         List<ProductoAbstracts> cuidadoPersonalList) {
+
         this.fileCSV = fileCSV;
         this.productoAbstractsList = productoAbstractsList;
+        this.alimentoList = alimentoList;
+        this.aparatoList = aparatoList;
+        this.souvenirHashMap = souvenirHashMap;
+        this.cuidadoPersonalList = cuidadoPersonalList;
     }
 
     /**
@@ -47,6 +62,38 @@ public class TiendaNegocio {
         this.productoAbstractsList = productoAbstractsList;
     }
 
+    public Set<ProductoAbstracts> getAlimentoList() {
+        return alimentoList;
+    }
+
+    public void setAlimentoList(Set<ProductoAbstracts> alimentoList) {
+        this.alimentoList = alimentoList;
+    }
+
+    public List<ProductoAbstracts> getAparatoList() {
+        return aparatoList;
+    }
+
+    public void setAparatoList(List<ProductoAbstracts> aparatoList) {
+        this.aparatoList = aparatoList;
+    }
+
+    public Map<String, ProductoAbstracts> getSouvenirHashMap() {
+        return souvenirHashMap;
+    }
+
+    public void setSouvenirHashMap(HashMap<String, ProductoAbstracts> souvenirHashMap) {
+        this.souvenirHashMap = souvenirHashMap;
+    }
+
+    public List<ProductoAbstracts> getCuidadoPersonalList() {
+        return cuidadoPersonalList;
+    }
+
+    public void setCuidadoPersonalList(List<ProductoAbstracts> cuidadoPersonalList) {
+        this.cuidadoPersonalList = cuidadoPersonalList;
+    }
+
     /**
      * Method toString
      */
@@ -55,6 +102,10 @@ public class TiendaNegocio {
         return "TiendaNegocio{" +
                 "fileCSV=" + fileCSV +
                 ", productoAbstractsList=" + productoAbstractsList +
+                ", alimentoList=" + alimentoList +
+                ", aparatoList=" + aparatoList +
+                ", souvenirHashMap=" + souvenirHashMap +
+                ", cuidadoPersonalList=" + cuidadoPersonalList +
                 '}';
     }
 
@@ -62,8 +113,9 @@ public class TiendaNegocio {
      * Method to obtain the full list of food products
      * @return the full list of food (Alimento)
      */
-    public List<ProductoAbstracts> obtainAlimentosList() {
-        return new ArrayList<>(fileCSV.obtainAlimentos());
+
+    public Set<ProductoAbstracts> obtainAlimentosList() {
+        return new HashSet<>(fileCSV.obtainAlimentos());
     }
     /**
      * Method to obtain the full list of objects products
@@ -83,10 +135,15 @@ public class TiendaNegocio {
      * Method to obtain the full list of souvenirs products
      * @return the full list of souvenirs (Souvenir)
      */
-    public List<ProductoAbstracts> obtainSouvernirsList() {
-        return new ArrayList<>(fileCSV.obtainSouvenirs());
-    }
+    public Map<String, ProductoAbstracts> obtainSouvernirsList() {
+        List<ProductoAbstracts> souvernirList = fileCSV.obtainSouvenirs();
+        Map<String, ProductoAbstracts> souvenirHashMap = new HashMap<>();
 
+        for (ProductoAbstracts productoAbstracts : souvernirList){
+            souvenirHashMap.put(productoAbstracts.getUdi(), productoAbstracts);
+        }
+        return souvenirHashMap;
+    }
 
     /**
      * Method to obtain the full list of products
@@ -97,7 +154,7 @@ public class TiendaNegocio {
         allProductsList.addAll(obtainAlimentosList());
         allProductsList.addAll(obtainAparatosList());
         allProductsList.addAll(obtainCuidadosPersonalesList());
-        allProductsList.addAll(obtainSouvernirsList());
+        allProductsList.addAll(obtainSouvernirsList().values());
         return allProductsList;
     }
 
@@ -122,7 +179,7 @@ public class TiendaNegocio {
      */
     public boolean addProducts(ProductoAbstracts productoAbstracts){
         if (obtainProducts().contains(productoAbstracts)){
-            return false;
+            return true;
         }
         return obtainProducts().add(productoAbstracts);
     }
@@ -133,8 +190,7 @@ public class TiendaNegocio {
      * @return true if product is removed, false if list is null or product does not exist in it
      */
     public boolean removeProducts(ProductoAbstracts productoAbstracts){
-        if (productoAbstractsList == null ||
-                !productoAbstractsList.contains(productoAbstracts)){
+        if (!productoAbstractsList.contains(productoAbstracts)){
             return false;
         }
         return productoAbstractsList.remove(productoAbstracts);
@@ -145,7 +201,6 @@ public class TiendaNegocio {
      * @return a list of floats with the total price of each type of products
      */
     public List<Float> totalOfEachProduct() throws ParseException {
-        obtainSouvernirsList();
         return new ArrayList<>(Arrays.asList(totalPriceFromAlimentos(), totalPriceFromAparatos(),
                 totalPriceFromCuidadoPersonal(), totalPriceFromSouvenirs()));
     }
@@ -195,7 +250,8 @@ public class TiendaNegocio {
      */
     public Float totalPriceFromSouvenirs() {
         float sum = 0f;
-        for (ProductoAbstracts productoAbstracts : obtainSouvernirsList()) {
+
+        for (ProductoAbstracts productoAbstracts : obtainSouvernirsList().values()) {
                 sum += productoAbstracts.maxPrice();
         }
         return sum;
@@ -205,15 +261,101 @@ public class TiendaNegocio {
      * Method to calculate the total earning of the shop
      * @return a float with the total
      */
-        public float totalEarning () {
-            float sumEarning = 0f;
-            float sumNormal = 0f;
-            for (ProductoAbstracts productoAbstracts : obtainProducts()){
-                sumNormal+= productoAbstracts.getPrice();
-                sumEarning += productoAbstracts.maxPrice();
-            }
-
-            return sumEarning - sumNormal;
+        public float totalEarning () throws ParseException {
+            return totalEarningAlimento()+totalEarningSouvenir()+totalEarningAparato()+totalEarningCuidadoPersonal();
         }
+
+    /**
+     * Method to calculate the total earning of the food
+     * @return a float with the total
+     */
+    public float totalEarningAlimento () throws ParseException {
+        float sumEarning = 0f;
+        float sumNormal = 0f;
+        for (ProductoAbstracts productoAbstracts : obtainAlimentosList()){
+            Alimento alimento = (Alimento) productoAbstracts;
+            if (!alimento.isProductExpired()){
+            sumNormal+= productoAbstracts.getPrice();
+            sumEarning += productoAbstracts.maxPrice();
+            }
+        }
+        return sumEarning - sumNormal;
     }
 
+    /**
+     * Method to calculate the total earning of the items
+     * @return a float with the total
+     */
+    public float totalEarningAparato () {
+        float sumEarning = 0f;
+        float sumNormal = 0f;
+        for (ProductoAbstracts productoAbstracts : obtainAparatosList()){
+            sumNormal+= productoAbstracts.getPrice();
+            sumEarning += productoAbstracts.maxPrice();
+        }
+
+        return sumEarning - sumNormal;
+    }
+
+    /**
+     * Method to calculate the total earning of the souvenirs
+     * @return a float with the total
+     */
+    public float totalEarningSouvenir() {
+        float sumEarning = 0f;
+        float sumNormal = 0f;
+        for (ProductoAbstracts productoAbstracts : obtainSouvernirsList().values()){
+            sumNormal+= productoAbstracts.getPrice();
+            sumEarning += productoAbstracts.maxPrice();
+        }
+
+        return sumEarning - sumNormal;
+    }
+
+    /**
+     * Method to calculate the total earning of the self-care items
+     * @return a float with the total
+     */
+    public float totalEarningCuidadoPersonal () {
+        float sumEarning = 0f;
+        float sumNormal = 0f;
+        for (ProductoAbstracts productoAbstracts : obtainCuidadosPersonalesList()){
+            sumNormal+= productoAbstracts.getPrice();
+            sumEarning += productoAbstracts.maxPrice();
+        }
+        return sumEarning - sumNormal;
+    }
+    /**
+     * Method to show the self-care items with a popularity if 7 or more
+     * @return a list with the items that meet that conditions
+     */
+    public List<ProductoAbstracts> popularity() {
+            List<ProductoAbstracts> popularItems = new ArrayList<>();
+        for (ProductoAbstracts productoAbstracts : obtainCuidadosPersonalesList()){
+            CuidadoPersonal cuidadoPersonal = (CuidadoPersonal) productoAbstracts;
+            if (cuidadoPersonal.recommendProduct()){
+                popularItems.add(cuidadoPersonal);
+            }
+        }
+        return popularItems;
+    }
+
+    /**
+     * Method to show the available products of each type
+     * @return a list with the products
+     * @throws ParseException if the food's expiration date does not meet the format
+     */
+    public List<ProductoAbstracts> showAvailableProducts() throws ParseException {
+        List<ProductoAbstracts> availableProducts = new ArrayList<>();
+        for (ProductoAbstracts productoAbstracts: obtainAlimentosList()){
+            Alimento alimento = (Alimento) productoAbstracts;
+            if (!alimento.isProductExpired()){
+                availableProducts.add(alimento);
+            }
+        }
+        availableProducts.addAll(obtainAparatosList());
+        availableProducts.addAll(obtainCuidadosPersonalesList());
+        availableProducts.addAll(obtainSouvernirsList().values());
+        return availableProducts;
+    }
+}

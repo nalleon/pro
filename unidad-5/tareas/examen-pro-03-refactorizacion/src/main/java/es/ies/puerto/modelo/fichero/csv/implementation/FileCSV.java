@@ -6,6 +6,7 @@ import es.ies.puerto.modelo.fichero.interfaces.IFichero;
 import es.ies.puerto.modelo.impl.Alimento;
 import es.ies.puerto.modelo.impl.Aparato;
 import es.ies.puerto.modelo.impl.CuidadoPersonal;
+import es.ies.puerto.modelo.impl.Souvenir;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -51,6 +52,9 @@ public class FileCSV extends FicheroAbstract implements IFichero {
                             case "cuidado":
                                 productoAbstractsList.add(splitToCuidadoPersonal(arrayElement));
                                 break;
+                            case "souvenir":
+                                productoAbstractsList.add(splitToSouvenir(arrayElement));
+                                break;
                             default:
                                 productoAbstractsList.add(splitToDefault(arrayElement)) ;
                                 break;
@@ -81,6 +85,12 @@ public class FileCSV extends FicheroAbstract implements IFichero {
         Aparato aparato = new Aparato(splitArray[0],
                Float.parseFloat(splitArray[1]), splitArray[2], splitArray[3]);
         return aparato;
+    }
+
+    private Souvenir splitToSouvenir(String[] splitArray) {
+        Souvenir souvenir = new Souvenir(splitArray[0],
+                Float.parseFloat(splitArray[1]), splitArray[2], splitArray[3]);
+        return souvenir;
     }
     private CuidadoPersonal splitToCuidadoPersonal(String[] splitArray) {
         CuidadoPersonal cuidadoPersonal = new CuidadoPersonal(splitArray[0],

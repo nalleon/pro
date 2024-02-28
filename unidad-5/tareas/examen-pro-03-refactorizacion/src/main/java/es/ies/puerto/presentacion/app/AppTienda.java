@@ -1,7 +1,6 @@
 package es.ies.puerto.presentacion.app;
 
 import es.ies.puerto.modelo.abstracts.ProductoAbstracts;
-import es.ies.puerto.modelo.fichero.csv.implementation.FileCSV;
 import es.ies.puerto.modelo.impl.Alimento;
 import es.ies.puerto.modelo.impl.Aparato;
 import es.ies.puerto.modelo.impl.CuidadoPersonal;
@@ -9,7 +8,6 @@ import es.ies.puerto.modelo.impl.Souvenir;
 import es.ies.puerto.negocio.TiendaNegocio;
 
 import java.text.ParseException;
-import java.util.List;
 import java.util.Scanner;
 public class AppTienda {
     static ProductoAbstracts productoAbstracts;
@@ -23,13 +21,15 @@ public class AppTienda {
 
     public static void menu() throws ParseException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("***********************************\n" +
+        System.out.println
+                ("***********************************\n" +
                 "* Welcome! What would you do?\n" +
                 "* 1. Add a Product\n" +
                 "* 2. Remove a Product\n" +
                 "* 3. Modify a Product\n" +
                 "* 4. Show a Product\n" +
-                "* 5. Show total prices of each section\n" +
+                "* 5. Show prices of each section\n" +
+                "* 6. Show earning of each section\n" +
                 "***********************************\n");
         int answer = scanner.nextInt();
 
@@ -49,6 +49,9 @@ public class AppTienda {
             case 5:
                 priceMenu();
                 break;
+            case 6:
+                earningMenu();
+                break;
             default:
                 System.out.println("Incorrect option. Type a valid one (1,2,3,4)");
         }
@@ -59,7 +62,7 @@ public class AppTienda {
         System.out.println("***********************************\n" +
                 "* What will you add?\n" +
                 "* 1. Food\n" +
-                "* 2. Objects\n" +
+                "* 2. Items\n" +
                 "* 3. Self-care product\n" +
                 "* 4. Souvenir\n" +
                 "***********************************\n");
@@ -94,7 +97,7 @@ public class AppTienda {
         System.out.println("***********************************\n" +
                 "* What will you remove?\n" +
                 "* 1. Food\n" +
-                "* 2. Objects\n" +
+                "* 2. Items\n" +
                 "* 3. Self-care product\n" +
                 "* 4. Souvenir\n" +
                 "***********************************\n");
@@ -134,7 +137,7 @@ public class AppTienda {
         System.out.println("***********************************\n" +
                 "* What will you modify?\n" +
                 "* 1. Food\n" +
-                "* 2. Objects\n" +
+                "* 2. Items\n" +
                 "* 3. Self-care product\n" +
                 "* 4. Souvenir\n" +
                 "***********************************\n");
@@ -176,15 +179,17 @@ public class AppTienda {
         }
     }
 
-    public static void showProdructMenu(){
+    public static void showProdructMenu() throws ParseException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("***********************************\n" +
                 "* What will you show?\n" +
                 "* 1. Food\n" +
-                "* 2. Objects\n" +
+                "* 2. Items\n" +
                 "* 3. Self-care product\n" +
-                "* 4. Souvenir\n" +
-                "* 5. All\n" +
+                "* 4. Recommended products only\n" +
+                "* 5. Souvenir\n" +
+                "* 6. All\n" +
+                "* 7. Only available products\n" +
                 "***********************************\n");
         int answer = scanner.nextInt();
         switch (answer){
@@ -198,11 +203,16 @@ public class AppTienda {
                 System.out.println(tiendaNegocio.obtainCuidadosPersonalesList());
                 break;
             case 4:
-                System.out.println(tiendaNegocio.obtainSouvernirsList());
+                System.out.println(tiendaNegocio.popularity());
                 break;
             case 5:
+                System.out.println(tiendaNegocio.obtainSouvernirsList());
+                break;
+            case 6:
                 System.out.println(tiendaNegocio.obtainProducts());
                 break;
+            case 7:
+                System.out.println(tiendaNegocio.showAvailableProducts());
             default:
                 System.out.println("Incorrect option. Type a valid one (1,2,3,4,5)");
         }
@@ -211,16 +221,14 @@ public class AppTienda {
     public static void priceMenu() throws ParseException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("***********************************\n" +
-                "* What total price you want to show?\n" +
+                "* What total price do you want to show?\n" +
                 "* 1. Food\n" +
-                "* 2. Objects\n" +
+                "* 2. Items\n" +
                 "* 3. Self-care product\n" +
                 "* 4. Souvenir\n" +
                 "* 5. All\n" +
-                "* 6. Earnings of the shop\n" +
                 "***********************************\n");
         int answer = scanner.nextInt();
-        tiendaNegocio.obtainSouvernirsList();
         switch (answer){
             case 1:
                 System.out.println(tiendaNegocio.totalPriceFromAlimentos());
@@ -237,11 +245,40 @@ public class AppTienda {
             case 5:
                 System.out.println(tiendaNegocio.totalOfEachProduct());
                 break;
-            case 6:
+            default:
+                System.out.println("Incorrect option. Type a valid one (1,2,3,4,5,6)");
+        }
+    }
+
+    public static void earningMenu() throws ParseException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("***********************************\n" +
+                "* What earning do you want to show?\n" +
+                "* 1. Food\n" +
+                "* 2. Items\n" +
+                "* 3. Self-care product\n" +
+                "* 4. Souvenir\n" +
+                "* 5. Earnings of the shop\n" +
+                "***********************************\n");
+        int answer = scanner.nextInt();
+        switch (answer){
+            case 1:
+                System.out.println(tiendaNegocio.totalEarningAlimento());
+                break;
+            case 2:
+                System.out.println(tiendaNegocio.totalEarningAparato());
+                break;
+            case 3:
+                System.out.println(tiendaNegocio.totalEarningCuidadoPersonal());
+                break;
+            case 4:
+                System.out.println(tiendaNegocio.totalEarningSouvenir());
+                break;
+            case 5:
                 System.out.println(tiendaNegocio.totalEarning());
                 break;
             default:
-                System.out.println("Incorrect option. Type a valid one (1,2,3,4,5,6)");
+                System.out.println("Incorrect option. Type a valid one (1,2,3,4,5)");
         }
     }
     public static String askName(){
