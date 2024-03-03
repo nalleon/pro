@@ -1,14 +1,11 @@
 package model.impl;
 
-import es.ies.puerto.modelo.abstracts.ProductoAbstracts;
-import es.ies.puerto.modelo.fichero.csv.implementation.FileCSV;
 import es.ies.puerto.modelo.impl.Alimento;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
-import java.util.*;
 
 public class AlimentoTest {
 

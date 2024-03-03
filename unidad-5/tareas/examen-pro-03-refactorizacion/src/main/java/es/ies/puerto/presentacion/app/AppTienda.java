@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class AppTienda {
     static ProductoAbstracts productoAbstracts;
     static TiendaNegocio tiendaNegocio = new TiendaNegocio();
-
     public static void main(String[] args) throws ParseException {
         tiendaNegocio.obtainProducts();
         menu();
