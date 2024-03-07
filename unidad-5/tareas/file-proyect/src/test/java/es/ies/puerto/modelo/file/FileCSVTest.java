@@ -49,4 +49,19 @@ public class FileCSVTest {
         Assertions.assertTrue(personaList.contains(personaInsert), "Expected result not found");
         Assertions.assertEquals(numPeople+1, numPeopleInsert, "Expected num not found");
     }
+
+    @Test
+    public void deletePersonaTest(){
+        int numPeople = personaList.size();
+        fileCSV.deletePersona(4);
+        personaList = fileCSV.obtainPersonas();
+        int numPeopleAfter = personaList.size();
+        Assertions.assertEquals(numPeople-1, numPeopleAfter, "Expected result not found");
+    }
+
+    @Test
+    public void updatePersonaTest(){
+
+    }
+
 }

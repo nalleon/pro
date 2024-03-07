@@ -78,12 +78,28 @@ public class FileCSV extends UtilidadesClass {
                 }
             }
         }
-    public void deletePersona(int id) {
+        public void deletePersona(int id) {
+        List<Persona> personas = obtainPersonas();
+         try (FileWriter writer = new FileWriter(path)) {
+             for (Persona persona : personas) {
+                    if (persona.getId() != id) {
+                    writer.write(persona.toCSV() + "\n");
+                 }
+             }
+          } catch (IOException e) {
+              e.printStackTrace();
+            }
+        }
+
+
+    public void update(Persona persona) {
         List<Persona> personas = obtainPersonas();
         try (FileWriter writer = new FileWriter(path)) {
-            for (Persona persona : personas) {
-                if (persona.getId() != id) {
-                    writer.write(persona.toCSV() + "\n");
+            for (Persona p : personas) {
+                if (p.getId() == persona.getId()) {
+                    writer.write(persona.toCSV());
+                } else {
+                    writer.write(persona.toCSV());
                 }
             }
         } catch (IOException e) {
