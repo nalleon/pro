@@ -1,19 +1,30 @@
 package es.ies.puerto.modelo.file;
 import es.ies.puerto.modelo.Persona;
+import es.ies.puerto.modelo.interfaces.ICrudMethods;
 import es.ies.puerto.utilidades.UtilidadesClass;
+import org.simpleframework.xml.Element;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileCSV extends UtilidadesClass {
+/**
+ * El primer metodo que debemos hacer es obtener todos los contenidos de la lista
+ */
+public class FileCSV extends UtilidadesClass implements ICrudMethods {
+
+    @Element(name = "personas")
+    List<Persona> personaList;
     String path="src/main/resources/data.csv";
+
+
     //TODO:
     // Verificar que el fichero existe
     // Leer el fichero
     // Transformar a Persona
     // Añadir a la lista
 
+    @Override
     public Persona obtainPersona(Persona persona) {
         int counter = 0;
         boolean found = false;
@@ -43,6 +54,7 @@ public class FileCSV extends UtilidadesClass {
         return persona;
     }
 
+    @Override
     public List<Persona> obtainPersonas() {
         List<Persona> personaList = new ArrayList<>();
         int counter = 0;
@@ -66,44 +78,50 @@ public class FileCSV extends UtilidadesClass {
         }
         return personaList;
     }
-
-        public void addPersona (Persona persona){
-            Persona personaFind = new Persona(persona.getId());
+    @Override
+    public void addPersona (Persona persona){
+        Persona personaFind = new Persona(persona.getId());
              //personaFind = obtainPersona(persona);
-            if (personaFind.getEmail() == null){
-                try (FileWriter writer = new FileWriter(path, true)) {
+        if (personaFind.getEmail() == null){
+            try (FileWriter writer = new FileWriter(path, true)) {
                     writer.write(persona.toCSV()+ "\n");
-                } catch (IOException e) {
+            } catch (IOException e) {
                     e.printStackTrace();
-                }
             }
         }
-        public void deletePersona(int id) {
-        List<Persona> personas = obtainPersonas();
-         try (FileWriter writer = new FileWriter(path)) {
-             for (Persona persona : personas) {
-                    if (persona.getId() != id) {
-                    writer.write(persona.toCSV() + "\n");
-                 }
-             }
-          } catch (IOException e) {
-              e.printStackTrace();
-            }
-        }
+    }
 
-
-    public void update(Persona persona) {
+    @Override
+    public void deletePersona(Persona persona) {
         List<Persona> personas = obtainPersonas();
+        Persona personaFind = new Persona(persona.getId());
         try (FileWriter writer = new FileWriter(path)) {
-            for (Persona p : personas) {
-                if (p.getId() == persona.getId()) {
-                    writer.write(persona.toCSV());
-                } else {
-                    writer.write(persona.toCSV());
+            writer.write("id,name,age,email\n");
+            for (Persona personaFile : personas) {
+                if (!personaFile.equals(personaFind)) {
+                    writer.write(personaFile.toCSV() + "\n");
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void update(Persona persona) {
+        Persona personaFind = new Persona(persona.getId());
+        List<Persona> personas = obtainPersonas();
+        try (FileWriter writer = new FileWriter(path)) {
+            for (Persona personaFile : personas) {
+                if (!personaFile.equals(personaFind)) {
+                    writer.write(persona.toCSV() + "\n");
+                } else {
+                    writer.write(persona.toCSV() + "\n");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

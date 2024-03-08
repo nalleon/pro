@@ -3,7 +3,9 @@ package es.ies.puerto.modelo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.simpleframework.xml.core.Persister;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,4 +77,33 @@ public class PersonaTest {
         Assertions.assertEquals(emailUpdate, persona.getEmail(), "Expected result not found");
 
     }
+
+    @Test
+    public void personaToXMLTest() {
+        Persister serializer = new Persister();
+        try {
+            serializer.write(persona, new File("src/test/resources/persona.xml"));
+        } catch (Exception e){
+            Assertions.fail(e.getMessage());
+        }
+    }
+
+
+    @Test
+    public void xmlToPersonaTest() {
+        Persister serializer = new Persister();
+        try {
+            File file = new File("src/test/resources/persona.xml");
+            Persona persona = serializer.read(Persona.class, file);
+            Assertions.assertEquals(id, persona.getId(), "Property must match");
+            Assertions.assertEquals(name, persona.getName(), "Property must match");
+            Assertions.assertEquals(age, persona.getAge(), "Property must match");
+            Assertions.assertEquals(email, persona.getEmail(), "Property must match");
+
+        } catch (Exception e){
+            Assertions.fail(e.getMessage());
+        }
+    }
+
+
 }

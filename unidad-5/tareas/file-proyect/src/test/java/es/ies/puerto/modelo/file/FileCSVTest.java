@@ -35,7 +35,7 @@ public class FileCSVTest {
     }
 
     @Test
-    public void addPersonaTest(){
+    public void addDeletePersonaTest(){
         String name = "nameOther";
         int age=18;
         String email="testOther@test.com";
@@ -48,20 +48,27 @@ public class FileCSVTest {
 
         Assertions.assertTrue(personaList.contains(personaInsert), "Expected result not found");
         Assertions.assertEquals(numPeople+1, numPeopleInsert, "Expected num not found");
-    }
-
-    @Test
-    public void deletePersonaTest(){
-        int numPeople = personaList.size();
-        fileCSV.deletePersona(4);
+        fileCSV.deletePersona(personaInsert);
         personaList = fileCSV.obtainPersonas();
-        int numPeopleAfter = personaList.size();
-        Assertions.assertEquals(numPeople-1, numPeopleAfter, "Expected result not found");
+        Assertions.assertFalse(personaList.contains(personaInsert), "Expected num not found");
     }
 
     @Test
-    public void updatePersonaTest(){
+    public void updatePersonaTest() {
+        int idUpdate = 2;
+        Persona personaFind = new Persona(idUpdate);
+        Persona personaUpdate = fileCSV.obtainPersona(personaFind);
+        Persona personaBackup = fileCSV.obtainPersona(personaFind);
+        personaUpdate.setName("sas");
+        personaUpdate.setAge(12);
+        personaUpdate.setEmail("test@test.com");
+        fileCSV.update(personaUpdate);
 
+        personaFind = fileCSV.obtainPersona(personaFind);
+        Assertions.assertEquals(personaFind.toString(), personaUpdate.toString(),
+                "Data must match");
+
+        fileCSV.update(personaBackup);
     }
 
 }
