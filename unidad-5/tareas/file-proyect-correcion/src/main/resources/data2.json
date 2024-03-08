@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "nombre": "John Doe",
+    "edad": 30,
+    "DELIMITADOR": ","
+  },
+  {
+    "id": 2,
+    "nombre": "otro",
+    "edad": 99,
+    "email": "otro@email",
+    "DELIMITADOR": ","
+  },
+  {
+    "id": 3,
+    "nombre": "Michael Johnson",
+    "edad": 35,
+    "DELIMITADOR": ","
+  },
+  {
+    "id": 4,
+    "nombre": "Emily Davis",
+    "edad": 28,
+    "DELIMITADOR": ","
+  }
+]

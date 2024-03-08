@@ -1,17 +1,17 @@
 package es.ies.puerto.modelo.file;
 
 import es.ies.puerto.modelo.Persona;
+import es.ies.puerto.modelo.PersonaList;
 import es.ies.puerto.modelo.interfaces.ICrudMethods;
 import es.ies.puerto.utilidades.UtilidadesClass;
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import javax.xml.crypto.Data;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -22,7 +22,7 @@ import java.util.List;
 
 public class FileXML extends UtilidadesClass implements ICrudMethods {
 
-    @Element(name = "personas")
+    @Root(name = "personas")
     List<Persona> personaList;
     String path="src/main/resources/data.xml";
 
@@ -57,16 +57,16 @@ public class FileXML extends UtilidadesClass implements ICrudMethods {
 
     @Override
     public List<Persona> obtainPersonas() {
-        personaList = new ArrayList<>();
-
+        Serializer serializer = new Persister();
         try {
         File xmlFile = new File(path);
-        Serializer serializer = new Persister();
-        personaList = serializer.read(List.class, xmlFile);
+        //Hacer un objeto intermedio
+        PersonaList personasListAux = serializer.read(PersonaList.class, xmlFile);
+        personaList = personasListAux.getPersonas();
+        return personaList;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return personaList;
     }
 
     @Override

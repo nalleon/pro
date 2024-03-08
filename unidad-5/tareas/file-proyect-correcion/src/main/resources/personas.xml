@@ -1,0 +1,8 @@
+<personas>
+   <persona>
+      <id>1</id>
+      <nombre>nombre</nombre>
+      <edad>12</edad>
+      <correo>test@tet.com</correo>
+   </persona>
+</personas>
