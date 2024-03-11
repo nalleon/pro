@@ -20,7 +20,7 @@ public class AlimentoList {
         this.alimentoList = alimentoList;
     }
 
-    public List<Alimento> alimentoList() {
+    public List<Alimento> getAlimentoList() {
         return alimentoList;
     }
 

@@ -9,7 +9,6 @@ import java.util.Date;
 @Root(name = "row")
 public class Alimento extends ProductoFrescoAbstracts {
 
-
     /**
      * Constructors of the class
      */
