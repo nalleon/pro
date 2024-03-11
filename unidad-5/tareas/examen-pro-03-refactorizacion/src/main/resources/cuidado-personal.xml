@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <row>
+        <nombre>Champú</nombre>
+        <precio>3.99</precio>
+        <fechaEntrada>2024-02-09</fechaEntrada>
+        <id>CUI001</id>
+        <popularidad>7</popularidad>
+    </row>
+    <row>
+        <nombre>Crema hidratante</nombre>
+        <precio>5.49</precio>
+        <fechaEntrada>2024-02-09</fechaEntrada>
+        <id>CUI002</id>
+        <popularidad>8</popularidad>
+    </row>
+    <row>
+        <nombre>Cepillo de dientes</nombre>
+        <precio>2.29</precio>
+        <fechaEntrada>2024-02-09</fechaEntrada>
+        <id>CUI003</id>
+        <popularidad>6</popularidad>
+    </row>
+</root>

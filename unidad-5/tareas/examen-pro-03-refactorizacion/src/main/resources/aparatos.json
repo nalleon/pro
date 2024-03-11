@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "Televisor LED",
+    "precio": 499.99,
+    "fechaEntrada": "2024-02-09",
+    "id": "APA001"
+  },
+  {
+    "nombre": "Smartphone",
+    "precio": 799.99,
+    "fechaEntrada": "2024-02-09",
+    "id": "APA002"
+  },
+  {
+    "nombre": "Cafetera",
+    "precio": 39.99,
+    "fechaEntrada": "2024-02-09",
+    "id": "APA003"
+  }
+]

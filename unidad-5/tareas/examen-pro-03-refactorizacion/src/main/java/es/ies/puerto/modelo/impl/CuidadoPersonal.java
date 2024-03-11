@@ -11,6 +11,9 @@ public class CuidadoPersonal extends ProductoRecomendableAbstracts {
      */
     public CuidadoPersonal() {
     }
+    public CuidadoPersonal(String udi){
+        super(udi);
+    }
 
     public CuidadoPersonal(String name, float price, String dateOfEntrance, String udi, int popularity) {
         super(name, price, dateOfEntrance, udi);

@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public abstract class FicheroAbstract {
+        public final String DELIMITATOR = ",";
         public String FICHERO_ALIMENTOS= "";
         public  String FICHERO_APARATOS= "";
         public  String FICHERO_CUIDADO_PERSONAL= "";

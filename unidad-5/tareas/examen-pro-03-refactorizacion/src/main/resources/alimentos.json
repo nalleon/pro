@@ -1,0 +1,23 @@
+[
+  {
+    "nombre": "Manzanas",
+    "precio": 2.5,
+    "fechaEntrada": "2024-01-09",
+    "id": "ALM001",
+    "fechaCaducidad": "2024-01-15"
+  },
+  {
+    "nombre": "Leche",
+    "precio": 1.99,
+    "fechaEntrada": "2024-02-09",
+    "id": "ALM002",
+    "fechaCaducidad": "2024-02-14"
+  },
+  {
+    "nombre": "Arroz",
+    "precio": 3.75,
+    "fechaEntrada": "2024-01-15",
+    "id": "ALM003",
+    "fechaCaducidad": "2024-01-27"
+  }
+]

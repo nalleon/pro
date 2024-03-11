@@ -17,6 +17,9 @@ public abstract class ProductoAbstracts implements IVendible {
      */
     public ProductoAbstracts (){}
 
+    public ProductoAbstracts (String udi){
+        this.udi = udi;
+    }
     public ProductoAbstracts(String name, float price, String dateOfEntrance, String udi) {
         this.name = name;
         this.price = price;

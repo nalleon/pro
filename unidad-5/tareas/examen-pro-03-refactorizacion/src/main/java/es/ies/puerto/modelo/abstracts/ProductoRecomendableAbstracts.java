@@ -6,6 +6,10 @@ public abstract class ProductoRecomendableAbstracts extends ProductoAbstracts im
     public ProductoRecomendableAbstracts() {
     }
 
+    public ProductoRecomendableAbstracts(String udi) {
+        super(udi);
+    }
+
     public ProductoRecomendableAbstracts(String name, float price, String dateOfEntrance, String udi) {
         super(name, price, dateOfEntrance, udi);
     }

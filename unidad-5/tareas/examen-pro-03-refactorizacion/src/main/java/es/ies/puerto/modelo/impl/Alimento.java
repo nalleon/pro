@@ -10,6 +10,10 @@ public class Alimento extends ProductoFrescoAbstracts {
      */
     public Alimento (){}
 
+    public Alimento(String udi){
+        super(udi);
+    }
+
     public Alimento(String name, float price, String dateOfEntrance, String udi, String expireDate) {
         super(name, price, dateOfEntrance, udi, expireDate);
     }

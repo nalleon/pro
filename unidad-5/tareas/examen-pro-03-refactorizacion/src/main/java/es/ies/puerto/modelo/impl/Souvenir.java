@@ -10,7 +10,9 @@ public class Souvenir extends ProductoAbstracts {
      */
     public Souvenir() {
     }
-
+    public Souvenir(String udi){
+        super(udi);
+    }
 
     public Souvenir(String name, float price, String dateOfEntrance, String udi) {
         super(name, price, dateOfEntrance, udi);

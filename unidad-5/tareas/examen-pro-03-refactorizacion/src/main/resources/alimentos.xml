@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <row>
+        <nombre>Manzanas</nombre>
+        <precio>2.50</precio>
+        <fechaEntrada>2024-01-09</fechaEntrada>
+        <id>ALM001</id>
+        <fechaCaducidad>2024-01-15</fechaCaducidad>
+    </row>
+    <row>
+        <nombre>Leche</nombre>
+        <precio>1.99</precio>
+        <fechaEntrada>2024-02-09</fechaEntrada>
+        <id>ALM002</id>
+        <fechaCaducidad>2024-02-14</fechaCaducidad>
+    </row>
+    <row>
+        <nombre>Arroz</nombre>
+        <precio>3.75</precio>
+        <fechaEntrada>2024-01-15</fechaEntrada>
+        <id>ALM003</id>
+        <fechaCaducidad>2024-01-27</fechaCaducidad>
+    </row>
+</root>

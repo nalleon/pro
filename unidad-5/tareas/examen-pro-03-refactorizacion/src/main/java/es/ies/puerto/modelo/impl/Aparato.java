@@ -9,7 +9,9 @@ public class Aparato extends ProductoAbstracts {
      */
     public Aparato() {
     }
-
+    public Aparato(String udi){
+        super(udi);
+    }
     public Aparato(String name, float price, String dateOfEntrance, String udi) {
         super(name, price, dateOfEntrance, udi);
     }

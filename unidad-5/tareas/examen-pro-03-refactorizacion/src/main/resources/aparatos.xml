@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <row>
+        <nombre>Televisor LED</nombre>
+        <precio>499.99</precio>
+        <fechaEntrada>2024-02-09</fechaEntrada>
+        <id>APA001</id>
+    </row>
+    <row>
+        <nombre>Smartphone</nombre>
+        <precio>799.99</precio>
+        <fechaEntrada>2024-02-09</fechaEntrada>
+        <id>APA002</id>
+    </row>
+    <row>
+        <nombre>Cafetera</nombre>
+        <precio>39.99</precio>
+        <fechaEntrada>2024-02-09</fechaEntrada>
+        <id>APA003</id>
+    </row>
+</root>
