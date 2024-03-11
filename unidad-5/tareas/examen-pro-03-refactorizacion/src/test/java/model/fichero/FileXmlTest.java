@@ -1,7 +1,7 @@
 package model.fichero;
 
 import es.ies.puerto.modelo.abstracts.ProductoAbstracts;
-import es.ies.puerto.modelo.fichero.csv.implementation.FileXml;
+import es.ies.puerto.modelo.fichero.impl.xml.FileXml;
 import es.ies.puerto.modelo.fichero.interfaces.ICrudOperaciones;
 import es.ies.puerto.modelo.impl.Alimento;
 import es.ies.puerto.modelo.impl.Aparato;
@@ -26,6 +26,7 @@ public class FileXmlTest {
     @BeforeEach
     public void beforeEach() {
         persistence = new FileXml();
+        persistence.getProductFilePath("alimento");
         products = persistence.obtainProducts();
     }
 
@@ -41,9 +42,7 @@ public class FileXmlTest {
         ProductoAbstracts souvenirFind = new Souvenir("SOU001");
         ProductoAbstracts cuidadoFind = new CuidadoPersonal("CUI001");
 
-        FileXml fileXml = new FileXml();
-
-        fileXml.getProductFilePath("alimento");
+        persistence.getProductFilePath("alimento");
         alimentoFind = persistence.obtainProduct(alimentoFind);
 
         Assertions.assertEquals(alimentoFind.getUdi(),"ALM001",
@@ -55,7 +54,6 @@ public class FileXmlTest {
         Assertions.assertNotNull(alimentoFind.getDateOfEntrance(),
                 "Expected result not found");
 
-        fileXml.getProductFilePath("aparato");
         aparatoFind = persistence.obtainProduct(aparatoFind);
 
         Assertions.assertEquals(aparatoFind.getUdi(),"APA001",
@@ -67,7 +65,6 @@ public class FileXmlTest {
         Assertions.assertNotNull(aparatoFind.getDateOfEntrance(),
                 "Expected result not found");
 
-        fileXml.getProductFilePath("souvenir");
         souvenirFind = persistence.obtainProduct(souvenirFind);
         Assertions.assertEquals(souvenirFind.getUdi(),"SOU001",
                 "Expected result not found");
@@ -78,7 +75,6 @@ public class FileXmlTest {
         Assertions.assertNotNull(souvenirFind.getDateOfEntrance(),
                 "Expected result not found");
 
-        fileXml.getProductFilePath("cuidado");
         cuidadoFind = persistence.obtainProduct(cuidadoFind);
 
         Assertions.assertEquals(cuidadoFind.getUdi(),"CUI001",

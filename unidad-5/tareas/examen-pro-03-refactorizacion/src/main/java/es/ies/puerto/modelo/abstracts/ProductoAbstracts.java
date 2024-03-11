@@ -1,16 +1,25 @@
 package es.ies.puerto.modelo.abstracts;
 
 import es.ies.puerto.modelo.interfaces.IVendible;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
 import java.util.HashMap;
 import java.util.Objects;
-
+@Root(name = "row")
 public abstract class ProductoAbstracts implements IVendible {
     public final String DELIMITATOR = ",";
+    @Element(name = "nombre")
     private String name;
+    @Element(name = "precio")
     private float price;
+
+    @Element(name = "fechaEntrada")
     private String dateOfEntrance;
+
+    @Element(name = "id")
     private String udi;
+
 
     /**
      * Constructors of the class

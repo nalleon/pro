@@ -1,9 +1,12 @@
 package es.ies.puerto.modelo.impl;
 
 import es.ies.puerto.modelo.abstracts.ProductoRecomendableAbstracts;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
+@Root(name = "row")
 public class CuidadoPersonal extends ProductoRecomendableAbstracts {
-
+    @Element(name = "fechaCaducidad")
     private int popularity;
 
     /**

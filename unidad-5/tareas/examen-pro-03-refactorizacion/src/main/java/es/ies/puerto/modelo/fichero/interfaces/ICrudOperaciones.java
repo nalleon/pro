@@ -10,4 +10,5 @@ public interface ICrudOperaciones {
     public void addProduct(ProductoAbstracts productoAbstracts);
     public void deleteProduct(ProductoAbstracts productoAbstracts);
     public void updateProduct(ProductoAbstracts productoAbstracts);
+    public String getProductFilePath(String productType);
 }

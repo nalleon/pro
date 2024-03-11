@@ -1,4 +1,4 @@
-package es.ies.puerto.modelo.fichero.csv.implementation;
+package es.ies.puerto.modelo.fichero.impl.json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -17,21 +17,22 @@ import java.util.List;
 
 public class FileJson extends FicheroAbstract implements ICrudOperaciones {
     List<ProductoAbstracts> products;
-    String path="src/main/resources/data.json";
+    String path="src/main/resources";
 
     public FileJson (){
-        FICHERO_ALIMENTOS = "src/main/resources/alimentos.xml";
-        FICHERO_APARATOS = "src/main/resources/aparatos.xml";
-        FICHERO_SOUVENIRS = "src/main/resources/souvenirs.xml";
-        FICHERO_CUIDADO_PERSONAL = "src/main/resources/cuidado-personal.xml";
+        FICHERO_ALIMENTOS = "src/main/resources/alimentos.json";
+        FICHERO_APARATOS = "src/main/resources/aparatos.json";
+        FICHERO_SOUVENIRS = "src/main/resources/souvenirs.json";
+        FICHERO_CUIDADO_PERSONAL = "src/main/resources/cuidado-personal.json";
     }
+    @Override
     public String getProductFilePath(String productType) {
         switch (productType) {
-            case "alimentos":
+            case "alimento":
                 return path = FICHERO_ALIMENTOS;
-            case "aparatos":
+            case "aparato":
                 return path = FICHERO_APARATOS;
-            case "souvenirs":
+            case "souvenir":
                 return path = FICHERO_SOUVENIRS;
             case "cuidado":
                 return path = FICHERO_CUIDADO_PERSONAL;

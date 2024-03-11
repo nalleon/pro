@@ -1,7 +1,9 @@
 package es.ies.puerto.modelo.impl;
 
 import es.ies.puerto.modelo.abstracts.ProductoAbstracts;
+import org.simpleframework.xml.Root;
 
+@Root(name = "row")
 public class Aparato extends ProductoAbstracts {
 
     /**

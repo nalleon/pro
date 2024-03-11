@@ -1,14 +1,9 @@
 package model.fichero;
 
-import es.ies.puerto.modelo.fichero.csv.implementation.FileCSV;
+import es.ies.puerto.modelo.fichero.impl.csv.FileCSV;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class FileCSVTest {
 

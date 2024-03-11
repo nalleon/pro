@@ -1,10 +1,15 @@
 package es.ies.puerto.modelo.impl;
 import es.ies.puerto.modelo.abstracts.ProductoFrescoAbstracts;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+@Root(name = "row")
 public class Alimento extends ProductoFrescoAbstracts {
+
+
     /**
      * Constructors of the class
      */

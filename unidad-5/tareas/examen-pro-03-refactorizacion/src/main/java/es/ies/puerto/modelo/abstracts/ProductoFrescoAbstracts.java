@@ -1,8 +1,12 @@
 package es.ies.puerto.modelo.abstracts;
 
 import es.ies.puerto.modelo.interfaces.ISaludable;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
+@Root(name = "row")
 public abstract class ProductoFrescoAbstracts extends ProductoAbstracts implements ISaludable {
+    @Element(name = "fechaCaducidad")
     private String expireDate;
 
     /**

@@ -1,9 +1,9 @@
-package es.ies.puerto.modelo.fichero.csv.implementation;
+package es.ies.puerto.modelo.fichero.impl.xml;
 
 import es.ies.puerto.modelo.abstracts.ProductoAbstracts;
 import es.ies.puerto.modelo.fichero.abstracts.FicheroAbstract;
 import es.ies.puerto.modelo.fichero.interfaces.ICrudOperaciones;
-import es.ies.puerto.modelo.impl.ProductList;
+import es.ies.puerto.modelo.impl.list.ProductList;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
@@ -20,13 +20,29 @@ public class FileXml extends FicheroAbstract implements ICrudOperaciones {
         FICHERO_CUIDADO_PERSONAL = "src/main/resources/cuidado-personal.xml";
     }
 
+    @Override
     public String getProductFilePath(String productType) {
         switch (productType) {
-            case "alimentos":
+            case "alimento":
                 return path = FICHERO_ALIMENTOS;
-            case "aparatos":
+            case "aparato":
                 return path = FICHERO_APARATOS;
-            case "souvenirs":
+            case "souvenir":
+                return path = FICHERO_SOUVENIRS;
+            case "cuidado":
+                return path = FICHERO_CUIDADO_PERSONAL;
+            default:
+                throw new IllegalArgumentException("Invalid type: " + productType);
+        }
+    }
+
+    public String getList(String productType) {
+        switch (productType) {
+            case "alimento":
+                return path = FICHERO_ALIMENTOS;
+            case "aparato":
+                return path = FICHERO_APARATOS;
+            case "souvenir":
                 return path = FICHERO_SOUVENIRS;
             case "cuidado":
                 return path = FICHERO_CUIDADO_PERSONAL;

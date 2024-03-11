@@ -1,7 +1,9 @@
 package es.ies.puerto.modelo.abstracts;
 
 import es.ies.puerto.modelo.interfaces.IRecomendable;
+import org.simpleframework.xml.Root;
 
+@Root(name = "row")
 public abstract class ProductoRecomendableAbstracts extends ProductoAbstracts implements IRecomendable {
     public ProductoRecomendableAbstracts() {
     }
