@@ -3,18 +3,17 @@ package es.ies.puerto.modelo.file;
 import es.ies.puerto.modelo.Persona;
 import es.ies.puerto.modelo.PersonaList;
 import es.ies.puerto.modelo.interfaces.ICrudOperaciones;
-import es.ies.puerto.utilidades.UtilidadesClass;
 import org.simpleframework.xml.core.Persister;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileXml extends UtilidadesClass implements ICrudOperaciones {
-
+public class FileXml2 implements ICrudOperaciones {
     List<Persona> personas;
     String path="src/main/resources/data.xml";
 
-    public FileXml (){
+    public FileXml2 (){
         personas = new ArrayList<>();
     }
     @Override
@@ -25,51 +24,49 @@ public class FileXml extends UtilidadesClass implements ICrudOperaciones {
             PersonaList personaList = serializer.read(PersonaList.class, file);
             personas = personaList.getPersonas();
             return personas;
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public Persona obtenerPersona(Persona persona) {
-        int posicion =  personas.indexOf(persona);
-        if (posicion > 0 ) {
-            return personas.get(posicion);
+        if (!personas.contains(persona)){
+            return null;
         }
-        return null;
+        int posicion =  personas.indexOf(persona);
+        return personas.get(posicion);
     }
 
     @Override
     public void addPersona(Persona persona) {
-        personas.add(persona);
-        PersonaList personaList = new PersonaList(personas);
-        Persister serializer = new Persister();
-        try {
-            serializer.write(personaList, new File(path));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        if (personas.contains(persona)){
+            return;
         }
+        personas.add(persona);
+        updateFile(personas);
     }
 
     @Override
     public void deletePersona(Persona persona) {
-        personas.remove(persona);
-        PersonaList personaList = new PersonaList(personas);
-        Persister serializer = new Persister();
-        try {
-            serializer.write(personaList, new File(path));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        if (!personas.contains(persona)) {
+            return;
         }
+        personas.remove(persona);
+        updateFile(personas);
     }
 
     @Override
     public void updatePersona(Persona persona) {
-        int posicion =  personas.indexOf(persona);
-        if (posicion < 0 ) {
+        if (!personas.contains(persona)) {
             return;
         }
+        int posicion = personas.indexOf(persona);
         personas.set(posicion,persona);
+        updateFile(personas);
+    }
+
+    private void updateFile(List<Persona> personas){
         PersonaList personaList = new PersonaList(personas);
         Persister serializer = new Persister();
         try {
