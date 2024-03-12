@@ -1,61 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="706449f0-31b8-42cd-9cd3-22a236e8da40" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/java/ies/puerto/modelo/entity/Alimento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/java/ies/puerto/modelo/entity/Aparato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/java/ies/puerto/modelo/entity/Articulo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/java/ies/puerto/modelo/entity/CuidadoPersonal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/java/ies/puerto/modelo/fichero/IFileInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/java/ies/puerto/modelo/fichero/abstractas/FicheroAbstract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/java/ies/puerto/modelo/fichero/csv/implementacion/FileCsv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/java/ies/puerto/negocio/abstractas/TiendaNegocio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/java/ies/puerto/presentacion/AppTienda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/resources/alimentos.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/resources/aparatos.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/resources/cuidado-personal.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/resources/prueba.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/correcciones-para-examen/src/main/resources/souvenirs.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/abstracs/ProductoAbstracts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/abstracs/ProductoFrescoAbstracts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/abstracs/ProductoRecomendableAbstracts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/app/AppMenuTienda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/app/AppTiendaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/impl/Alimento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/impl/Aparato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/impl/CuidadoPersonal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/impl/Souvenir.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/impl/Tienda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/interfaces/IRecomendable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/interfaces/ISaludable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/java/es/ies/puerto/interfaces/IVendible.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/resources/alimentos.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/resources/aparatos.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/resources/cuidado-personal.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examen-pro-02/src/main/resources/souvenirs.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arraylist-hashset-hashmap/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/arraylist-hashset-hashmap/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ficheros/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ficheros/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ficheros/src/main/java/es/ies/puerto/presentacion/abstracts/ArticuloAbstracts.java" beforeDir="false" afterPath="$PROJECT_DIR$/ficheros/src/main/java/es/ies/puerto/presentacion/abstracts/ArticuloAbstracts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ficheros/src/main/java/es/ies/puerto/presentacion/app/AppBiblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/ficheros/src/main/java/es/ies/puerto/presentacion/app/AppBiblioteca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/practicas-examen/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/practicas-examen/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulacro-pro-02/src/main/java/es/ies/puerto/app/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/simulacro-pro-02/src/main/java/es/ies/puerto/app/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simulacro-pro-02/src/main/java/es/ies/puerto/impl/SuperMarket.java" beforeDir="false" afterPath="$PROJECT_DIR$/simulacro-pro-02/src/main/java/es/ies/puerto/impl/SuperMarket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +28,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/dam/nalleon_pro/PRO/programacion/unidad-5/tareas/correcciones-para-examen"
+    "last_opened_file_path": "/home/dam/nalleon/programacion/unidad-5/tareas/examen-pro-03-refactorizacion"
   }
 }]]></component>
   <component name="RecentsManager">
