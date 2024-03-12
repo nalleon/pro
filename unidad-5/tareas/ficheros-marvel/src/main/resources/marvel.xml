@@ -1,0 +1,21 @@
+<personajes>
+   <personaje>
+      <nombre>Iron Man</nombre>
+      <alias>Tony Stark</alias>
+      <genero>Masculino</genero>
+      <poderes class="java.util.HashSet">
+         <string>Armadura tecnológica avanzada</string>
+         <string>Rayos láser</string>
+         <string>Vuelo</string>
+      </poderes>
+   </personaje>
+   <personaje>
+      <nombre>testing</nombre>
+      <alias>Peter Parker</alias>
+      <genero>junit@test</genero>
+      <poderes class="java.util.HashSet">
+         <string>junit</string>
+         <string>testing</string>
+      </poderes>
+   </personaje>
+</personajes>
