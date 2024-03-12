@@ -75,7 +75,6 @@ public class FileJsonTest {
         updatedSize = characters.size();
         Assertions.assertEquals(originalSize, updatedSize, "Expected result not found");
 
-
         persistence.deleteCharacter(characterAdd);
         characters = persistence.obtainCharacters();
         updatedSize = characters.size();

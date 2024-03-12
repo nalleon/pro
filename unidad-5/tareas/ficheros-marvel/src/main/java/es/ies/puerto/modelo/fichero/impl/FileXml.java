@@ -1,5 +1,6 @@
 package es.ies.puerto.modelo.fichero.impl;
 
+import es.ies.puerto.modelo.fichero.abstracts.FileAbstracts;
 import es.ies.puerto.modelo.fichero.interfaces.ICrudOperaciones;
 import es.ies.puerto.modelo.impl.Character;
 import es.ies.puerto.modelo.impl.CharacterList;
@@ -9,7 +10,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileXml implements ICrudOperaciones {
+public class FileXml extends FileAbstracts implements ICrudOperaciones {
 
     String path ="src/main/resources/marvel.xml";
     List<Character> characters;
@@ -21,14 +22,16 @@ public class FileXml implements ICrudOperaciones {
     @Override
     public List<Character> obtainCharacters() {
         Persister serializer = new Persister();
-        try{
-            File file = new File(path);
-            CharacterList characterList = serializer.read(CharacterList.class, file);
-            characters = characterList.getCharacters();
-            return characters;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        if (existFile(path)){
+            try{
+                File file = new File(path);
+                CharacterList characterList = serializer.read(CharacterList.class, file);
+                characters = characterList.getCharacters();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
+        return characters;
     }
 
     @Override

@@ -3,6 +3,7 @@ package es.ies.puerto.modelo.fichero.impl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import es.ies.puerto.modelo.fichero.abstracts.FileAbstracts;
 import es.ies.puerto.modelo.fichero.interfaces.ICrudOperaciones;
 import es.ies.puerto.modelo.impl.Character;
 
@@ -16,7 +17,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileJson implements ICrudOperaciones {
+public class FileJson extends FileAbstracts implements ICrudOperaciones {
     String path ="src/main/resources/marvel.json";
     List<Character> characters;
 
@@ -25,13 +26,15 @@ public class FileJson implements ICrudOperaciones {
     }
     @Override
     public List<Character> obtainCharacters() {
-        try{
-          String json = new String(Files.readAllBytes(Paths.get(path)));
-          Type listType = new TypeToken<ArrayList<Character>>(){}.getType();
-          characters = new Gson().fromJson(json,listType);
+        if (existFile(path)){
+            try{
+                String json = new String(Files.readAllBytes(Paths.get(path)));
+                Type listType = new TypeToken<ArrayList<Character>>(){}.getType();
+                characters = new Gson().fromJson(json,listType);
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         return characters;
     }

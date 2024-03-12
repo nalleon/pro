@@ -1,4 +1,5 @@
 package es.ies.puerto.modelo.fichero.impl;
+import es.ies.puerto.modelo.fichero.abstracts.FileAbstracts;
 import es.ies.puerto.modelo.fichero.interfaces.ICrudOperaciones;
 import es.ies.puerto.modelo.impl.Character;
 import es.ies.puerto.modelo.utilidades.Utilities;
@@ -6,24 +7,25 @@ import java.io.*;
 import java.util.*;
 
 
-public class FileCsv extends Utilities implements ICrudOperaciones {
+public class FileCsv extends FileAbstracts implements ICrudOperaciones {
     String path = "src/main/resources/marvel.csv";
     List<Character> characters;
-
 
     @Override
     public List<Character> obtainCharacters() {
        characters = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(path))){
-            String str;
-            while ((str = br.readLine()) != null){
-                String [] data = str.split(DELIMITER);
-                Character character = splitCharacter(data);
-                characters.add(character);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+       if (existFile(path)){
+           try (BufferedReader br = new BufferedReader(new FileReader(path))){
+               String str;
+               while ((str = br.readLine()) != null){
+                   String [] data = str.split(DELIMITER);
+                   Character character = splitCharacter(data);
+                   characters.add(character);
+               }
+           } catch (IOException e) {
+               throw new RuntimeException(e);
+           }
+       }
         return characters;
     }
 
