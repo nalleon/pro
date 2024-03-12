@@ -33,10 +33,10 @@ public class FileCsv extends Utilities implements ICrudOperaciones {
 
     public Character splitCharacter(String [] data){
         Set<String> powers = new HashSet<>();
-        Character character = new Character(data[1], data[0], data[2], powers);
         for(int i=3; i< data.length;i++){
             powers.add(data[i].trim());
         }
+        Character character = new Character(data[1], data[0], data[2], powers);
         return character;
     }
     @Override
@@ -104,6 +104,16 @@ public class FileCsv extends Utilities implements ICrudOperaciones {
                 } else {
                     writer.write(characterFile.toCsv()+"\n");
                 }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void saveFile(){
+        try (FileWriter writer = new FileWriter(path)){
+            for (Character characterFile : characters){
+                writer.write(characterFile.toCsv()+"\n");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -1,4 +1,4 @@
-# prog
+# pro
 
 Repositorio dedicado al módulo de Programación.
 
