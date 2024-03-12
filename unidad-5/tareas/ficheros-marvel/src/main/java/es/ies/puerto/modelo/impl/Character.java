@@ -109,6 +109,9 @@ public class Character extends Utilities {
     }
 
     public String toCsv(){
-        return name+DELIMITER+alias+DELIMITER+gender+DELIMITER+powers;
+        String powerStr = String.join(", ", powers);
+        powerStr = powerStr.replace("\"",  "");
+
+        return name+DELIMITER+alias+DELIMITER+gender+DELIMITER+"\""+powerStr+"\"";
     }
 }

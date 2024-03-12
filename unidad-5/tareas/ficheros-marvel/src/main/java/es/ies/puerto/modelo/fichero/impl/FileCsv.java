@@ -4,10 +4,7 @@ import es.ies.puerto.modelo.fichero.interfaces.ICrudOperaciones;
 import es.ies.puerto.modelo.impl.Character;
 import es.ies.puerto.modelo.utilidades.Utilities;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,7 +25,6 @@ public class FileCsv extends Utilities implements ICrudOperaciones {
                 Character character = splitCharacter(data);
                 characters.add(character);
             }
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -48,16 +44,14 @@ public class FileCsv extends Utilities implements ICrudOperaciones {
         boolean found = false;
         try (BufferedReader br = new BufferedReader(new FileReader(path))){
             String str;
-            while ((str = br.readLine()) != null){
+            while (((str = br.readLine()) != null) && !found){
                 String [] data = str.split(DELIMITER);
                 String alias = data[1];
-                if (alias == character.getAlias()){
-                    String name = data[0];
-                    String gender = data[2];
-                    Set<String> powers =new HashSet<>(Arrays.asList(data[3].split(", ")));
-                    character.setName(name);
-                    character.setGender(gender);
-                    character.setPowers(powers);
+                if (alias.equals(character.getAlias())){
+                    Character characterFind = splitCharacter(data);
+                    character.setName(characterFind.getName());
+                    character.setGender(characterFind.getGender());
+                    character.setPowers(characterFind.getPowers());
                     found = true;
                 }
             }
@@ -73,13 +67,15 @@ public class FileCsv extends Utilities implements ICrudOperaciones {
         Character characterFind = new Character(character.getAlias());
         characterFind = obtainCharacter(character);
 
-        if (characterFind.getPowers() == null){
+        if (!characters.contains(characterFind)){
             try (FileWriter writer = new FileWriter(path, true)){
                 writer.write(character.toCsv()+"\n");
+                characters.add(character);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
+
     }
 
     @Override
@@ -96,10 +92,15 @@ public class FileCsv extends Utilities implements ICrudOperaciones {
 
     @Override
     public void updateCharacter(Character character) {
+        Character characterFind = new Character(character.getAlias());
+        characterFind = obtainCharacter(character);
+
         try(FileWriter writer = new FileWriter(path)){
             for (Character characterFile : characters){
                 if (characterFile.equals(character)){
                     writer.write(character.toCsv()+"\n");
+                    int position = characters.indexOf(character);
+                    characters.set(position,character);
                 } else {
                     writer.write(characterFile.toCsv()+"\n");
                 }
