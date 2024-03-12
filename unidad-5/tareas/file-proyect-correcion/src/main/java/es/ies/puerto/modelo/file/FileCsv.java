@@ -11,8 +11,6 @@ import java.util.List;
 
 public class FileCsv extends UtilidadesClass implements ICrudOperaciones {
 
-    @Element(name = "personas")
-    List<Persona> personas;
     String path="src/main/resources/data.csv";
 
     public List<Persona> obtenerPersonas() {

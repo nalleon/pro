@@ -50,7 +50,7 @@ public class FileCsvTest {
 
     }
 
-   // @Test
+    @Test
     public void addDeleteCharacterTest(){
         int originalSize = characters.size();
         Character characterAdd = new Character(alias, name, gender, powers);
@@ -109,7 +109,7 @@ public class FileCsvTest {
 
         Assertions.assertFalse(persistence.obtainCharacters().contains(characterUpdate),
                 "Expected result not found");
-        //Assertions.assertEquals(originalSize, characters.size(), "Expected result not found");
+        Assertions.assertEquals(originalSize, characters.size(), "Expected result not found");
 
     }
 }
