@@ -49,7 +49,7 @@ public class FileCsv extends FileAbstracts implements ICrudOperaciones {
     public void addCharacter(Character character) {
         if (!characters.contains(character)) {
             characters.add(character);
-            saveFile(characters);
+            updateFile(characters);
         }
 
     }
@@ -57,7 +57,7 @@ public class FileCsv extends FileAbstracts implements ICrudOperaciones {
     @Override
     public void deleteCharacter(Character character) {
         if (characters.remove(character)) {
-            saveFile(characters);
+            updateFile(characters);
         }
     }
 
@@ -68,10 +68,11 @@ public class FileCsv extends FileAbstracts implements ICrudOperaciones {
         }
         int position = characters.indexOf(character);
         characters.set(position,character);
-        saveFile(characters);
+        updateFile(characters);
     }
 
-    public void saveFile(List<Character> characters){
+    @Override
+    public void updateFile(List<Character> characters){
         try (FileWriter writer = new FileWriter(path)){
             for (Character characterFile : characters){
                 writer.write(characterFile.toCsv()+"\n");

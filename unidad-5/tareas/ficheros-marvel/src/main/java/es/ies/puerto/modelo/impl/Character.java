@@ -12,13 +12,13 @@ import java.util.Set;
 @Root(name = "personaje")
 public class Character extends Utilities {
     @Element(name = "nombre")
-    private String name;
+     String name;
     @Element(name = "alias")
-    private String alias;
+     String alias;
     @Element(name = "genero")
-    private String gender;
+     String gender;
     @ElementList(name = "poderes")
-    private Set<String> powers;
+     Set<String> powers;
 
     /**
      * Default constructor of the class

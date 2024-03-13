@@ -71,7 +71,8 @@ public class FileXml extends FileAbstracts implements ICrudOperaciones {
         updateFile(characters);
     }
 
-    private void updateFile(List<Character> characters){
+    @Override
+    public void updateFile(List<Character> characters){
         CharacterList characterList = new CharacterList(characters);
         Persister serializer = new Persister();
         try {

@@ -1,14 +1,14 @@
 package es.ies.puerto.modelo.impl;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
+import java.util.ArrayList;
 import java.util.List;
 @Root(name = "personajes")
 public class CharacterList {
     @ElementList(inline = true)
     private List<Character> characters;
 
-    public CharacterList() {
-    }
+    public CharacterList() {}
 
     public CharacterList(List<Character> characters) {
         this.characters = characters;

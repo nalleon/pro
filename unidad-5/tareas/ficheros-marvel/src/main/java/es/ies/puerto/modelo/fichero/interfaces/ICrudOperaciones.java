@@ -10,4 +10,5 @@ public interface ICrudOperaciones {
     void addCharacter(Character character);
     void deleteCharacter(Character character);
     void updateCharacter(Character character);
+    void updateFile(List<Character> characters);
 }
