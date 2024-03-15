@@ -13,6 +13,14 @@ public class FileXml2 implements ICrudOperaciones {
     List<Persona> personas;
     String path="src/main/resources/data.xml";
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
     public FileXml2 (){
         personas = new ArrayList<>();
     }

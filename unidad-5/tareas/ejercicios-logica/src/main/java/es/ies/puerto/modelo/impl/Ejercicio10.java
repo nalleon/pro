@@ -16,7 +16,7 @@ public class Ejercicio10 {
 
         for (int i=0; i< str1.length(); i++){
             char currentChar = str1.charAt(i);
-            if (str2.indexOf(currentChar) == -1){
+            if (str2.indexOf(currentChar) == -1 && out.indexOf(currentChar) == -1){
                 out += currentChar;
             }
         }

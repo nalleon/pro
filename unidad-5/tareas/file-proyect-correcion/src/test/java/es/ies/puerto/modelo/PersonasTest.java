@@ -26,7 +26,6 @@ public class PersonasTest {
 
     @Test
     public void personasToXml() {
-
         Persister serializer = new Persister();
         try {
             serializer.write(persona, new File("src/main/resources/persona.xml"));
@@ -44,8 +43,7 @@ public class PersonasTest {
             PersonaList personas = serializer.read(PersonaList.class, file);
             Assertions.assertNotNull(personas,
                     "Se ha obtenido un valor nulo");
-            Assertions.assertTrue(!personas.getPersonas().isEmpty(),
-                    "No ha obtenido una lista vacia");
+            Assertions.assertFalse(personas.getPersonas().isEmpty(), "No ha obtenido una lista vacia");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
