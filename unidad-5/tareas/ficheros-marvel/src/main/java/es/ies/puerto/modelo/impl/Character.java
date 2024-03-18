@@ -1,5 +1,7 @@
 package es.ies.puerto.modelo.impl;
 
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import es.ies.puerto.modelo.utilidades.Utilities;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
@@ -12,7 +14,7 @@ import java.util.Set;
 @Root(name = "personaje")
 public class Character extends Utilities {
     @Element(name = "nombre")
-     String name;
+    String name;
     @Element(name = "alias")
      String alias;
     @Element(name = "genero")

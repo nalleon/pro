@@ -41,17 +41,4 @@ public class CharacterListTest {
             Assertions.fail(e.getMessage());
         }
     }
-
-    //@Test
-    public void xmlToCharacterTest() {
-        Persister serializer = new Persister();
-        try {
-            File file = new File("src/test/resources/marvelTest.xml");
-            CharacterList characters = serializer.read(CharacterList.class, file);
-            Assertions.assertNotNull(characters, "Result was null");
-            Assertions.assertFalse(characters.getCharacters().isEmpty(), "List must not be empty");
-        } catch (Exception e) {
-            Assertions.fail(e.getMessage());
-        }
-    }
 }

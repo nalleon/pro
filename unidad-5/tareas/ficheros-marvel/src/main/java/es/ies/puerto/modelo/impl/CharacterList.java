@@ -8,7 +8,9 @@ public class CharacterList {
     @ElementList(inline = true)
     private List<Character> characters;
 
-    public CharacterList() {}
+    public CharacterList() {
+        characters = new ArrayList<>();
+    }
 
     public CharacterList(List<Character> characters) {
         this.characters = characters;
