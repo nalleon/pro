@@ -1,0 +1,11 @@
+ID,Nombre,Tipo,Calorías,Proteínas,Grasas,Carbohidratos
+1,Manzana,Fruta,52.0,0.3,0.2,14.0
+2,Plátano,Fruta,89.0,1.1,0.3,23.0
+3,Zanahoria,Verdura,41.0,0.9,0.2,10.0
+4,Pollo,Carne,165.0,31.0,3.6,0.0
+5,Arroz,Grano,130.0,2.7,0.3,28.0
+6,Leche,Productos lácteos,42.0,3.4,1.0,5.0
+7,Espinacas,Verdura,23.0,2.9,0.4,3.6
+8,Atún,Pescado,118.0,26.0,1.0,0.0
+9,Pasta,Grano,158.0,5.8,1.1,31.0
+10,Yogur,Productos lácteos,59.0,3.5,3.3,4.7

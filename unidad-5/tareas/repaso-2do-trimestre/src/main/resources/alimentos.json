@@ -1,0 +1,92 @@
+[
+  {
+    "ID": 1,
+    "Nombre": "Manzana",
+    "Tipo": "Fruta",
+    "Calorías": 52.0,
+    "Proteínas": 0.3,
+    "Grasas": 0.2,
+    "Carbohidratos": 14.0
+  },
+  {
+    "ID": 2,
+    "Nombre": "Plátano",
+    "Tipo": "Fruta",
+    "Calorías": 89.0,
+    "Proteínas": 1.1,
+    "Grasas": 0.3,
+    "Carbohidratos": 23.0
+  },
+  {
+    "ID": 3,
+    "Nombre": "Zanahoria",
+    "Tipo": "Verdura",
+    "Calorías": 41.0,
+    "Proteínas": 0.9,
+    "Grasas": 0.2,
+    "Carbohidratos": 10.0
+  },
+  {
+    "ID": 4,
+    "Nombre": "Pollo",
+    "Tipo": "Carne",
+    "Calorías": 165.0,
+    "Proteínas": 31.0,
+    "Grasas": 3.6,
+    "Carbohidratos": 0.0
+  },
+  {
+    "ID": 5,
+    "Nombre": "Arroz",
+    "Tipo": "Grano",
+    "Calorías": 130.0,
+    "Proteínas": 2.7,
+    "Grasas": 0.3,
+    "Carbohidratos": 28.0
+  },
+  {
+    "ID": 6,
+    "Nombre": "Leche",
+    "Tipo": "Productos lácteos",
+    "Calorías": 42.0,
+    "Proteínas": 3.4,
+    "Grasas": 1.0,
+    "Carbohidratos": 5.0
+  },
+  {
+    "ID": 7,
+    "Nombre": "Espinacas",
+    "Tipo": "Verdura",
+    "Calorías": 23.0,
+    "Proteínas": 2.9,
+    "Grasas": 0.4,
+    "Carbohidratos": 3.6
+  },
+  {
+    "ID": 8,
+    "Nombre": "Atún",
+    "Tipo": "Pescado",
+    "Calorías": 118.0,
+    "Proteínas": 26.0,
+    "Grasas": 1.0,
+    "Carbohidratos": 0.0
+  },
+  {
+    "ID": 9,
+    "Nombre": "Pasta",
+    "Tipo": "Grano",
+    "Calorías": 158.0,
+    "Proteínas": 5.8,
+    "Grasas": 1.1,
+    "Carbohidratos": 31.0
+  },
+  {
+    "ID": 10,
+    "Nombre": "Yogur",
+    "Tipo": "Productos lácteos",
+    "Calorías": 59.0,
+    "Proteínas": 3.5,
+    "Grasas": 3.3,
+    "Carbohidratos": 4.7
+  }
+]
