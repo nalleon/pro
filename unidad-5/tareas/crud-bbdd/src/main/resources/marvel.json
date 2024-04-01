@@ -1,0 +1,15 @@
+[
+  {
+    "alias": "Tony Stark",
+    "powers": []
+  },
+  {
+    "name": "testing",
+    "alias": "Peter Parker",
+    "gender": "junit@test",
+    "powers": [
+      "junit",
+      "testing"
+    ]
+  }
+]
