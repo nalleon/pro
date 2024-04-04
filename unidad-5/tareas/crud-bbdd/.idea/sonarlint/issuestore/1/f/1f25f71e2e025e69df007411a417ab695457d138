@@ -1,3 +1,17 @@
 
 _
-java:S2094"BRemove this empty class, write its code or make it an "interface".(µƒ»•8Õô‚Ñé1
+java:S1163!"=Refactor this code to not throw exceptions in finally blocks.(¯Ûú±ıÿÿÿÿ8¥ƒ§Íê1
+_
+java:S1163D"=Refactor this code to not throw exceptions in finally blocks.(¯Ûú±ıÿÿÿÿ8¦ƒ§Íê1
+V
+java:S1143!"4Remove this throw statement from this finally block.(¯Ûú±ıÿÿÿÿ8¦ƒ§Íê1
+V
+java:S1143D"4Remove this throw statement from this finally block.(¯Ûú±ıÿÿÿÿ8¦ƒ§Íê1
+i
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ŒÔ«øÿÿÿÿ8Ê„§Íê1
+i
+java:S2095+"GUse try-with-resources or close this "Statement" in a "finally" clause.(ŒÔ«øÿÿÿÿ8Ê„§Íê1
+
+java:S1186\"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®©½ù8Ë„§Íê1
+£
+java:S1186`"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(áí½šıÿÿÿÿ8Ë„§Íê1

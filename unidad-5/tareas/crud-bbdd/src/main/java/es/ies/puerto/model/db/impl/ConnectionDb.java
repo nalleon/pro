@@ -39,9 +39,10 @@ public class ConnectionDb {
             Class.forName("org.sqlite.JDBC");
             this.con = DriverManager.getConnection(url);
         } catch (Exception exception){
-          //  System.out.println(exception.getMessage());
+           System.out.println(exception.getMessage());
             throw new UserException("Could not establish connection with the database", exception);
         }
         return con;
     }
+
 }
