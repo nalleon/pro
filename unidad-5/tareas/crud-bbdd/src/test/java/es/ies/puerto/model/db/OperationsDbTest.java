@@ -13,12 +13,14 @@ public class OperationsDbTest {
     OperationsDb operationsDb;
     String urlDb = "src/main/resources/usuarios.db";
 
-    String MESSAGE_ERROR = "Expected result not found";
+    String MESSAGE_ERROR = "EXPECTED RESULT NOT FOUND";
 
+    User user;
 
     @BeforeEach
     public void beforeEach(){
         operationsDb = new OperationsDb(urlDb);
+        user = new User("11", "name", 20, "miCiudad");
     }
 
     @Test
@@ -49,15 +51,46 @@ public class OperationsDbTest {
 
     @Test
     public void addRemoveUserTest(){
-        User user = new User("11", "name", 20, "miCiudad");
         try {
-           operationsDb.addUser(user);
+            int numUsers= operationsDb.obtainUsers().size();
+
+            operationsDb.addUser(user);
             User userObtained = operationsDb.obtainUser(user);
 
             Assertions.assertEquals(user, userObtained, MESSAGE_ERROR);
+            Assertions.assertEquals(11, numUsers+1, MESSAGE_ERROR);
+
+            operationsDb.removeUser(user);
+            int numUsersFinal = operationsDb.obtainUsers().size();
+            Assertions.assertEquals(numUsers, numUsersFinal, MESSAGE_ERROR);
 
         } catch (UserException e) {
             Assertions.fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void updateUserTest(){
+        String nameUpdate = "Pepe Juan";
+        int ageUpdate=32;
+        String cityUpdate="Iserlohn Fortress";
+
+        try {
+            operationsDb.addUser(user);
+            user.setName(nameUpdate);
+            user.setAge(ageUpdate);
+            user.setCity(cityUpdate);
+            operationsDb.updateUser(user);
+            User userFound = operationsDb.obtainUser(user);
+
+            Assertions.assertEquals(user.getId(), userFound.getId(), MESSAGE_ERROR);
+            Assertions.assertEquals(user.getName(), userFound.getName(), MESSAGE_ERROR);
+            Assertions.assertEquals(user.getAge(), userFound.getAge(), MESSAGE_ERROR);
+            Assertions.assertEquals(user.getCity(), userFound.getCity(), MESSAGE_ERROR);
+
+            operationsDb.removeUser(userFound);
+        } catch (Exception e) {
+            Assertions.fail(MESSAGE_ERROR+": "+e.getMessage());
         }
     }
 }

@@ -15,7 +15,6 @@ public class OperationsDb extends ConnectionDb{
 
     private void update(String query) throws UserException {
         Statement statement = null;
-
         try{
             statement = getConnection().createStatement();
             statement.executeUpdate(query);
@@ -71,12 +70,12 @@ public class OperationsDb extends ConnectionDb{
         return list;
     }
     public Set<User> obtainUsers() throws UserException {
-       String query="SELECT u.id, u.nombre, u.edad, u.ciudad FROM usuarios AS u;";
+       String query="SELECT u.id, u.nombre, u.edad, u.ciudad FROM usuarios AS u";
        return obtain(query);
     }
 
     public User obtainUser(User user) throws UserException {
-        String query="SELECT u.id, u.nombre, u.edad, u.ciudad FROM usuarios AS u WHERE u.id='"+user.getId()+"';";
+        String query="SELECT u.id, u.nombre, u.edad, u.ciudad FROM usuarios AS u WHERE u.id='"+user.getId()+"'";
         Set <User> list = obtain(query);
         if (list.isEmpty()){
             return null;
@@ -84,16 +83,21 @@ public class OperationsDb extends ConnectionDb{
         return list.iterator().next();
     }
     public void addUser(User user) throws UserException {
-        String qry = "INSERT INTO usuarios as u (nombre, edad, ciudad) " +
+        String qry = "INSERT INTO usuarios(nombre, edad, ciudad) " +
                      "VALUES ('"+user.getName()+"',"+ user.getAge()+",'"+user.getCity()+"')";
         update(qry);
     }
 
-    public void removeUser(User user){
-
+    public void removeUser(User user) throws UserException {
+        String qry = "DELETE FROM usuarios " +
+                "WHERE id='"+user.getId()+"'";
+        update(qry);
     }
 
-    public void updateUser(User user){
-
+    public void updateUser(User user) throws UserException {
+        String qry = "UPDATE usuarios SET nombre='"+user.getName()+
+                "', ciudad='"+user.getCity()+"', edad="+user.getAge()+
+                " WHERE id='"+user.getId()+"'";
+        update(qry);
     }
 }
