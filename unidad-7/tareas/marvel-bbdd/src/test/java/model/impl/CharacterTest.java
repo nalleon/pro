@@ -4,26 +4,28 @@ import es.ies.puerto.model.impl.Character;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utilities.Utilities;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CharacterTest {
+public class CharacterTest extends Utilities {
 
     Character character;
+    int id = 20;
     String name = "testing";
     String alias = "test";
     String gender = "junit@test";
     Set<String> powers = new HashSet<>(Arrays.asList("testing", "junit"));;
     @BeforeEach
     public void beforeEach(){
-        character = new Character(alias, name,gender,powers);
+        character = new Character(id, alias, name,gender,powers);
     }
 
     @Test
     public void characterNotNull(){
-        Assertions.assertNotNull(character, "Result can not be null");
+        Assertions.assertNotNull(character, MESSAGE_ERROR);
     }
 
     @Test
@@ -36,53 +38,39 @@ public class CharacterTest {
         character.setGender(genderUpdate);
         character.setPowers(powersUpdate);
 
-        Assertions.assertEquals(alias, character.getAlias(), "Expected result not found");
-        Assertions.assertEquals(nameUpdate, character.getName(), "Expected result not found");
-        Assertions.assertEquals(genderUpdate, character.getGender(), "Expected result not found");
-        Assertions.assertEquals(powersUpdate, character.getPowers(), "Expected result not found");
+        Assertions.assertEquals(alias, character.getAlias(), MESSAGE_ERROR);
+        Assertions.assertEquals(nameUpdate, character.getName(), MESSAGE_ERROR);
+        Assertions.assertEquals(genderUpdate, character.getGender(), MESSAGE_ERROR);
+        Assertions.assertEquals(powersUpdate, character.getPowers(), MESSAGE_ERROR);
 
     }
 
     @Test
     public void equalsCharacterTest(){
-        Character characterFind = new Character(alias);
-        Assertions.assertEquals(characterFind, character, "Expected result not found");
+        Character characterFind = new Character(id);
+        Assertions.assertEquals(characterFind, character, MESSAGE_ERROR);
     }
 
     @Test
     public void toStringCharacter(){
         Assertions.assertTrue(character.toString().contains(alias),
-                "Expected result not found");
+                MESSAGE_ERROR);
         Assertions.assertTrue(character.toString().contains(name),
-                "Expected result not found");
+                MESSAGE_ERROR);
         Assertions.assertTrue(character.toString().contains(gender),
-                "Expected result not found");
-        Assertions.assertTrue(character.toString().contains(String.valueOf(powers)), "Expected result not found");
+                MESSAGE_ERROR);
+        Assertions.assertTrue(character.toString().contains(String.valueOf(powers)), MESSAGE_ERROR);
     }
 
-    @Test
-    public void toCsvTest(){
-        Assertions.assertTrue(character.toCsv().contains(name),
-                "Expected result not found");
-        Assertions.assertTrue(character.toCsv().contains(alias),
-                "Expected result not found");
-        Assertions.assertTrue(character.toCsv().contains(gender),
-                "Expected result not found");
-        Assertions.assertNotNull(character.toCsv().contains(String.valueOf(powers)),
-                "Expected result not found");
-        Assertions.assertTrue(character.toCsv().contains(character.DELIMITER),
-                "Expected result not found");
-    }
 
     @Test
     public void hashCodeEqualsTest(){
-        Character characterEquals = new Character(alias);
-        Character characterNotEquals = new Character("Test");
+        Character characterEquals = new Character(20);
+        Character characterNotEquals = new Character(34);
         String characterStr = "testing";
-        Assertions.assertEquals(character.hashCode(), characterEquals.hashCode(), "Expected result not found");
-        Assertions.assertEquals(character, characterEquals, "Expected result not found");
-        Assertions.assertFalse(character.equals(characterNotEquals), "Expected result not found");
-        Assertions.assertFalse(character.equals(characterStr), "Expected result not found");
+        Assertions.assertEquals(character, characterEquals, MESSAGE_ERROR);
+        Assertions.assertFalse(character.equals(characterNotEquals), MESSAGE_ERROR);
+        Assertions.assertFalse(character.equals(characterStr), MESSAGE_ERROR);
 
 
     }

@@ -1,15 +1,23 @@
 package es.ies.puerto.model.db.impl;
 
+import es.ies.puerto.config.AppConfig;
 import es.ies.puerto.exception.MyException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class ConnectionDb {
+public class ConnectionDb extends AppConfig {
     private Connection con;
     private String url;
     private String user;
     private String password;
+
+    /**
+     * Default constructor of the class
+     */
+    public ConnectionDb() throws MyException {
+        super();
+    }
 
     /**
      * Constructor of the class
