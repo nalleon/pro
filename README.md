@@ -7,3 +7,4 @@ Repositorio dedicado al módulo de Programación.
 - [Unidad 2.](unidad-2)
 - [Unidad 3.](unidad-3)
 - [Unidad 5.](unidad-5)
+- [Unidad 7.](unidad-7)

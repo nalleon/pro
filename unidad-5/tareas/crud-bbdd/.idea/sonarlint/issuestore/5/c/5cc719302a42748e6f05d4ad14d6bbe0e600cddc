@@ -1,9 +1,0 @@
-
-t
-java:S1450
-"RRemove the "con" field and declare it as a local variable in the relevant methods.(èÜ¼Éüÿÿÿÿ8¸ÅˆÍê1
-G	java:S106*"+Replace this use of System.out by a logger.(ñ·¤¬8½ÅˆÍê1
-J
-java:S1068"(Remove this unused "user" private field.(‡ÏÇ³øÿÿÿÿ8¾ÅˆÍê1
-N
-java:S1068",Remove this unused "password" private field.(œãë­úÿÿÿÿ8¾ÅˆÍê1

@@ -69,6 +69,7 @@ public class OperationsDb extends ConnectionDb{
         }
         return list;
     }
+
     public Set<User> obtainUsers() throws UserException {
        String query="SELECT u.id, u.nombre, u.edad, u.ciudad FROM usuarios AS u";
        return obtain(query);
