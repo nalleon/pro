@@ -1,7 +1,4 @@
 package es.ies.puerto.modelo.impl;
-
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
 import es.ies.puerto.modelo.utilidades.Utilities;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
