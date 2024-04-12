@@ -9,12 +9,10 @@ import java.util.Set;
 public class Character {
     int id;
     String name;
+    String alias;
 
-     String alias;
-
-     String gender;
-
-     Set<String> powers;
+    String gender;
+    Set<String> powers;
 
 
     /**
@@ -33,10 +31,10 @@ public class Character {
     }
 
 
-    public Character(int id, String alias, String name, String gender, Set<String> powers) {
+    public Character(int id, String name, String alias, String gender, Set<String> powers) {
         this.id = id;
-        this.alias = alias;
         this.name = name;
+        this.alias = alias;
         this.gender = gender;
         this.powers = powers;
     }
@@ -50,9 +48,7 @@ public class Character {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public String getName(){
         return name;
@@ -92,9 +88,6 @@ public class Character {
                 '}';
     }
 
-    /**
-     * Method toString
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,12 +96,8 @@ public class Character {
         return id == character.id;
     }
 
-    /**
-     * Method equals and hashcode
-     */
     @Override
     public int hashCode() {
-        return Objects.hash(alias);
+        return Objects.hash(id);
     }
-
 }

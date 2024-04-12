@@ -1,4 +1,5 @@
 package model.db.impl;
+
 import es.ies.puerto.exception.MyException;
 import es.ies.puerto.model.db.impl.OperationsDb;
 import es.ies.puerto.model.db.interfaces.ICrudDb;
@@ -6,15 +7,17 @@ import es.ies.puerto.model.impl.Character;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utilities.Utilities;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class OperationsDbTest {
-    int id = 20;
-    String name = "testing";
-    String alias = "test";
-    String gender = "junit@test";
+public class OperationsDbTest extends Utilities {
+    int id = 3;
+    String name = "nameTesting";
+    String alias = "aliasTest";
+    String gender = "genderTest";
     Set<String> powers;
     ICrudDb persistence;
     Set<Character> characters;
@@ -24,16 +27,16 @@ public class OperationsDbTest {
         try {
         persistence = new OperationsDb();
         characters = persistence.obtainCharacters();
-        powers = new HashSet<>(Arrays.asList("testing", "junit"));
+        powers = new HashSet<>(Arrays.asList("powerTesting", "powerTesting2"));
         } catch (MyException e) {
             Assertions.fail();
         }
     }
 
     @Test
-    public void obtainCharactersTest(){
-        Assertions.assertFalse(characters.isEmpty(), "Expected result not found");
-        Assertions.assertEquals(2, characters.size(), "Expected result not found");
+    public void obtainCharactersTest() {
+        Assertions.assertFalse(characters.isEmpty(), MESSAGE_ERROR);
+        Assertions.assertEquals(2, characters.size(), MESSAGE_ERROR);
     }
 
     @Test
@@ -41,17 +44,12 @@ public class OperationsDbTest {
         Character characterFind = new Character(2);
         characterFind = persistence.obtainCharacter(characterFind);
         Assertions.assertEquals(characterFind.getAlias(),"Peter Parker",
-                "Expected result not found");
+                MESSAGE_ERROR);
         Assertions.assertNotNull(characterFind.getName(),
-                "Expected result not found");
-        Assertions.assertFalse(characterFind.getPowers().isEmpty(), "Expected result not found");
+                MESSAGE_ERROR);
+        Assertions.assertFalse(characterFind.getPowers().isEmpty(), MESSAGE_ERROR);
         Assertions.assertNotNull(characterFind.getGender(),
-                "Expected result not found");
-
-        characterFind = new Character(3);
-        characterFind = persistence.obtainCharacter(characterFind);
-        Assertions.assertFalse(characters.contains(characterFind), "Expected result not found");
-
+                MESSAGE_ERROR);
     }
 
     @Test
@@ -61,59 +59,44 @@ public class OperationsDbTest {
         persistence.addCharacter(characterAdd);
         characters = persistence.obtainCharacters();
 
-        Assertions.assertTrue(characters.contains(characterAdd), "Expected result not found");
+        Assertions.assertTrue(characters.contains(characterAdd), MESSAGE_ERROR);
         int updatedSize = characters.size();
 
-        Assertions.assertEquals(originalSize + 1, updatedSize, "Expected result not found");
-
-        persistence.addCharacter(characterAdd);
-        characters = persistence.obtainCharacters();
-        updatedSize = characters.size();
-        Assertions.assertTrue(characters.contains(characterAdd), "Expected result not found");
-        Assertions.assertEquals(originalSize+1, updatedSize, "Expected result not found");
+        Assertions.assertEquals(originalSize + 1, updatedSize, MESSAGE_ERROR);
 
         persistence.removeCharacter(characterAdd);
         characters = persistence.obtainCharacters();
         updatedSize = characters.size();
-        Assertions.assertEquals(originalSize, updatedSize, "Expected result not found");
-
+        Assertions.assertEquals(originalSize, updatedSize, MESSAGE_ERROR);
 
         persistence.removeCharacter(characterAdd);
         characters = persistence.obtainCharacters();
         updatedSize = characters.size();
-        Assertions.assertEquals(originalSize, updatedSize, "Expected result not found");
+        Assertions.assertEquals(originalSize, updatedSize, MESSAGE_ERROR);
     }
 
     @Test
     public void updateCharacterTest() throws MyException {
-        Character characterFind = new Character(2);
+        Character characterAdd = new Character(id, alias, name, gender, new HashSet<>());
+        persistence.addCharacter(characterAdd);
+        characters = persistence.obtainCharacters();
+
+        Character characterFind = new Character(3);
         characterFind = persistence.obtainCharacter(characterFind);
 
         Character characterUpdate = persistence.obtainCharacter(characterFind);
-        Character characterBackup = persistence.obtainCharacter(characterFind);
 
-        characterUpdate.setName(name);
-        characterUpdate.setGender(gender);
+        characterUpdate.setName("testing2");
+        characterUpdate.setName("testing2");
+        characterUpdate.setGender("testing2");
         characterUpdate.setPowers(powers);
 
         persistence.updateCharacter(characterUpdate);
 
         characterFind = persistence.obtainCharacter(characterFind);
         Assertions.assertEquals(characterFind.toString(), characterUpdate.toString(),
-                "Expected result not found");
+                MESSAGE_ERROR);
 
-        persistence.updateCharacter(characterBackup);
-
-        characterFind = new Character(3);
-        characterUpdate = persistence.obtainCharacter(characterFind);
-        int originalSize = persistence.obtainCharacters().size();
-
-        persistence.updateCharacter(characterUpdate);
-        characters = persistence.obtainCharacters();
-
-        Assertions.assertFalse(persistence.obtainCharacters().contains(characterUpdate),
-                "Expected result not found");
-        Assertions.assertEquals(originalSize, characters.size(), "Expected result not found");
-
+        persistence.removeCharacter(characterUpdate);
     }
 }

@@ -8,11 +8,10 @@ import org.junit.jupiter.api.Test;
 
 public class ConnectionDbTest {
     ConnectionDb connectionDb;
-    String url = "src/main/resources/marvel.db";
 
     @BeforeEach
-    public void beforeEach() throws MyException {
-        connectionDb = new ConnectionDb(url);
+    public void beforeEach() {
+        connectionDb = new ConnectionDb();
     }
 
     @Test

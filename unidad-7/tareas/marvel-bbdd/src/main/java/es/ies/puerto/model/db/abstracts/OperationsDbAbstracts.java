@@ -11,13 +11,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class OperationsDbAbstracts extends ConnectionDb {
-
-    public OperationsDbAbstracts() throws MyException {
+    public OperationsDbAbstracts() {
         super();
-    }
-
-    public OperationsDbAbstracts(String url) throws MyException {
-        super(url);
     }
 
     public void update(String query) throws MyException {
@@ -32,9 +27,8 @@ public class OperationsDbAbstracts extends ConnectionDb {
                 if (statement != null && !statement.isClosed()){
                     statement.close();
                 }
-                if (!getConnection().isClosed()){
-                    getConnection().close();
-                }
+                closeConnection();
+
             } catch (SQLException e) {
                 throw new MyException(e.getMessage(), e);
             }

@@ -12,56 +12,72 @@ import java.util.Set;
 
 public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
 
+
     public OperationsDb() throws MyException {
     }
 
     @Override
-    public Set<Character> obtain(String query) throws MyException {
-        Set <Character> list = new HashSet<>();
-        ResultSet rs = null;
+    public Set<Character> obtain(String sql) throws MyException {
+        Set<Character> characters = null;
+        Set<String> powers = null;
+
         Statement statement = null;
-
-        try{
-            statement = getConnection().createStatement();
-            rs = statement.executeQuery(query);
-
-            while (rs.next()) {
-                buildCharacter(rs);
-            }
-        } catch (SQLException exception){
-            throw new MyException(exception.getMessage(), exception);
-        } finally {
-            try {
-                if (rs != null && !rs.isClosed()){
-                    rs.close();
-                }
-                if (statement != null && !statement.isClosed()){
-                    statement.close();
-                }
-                if (!getConnection().isClosed()){
-                    getConnection().close();
-                }
-            } catch (SQLException e) {
-                throw new MyException(e.getMessage(), e);
-            }
-        }
-        return list;
-    }
-    public Set<String> obtainPowers () throws MyException {
-        Set<String> powers = new HashSet<>();
         ResultSet rs = null;
-        Statement statement = null;
-
-        String query = "SELECT p.poder FROM Poderes p JOIN Personajes ch ON ch.id=p.personaje_id";
         try {
             statement = getConnection().createStatement();
-            rs = statement.executeQuery(query);
+            rs = statement.executeQuery(sql);
+            characters = new HashSet<>();
             while (rs.next()) {
-                String power = rs.getString("poder");
-                powers.add(power);
+                characters.add(buildCharacter(rs));
+            }
+        } catch (Exception e) {
+            throw new MyException(e.getMessage(), e);
+        }finally{
+            try {
+                if (statement != null && !statement.isClosed()) {
+                    statement.close();
+                }
+                closeConnection();
+                if (rs != null && !rs.isClosed()) {
+                    rs.close();
+                }
+            } catch (Exception e) {
+                throw new MyException(sql, e);
+            }
+        }
+        return characters;
+    }
+
+
+    public Set<String> obtainPowers (int id) throws MyException {
+        Set<String> powers = null;
+        ResultSet rs = null;
+        Statement statement = null;
+
+        String query = "SELECT poder FROM Poderes WHERE personaje_id="+id;
+        try {
+            powers = new HashSet<>();
+            statement = getConnection().createStatement();
+            rs = statement.executeQuery(query);
+
+            while (rs.next()) {
+                powers.add(rs.getString("poder"));
             }
         } catch (SQLException exception) {
             throw new MyException(exception.getMessage(), exception);
+        } finally {
+            try {
+                if (statement != null && !statement.isClosed()) {
+                    statement.close();
+                }
+                closeConnection();
+
+                if (rs != null && !rs.isClosed()) {
+                    rs.close();
+                }
+            } catch (Exception e) {
+                throw new MyException(e.getMessage(), e);
+            }
         }
         return powers;
     }
@@ -70,34 +86,28 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
         int id = rs.getInt("id");
         String name = rs.getString("nombre");
         String alias = rs.getString("alias");
-        String gender = rs.getString("gender");
-        Set<String> powers = obtainPowers();
+        String gender = rs.getString("genero");
+        Set<String> powers = obtainPowers(id);
         return new Character(id, name, alias, gender, powers);
     }
     @Override
     public Set<Character> obtainCharacters() throws MyException {
-        String query="SELECT ch.id, ch.nombre, ch.alias, ch.genero, p.poder FROM Personajes AS ch" +
-                " JOIN Poderes p ON p.personaje_id=ch.id";
+        String query="SELECT id, nombre, alias, genero FROM Personajes";
         return obtain(query);
     }
     @Override
     public Character obtainCharacter(Character character) throws MyException {
-        String query="SELECT ch.id, ch.nombre, ch.alias, ch.genero, p.poder " +
-                "FROM Personajes ch AS u WHERE p.personaje_id="+character.getId();
-        Set <Character> list = obtain(query);
-        if (list.isEmpty()){
-            return null;
-        }
-        return list.iterator().next();
+        String query="SELECT id, nombre, alias, genero FROM Personajes WHERE id="+character.getId();
+        return obtain(query).iterator().next();
     }
     @Override
     public void addCharacter(Character character) throws MyException {
-        String qry = "INSERT INTO Personajes(nombre, alias, genero) " +
-                "VALUES ("+character.getName()+", "+character.getAlias()+
-                ", "+character.getGender()+")";
+        String qry = "INSERT INTO Personajes(id, nombre, alias, genero) " +
+                "VALUES ("+character.getId()+", '"+character.getName()+"', '"+character.getAlias()+
+                "', '"+character.getGender()+"')";
         update(qry);
 
-        if (character.getPowers().size() == 0){
+        if (character.getPowers().isEmpty()){
             return;
         }
 
@@ -118,17 +128,14 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
     @Override
     public void updateCharacter(Character character) throws MyException {
         String qry = "UPDATE Personajes SET nombre='"+character.getName()+
-                "', alias='"+character.getAlias()+"', genero="+character.getGender()+
-                " WHERE id='"+character.getId()+"'";
+                "', alias='"+character.getAlias()+"', genero='"+character.getGender()+
+                "' WHERE id="+character.getId();
         update(qry);
 
-        for (int i =0; i <= character.getPowers().size(); i++){
-            String qryPowers = "UPDATE Poderes SET poder='"+character.getPowers()+"' WHERE id="+character.getId();
-            update(qryPowers);
+        for (String power : character.getPowers()) {
+            String insertQry = "INSERT INTO Poderes(personaje_id, poder) VALUES (" +
+                    character.getId() + ", '" + power + "')";
+            update(insertQry);
         }
-        String qryPowers = "UPDATE Poderes SET poder='"+character.getPowers()+
-                "', alias='"+character.getAlias()+"', genero="+character.getGender()+
-                " WHERE id='"+character.getId()+"'";
-        update(qryPowers);
     }
 }

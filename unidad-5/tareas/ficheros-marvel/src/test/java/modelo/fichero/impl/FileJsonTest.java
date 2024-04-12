@@ -110,6 +110,7 @@ public class FileJsonTest {
                 "Expected result not found");
         Assertions.assertEquals(originalSize, characters.size(), "Expected result not found");
 
+        persistence.updateCharacter(characterBackup);
     }
 }
 

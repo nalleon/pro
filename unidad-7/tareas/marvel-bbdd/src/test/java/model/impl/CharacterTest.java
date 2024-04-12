@@ -20,7 +20,7 @@ public class CharacterTest extends Utilities {
     Set<String> powers = new HashSet<>(Arrays.asList("testing", "junit"));;
     @BeforeEach
     public void beforeEach(){
-        character = new Character(id, alias, name,gender,powers);
+        character = new Character(id, name, alias,gender,powers);
     }
 
     @Test
@@ -38,6 +38,7 @@ public class CharacterTest extends Utilities {
         character.setGender(genderUpdate);
         character.setPowers(powersUpdate);
 
+        Assertions.assertEquals(id, character.getId(), MESSAGE_ERROR);
         Assertions.assertEquals(alias, character.getAlias(), MESSAGE_ERROR);
         Assertions.assertEquals(nameUpdate, character.getName(), MESSAGE_ERROR);
         Assertions.assertEquals(genderUpdate, character.getGender(), MESSAGE_ERROR);
