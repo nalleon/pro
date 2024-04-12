@@ -12,15 +12,12 @@ import java.util.Set;
 
 public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
 
-
     public OperationsDb() throws MyException {
     }
 
     @Override
     public Set<Character> obtain(String sql) throws MyException {
         Set<Character> characters = null;
-        Set<String> powers = null;
-
         Statement statement = null;
         ResultSet rs = null;
         try {
@@ -67,19 +64,28 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
             throw new MyException(exception.getMessage(), exception);
         } finally {
             try {
-                if (statement != null && !statement.isClosed()) {
-                    statement.close();
-                }
-                closeConnection();
-
-                if (rs != null && !rs.isClosed()) {
-                    rs.close();
-                }
+                closeResources(statement,rs);
             } catch (Exception e) {
                 throw new MyException(e.getMessage(), e);
             }
         }
         return powers;
+    }
+
+    public void closeResources(Statement statement, ResultSet rs) throws MyException {
+        try {
+            if (statement != null && !statement.isClosed()) {
+                statement.close();
+            }
+
+            closeConnection();
+
+            if (rs != null && !rs.isClosed()) {
+                rs.close();
+            }
+        } catch (Exception e) {
+            throw new MyException(e.getMessage(), e);
+        }
     }
 
     public Character buildCharacter(ResultSet rs) throws SQLException, MyException {
@@ -133,9 +139,9 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
         update(qry);
 
         for (String power : character.getPowers()) {
-            String insertQry = "INSERT INTO Poderes(personaje_id, poder) VALUES (" +
+            String qryPowers = "INSERT INTO Poderes(personaje_id, poder) VALUES (" +
                     character.getId() + ", '" + power + "')";
-            update(insertQry);
+            update(qryPowers);
         }
     }
 }
