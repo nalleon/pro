@@ -15,6 +15,7 @@ public class Ejercicio6Test extends Utilities {
 
     @Test
     public void ejercicio1Test() {
+        Assertions.assertEquals(27, ejercicio.potencyTrad(3, 3), MESSAGE_ERROR);
         Assertions.assertEquals(27, ejercicio.potency(3, 3), MESSAGE_ERROR);
     }
 }
