@@ -22,6 +22,8 @@ public class WalkThroughArrayTest extends Utilities {
     @Test
     public void walkThroughArray(){
         Assertions.assertEquals(resultOK, walkThroughArray.walkThroughArray(list, 0).toString(), MESSAGE_ERROR);
+        Assertions.assertEquals("[4, 5]", walkThroughArray.walkThroughArray(list, 3).toString(), MESSAGE_ERROR);
+
     }
 
 

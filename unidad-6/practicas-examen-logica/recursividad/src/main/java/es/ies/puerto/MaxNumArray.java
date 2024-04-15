@@ -11,6 +11,7 @@ public class MaxNumArray {
             int current = i;
             int previous = i-1;
             maxNum = current;
+
             if (previous > current){
                 maxNum = previous;
             }
