@@ -83,7 +83,5 @@ public class CharacterTest {
         Assertions.assertEquals(character, characterEquals, "Expected result not found");
         Assertions.assertFalse(character.equals(characterNotEquals), "Expected result not found");
         Assertions.assertFalse(character.equals(characterStr), "Expected result not found");
-
-
     }
 }
