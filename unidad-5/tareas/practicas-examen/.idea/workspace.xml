@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21e1a9c3-de46-4c69-b23a-8303718f1526" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../arraylist/src/main/java/ies/puerto/ejercicicios/ejercicio/once/abstracts/PersonaAbstrac.java" beforeDir="false" afterPath="$PROJECT_DIR$/../arraylist/src/main/java/ies/puerto/ejercicicios/ejercicio/once/abstracts/PersonaAbstrac.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ies/puerto/impl/Food.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ies/puerto/impl/Food.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../simulacro-pro-02/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacro-pro-02/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../unidad-6/tareas/recursividad/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../unidad-6/tareas/recursividad/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +37,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/nabil/programacion/unidad-5/tareas/simulacro-pro-02"
+    "last_opened_file_path": "C:/Users/nabil/repositorios-git/programacion/unidad-5/tareas/practicas-examen-03"
   }
 }]]></component>
   <component name="RunManager" selected="Application.AppStoreTest">
