@@ -47,7 +47,8 @@ public class OperationsDbTest extends Utilities {
     public void obtainCharacterTest() throws MyException {
         Character characterFind = new Character(2);
         characterFind = persistence.obtainCharacter(characterFind);
-        Assertions.assertEquals(characterFind.getAlias(),"Peter Parker",
+        Alias aliasTest = new Alias(2,2, "Peter Parker");
+        Assertions.assertEquals(characterFind.getAlias(),aliasTest,
                 MESSAGE_ERROR);
         Assertions.assertNotNull(characterFind.getName(),
                 MESSAGE_ERROR);
@@ -60,6 +61,7 @@ public class OperationsDbTest extends Utilities {
     public void addDeleteCharacterTest() throws MyException {
         int originalSize = characters.size();
         Character characterAdd = new Character(id, name, gender, alias, powers);
+
         persistence.addCharacter(characterAdd);
         characters = persistence.obtainCharacters();
 
