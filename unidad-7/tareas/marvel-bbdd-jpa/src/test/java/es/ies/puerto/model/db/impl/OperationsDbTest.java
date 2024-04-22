@@ -1,8 +1,8 @@
 package es.ies.puerto.model.db.impl;
 
 import es.ies.puerto.exception.MyException;
-import es.ies.puerto.model.db.impl.OperationsDb;
-import es.ies.puerto.model.db.interfaces.ICrudDb;
+import es.ies.puerto.model.db.jdbc.impl.OperationsDb;
+import es.ies.puerto.model.db.jdbc.interfaces.ICrudDb;
 import es.ies.puerto.model.impl.Alias;
 import es.ies.puerto.model.impl.Character;
 import es.ies.puerto.model.impl.Power;
@@ -21,8 +21,8 @@ public class OperationsDbTest extends Utilities {
     Alias alias = new Alias(3, 3, "aliasTest");
     String gender = "genderTest";
     Set<Power> powers;
-    Power power1 = new Power(1, "powerTesting1");
-    Power power2 = new Power(2, "powerTesting2");
+    Power power1 = new Power(10, "powerTesting1");
+    Power power2 = new Power(11, "powerTesting2");
     ICrudDb persistence;
     Set<Character> characters;
 
@@ -83,18 +83,18 @@ public class OperationsDbTest extends Utilities {
 
     @Test
     public void updateCharacterTest() throws MyException {
-        Character characterAdd = new Character(id, name, gender, alias, new HashSet<>());
+        Character characterAdd = new Character(id, name, gender, alias, powers);
         persistence.addCharacter(characterAdd);
         characters = persistence.obtainCharacters();
 
-        Character characterFind = new Character(3);
+        Character characterFind = new Character(characterAdd.getCharacterId());
         characterFind = persistence.obtainCharacter(characterFind);
 
         Character characterUpdate = persistence.obtainCharacter(characterFind);
 
         characterUpdate.setName("testing2");
-        characterUpdate.setName("testing2");
         characterUpdate.setGender("testing2");
+        characterUpdate.setAlias(new Alias(4,3,"aliasUpdate"));
         characterUpdate.setPowers(powers);
 
         persistence.updateCharacter(characterUpdate);

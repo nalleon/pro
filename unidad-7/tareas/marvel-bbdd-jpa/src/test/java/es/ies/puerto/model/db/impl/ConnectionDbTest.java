@@ -1,7 +1,6 @@
 package es.ies.puerto.model.db.impl;
 
-import es.ies.puerto.exception.MyException;
-import es.ies.puerto.model.db.impl.ConnectionDb;
+import es.ies.puerto.model.db.jdbc.impl.ConnectionDb;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

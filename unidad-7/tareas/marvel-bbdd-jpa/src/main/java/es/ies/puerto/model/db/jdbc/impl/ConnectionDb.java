@@ -1,4 +1,4 @@
-package es.ies.puerto.model.db.impl;
+package es.ies.puerto.model.db.jdbc.impl;
 
 import es.ies.puerto.config.AppConfig;
 import es.ies.puerto.exception.MyException;

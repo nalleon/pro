@@ -1,9 +1,15 @@
 package es.ies.puerto.model.impl;
 
+import javax.persistence.*;
 import java.util.Objects;
-
+@Entity
+@Table(name="Alias")
 public class Alias {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private int aliasId;
+    @OneToOne
     private int characterId;
     private String alias;
 
@@ -23,7 +29,7 @@ public class Alias {
     /**
      * Constructor of the class
      * @param aliasId of the character's alias
-     * @param character
+     * @param characterId of the character
      * @param alias
      */
     public Alias(int aliasId, int characterId, String alias) {

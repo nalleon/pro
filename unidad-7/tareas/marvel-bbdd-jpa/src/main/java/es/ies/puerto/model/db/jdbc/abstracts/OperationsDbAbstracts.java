@@ -1,14 +1,11 @@
-package es.ies.puerto.model.db.abstracts;
+package es.ies.puerto.model.db.jdbc.abstracts;
 
 import es.ies.puerto.exception.MyException;
-import es.ies.puerto.model.db.impl.ConnectionDb;
-import es.ies.puerto.model.impl.Character;
+import es.ies.puerto.model.db.jdbc.impl.ConnectionDb;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashSet;
-import java.util.Set;
 
 public class OperationsDbAbstracts extends ConnectionDb {
     public OperationsDbAbstracts() {

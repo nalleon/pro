@@ -1,4 +1,4 @@
-package es.ies.puerto.jpa.hibernate.entities;
+package es.ies.puerto.model.db.jpa.hibernate.entities;
 
 import es.ies.puerto.model.impl.Character;
 import org.junit.jupiter.api.*;

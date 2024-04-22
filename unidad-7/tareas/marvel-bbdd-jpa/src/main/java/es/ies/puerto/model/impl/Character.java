@@ -20,9 +20,14 @@ public class Character {
 
     @Column(name = "nombre")
     private String name;
-    @Column(name = "gender")
+    @Column(name = "genero")
     private  String gender;
     private Alias alias;
+
+    @ManyToMany
+    @JoinTable(name = "Personajes_Poderes",
+            joinColumns = { @JoinColumn(name = "personaje_id") },
+            inverseJoinColumns = { @JoinColumn(name = "poder_id")})
     private Set<Power> powers;
 
 

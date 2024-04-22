@@ -1,7 +1,7 @@
-package es.ies.puerto.model.db.impl;
+package es.ies.puerto.model.db.jdbc.impl;
 import es.ies.puerto.exception.MyException;
-import es.ies.puerto.model.db.abstracts.OperationsDbAbstracts;
-import es.ies.puerto.model.db.interfaces.ICrudDb;
+import es.ies.puerto.model.db.jdbc.abstracts.OperationsDbAbstracts;
+import es.ies.puerto.model.db.jdbc.interfaces.ICrudDb;
 import es.ies.puerto.model.impl.Alias;
 import es.ies.puerto.model.impl.Character;
 import es.ies.puerto.model.impl.Power;
@@ -52,7 +52,6 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
      */
     public Set<Power> obtainPowers (ResultSet rs) throws MyException {
         Set<Power> powers = null;
-
         try {
             powers = new HashSet<>();
 
@@ -161,23 +160,22 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
         update(qry);
     }
 
-
-
     /**
      * Method that adds the powers of a character in the database
      * @param character to add its powers
      * @throws MyException
      */
     public void addCharactersPowers(Character character) throws MyException{
-        Set<Integer> powerId= new HashSet<>();
-        for (Power power:character.getPowers()) {
-            powerId.add(power.getPowerId());
+        Set<Integer> powerIds= new HashSet<>();
+        for (Power power : character.getPowers()) {
+            powerIds.add(power.getPowerId());
         }
 
-        String qry = "INSERT INTO Personajes_Poderes(personaje_id, poder_id) VALUES (" +
-                character.getCharacterId() +", "+ powerId.iterator().next()+")";
-
-        update(qry);
+        for (Integer powerId : powerIds) {
+            String qry = "INSERT INTO Personajes_Poderes(personaje_id, poder_id) VALUES (" +
+                    character.getCharacterId() + ", " + powerId + ")";
+            update(qry);
+        }
     }
 
     @Override

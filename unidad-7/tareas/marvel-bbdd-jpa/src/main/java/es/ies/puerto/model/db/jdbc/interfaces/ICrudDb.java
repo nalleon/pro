@@ -1,4 +1,4 @@
-package es.ies.puerto.model.db.interfaces;
+package es.ies.puerto.model.db.jdbc.interfaces;
 
 import es.ies.puerto.exception.MyException;
 import es.ies.puerto.model.impl.Character;

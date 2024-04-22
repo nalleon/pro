@@ -1,8 +1,13 @@
 package es.ies.puerto.model.impl;
 
+import javax.persistence.*;
 import java.util.Objects;
-
+@Entity
+@Table(name="Poderes")
 public class Power {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private int powerId;
     private String power;
 

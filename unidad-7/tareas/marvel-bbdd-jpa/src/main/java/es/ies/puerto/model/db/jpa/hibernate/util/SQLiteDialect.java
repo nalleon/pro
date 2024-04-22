@@ -1,4 +1,4 @@
-package es.ies.puerto.jpa.hibernate.util;
+package es.ies.puerto.model.db.jpa.hibernate.util;
 
 import java.sql.Types;
 
