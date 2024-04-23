@@ -135,18 +135,6 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
     }
 
     /**
-     * Auxiliar method to get a hashmap with the powers of a character
-     * @param character to get its powers
-     * @return a hashmap with the key values of id and the name of the power
-     */
-    public Map<Integer, String> getPowers(Character character){
-        Map<Integer, String> powersMap = new HashMap<>();
-        for (Power power:character.getPowers()) {
-           powersMap.put(power.getPowerId(), power.getPower());
-        }
-        return powersMap;
-    }
-    /**
      * Method that adds the alias of a character in the database
      * @param character to add its alias
      * @throws MyException
@@ -213,7 +201,7 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
         update(qry);
         updatePowers(character);
         updateAlias(character);
-      //  updateCharacterPowers(character);
+        //updateCharacterPowers(character);
     }
 
     /**
@@ -225,7 +213,7 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
         for (Power power:character.getPowers()) {
             String qryPowers = "UPDATE Poderes SET " +
                     "poder='"+power.getPower()+"' " +
-                    "WHERE id="+power.getPowerId();
+                    "WHERE id="+power.getPowerId()+";";
             update(qryPowers);
         }
     }
@@ -247,10 +235,10 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
      */
 
     public void updateCharacterPowers(Character character) throws MyException {
-        updatePowers(character);
+        //updatePowers(character);
         for (Power power : character.getPowers()) {
             String qryPwrs = "UPDATE Personajes_Poderes SET poder_id=" + power.getPowerId() +
-                    " WHERE personaje_id=" + character.getCharacterId();
+                    " WHERE personaje_id=" + character.getCharacterId()+";";
             update(qryPwrs);
         }
     }

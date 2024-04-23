@@ -6,6 +6,7 @@ import es.ies.puerto.model.db.jdbc.interfaces.ICrudDb;
 import es.ies.puerto.model.impl.Alias;
 import es.ies.puerto.model.impl.Character;
 import es.ies.puerto.model.impl.Power;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,8 @@ import java.util.List;
 import java.util.Set;
 
 public class OperationsDbTest extends Utilities {
+
+    OperationsDb operationsDb;
     int id = 3;
     String name = "nameTesting";
     Alias alias = new Alias(3, 3, "aliasTest");
@@ -95,10 +98,11 @@ public class OperationsDbTest extends Utilities {
 
         characterUpdate.setName("nameUpdate");
         characterUpdate.setGender("genderUpdate");
-        characterUpdate.setAlias(new Alias(3,3,"aliasUpdate"));
-        Power powerTest1 = new Power(10, "powerUpdate1");
+        alias.setAlias("aliasUpdate");
+        characterUpdate.setAlias(alias);
+        power1.setPower("powerUpdateTest1");
         Set<Power> powersUpdate = new HashSet<>();
-        powersUpdate.add(powerTest1);
+        powersUpdate.add(power1);
         characterUpdate.setPowers(powersUpdate);
 
         persistence.updateCharacter(characterUpdate);
@@ -108,5 +112,17 @@ public class OperationsDbTest extends Utilities {
                 MESSAGE_ERROR);
 
         persistence.removeCharacter(characterUpdate);
+    }
+
+    @AfterEach
+    public void afterEach() throws MyException {
+        operationsDb = new OperationsDb();
+        String qry="DROP TABLE Poderes;" +
+                "DROP TABLE Personajes;" +
+                "DROP TABLE Alias;" +
+                "DROP TABLE Personajes_Poderes;";
+
+        operationsDb.update(qry);
+        operationsDb.update(scriptBBDD);
     }
 }
