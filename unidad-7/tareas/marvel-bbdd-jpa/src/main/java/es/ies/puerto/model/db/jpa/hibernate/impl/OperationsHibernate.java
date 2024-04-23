@@ -7,6 +7,8 @@ import es.ies.puerto.model.impl.Character;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import java.util.HashSet;
 import java.util.Set;
 
 public class OperationsHibernate extends OperationsHibernateAbstracts implements ICrudHibernate {
@@ -21,9 +23,10 @@ public class OperationsHibernate extends OperationsHibernateAbstracts implements
     @Override
     public Set<Character> obtainCharacters() {
         EntityManager em = emf.createEntityManager();
-
+        Set<Character> characterSet = new HashSet<>();
+        em.createQuery("SELECT ch FROM Personajes ch", Character.class).getResultStream().forEach(characterSet::add);
         closeEntityManager(em);
-        return null;
+        return characterSet;
     }
 
     @Override

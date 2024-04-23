@@ -201,7 +201,7 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
         update(qry);
         updatePowers(character);
         updateAlias(character);
-        //updateCharacterPowers(character);
+        updateCharacterPowers(character);
     }
 
     /**
@@ -235,11 +235,11 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
      */
 
     public void updateCharacterPowers(Character character) throws MyException {
-        //updatePowers(character);
         for (Power power : character.getPowers()) {
-            String qryPwrs = "UPDATE Personajes_Poderes SET poder_id=" + power.getPowerId() +
-                    " WHERE personaje_id=" + character.getCharacterId()+";";
-            update(qryPwrs);
+            String qryChrPowers = "REPLACE INTO Personajes_Poderes (personaje_id, poder_id) VALUES " +
+                    "("+character.getCharacterId()+", "+power.getPowerId()+ ")";
+            update(qryChrPowers);
         }
     }
+
 }

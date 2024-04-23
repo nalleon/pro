@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Set;
 
 public class OperationsDbTest extends Utilities {
-
     OperationsDb operationsDb;
     int id = 3;
     String name = "nameTesting";
@@ -44,7 +43,7 @@ public class OperationsDbTest extends Utilities {
     @Test
     public void obtainCharactersTest() {
         Assertions.assertFalse(characters.isEmpty(), MESSAGE_ERROR);
-        //Assertions.assertEquals(2, characters.size(), MESSAGE_ERROR);
+        Assertions.assertEquals(2, characters.size(), MESSAGE_ERROR);
     }
 
     @Test
@@ -117,12 +116,7 @@ public class OperationsDbTest extends Utilities {
     @AfterEach
     public void afterEach() throws MyException {
         operationsDb = new OperationsDb();
-        String qry="DROP TABLE Poderes;" +
-                "DROP TABLE Personajes;" +
-                "DROP TABLE Alias;" +
-                "DROP TABLE Personajes_Poderes;";
-
-        operationsDb.update(qry);
+        operationsDb.update(dropTablesQry);
         operationsDb.update(scriptBBDD);
     }
 }

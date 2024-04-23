@@ -2,7 +2,6 @@ package utilities;
 
 public class Utilities {
     public final String MESSAGE_ERROR = "EXPECTED RESULT NOT FOUND";
-
     public final String scriptBBDD = "CREATE TABLE IF NOT EXISTS Personajes (\n" +
             "    id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
             "    nombre TEXT NOT NULL,\n" +
@@ -53,4 +52,10 @@ public class Utilities {
             "    (2, 4), -- Spider-Man tiene Agilidad sobrehumana\n" +
             "    (2, 5), -- Spider-Man tiene Trepamuros\n" +
             "    (2, 6); -- Spider-Man tiene Sentido arácnido";
+
+
+    public final String  dropTablesQry="DROP TABLE Poderes;" +
+            "DROP TABLE Personajes;" +
+            "DROP TABLE Alias;" +
+            "DROP TABLE Personajes_Poderes;";
 }

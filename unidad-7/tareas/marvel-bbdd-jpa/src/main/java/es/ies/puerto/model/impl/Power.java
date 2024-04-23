@@ -1,15 +1,20 @@
 package es.ies.puerto.model.impl;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
+
 @Entity
 @Table(name="Poderes")
-public class Power {
+public class Power implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int powerId;
     private String power;
+    @ManyToMany(mappedBy = "poderes",cascade = CascadeType.ALL)
+    private Set<Character> characters;
 
     /**
      * Default constructor of the class
@@ -34,6 +39,12 @@ public class Power {
         this.power = power;
     }
 
+    public Power(int powerId, String power, Set<Character> characters) {
+        this.powerId = powerId;
+        this.power = power;
+        this.characters=characters;
+    }
+
     /**
      * Getters and setters
      */
@@ -51,6 +62,14 @@ public class Power {
 
     public void setPower(String power) {
         this.power = power;
+    }
+
+    public Set<Character> getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(Set<Character> characters) {
+        this.characters = characters;
     }
 
     /**

@@ -1,2 +1,4 @@
-package es.ies.puerto.model.impl;public class AliasTest {
+package es.ies.puerto.model.impl;
+
+public class AliasTest {
 }

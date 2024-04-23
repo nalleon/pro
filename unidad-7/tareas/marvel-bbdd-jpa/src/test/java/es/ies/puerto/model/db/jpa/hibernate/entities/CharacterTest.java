@@ -1,5 +1,6 @@
 package es.ies.puerto.model.db.jpa.hibernate.entities;
 
+import es.ies.puerto.model.db.jpa.hibernate.impl.OperationsHibernate;
 import es.ies.puerto.model.impl.Character;
 import org.junit.jupiter.api.*;
 import utilities.Utilities;
@@ -10,13 +11,14 @@ import javax.persistence.Persistence;
 
 public class CharacterTest extends Utilities {
     static EntityManagerFactory emf;
+    static OperationsHibernate operationsHibernate;
     EntityManager em;
-
     Character character;
 
     @BeforeAll
     public static void setUp() {
         emf = Persistence.createEntityManagerFactory("pu-sqlite-jpa");
+        operationsHibernate = new OperationsHibernate();
     }
 
     @BeforeEach
@@ -30,7 +32,7 @@ public class CharacterTest extends Utilities {
             em.persist(character);
             em.getTransaction().commit();
         } catch (Throwable e) {
-            Assertions.fail("Se ha producido un error:"+e.getMessage());
+            Assertions.fail("Error at:"+e.getMessage());
         }
     }
 
@@ -40,7 +42,7 @@ public class CharacterTest extends Utilities {
             Character characterDB = em.find(Character.class, character.getCharacterId());
             Assertions.assertEquals(character.getName(), characterDB.getName());
         } catch (Throwable e) {
-            Assertions.fail("Se ha producido un error:"+e.getMessage());
+            Assertions.fail("Error at:"+e.getMessage());
         }
     }
 

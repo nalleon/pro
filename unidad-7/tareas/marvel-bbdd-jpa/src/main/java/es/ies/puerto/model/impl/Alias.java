@@ -9,8 +9,10 @@ public class Alias {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int aliasId;
-    @OneToOne
+    @JoinColumn(name = "personaje_id")
+    @OneToOne()
     private int characterId;
+    @Column(name = "alias")
     private String alias;
 
     /**
