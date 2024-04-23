@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2806229f-4a6b-425b-800d-865c88bd9544" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/issuestore/1/2/12342f4f432d4a7136bf1144f6bee7f2106d0e74" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/issuestore/7/4/740a81aec4aa349bed6d6ebf4edda824f4b2cd34" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/issuestore/7/d/7dad4cb9e87dbf93f21ff79badb990d0b8b3ec28" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/issuestore/7/f/7f0719bea094d13304d75eedb5a5e3a4cf116ca9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/issuestore/f/8/f8cf31c504a990f980a58b2af85af7b3cfc0d31d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/issuestore/f/f/ff67d987a378f5b79108d9ec6c2812ff7cc1264b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/securityhotspotstore/1/2/12342f4f432d4a7136bf1144f6bee7f2106d0e74" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/securityhotspotstore/7/4/740a81aec4aa349bed6d6ebf4edda824f4b2cd34" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/securityhotspotstore/7/d/7dad4cb9e87dbf93f21ff79badb990d0b8b3ec28" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/securityhotspotstore/7/f/7f0719bea094d13304d75eedb5a5e3a4cf116ca9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/securityhotspotstore/f/8/f8cf31c504a990f980a58b2af85af7b3cfc0d31d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/securityhotspotstore/f/f/ff67d987a378f5b79108d9ec6c2812ff7cc1264b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/main/java/es/ies/puerto/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/main/java/es/ies/puerto/exception/MyException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/main/java/es/ies/puerto/model/db/abstracts/OperationsDbAbstracts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/main/java/es/ies/puerto/model/db/impl/ConnectionDb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/main/java/es/ies/puerto/model/db/impl/OperationsDb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/main/java/es/ies/puerto/model/db/interfaces/ICrudDb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/main/java/es/ies/puerto/model/impl/Character.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/main/resources/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/main/resources/marvel.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/test/java/model/db/impl/AppConfigTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/test/java/model/db/impl/ConnectionDbTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/test/java/model/db/impl/OperationsDbTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/test/java/model/impl/CharacterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/test/java/utilities/Utilities.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marvel-bbdd-jpa/src/test/resources/marvelTest.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2fMLv0hMNeZBwQXZCtMbwbVYm4F" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/nabil/repositorios-git/programacion/unidad-7/tareas/marvel-bbdd-jpa"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nabil\repositorios-git\programacion\unidad-7\tareas" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2806229f-4a6b-425b-800d-865c88bd9544" name="Changes" comment="" />
+      <created>1713606226167</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713606226167</updated>
+    </task>
+    <servers />
+  </component>
+</project>
