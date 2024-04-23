@@ -9,8 +9,7 @@ import es.ies.puerto.model.impl.Power;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
     public OperationsDb() throws MyException {
@@ -30,17 +29,7 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
         } catch (Exception e) {
             throw new MyException(e.getMessage(), e);
         }finally{
-            try {
-                if (statement != null && !statement.isClosed()) {
-                    statement.close();
-                }
-                closeConnection();
-                if (rs != null && !rs.isClosed()) {
-                    rs.close();
-                }
-            } catch (Exception e) {
-                throw new MyException(sql, e);
-            }
+            closeResources(statement, rs);
         }
         return characters;
     }
@@ -123,8 +112,8 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
     }
     @Override
     public void addCharacter(Character character) throws MyException {
-        String qryCharacter = "INSERT INTO Personajes(nombre, genero) " +
-                "VALUES ('"+character.getName()+
+        String qryCharacter = "INSERT INTO Personajes(id, nombre, genero) " +
+                "VALUES ("+character.getCharacterId()+ ", '"+character.getName()+
                 "', '"+character.getGender()+"')";
         update(qryCharacter);
         addPowers(character);
@@ -138,16 +127,24 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
      * @throws MyException
      */
     public void addPowers(Character character) throws MyException{
-        Set<String> powerNames = new HashSet<>();
-        for (Power power:character.getPowers()) {
-            powerNames.add(power.getPower());
-        }
-
-        for (int i =0; i < powerNames.size(); i++){
-            String qryPowers = "INSERT INTO Poderes(poder)" +
-                    "VALUES ('"+powerNames.iterator().next()+"')";
+        for (Power power : character.getPowers()){
+            String qryPowers = "INSERT INTO Poderes(id, poder)" +
+                    "VALUES ("+ power.getPowerId()+", '"+power.getPower()+"')";
             update(qryPowers);
         }
+    }
+
+    /**
+     * Auxiliar method to get a hashmap with the powers of a character
+     * @param character to get its powers
+     * @return a hashmap with the key values of id and the name of the power
+     */
+    public Map<Integer, String> getPowers(Character character){
+        Map<Integer, String> powersMap = new HashMap<>();
+        for (Power power:character.getPowers()) {
+           powersMap.put(power.getPowerId(), power.getPower());
+        }
+        return powersMap;
     }
     /**
      * Method that adds the alias of a character in the database
@@ -155,7 +152,7 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
      * @throws MyException
      */
     public void addAlias(Character character) throws MyException{
-        String qry = "INSERT INTO Alias(personaje_id, alias) VALUES ("
+        String qry = "INSERT INTO Alias(id, personaje_id, alias) VALUES ("+ character.getAlias().getAliasId()+", "
                 +character.getCharacterId()+", '"+character.getAlias().getAlias()+"')";
         update(qry);
     }
@@ -166,15 +163,10 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
      * @throws MyException
      */
     public void addCharactersPowers(Character character) throws MyException{
-        Set<Integer> powerIds= new HashSet<>();
-        for (Power power : character.getPowers()) {
-            powerIds.add(power.getPowerId());
-        }
-
-        for (Integer powerId : powerIds) {
-            String qry = "INSERT INTO Personajes_Poderes(personaje_id, poder_id) VALUES (" +
-                    character.getCharacterId() + ", " + powerId + ")";
-            update(qry);
+        for (Power power:character.getPowers()) {
+            String qryCharPowers = "INSERT INTO Personajes_Poderes(personaje_id, poder_id) VALUES (" +
+                    character.getCharacterId() + ", " + power.getPowerId() + ")";
+            update(qryCharPowers);
         }
     }
 
@@ -193,14 +185,9 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
      * @throws MyException
      */
     public void removePowers(Character character) throws MyException{
-        Set<Integer> powerId= new HashSet<>();
         for (Power power:character.getPowers()) {
-            powerId.add(power.getPowerId());
-        }
-
-        for (int i = 0; i < powerId.size(); i++){
-            String qryPowers = "DELETE FROM Poderes WHERE id="+powerId.iterator().next();
-            update(qryPowers);
+            String qryCharPowers = "DELETE FROM Poderes WHERE id=" + power.getPowerId();
+            update(qryCharPowers);
         }
     }
 
@@ -222,13 +209,11 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
     @Override
     public void updateCharacter(Character character) throws MyException {
         String qry = "UPDATE Personajes SET nombre='"+character.getName()+
-                "', alias='"+character.getAlias()+"', genero='"+character.getGender()+
-                "' WHERE id="+character.getCharacterId();
+                "', genero='"+character.getGender()+ "' WHERE id="+character.getCharacterId();
         update(qry);
-
         updatePowers(character);
         updateAlias(character);
-        updateCharacterPowers(character);
+      //  updateCharacterPowers(character);
     }
 
     /**
@@ -237,9 +222,10 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
      * @throws MyException
      */
     public void updatePowers(Character character) throws MyException {
-        for (Power power : character.getPowers()) {
+        for (Power power:character.getPowers()) {
             String qryPowers = "UPDATE Poderes SET " +
-                    character.getCharacterId() + ", '" + power + "')";
+                    "poder='"+power.getPower()+"' " +
+                    "WHERE id="+power.getPowerId();
             update(qryPowers);
         }
     }
@@ -249,20 +235,23 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
      * @throws MyException
      */
     public void updateAlias(Character character) throws MyException {
-        String qryAlias = "UPDATE Alias SET alias='"+ character.getAlias() + "' " +
+        String qryAlias = "UPDATE Alias SET alias='"+ character.getAlias().getAlias() + "' " +
                 "WHERE personaje_id="+character.getCharacterId();
         update(qryAlias);
     }
 
+    /**
+     * Method that updates the id of the powers from a character in the database
+     * @param character to update in table Personajes_Poderes
+     * @throws MyException
+     */
+
     public void updateCharacterPowers(Character character) throws MyException {
-        Set<Integer> powerId= new HashSet<>();
-        for (Power power:character.getPowers()) {
-            powerId.add(power.getPowerId());
+        updatePowers(character);
+        for (Power power : character.getPowers()) {
+            String qryPwrs = "UPDATE Personajes_Poderes SET poder_id=" + power.getPowerId() +
+                    " WHERE personaje_id=" + character.getCharacterId();
+            update(qryPwrs);
         }
-
-        String qryPwrs = "UPDATE Personajes_Poderes SET poder_id="+ powerId.iterator().next() + " " +
-                "WHERE personaje_id="+character.getCharacterId();
-
-        update(qryPwrs);
     }
 }
