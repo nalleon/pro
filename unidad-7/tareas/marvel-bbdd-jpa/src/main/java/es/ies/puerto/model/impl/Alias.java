@@ -13,7 +13,8 @@ public class Alias implements Serializable {
 
     @Transient
     private int characterId;
-    @OneToOne(mappedBy = "alias")
+    //@OneToOne(mappedBy = "alias")
+    @OneToOne()
     @JoinColumn(name = "personaje_id")
     private Character character;
     @Column(name = "alias")

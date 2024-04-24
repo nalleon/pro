@@ -21,12 +21,12 @@ public class Character implements Serializable {
     /**
      * Cambiar orden de los mapped
      */
-    @OneToOne
+    @OneToOne(mappedBy = "character", cascade = CascadeType.ALL)
     private Alias alias;
 
     @ManyToMany
-    @JoinTable(name = "Personajes_Poderes",
-            joinColumns = { @JoinColumn(name = "personaje_id",referencedColumnName = "id") },
+    @JoinTable(name = "Personajes_Poderes", joinColumns = {
+    @JoinColumn(name = "personaje_id",referencedColumnName = "id") },
             inverseJoinColumns = { @JoinColumn(name = "poder_id",referencedColumnName = "id")})
     private Set<Power> powers;
 
