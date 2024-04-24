@@ -12,6 +12,8 @@ public class Power implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int powerId;
+
+    @Column(name = "poder", nullable = false)
     private String power;
     @ManyToMany(mappedBy = "poderes",cascade = CascadeType.ALL)
     private Set<Character> characters;
@@ -71,6 +73,7 @@ public class Power implements Serializable {
     public void setCharacters(Set<Character> characters) {
         this.characters = characters;
     }
+
 
     /**
      * Method toString

@@ -12,55 +12,51 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class OperationsHibernate extends OperationsHibernateAbstracts implements ICrudHibernate {
-    EntityManagerFactory emf;
 
-    public OperationsHibernate (){
-        emf = Persistence.createEntityManagerFactory("sqlite-jpa");
+    public OperationsHibernate (){}
+
+    public OperationsHibernate(EntityManagerFactory emf) {
+        super(emf);
     }
 
-
-    //TODO
     @Override
     public Set<Character> obtainCharacters() {
-        EntityManager em = emf.createEntityManager();
         Set<Character> characterSet = new HashSet<>();
-        em.createQuery("SELECT ch FROM Personajes ch", Character.class).getResultStream().forEach(characterSet::add);
-        closeEntityManager(em);
+        getEm().createQuery("SELECT ch FROM Personajes ch", Character.class).getResultStream().forEach(characterSet::add);
+        closeEntityManager(getEm());
         return characterSet;
     }
 
     @Override
     public Character obtainCharacter(Character character) {
-        EntityManager em = emf.createEntityManager();
-        character = em.find(Character.class, character.getCharacterId());
-        closeEntityManager(em);
+        character = getEm().find(Character.class, character.getCharacterId());
+        closeEntityManager(getEm());
         return character;
     }
 
     @Override
     public void addCharacter(Character character) {
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        em.persist(character);
-        em.getTransaction().commit();
-        closeEntityManager(em);
+        getEm().getTransaction().begin();
+        getEm().persist(character);
+        getEm().getTransaction().commit();
+        closeEntityManager(getEm());
     }
 
     @Override
     public void removeCharacter(Character character) {
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        em.remove(em.contains(character) ? character : em.merge(character));
-        em.getTransaction().commit();
-        closeEntityManager(em);
+        getEm().getTransaction().begin();
+        getEm().remove(getEm().contains(character) ? character : getEm().merge(character));
+        getEm().getTransaction().commit();
+        closeEntityManager(getEm());
     }
 
     @Override
     public void updateCharacter(Character character) {
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        em.merge(character);
-        em.getTransaction().commit();
-        closeEntityManager(em);
+        getEm().getTransaction().begin();
+        getEm().merge(character);
+        getEm().getTransaction().commit();
+        closeEntityManager(getEm());
     }
+
+
 }

@@ -1,17 +1,21 @@
 package es.ies.puerto.model.impl;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 @Entity
 @Table(name="Alias")
-public class Alias {
+public class Alias implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int aliasId;
-    @JoinColumn(name = "personaje_id")
-    @OneToOne()
+
+
     private int characterId;
+    @OneToOne
+    @JoinColumn(name = "personaje_id")
+    private Character character;
     @Column(name = "alias")
     private String alias;
 
@@ -40,6 +44,11 @@ public class Alias {
         this.alias = alias;
     }
 
+    public Alias(int aliasId, Character character, String alias) {
+        this.aliasId = aliasId;
+        this.character = character;
+        this.alias = alias;
+    }
 
     /**
      * Getters and setters
@@ -66,6 +75,14 @@ public class Alias {
 
     public void setAlias(String alias) {
         this.alias = alias;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 
     /**

@@ -13,33 +13,28 @@ public class CharacterTest extends Utilities {
     static EntityManagerFactory emf;
     static OperationsHibernate operationsHibernate;
     EntityManager em;
-    Character character;
+    static Character character;
 
     @BeforeAll
     public static void setUp() {
         emf = Persistence.createEntityManagerFactory("pu-sqlite-jpa");
-        operationsHibernate = new OperationsHibernate();
-    }
+        operationsHibernate = new OperationsHibernate(emf);
+        character = new Character();
 
+    }
+    /**
     @BeforeEach
     public void initEntityManager() {
-        em = emf.createEntityManager();
+        operationsHibernate = new OperationsHibernate(emf);
+        em = operationsHibernate.getEm();
         character = new Character();
-        character.setName("personTest");
-        try {
-            // Persist in database
-            em.getTransaction().begin();
-            em.persist(character);
-            em.getTransaction().commit();
-        } catch (Throwable e) {
-            Assertions.fail("Error at:"+e.getMessage());
-        }
+        operationsHibernate.addCharacter(character);
     }
-
+**/
     @Test
     public void testPersistFind() {
         try {
-            Character characterDB = em.find(Character.class, character.getCharacterId());
+            Character characterDB = operationsHibernate.obtainCharacter(character);
             Assertions.assertEquals(character.getName(), characterDB.getName());
         } catch (Throwable e) {
             Assertions.fail("Error at:"+e.getMessage());
@@ -49,16 +44,14 @@ public class CharacterTest extends Utilities {
     @Test
     public void testUpdate() {
         try {
-            Character characterFind = em.find(Character.class, character.getCharacterId()); // See file import.sql
+            Character characterFind = operationsHibernate.obtainCharacter(character); // See file import.sql
             characterFind.setGender("Male");
 
             // Persist in database
-            em.getTransaction().begin();
-            em.merge(characterFind);
-            em.getTransaction().commit();
+            operationsHibernate.updateCharacter(characterFind);
 
             // Find by id
-            Character characterDBUpdate = em.find(Character.class, character.getCharacterId());
+            Character characterDBUpdate = operationsHibernate.obtainCharacter(character);
             Assertions.assertEquals(characterFind.getGender(), characterDBUpdate.getGender());
         } catch (Throwable e) {
             e.printStackTrace();
@@ -69,14 +62,11 @@ public class CharacterTest extends Utilities {
     @AfterEach
     public void removePerson() {
         try {
-            int personId = this.character.getCharacterId();
-            Character character = em.find(Character.class, personId); // See file import.sql
-            em.getTransaction().begin();
-            em.remove(character);
-            em.getTransaction().commit(); // TODO java.sql.SQLException: database is locked (sometimes)
+            Character character = operationsHibernate.obtainCharacter(this.character); // See file import.sql
+            operationsHibernate.removeCharacter(character);// TODO java.sql.SQLException: database is locked (sometimes)
 
             // Find by id
-            Character characterDB = em.find(Character.class, personId); // See file import.sql
+            Character characterDB = operationsHibernate.obtainCharacter(this.character); // See file import.sql
 
             Assertions.assertNull(characterDB);
 
@@ -88,13 +78,11 @@ public class CharacterTest extends Utilities {
 
     @AfterEach
     public void closeEntityManager() {
-        em.close();
-        em = null;
+        operationsHibernate.closeEntityManager(em);
     }
 
     @AfterAll
     public static void closeEntityManagerFactory() {
         emf.close();
     }
-
 }

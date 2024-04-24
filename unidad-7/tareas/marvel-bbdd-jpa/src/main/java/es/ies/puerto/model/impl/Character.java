@@ -1,11 +1,12 @@
 package es.ies.puerto.model.impl;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 @Entity
 @Table(name="Personajes")
-public class Character {
+public class Character implements Serializable {
 
     private static final long serialVersionUID = -7250234396452258822L;
     @Id
@@ -22,6 +23,7 @@ public class Character {
     private String name;
     @Column(name = "genero")
     private  String gender;
+    @OneToOne
     private Alias alias;
 
     @ManyToMany
