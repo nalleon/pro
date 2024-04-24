@@ -1,36 +1,44 @@
 package es.ies.puerto.model.db.jpa.hibernate.entities;
 
 import es.ies.puerto.model.db.jpa.hibernate.impl.OperationsHibernate;
+import es.ies.puerto.model.impl.Alias;
 import es.ies.puerto.model.impl.Character;
+import es.ies.puerto.model.impl.Power;
 import org.junit.jupiter.api.*;
 import utilities.Utilities;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CharacterTest extends Utilities {
     static EntityManagerFactory emf;
     static OperationsHibernate operationsHibernate;
-    EntityManager em;
-    static Character character;
+    Character character;
+    int id = 3;
+    String name = "nameTesting";
+    Alias alias = new Alias(3, 3, "aliasTest");
+    String gender = "genderTest";
+    Set<Power> powers;
+    Power power1 = new Power(10, "powerTesting1");
+    Power power2 = new Power(11, "powerTesting2");
 
     @BeforeAll
     public static void setUp() {
         emf = Persistence.createEntityManagerFactory("pu-sqlite-jpa");
         operationsHibernate = new OperationsHibernate(emf);
-        character = new Character();
 
     }
-    /**
+
     @BeforeEach
     public void initEntityManager() {
-        operationsHibernate = new OperationsHibernate(emf);
-        em = operationsHibernate.getEm();
-        character = new Character();
+        powers = new HashSet<>();
+        powers.add(power1);
+        powers.add(power2);
+        character = new Character(id,name,gender,alias,powers);
         operationsHibernate.addCharacter(character);
     }
-**/
     @Test
     public void testPersistFind() {
         try {
@@ -76,13 +84,4 @@ public class CharacterTest extends Utilities {
         }
     }
 
-    @AfterEach
-    public void closeEntityManager() {
-        operationsHibernate.closeEntityManager(em);
-    }
-
-    @AfterAll
-    public static void closeEntityManagerFactory() {
-        emf.close();
-    }
 }

@@ -9,13 +9,13 @@ import java.util.Set;
 @Table(name="Poderes")
 public class Power implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int powerId;
 
     @Column(name = "poder", nullable = false)
     private String power;
-    @ManyToMany(mappedBy = "poderes",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "powers",cascade = CascadeType.ALL)
     private Set<Character> characters;
 
     /**

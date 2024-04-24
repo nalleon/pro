@@ -7,13 +7,13 @@ import java.util.Objects;
 @Table(name="Alias")
 public class Alias implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int aliasId;
 
-
+    @Transient
     private int characterId;
-    @OneToOne
+    @OneToOne(mappedBy = "alias")
     @JoinColumn(name = "personaje_id")
     private Character character;
     @Column(name = "alias")

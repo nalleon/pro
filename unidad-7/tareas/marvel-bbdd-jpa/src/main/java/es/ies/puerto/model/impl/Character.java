@@ -10,12 +10,7 @@ public class Character implements Serializable {
 
     private static final long serialVersionUID = -7250234396452258822L;
     @Id
-    @TableGenerator(name = "gen_person",
-            table = "table_keys",
-            pkColumnName = "name_table",
-            valueColumnName = "cod_key",
-            pkColumnValue = "person", allocationSize = 1, initialValue = 1)
-    @GeneratedValue(generator = "gen_person", strategy = GenerationType.TABLE)
+    @GeneratedValue(generator = "gen_person", strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int characterId;
 
@@ -23,13 +18,16 @@ public class Character implements Serializable {
     private String name;
     @Column(name = "genero")
     private  String gender;
+    /**
+     * Cambiar orden de los mapped
+     */
     @OneToOne
     private Alias alias;
 
     @ManyToMany
     @JoinTable(name = "Personajes_Poderes",
-            joinColumns = { @JoinColumn(name = "personaje_id") },
-            inverseJoinColumns = { @JoinColumn(name = "poder_id")})
+            joinColumns = { @JoinColumn(name = "personaje_id",referencedColumnName = "id") },
+            inverseJoinColumns = { @JoinColumn(name = "poder_id",referencedColumnName = "id")})
     private Set<Power> powers;
 
 
