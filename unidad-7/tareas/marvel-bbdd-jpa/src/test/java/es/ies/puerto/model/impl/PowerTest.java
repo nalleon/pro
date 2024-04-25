@@ -1,5 +1,6 @@
 package es.ies.puerto.model.impl;
 
+import es.ies.puerto.exception.MyException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,10 @@ public class PowerTest extends Utilities {
     Set<Power> powers;
     Power power1;
     Power power2;
+
+    public PowerTest() throws MyException {
+    }
+
     @BeforeEach
     public void beforeEach(){
         power1 = new Power(3, "powerTesting1");

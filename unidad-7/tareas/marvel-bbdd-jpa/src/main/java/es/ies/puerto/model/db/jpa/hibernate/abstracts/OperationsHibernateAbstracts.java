@@ -12,21 +12,16 @@ public class OperationsHibernateAbstracts {
     public OperationsHibernateAbstracts(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    public void closeEntityManager(EntityManager em){
-        if (em!=null) {
-            em.close();
+    public void closeEntityManager(){
+        if (getEm()!= null && getEm().isOpen()) {
+            getEm().close();
         }
     }
-
     public EntityManager getEm() {
         if (em == null || (!em.isOpen())) {
             em = emf.createEntityManager();
         }
         return em;
-    }
-
-    public EntityManagerFactory getEmf() {
-        return emf;
     }
 
 }

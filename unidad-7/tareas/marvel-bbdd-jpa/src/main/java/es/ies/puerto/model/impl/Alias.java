@@ -8,13 +8,13 @@ import java.util.Objects;
 public class Alias implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private int aliasId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "personaje_id")
+    @JoinColumn(name = "personaje_id", nullable = false)
     private HeroCharacter heroCharacter;
-    @Column(name = "alias")
+    @Column(name = "alias", nullable = false)
     private String alias;
 
     /**

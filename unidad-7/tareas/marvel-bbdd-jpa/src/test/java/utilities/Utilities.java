@@ -1,6 +1,11 @@
 package utilities;
 
+import es.ies.puerto.exception.MyException;
+import es.ies.puerto.model.db.jdbc.impl.OperationsDb;
+
 public class Utilities {
+
+    OperationsDb operationsDb = new OperationsDb();
     public final String MESSAGE_ERROR = "EXPECTED RESULT NOT FOUND";
     public final String scriptBBDD = "CREATE TABLE IF NOT EXISTS Personajes (\n" +
             "    id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
@@ -58,4 +63,13 @@ public class Utilities {
             "DROP TABLE Personajes;" +
             "DROP TABLE Alias;" +
             "DROP TABLE Personajes_Poderes;";
+
+    public Utilities() throws MyException {
+        operationsDb = new OperationsDb();
+    }
+
+    public void dropTablesCreate() throws MyException {
+        operationsDb.update(dropTablesQry);
+        operationsDb.update(scriptBBDD);
+    }
 }

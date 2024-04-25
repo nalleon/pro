@@ -15,47 +15,52 @@ public class OperationsHibernate extends OperationsHibernateAbstracts implements
 
     @Override
     public List<HeroCharacter> obtainCharacters() {
-        EntityManager em = super.getEmf().createEntityManager();
-        String queryAll =  "SELECT ch FROM "+HeroCharacter.class.getName()+" AS ch";
-        List<HeroCharacter> heroCharacters= em.createQuery(queryAll, HeroCharacter.class).getResultList();
-        closeEntityManager(em);
-        return heroCharacters;
+        String query =  "SELECT ch FROM "+HeroCharacter.class.getName()+" AS ch";
+        return getEm().createQuery(query, HeroCharacter.class).getResultList();
     }
 
     @Override
     public HeroCharacter obtainCharacter(HeroCharacter heroCharacter) {
-        EntityManager em = super.getEmf().createEntityManager();
-        heroCharacter = em.find(HeroCharacter.class, heroCharacter.getCharacterId());
-        closeEntityManager(em);
+        heroCharacter = getEm().find(HeroCharacter.class, heroCharacter.getCharacterId());
         return heroCharacter;
     }
 
     @Override
+    public HeroCharacter obtainCharacterById(int id) {
+        return obtainCharacter(new HeroCharacter(id));
+    }
+
+    @Override
     public void addCharacter(HeroCharacter heroCharacter) {
-        EntityManager em = getEm();
-        HeroCharacter attachedEntity = em.merge(heroCharacter);
-        em.getTransaction().begin();
-        em.persist(attachedEntity);
-        em.getTransaction().commit();
-        closeEntityManager(em);
+        HeroCharacter attachedEntity = getEm().merge(heroCharacter);
+        getEm().getTransaction().begin();
+        getEm().persist(attachedEntity);
+        getEm().getTransaction().commit();
+        closeEntityManager();
     }
 
     @Override
     public void removeCharacter(HeroCharacter heroCharacter) {
-        EntityManager em = super.getEmf().createEntityManager();
-        em.getTransaction().begin();
-        em.remove(em.contains(heroCharacter) ? heroCharacter : em.merge(heroCharacter));
-        em.getTransaction().commit();
-        closeEntityManager(em);
+        heroCharacter = obtainCharacter(heroCharacter);
+        getEm().getTransaction().begin();
+        getEm().remove(heroCharacter);
+        getEm().getTransaction().commit();
+        closeEntityManager();
+    }
+
+    @Override
+    public void removeCharacterById(int id) {
+        removeCharacter(new HeroCharacter(id));
     }
 
     @Override
     public void updateCharacter(HeroCharacter heroCharacter) {
-        EntityManager em = super.getEmf().createEntityManager();
-        em.getTransaction().begin();
-        em.merge(heroCharacter);
-        em.getTransaction().commit();
-        closeEntityManager(em);
+        getEm().getTransaction().begin();
+        getEm().merge(heroCharacter);
+        getEm().getTransaction().commit();
+        closeEntityManager();
     }
+
+
 
 }

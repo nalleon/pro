@@ -10,7 +10,7 @@ import java.util.Set;
 public class Power implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     int powerId;
 
     @Column(name = "poder")

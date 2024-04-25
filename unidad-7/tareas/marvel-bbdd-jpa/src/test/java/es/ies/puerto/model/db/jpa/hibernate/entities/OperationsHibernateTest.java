@@ -12,6 +12,7 @@ import utilities.Utilities;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class OperationsHibernateTest extends Utilities {
@@ -20,13 +21,13 @@ public class OperationsHibernateTest extends Utilities {
     HeroCharacter heroCharacter;
     int id = 3;
     String name = "nameTesting";
-    Alias alias= new Alias(3, new HeroCharacter(3), "aliasTest");;
+    Alias alias;
     String gender = "genderTest";
     Set<Power> powers;
-    Power power1 = new Power(10, "powerTesting1");
-    Power power2 = new Power(11, "powerTesting2");
+    Power power1;
+    public OperationsHibernateTest() throws MyException {
+    }
 
-    OperationsDb operationsDb;
     @BeforeAll
     public static void setUp() {
         emf = Persistence.createEntityManagerFactory("pu-sqlite-jpa");
@@ -37,25 +38,35 @@ public class OperationsHibernateTest extends Utilities {
     @BeforeEach
     public void initEntityManager() {
         powers = new HashSet<>();
+        power1 = new Power(10, "powerTesting1");
         powers.add(power1);
-        powers.add(power2);
-        heroCharacter = new HeroCharacter(id,name,gender,alias,powers);
+        alias = new Alias(id, new HeroCharacter(id), "aliasTest");
+
+        heroCharacter = new HeroCharacter(id);
+        heroCharacter.setName(name);
+        heroCharacter.setGender(gender);
+        heroCharacter.setAlias(alias);
+        heroCharacter.setPowers(powers);
+
         operationsHibernate.addCharacter(heroCharacter);
     }
 
     @Test
-    public void testPersistFindUpdateRemove() {
+    public void findTest(){
         Assertions.assertNotNull(operationsHibernate.obtainCharacters(), MESSAGE_ERROR);
 
-        HeroCharacter heroCharacterDB = operationsHibernate.obtainCharacter(heroCharacter);
+        HeroCharacter heroCharacterDB = operationsHibernate.obtainCharacterById(heroCharacter.getCharacterId());
         Assertions.assertEquals(heroCharacter.getName(), heroCharacterDB.getName(), MESSAGE_ERROR);
-
-        heroCharacter.setName("nameTest");
+    }
+    @Test
+    public void updateRemoveTest(){
+        heroCharacter.setName("nameTesting2");
+        heroCharacter.setGender("genderTesting2");
 
         operationsHibernate.updateCharacter(heroCharacter);
-        HeroCharacter heroCharacterDBUpdate = operationsHibernate.obtainCharacter(heroCharacter);
+        HeroCharacter heroCharacterDBUpdate = operationsHibernate.obtainCharacterById(heroCharacter.getCharacterId());
         Assertions.assertEquals(heroCharacter.getName(), heroCharacterDBUpdate.getName(), MESSAGE_ERROR);
-
+        Assertions.assertEquals(heroCharacter.getGender(), heroCharacterDBUpdate.getGender(), MESSAGE_ERROR);
 
         operationsHibernate.removeCharacter(heroCharacter);
         Assertions.assertNull(operationsHibernate.obtainCharacter(heroCharacter), MESSAGE_ERROR);
@@ -63,12 +74,10 @@ public class OperationsHibernateTest extends Utilities {
 
     @AfterEach
     public void afterEach() throws MyException {
-        operationsDb = new OperationsDb();
-        operationsDb.update(dropTablesQry);
-        operationsDb.update(scriptBBDD);
+        dropTablesCreate();
     }
 
-    @AfterAll
+   @AfterAll
     public static void afterAll() {
         emf.close();
     }

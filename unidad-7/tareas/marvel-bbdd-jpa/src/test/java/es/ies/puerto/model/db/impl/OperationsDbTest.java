@@ -28,6 +28,9 @@ public class OperationsDbTest extends Utilities {
     ICrudDb persistence;
     Set<HeroCharacter> heroCharacters;
 
+    public OperationsDbTest() throws MyException {
+    }
+
     @BeforeEach
     public void beforeEach() {
         try {

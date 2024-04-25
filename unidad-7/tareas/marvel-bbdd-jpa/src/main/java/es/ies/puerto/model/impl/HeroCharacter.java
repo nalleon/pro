@@ -7,18 +7,16 @@ import java.util.Set;
 @Entity
 @Table(name="Personajes")
 public class HeroCharacter implements Serializable {
-
-    private static final long serialVersionUID = -7250234396452258822L;
     @Id
     @GeneratedValue(generator = "gen_person", strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private int characterId;
 
-    @Column(name = "nombre")
+    @Column(name = "nombre", nullable = false)
     private String name;
-    @Column(name = "genero")
+    @Column(name = "genero", nullable = false)
     private String gender;
-    @OneToOne(mappedBy = "heroCharacter", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "heroCharacter", orphanRemoval = true, cascade = CascadeType.ALL)
     private Alias alias;
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -78,11 +76,6 @@ public class HeroCharacter implements Serializable {
     public int getCharacterId() {
         return characterId;
     }
-
-    public void setCharacterId(int characterId) {
-        this.characterId = characterId;
-    }
-
     public String getName() {
         return name;
     }

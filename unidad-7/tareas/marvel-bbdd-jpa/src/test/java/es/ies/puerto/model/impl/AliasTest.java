@@ -1,5 +1,6 @@
 package es.ies.puerto.model.impl;
 
+import es.ies.puerto.exception.MyException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,9 @@ public class AliasTest extends Utilities {
     int id = 3;
     String name = "nameTesting";
     Alias alias = new Alias(3, new HeroCharacter(3), "aliasTest");
+
+    public AliasTest() throws MyException {
+    }
 
     @BeforeEach
     public void beforeEach(){
