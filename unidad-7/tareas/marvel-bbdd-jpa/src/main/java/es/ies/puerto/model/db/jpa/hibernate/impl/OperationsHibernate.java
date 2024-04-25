@@ -16,9 +16,8 @@ public class OperationsHibernate extends OperationsHibernateAbstracts implements
     @Override
     public List<HeroCharacter> obtainCharacters() {
         EntityManager em = super.getEmf().createEntityManager();
-        String queryAll =  "SELECT ch FROM Personajes AS ch";
-        TypedQuery<HeroCharacter> query = em.createQuery(queryAll, HeroCharacter.class);
-        List<HeroCharacter> heroCharacters= query.getResultList();
+        String queryAll =  "SELECT ch FROM "+HeroCharacter.class.getName()+" AS ch";
+        List<HeroCharacter> heroCharacters= em.createQuery(queryAll, HeroCharacter.class).getResultList();
         closeEntityManager(em);
         return heroCharacters;
     }

@@ -45,6 +45,8 @@ public class OperationsHibernateTest extends Utilities {
 
     @Test
     public void testPersistFindUpdateRemove() {
+        Assertions.assertNotNull(operationsHibernate.obtainCharacters(), MESSAGE_ERROR);
+
         HeroCharacter heroCharacterDB = operationsHibernate.obtainCharacter(heroCharacter);
         Assertions.assertEquals(heroCharacter.getName(), heroCharacterDB.getName(), MESSAGE_ERROR);
 
