@@ -78,7 +78,5 @@ public class HeroCharacterTest extends Utilities {
         Assertions.assertEquals(heroCharacter, heroCharacterEquals, MESSAGE_ERROR);
         Assertions.assertFalse(heroCharacter.equals(heroCharacterNotEquals), MESSAGE_ERROR);
         Assertions.assertFalse(heroCharacter.equals(characterStr), MESSAGE_ERROR);
-
-
     }
 }

@@ -75,16 +75,19 @@ public class Power implements Serializable {
     }
 
 
-    /**
-     * Method toString
-     */
     @Override
     public String toString() {
         return "Power{" +
                 "powerId=" + powerId +
                 ", power='" + power + '\'' +
+                ", heroCharacters=" + heroCharacters +
                 '}';
     }
+
+    /**
+     * Method toString
+     */
+
 
     @Override
     public boolean equals(Object o) {
