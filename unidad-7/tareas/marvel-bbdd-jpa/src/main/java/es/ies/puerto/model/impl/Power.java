@@ -10,13 +10,13 @@ import java.util.Set;
 public class Power implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private int powerId;
+    @Column(name = "id")
+    int powerId;
 
-    @Column(name = "poder", nullable = false)
-    private String power;
+    @Column(name = "poder")
+    String power;
     @ManyToMany(mappedBy = "powers",cascade = CascadeType.ALL)
-    private Set<Character> characters;
+    Set<HeroCharacter> heroCharacters;
 
     /**
      * Default constructor of the class
@@ -41,10 +41,10 @@ public class Power implements Serializable {
         this.power = power;
     }
 
-    public Power(int powerId, String power, Set<Character> characters) {
+    public Power(int powerId, String power, Set<HeroCharacter> heroCharacters) {
         this.powerId = powerId;
         this.power = power;
-        this.characters=characters;
+        this.heroCharacters = heroCharacters;
     }
 
     /**
@@ -66,12 +66,12 @@ public class Power implements Serializable {
         this.power = power;
     }
 
-    public Set<Character> getCharacters() {
-        return characters;
+    public Set<HeroCharacter> getCharacters() {
+        return heroCharacters;
     }
 
-    public void setCharacters(Set<Character> characters) {
-        this.characters = characters;
+    public void setCharacters(Set<HeroCharacter> heroCharacters) {
+        this.heroCharacters = heroCharacters;
     }
 
 
@@ -85,9 +85,7 @@ public class Power implements Serializable {
                 ", power='" + power + '\'' +
                 '}';
     }
-    /**
-     * Method equals and hashcode
-     */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

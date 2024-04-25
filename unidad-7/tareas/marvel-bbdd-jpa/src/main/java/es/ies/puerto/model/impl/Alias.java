@@ -8,15 +8,12 @@ import java.util.Objects;
 public class Alias implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private int aliasId;
 
-    @Transient
-    private int characterId;
-    //@OneToOne(mappedBy = "alias")
-    @OneToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "personaje_id")
-    private Character character;
+    private HeroCharacter heroCharacter;
     @Column(name = "alias")
     private String alias;
 
@@ -27,27 +24,15 @@ public class Alias implements Serializable {
 
     /**
      * Constructor of the class
-     * @param aliasId of the character's alias
+     * @param aliasId of the heroCharacter's alias
      */
     public Alias(int aliasId) {
         this.aliasId = aliasId;
     }
 
-    /**
-     * Constructor of the class
-     * @param aliasId of the character's alias
-     * @param characterId of the character
-     * @param alias
-     */
-    public Alias(int aliasId, int characterId, String alias) {
+    public Alias(int aliasId, HeroCharacter heroCharacter, String alias) {
         this.aliasId = aliasId;
-        this.characterId = characterId;
-        this.alias = alias;
-    }
-
-    public Alias(int aliasId, Character character, String alias) {
-        this.aliasId = aliasId;
-        this.character = character;
+        this.heroCharacter = heroCharacter;
         this.alias = alias;
     }
 
@@ -62,12 +47,12 @@ public class Alias implements Serializable {
         this.aliasId = aliasId;
     }
 
-    public int getCharacterId() {
-        return characterId;
+    public HeroCharacter getHeroCharacter() {
+        return heroCharacter;
     }
 
-    public void setCharacterId(int characterId) {
-        this.characterId = characterId;
+    public void setHeroCharacter(HeroCharacter heroCharacter) {
+        this.heroCharacter = heroCharacter;
     }
 
     public String getAlias() {
@@ -78,14 +63,6 @@ public class Alias implements Serializable {
         this.alias = alias;
     }
 
-    public Character getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(Character character) {
-        this.character = character;
-    }
-
     /**
      * Method toString
      */
@@ -93,7 +70,7 @@ public class Alias implements Serializable {
     public String toString() {
         return "Alias{" +
                 "aliasId=" + aliasId +
-                ", characterId=" + characterId +
+                ", heroCharacter=" + heroCharacter +
                 ", alias='" + alias + '\'' +
                 '}';
     }
@@ -101,6 +78,7 @@ public class Alias implements Serializable {
     /**
      * Method equals and hashcode
      */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

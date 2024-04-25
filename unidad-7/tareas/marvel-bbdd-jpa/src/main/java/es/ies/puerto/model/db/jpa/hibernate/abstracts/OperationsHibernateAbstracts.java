@@ -1,11 +1,13 @@
 package es.ies.puerto.model.db.jpa.hibernate.abstracts;
+import es.ies.puerto.model.db.jpa.hibernate.impl.OperationsHibernate;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class OperationsHibernateAbstracts {
     EntityManagerFactory emf;
     EntityManager em;
-    public OperationsHibernateAbstracts() {}
 
     public OperationsHibernateAbstracts(EntityManagerFactory emf) {
         this.emf = emf;
@@ -22,4 +24,9 @@ public class OperationsHibernateAbstracts {
         }
         return em;
     }
+
+    public EntityManagerFactory getEmf() {
+        return emf;
+    }
+
 }

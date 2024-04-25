@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 @Entity
 @Table(name="Personajes")
-public class Character implements Serializable {
+public class HeroCharacter implements Serializable {
 
     private static final long serialVersionUID = -7250234396452258822L;
     @Id
@@ -17,14 +17,11 @@ public class Character implements Serializable {
     @Column(name = "nombre")
     private String name;
     @Column(name = "genero")
-    private  String gender;
-    /**
-     * Cambiar orden de los mapped
-     */
-    @OneToOne(mappedBy = "character", cascade = CascadeType.ALL)
+    private String gender;
+    @OneToOne(mappedBy = "heroCharacter", cascade = CascadeType.ALL)
     private Alias alias;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "Personajes_Poderes", joinColumns = {
     @JoinColumn(name = "personaje_id",referencedColumnName = "id") },
             inverseJoinColumns = { @JoinColumn(name = "poder_id",referencedColumnName = "id")})
@@ -34,7 +31,7 @@ public class Character implements Serializable {
     /**
      * Default constructor of the class
      */
-    public Character (){
+    public HeroCharacter(){
         powers = new HashSet<>();
     }
 
@@ -42,8 +39,21 @@ public class Character implements Serializable {
      * Constructor of the class
      * @param id of the character
      */
-    public Character (int id){
+    public HeroCharacter(int id){
         this.characterId = id;
+    }
+
+    /**
+     * Constructor of the table Personajes
+     * @param characterId of the character
+     * @param name of the character
+     * @param gender of the character
+     */
+
+    public HeroCharacter(int characterId, String name, String gender) {
+        this.characterId = characterId;
+        this.name = name;
+        this.gender = gender;
     }
 
     /**
@@ -54,7 +64,7 @@ public class Character implements Serializable {
      * @param alias of the character
      * @param powers of the character
      */
-    public Character(int characterId, String name, String gender, Alias alias, Set<Power> powers) {
+    public HeroCharacter(int characterId, String name, String gender, Alias alias, Set<Power> powers) {
         this.characterId = characterId;
         this.name = name;
         this.gender = gender;
@@ -110,7 +120,7 @@ public class Character implements Serializable {
      */
     @Override
     public String toString() {
-        return "Character{" +
+        return "HeroCharacter{" +
                 "characterId=" + characterId +
                 ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
@@ -119,15 +129,12 @@ public class Character implements Serializable {
                 '}';
     }
 
-    /**
-     * Method equals and hashcode
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Character character = (Character) o;
-        return characterId == character.characterId;
+        HeroCharacter that = (HeroCharacter) o;
+        return characterId == that.characterId;
     }
 
     @Override

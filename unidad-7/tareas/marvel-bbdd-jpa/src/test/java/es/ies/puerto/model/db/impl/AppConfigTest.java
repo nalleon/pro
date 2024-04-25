@@ -8,7 +8,7 @@ import utilities.Utilities;
 
 public class AppConfigTest extends Utilities {
     AppConfig appConfig;
-    String url = "src/main/resources/marvel.db";
+    String url = "src/main/resources/marvel-jpa.db";
 
     @BeforeEach
     public void beforeEach() {

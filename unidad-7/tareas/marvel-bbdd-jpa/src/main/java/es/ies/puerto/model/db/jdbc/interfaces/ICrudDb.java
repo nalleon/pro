@@ -1,15 +1,15 @@
 package es.ies.puerto.model.db.jdbc.interfaces;
 
 import es.ies.puerto.exception.MyException;
-import es.ies.puerto.model.impl.Character;
+import es.ies.puerto.model.impl.HeroCharacter;
 
 import java.util.Set;
 
 public interface ICrudDb {
-    public Set<Character> obtain(String query) throws MyException ;
-    public Set<Character> obtainCharacters() throws MyException ;
-    public Character obtainCharacter(Character character) throws MyException ;
-    public void addCharacter(Character character) throws MyException;
-    public void removeCharacter(Character character) throws MyException ;
-    public void updateCharacter(Character character) throws MyException ;
+    public Set<HeroCharacter> obtain(String query) throws MyException ;
+    public Set<HeroCharacter> obtainCharacters() throws MyException ;
+    public HeroCharacter obtainCharacter(HeroCharacter heroCharacter) throws MyException ;
+    public void addCharacter(HeroCharacter heroCharacter) throws MyException;
+    public void removeCharacter(HeroCharacter heroCharacter) throws MyException ;
+    public void updateCharacter(HeroCharacter heroCharacter) throws MyException ;
 }
