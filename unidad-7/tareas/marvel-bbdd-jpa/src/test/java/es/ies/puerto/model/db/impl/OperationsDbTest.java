@@ -116,7 +116,7 @@ public class OperationsDbTest extends Utilities {
         persistence.removeCharacter(heroCharacterUpdate);
     }
 
-    @AfterEach
+   @AfterEach
     public void afterEach() throws MyException {
         operationsDb = new OperationsDb();
         operationsDb.update(dropTablesQry);

@@ -43,11 +43,11 @@ public class PowerTest extends Utilities {
     public void setGetCharacter(){
         String nameUpdate = "nameUpdate";
         power1.setPower(nameUpdate);
-        power1.setCharacters(heroCharacters);
+//        power1.setCharacters(heroCharacters);
 
         Assertions.assertEquals(id, power1.getPowerId(), MESSAGE_ERROR);
         Assertions.assertEquals(nameUpdate, power1.getPower(), MESSAGE_ERROR);
-        Assertions.assertEquals(heroCharacters, power1.getCharacters(), MESSAGE_ERROR);
+ //       Assertions.assertEquals(heroCharacters, power1.getCharacters(), MESSAGE_ERROR);
 
 
     }

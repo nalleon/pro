@@ -66,21 +66,12 @@ public class Power implements Serializable {
         this.power = power;
     }
 
-    public Set<HeroCharacter> getCharacters() {
-        return heroCharacters;
-    }
-
-    public void setCharacters(Set<HeroCharacter> heroCharacters) {
-        this.heroCharacters = heroCharacters;
-    }
-
 
     @Override
     public String toString() {
         return "Power{" +
                 "powerId=" + powerId +
                 ", power='" + power + '\'' +
-                ", heroCharacters=" + heroCharacters +
                 '}';
     }
 

@@ -175,8 +175,12 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
         update(query);
     }
 
-    public void updatePowerTable(HeroCharacter heroCharacter){
-
+    public void updatePowerTable(HeroCharacter heroCharacter) throws MyException {
+        for (Power power : heroCharacter.getPowers()){
+            String query = "UPDATE Poderes SET poder='"+power.getPower()+" " +
+                    "WHERE id="+power.getPowerId();
+            update(query);
+        }
     }
 
 

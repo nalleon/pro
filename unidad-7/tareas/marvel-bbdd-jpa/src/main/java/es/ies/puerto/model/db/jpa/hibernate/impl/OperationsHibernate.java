@@ -32,9 +32,8 @@ public class OperationsHibernate extends OperationsHibernateAbstracts implements
 
     @Override
     public void addCharacter(HeroCharacter heroCharacter) {
-        HeroCharacter attachedEntity = getEm().merge(heroCharacter);
         getEm().getTransaction().begin();
-        getEm().persist(attachedEntity);
+        getEm().persist(heroCharacter);
         getEm().getTransaction().commit();
         closeEntityManager();
     }

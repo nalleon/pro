@@ -145,6 +145,25 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
         update(qry);
     }
 
+    public int getIdFromBBDD(HeroCharacter heroCharacter) throws MyException {
+        Statement statement = null;
+        ResultSet rs = null;
+        int result = 0;
+        String qry = "SELECT id FROM Personaje WHERE nombre='"+heroCharacter.getName()+"'";
+        try {
+            statement = getConnection().createStatement();
+            rs = statement.executeQuery(qry);
+            while (rs.next()) {
+              result = rs.getInt("id");
+            }
+        } catch (Exception e) {
+            throw new MyException(e.getMessage(), e);
+        }finally{
+            closeResources(statement, rs);
+        }
+        return result;
+    }
+
     /**
      * Method that adds the powers of a heroCharacter in the database
      * @param heroCharacter to add its powers
@@ -160,7 +179,7 @@ public class OperationsDb extends OperationsDbAbstracts implements ICrudDb {
 
     @Override
     public void removeCharacter(HeroCharacter heroCharacter) throws MyException {
-        String qry = "DELETE FROM Personajes WHERE id="+ heroCharacter.getCharacterId();
+        String qry = "DELETE FROM Personajes WHERE id="+ getIdFromBBDD(heroCharacter);
         update(qry);
         removePowers(heroCharacter);
         removeCharactersPowers(heroCharacter);

@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name="Personajes")
 public class HeroCharacter implements Serializable {
     @Id
-    @GeneratedValue(generator = "gen_person", strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int characterId;
 
@@ -117,7 +117,6 @@ public class HeroCharacter implements Serializable {
                 "characterId=" + characterId +
                 ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
-                ", alias=" + alias +
                 ", powers=" + powers +
                 '}';
     }

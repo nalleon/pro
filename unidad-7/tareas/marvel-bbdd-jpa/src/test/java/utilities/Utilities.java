@@ -51,18 +51,18 @@ public class Utilities {
             "    ('Sentido arácnido');\n" +
             "\n" +
             "INSERT INTO Personajes_Poderes (personaje_id, poder_id) VALUES \n" +
-            "    (1, 1), -- Iron Man tiene Vuelo\n" +
-            "    (1, 2), -- Iron Man tiene Armadura tecnológica avanzada\n" +
-            "    (1, 3), -- Iron Man tiene Rayos láser\n" +
-            "    (2, 4), -- Spider-Man tiene Agilidad sobrehumana\n" +
-            "    (2, 5), -- Spider-Man tiene Trepamuros\n" +
-            "    (2, 6); -- Spider-Man tiene Sentido arácnido";
+            "    (1, 1)," +
+            "    (1, 2)," +
+            "    (1, 3)," +
+            "    (2, 4)," +
+            "    (2, 5)," +
+            "    (2, 6);";
 
 
-    public final String  dropTablesQry="DROP TABLE Poderes;" +
-            "DROP TABLE Personajes;" +
-            "DROP TABLE Alias;" +
-            "DROP TABLE Personajes_Poderes;";
+    public final String  dropTablesQry="DROP TABLE IF EXISTS Poderes;" +
+            "DROP TABLE IF EXISTS Personajes;" +
+            "DROP TABLE IF EXISTS Alias;" +
+            "DROP TABLE IF EXISTS Personajes_Poderes;";
 
     public Utilities() throws MyException {
         operationsDb = new OperationsDb();

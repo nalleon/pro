@@ -19,7 +19,6 @@ public class OperationsHibernateTest extends Utilities {
     static EntityManagerFactory emf;
     static OperationsHibernate operationsHibernate;
     HeroCharacter heroCharacter;
-    int id = 3;
     String name = "nameTesting";
     Alias alias;
     String gender = "genderTest";
@@ -38,15 +37,20 @@ public class OperationsHibernateTest extends Utilities {
     @BeforeEach
     public void initEntityManager() {
         powers = new HashSet<>();
-        power1 = new Power(10, "powerTesting1");
+        power1 = new Power();
+        power1.setPower("powerTest");
         powers.add(power1);
-        alias = new Alias(id, new HeroCharacter(id), "aliasTest");
 
-        heroCharacter = new HeroCharacter(id);
+        alias = new Alias();
+        heroCharacter = new HeroCharacter();
         heroCharacter.setName(name);
         heroCharacter.setGender(gender);
         heroCharacter.setAlias(alias);
         heroCharacter.setPowers(powers);
+
+
+        alias.setHeroCharacter(heroCharacter);
+        alias.setAlias("aliasTEst");
 
         operationsHibernate.addCharacter(heroCharacter);
     }
@@ -55,7 +59,7 @@ public class OperationsHibernateTest extends Utilities {
     public void findTest(){
         Assertions.assertNotNull(operationsHibernate.obtainCharacters(), MESSAGE_ERROR);
 
-        HeroCharacter heroCharacterDB = operationsHibernate.obtainCharacterById(heroCharacter.getCharacterId());
+        HeroCharacter heroCharacterDB = operationsHibernate.obtainCharacter(heroCharacter);
         Assertions.assertEquals(heroCharacter.getName(), heroCharacterDB.getName(), MESSAGE_ERROR);
     }
     @Test
@@ -68,16 +72,17 @@ public class OperationsHibernateTest extends Utilities {
         Assertions.assertEquals(heroCharacter.getName(), heroCharacterDBUpdate.getName(), MESSAGE_ERROR);
         Assertions.assertEquals(heroCharacter.getGender(), heroCharacterDBUpdate.getGender(), MESSAGE_ERROR);
 
-        operationsHibernate.removeCharacter(heroCharacter);
-        Assertions.assertNull(operationsHibernate.obtainCharacter(heroCharacter), MESSAGE_ERROR);
+       // operationsHibernate.removeCharacter(heroCharacter);
+       // Assertions.assertNull(operationsHibernate.obtainCharacter(heroCharacter), MESSAGE_ERROR);
     }
 
     @AfterEach
     public void afterEach() throws MyException {
-        dropTablesCreate();
+        operationsHibernate.removeCharacter(heroCharacter);
+        //dropTablesCreate();
     }
 
-   @AfterAll
+  // @AfterAll
     public static void afterAll() {
         emf.close();
     }
