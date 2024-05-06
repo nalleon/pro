@@ -1,45 +1,39 @@
-package es.ies.puerto.dto;
+package es.ies.puerto.model.entity;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class CustomerDTO implements Serializable {
+@Entity
+@Table(name="address")
+public class Address implements Serializable {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String FullName;
+    @ManyToMany()
+    @JoinColumn(name="fk_customer")
+    private Customer customer;
+    @Column(name="country")
     private String country;
+    @Column(name="address")
     private String address;
+    @Column(name="zipcode")
     private String zipCode;
 
     /**
      * Default constructor of the class
      */
-    public CustomerDTO (){}
+    public Address (){}
 
     /**
      * Constructor of the class
-     * @param id of the Customer
+     * @param id of the Address
      */
-    public CustomerDTO(Long id) {
+    public Address(Long id) {
         this.id = id;
     }
 
     /**
-     * Full constructor of the class
-     * @param id of the Customer
-     * @param fullName of the Customer
-     * @param country of the Customer
-     * @param address of the Customer
-     * @param zipCode of the Customer
-     */
-    public CustomerDTO(Long id, String fullName, String country, String address, String zipCode) {
-        this.id = id;
-        FullName = fullName;
-        this.country = country;
-        this.address = address;
-        this.zipCode = zipCode;
-    }
-
-    /**
-     * Getters and Setters
+     * Getters and setters
      */
 
     public Long getId() {
@@ -50,12 +44,12 @@ public class CustomerDTO implements Serializable {
         this.id = id;
     }
 
-    public String getFullName() {
-        return FullName;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setFullName(String fullName) {
-        FullName = fullName;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public String getCountry() {
@@ -84,19 +78,21 @@ public class CustomerDTO implements Serializable {
 
     @Override
     public String toString() {
-        return "id=" + id +
-                ", FullName='" + FullName + '\'' +
+        return "Address{" +
+                "id=" + id +
+                ", customer=" + customer +
                 ", country='" + country + '\'' +
-                ", Address='" + address + '\'' +
-                ", zipCode='" + zipCode;
+                ", address='" + address + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CustomerDTO that = (CustomerDTO) o;
-        return Objects.equals(id, that.id);
+        Address address = (Address) o;
+        return Objects.equals(id, address.id);
     }
 
     @Override
