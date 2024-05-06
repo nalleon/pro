@@ -9,8 +9,8 @@ public class Personaje implements Serializable {
     private String nombre;
     private String genero;
 
-    private AliasEntity aliasEntity;
-    private Set<EquipamientoEntity> equipamientoEntities;
+    private Alias alias;
+    private Set<Equipamiento> equipamientos;
     private Set<Poder> poderes;
 
     public Personaje() {
@@ -20,12 +20,12 @@ public class Personaje implements Serializable {
         this.id = id;
     }
 
-    public Personaje(String id, String nombre, String genero, AliasEntity aliasEntity, Set<EquipamientoEntity> equipamientoEntities, Set<Poder> poderes) {
+    public Personaje(String id, String nombre, String genero, Alias alias, Set<Equipamiento> equipamientos, Set<Poder> poderes) {
         this.id = id;
         this.nombre = nombre;
         this.genero = genero;
-        this.aliasEntity = aliasEntity;
-        this.equipamientoEntities = equipamientoEntities;
+        this.alias = alias;
+        this.equipamientos = equipamientos;
         this.poderes = poderes;
     }
 
@@ -53,20 +53,20 @@ public class Personaje implements Serializable {
         this.genero = genero;
     }
 
-    public AliasEntity getAlias() {
-        return aliasEntity;
+    public Alias getAlias() {
+        return alias;
     }
 
-    public void setAlias(AliasEntity aliasEntity) {
-        this.aliasEntity = aliasEntity;
+    public void setAlias(Alias alias) {
+        this.alias = alias;
     }
 
-    public Set<EquipamientoEntity> getEquipamientos() {
-        return equipamientoEntities;
+    public Set<Equipamiento> getEquipamientos() {
+        return equipamientos;
     }
 
-    public void setEquipamientos(Set<EquipamientoEntity> equipamientoEntities) {
-        this.equipamientoEntities = equipamientoEntities;
+    public void setEquipamientos(Set<Equipamiento> equipamientos) {
+        this.equipamientos = equipamientos;
     }
 
     public Set<Poder> getPoderes() {
