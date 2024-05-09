@@ -1,5 +1,6 @@
 package es.ies.puerto.mapper.classic;
 
+import es.ies.puerto.dto.AddressDTO;
 import es.ies.puerto.dto.CustomerDTO;
 import es.ies.puerto.model.entity.Address;
 import es.ies.puerto.model.entity.Customer;
@@ -28,6 +29,34 @@ public class MapperAddress {
         address.setAddress(customerDTO.getAddress());
         address.setCountry(customerDTO.getCountry());
         address.setZipCode(customerDTO.getZipCode());
+        return address;
+    }
+
+    public static AddressDTO addressToAddressDTO(Address address){
+        if (address == null){
+            return null;
+        }
+
+        AddressDTO addressDTO = new AddressDTO();
+        addressDTO.setId(address.getId());
+        addressDTO.setZipCode(address.getZipCode());
+        addressDTO.setCountry(address.getCountry());
+        addressDTO.setAddress(address.getAddress());
+
+        return addressDTO;
+    }
+
+    public static Address addressDTOToAddress(AddressDTO addressDTO){
+        if (addressDTO == null){
+            return null;
+        }
+
+        Address address = new Address();
+        address.setId(addressDTO.getId());
+        address.setZipCode(addressDTO.getZipCode());
+        address.setCountry(addressDTO.getCountry());
+        address.setAddress(addressDTO.getAddress());
+
         return address;
     }
 }

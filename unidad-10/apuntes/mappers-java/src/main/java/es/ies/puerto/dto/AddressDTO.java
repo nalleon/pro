@@ -1,42 +1,30 @@
-package es.ies.puerto.model.entity;
+package es.ies.puerto.dto;
+
+import es.ies.puerto.model.entity.Customer;
+
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
-@Table(name="address")
-public class Address implements Serializable {
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+public class AddressDTO {
     private Long id;
-    @ManyToMany()
-    @JoinColumn(name="fk_customer")
-    private Customer customer;
-    @Column(name="country")
     private String country;
-    @Column(name="address")
     private String address;
-    @Column(name="zipcode")
     private String zipCode;
-    @Column(name="province")
-    private String province;
+    private String island;
 
-    /**
-     * Default constructor of the class
-     */
-    public Address (){}
+    public AddressDTO() {
+    }
 
-    /**
-     * Constructor of the class
-     * @param id of the Address
-     */
-    public Address(Long id) {
+    public AddressDTO(Long id) {
         this.id = id;
     }
 
-    /**
-     * Getters and setters
-     */
+    public AddressDTO(Long id, String country, String address, String zipCode) {
+        this.id = id;
+        this.country = country;
+        this.address = address;
+        this.zipCode = zipCode;
+    }
 
     public Long getId() {
         return id;
@@ -44,14 +32,6 @@ public class Address implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 
     public String getCountry() {
@@ -78,19 +58,18 @@ public class Address implements Serializable {
         this.zipCode = zipCode;
     }
 
-    public String getProvince() {
-        return province;
+    public String getIsland() {
+        return island;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public void setIsland(String island) {
+        this.island = island;
     }
 
     @Override
     public String toString() {
-        return "Address{" +
+        return "AddressDTO{" +
                 "id=" + id +
-                ", customer=" + customer +
                 ", country='" + country + '\'' +
                 ", address='" + address + '\'' +
                 ", zipCode='" + zipCode + '\'' +
@@ -101,8 +80,8 @@ public class Address implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Address address = (Address) o;
-        return Objects.equals(id, address.id);
+        AddressDTO that = (AddressDTO) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override
