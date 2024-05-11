@@ -1,9 +1,0 @@
-<personaje>
-   <nombre>testing</nombre>
-   <alias>test</alias>
-   <genero>junit@test</genero>
-   <poderes class="java.util.HashSet">
-      <string>junit</string>
-      <string>testing</string>
-   </poderes>
-</personaje>
