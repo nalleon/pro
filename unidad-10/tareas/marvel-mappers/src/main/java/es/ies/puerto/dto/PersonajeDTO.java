@@ -1,10 +1,13 @@
-package es.ies.puerto.modelo.db.entidades;
+package es.ies.puerto.dto;
 
-import java.io.Serializable;
+import es.ies.puerto.modelo.db.entidades.Alias;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
+import es.ies.puerto.modelo.db.entidades.Poder;
+
 import java.util.Objects;
 import java.util.Set;
 
-public class Personaje implements Serializable {
+public class PersonajeDTO {
     private String id;
     private String nombre;
     private String genero;
@@ -13,20 +16,11 @@ public class Personaje implements Serializable {
     private Set<Equipamiento> equipamientos;
     private Set<Poder> poderes;
 
-    public Personaje() {
+    public PersonajeDTO() {
     }
 
-    public Personaje(String id) {
+    public PersonajeDTO(String id) {
         this.id = id;
-    }
-
-    public Personaje(String id, String nombre, String genero, Alias alias, Set<Equipamiento> equipamientos, Set<Poder> poderes) {
-        this.id = id;
-        this.nombre = nombre;
-        this.genero = genero;
-        this.alias = alias;
-        this.equipamientos = equipamientos;
-        this.poderes = poderes;
     }
 
     public String getId() {
@@ -79,7 +73,7 @@ public class Personaje implements Serializable {
 
     @Override
     public String toString() {
-        return "Personaje{" +
+        return "PersonajeDTO{" +
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", genero='" + genero + '\'' +
@@ -93,8 +87,8 @@ public class Personaje implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Personaje personaje = (Personaje) o;
-        return Objects.equals(id, personaje.id);
+        PersonajeDTO that = (PersonajeDTO) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override
@@ -102,4 +96,3 @@ public class Personaje implements Serializable {
         return Objects.hash(id);
     }
 }
-

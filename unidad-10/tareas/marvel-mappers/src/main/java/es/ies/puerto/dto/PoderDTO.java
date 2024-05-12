@@ -1,22 +1,16 @@
-package es.ies.puerto.modelo.db.entidades;
+package es.ies.puerto.dto;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public class Poder implements Serializable {
+public class PoderDTO {
     String id;
     String nombre;
 
-    public Poder() {
+    public PoderDTO() {
     }
 
-    public Poder(String id) {
+    public PoderDTO(String id) {
         this.id = id;
-    }
-
-    public Poder(String id, String nombre) {
-        this.id = id;
-        this.nombre = nombre;
     }
 
     public String getId() {
@@ -37,7 +31,7 @@ public class Poder implements Serializable {
 
     @Override
     public String toString() {
-        return "Poder{" +
+        return "PoderDTO{" +
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
                 '}';
@@ -47,8 +41,8 @@ public class Poder implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Poder poder = (Poder) o;
-        return Objects.equals(id, poder.id);
+        PoderDTO poderDTO = (PoderDTO) o;
+        return Objects.equals(id, poderDTO.id);
     }
 
     @Override

@@ -1,27 +1,18 @@
-package es.ies.puerto.modelo.db.entidades;
+package es.ies.puerto.dto;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public class Equipamiento implements Serializable {
-
+public class EquipamientoDTO {
     String id;
     String nombre;
     String descripcion;
     String personaje_id;
 
-    public Equipamiento() {
+    public EquipamientoDTO() {
     }
 
-    public Equipamiento(String id) {
+    public EquipamientoDTO(String id) {
         this.id = id;
-    }
-
-    public Equipamiento(String id, String nombre, String descripcion, String personaje_id) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.personaje_id = personaje_id;
     }
 
     public String getId() {
@@ -58,7 +49,7 @@ public class Equipamiento implements Serializable {
 
     @Override
     public String toString() {
-        return "Equipamiento{" +
+        return "EquipamientoDTO{" +
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
@@ -70,7 +61,7 @@ public class Equipamiento implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Equipamiento that = (Equipamiento) o;
+        EquipamientoDTO that = (EquipamientoDTO) o;
         return Objects.equals(id, that.id);
     }
 
@@ -79,4 +70,3 @@ public class Equipamiento implements Serializable {
         return Objects.hash(id);
     }
 }
-

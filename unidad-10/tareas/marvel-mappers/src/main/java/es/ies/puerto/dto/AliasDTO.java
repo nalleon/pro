@@ -1,27 +1,17 @@
-package es.ies.puerto.modelo.db.entidades;
+package es.ies.puerto.dto;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public class Equipamiento implements Serializable {
-
+public class AliasDTO {
     String id;
-    String nombre;
     String descripcion;
     String personaje_id;
 
-    public Equipamiento() {
+    public AliasDTO() {
     }
 
-    public Equipamiento(String id) {
+    public AliasDTO(String id) {
         this.id = id;
-    }
-
-    public Equipamiento(String id, String nombre, String descripcion, String personaje_id) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.personaje_id = personaje_id;
     }
 
     public String getId() {
@@ -30,14 +20,6 @@ public class Equipamiento implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getDescripcion() {
@@ -58,9 +40,8 @@ public class Equipamiento implements Serializable {
 
     @Override
     public String toString() {
-        return "Equipamiento{" +
+        return "AliasDTO{" +
                 "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", personaje_id='" + personaje_id + '\'' +
                 '}';
@@ -70,8 +51,8 @@ public class Equipamiento implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Equipamiento that = (Equipamiento) o;
-        return Objects.equals(id, that.id);
+        AliasDTO aliasDTO = (AliasDTO) o;
+        return Objects.equals(id, aliasDTO.id);
     }
 
     @Override
@@ -79,4 +60,3 @@ public class Equipamiento implements Serializable {
         return Objects.hash(id);
     }
 }
-
