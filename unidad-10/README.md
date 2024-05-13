@@ -1,0 +1,6 @@
+## Examen lógica
+
+- Mappers 
+- Recursividad
+- ????
+- ????
