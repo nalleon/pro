@@ -2,8 +2,7 @@ package es.ies.puerto.mappers.struct;
 
 import es.ies.puerto.dto.PoderDTO;
 import es.ies.puerto.modelo.db.entidades.Poder;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 @Mapper
 public interface IMapperPoder {

@@ -1,5 +1,7 @@
 package es.ies.puerto.modelo.db.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
