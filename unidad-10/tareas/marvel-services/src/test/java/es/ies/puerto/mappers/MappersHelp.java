@@ -8,13 +8,13 @@ import es.ies.puerto.modelo.db.entidades.Alias;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 import es.ies.puerto.modelo.db.entidades.Poder;
+import es.ies.puerto.utilities.TestUtilities;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class MappersHelp {
-    public static final String MESSAGE_ERROR = "NO SE HA OBTENIDO EL RESULTADO ESPERADO";
+public class MappersHelp extends TestUtilities {
     public static final String NOMBRE_TEST = "nombreTest";
     public static final String PODER_ID = "P1";
     public static final String ALIAS_ID = "A1";

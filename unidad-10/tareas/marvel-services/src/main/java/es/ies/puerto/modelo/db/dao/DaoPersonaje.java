@@ -3,13 +3,11 @@ package es.ies.puerto.modelo.db.dao;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.abstracts.DaoAbstract;
 import es.ies.puerto.modelo.db.entidades.Personaje;
-import es.ies.puerto.modelo.db.entidades.Personaje;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class DaoPersonaje extends DaoAbstract {
@@ -35,6 +33,7 @@ public class DaoPersonaje extends DaoAbstract {
     }
 
     public boolean updatePersonaje(Personaje personaje) throws MarvelException {
+
         String query = "INSERT INTO Personaje as p (id,nombre,genero)" +
                 " VALUES ('"+personaje.getId()+"','"
                 + personaje.getNombre()+"','"+personaje.getGenero()+"')";
@@ -45,17 +44,13 @@ public class DaoPersonaje extends DaoAbstract {
                     " where id='"+personaje.getId()+"'";
         }
 
-        //Si existe actualiza
-        //Si NO existe inserta
-        actualizar(query);
-        return false;
+        return actualizar(query);
     }
 
     public boolean deletePersonaje(Personaje Personaje) throws MarvelException {
         String query = "delete FROM Personaje as p" +
                 " where p.id='"+Personaje.getId()+"'";
-        actualizar(query);
-        return true;
+        return actualizar(query);
     }
 
     private Set<Personaje> obtener(String query) throws MarvelException {
@@ -77,15 +72,7 @@ public class DaoPersonaje extends DaoAbstract {
             throw new MarvelException(exception.getMessage(), exception);
         } finally {
             try {
-                if (rs != null && !rs.isClosed()) {
-                    rs.close();
-                }
-                if (statement != null && !statement.isClosed()) {
-                    statement.close();
-                }
-                if (!getConexion().isClosed()) {
-                    getConexion().close();
-                }
+                closeResources(rs,statement);
             } catch (SQLException e) {
                 throw new MarvelException(e.getMessage(), e);
             }

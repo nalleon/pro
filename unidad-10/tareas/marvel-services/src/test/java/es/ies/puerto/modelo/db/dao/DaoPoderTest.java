@@ -1,10 +1,8 @@
 package es.ies.puerto.modelo.db.dao;
 
-import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.entidades.Poder;
 import org.junit.jupiter.api.*;
 
-import java.util.List;
 import java.util.Set;
 
 public class DaoPoderTest {

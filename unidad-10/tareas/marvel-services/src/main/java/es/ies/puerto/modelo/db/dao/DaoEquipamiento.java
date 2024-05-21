@@ -4,7 +4,6 @@ import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.abstracts.DaoAbstract;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
 
-import javax.persistence.EntityManagerFactory;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -47,14 +46,13 @@ public class DaoEquipamiento extends DaoAbstract {
 
         //Si existe actualiza
         //Si NO existe inserta
-        actualizar(query);
-        return false;
+        return actualizar(query);
     }
 
-    public void deleteEquipamiento(Equipamiento Equipamiento) throws MarvelException {
+    public boolean deleteEquipamiento(Equipamiento Equipamiento) throws MarvelException {
         String query = "delete FROM Equipamiento as p" +
                 " where p.id='"+Equipamiento.getId()+"'";
-        actualizar(query);
+        return actualizar(query);
     }
 
     private Set<Equipamiento> obtener(String query) throws MarvelException {
@@ -77,15 +75,7 @@ public class DaoEquipamiento extends DaoAbstract {
             throw new MarvelException(exception.getMessage(), exception);
         } finally {
             try {
-                if (rs != null && !rs.isClosed()) {
-                    rs.close();
-                }
-                if (statement != null && !statement.isClosed()) {
-                    statement.close();
-                }
-                if (!getConexion().isClosed()) {
-                    getConexion().close();
-                }
+                closeResources(rs,statement);
             } catch (SQLException e) {
                 throw new MarvelException(e.getMessage(), e);
             }

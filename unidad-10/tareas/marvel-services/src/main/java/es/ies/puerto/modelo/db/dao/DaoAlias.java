@@ -44,14 +44,13 @@ public class DaoAlias extends DaoAbstract {
 
         //Si existe actualiza
         //Si NO existe inserta
-        actualizar(query);
-        return false;
+        return actualizar(query);
     }
 
-    public void deleteAlias(Alias alias) throws MarvelException {
+    public boolean deleteAlias(Alias alias) throws MarvelException {
         String query = "delete FROM Alias as p" +
                 " where p.id='"+alias.getId()+"'";
-        actualizar(query);
+        return  actualizar(query);
     }
 
     private Set<Alias> obtener(String query) throws MarvelException {
@@ -73,15 +72,7 @@ public class DaoAlias extends DaoAbstract {
             throw new MarvelException(exception.getMessage(), exception);
         } finally {
             try {
-                if (rs != null && !rs.isClosed()) {
-                    rs.close();
-                }
-                if (statement != null && !statement.isClosed()) {
-                    statement.close();
-                }
-                if (!getConexion().isClosed()) {
-                    getConexion().close();
-                }
+                closeResources(rs,statement);
             } catch (SQLException e) {
                 throw new MarvelException(e.getMessage(), e);
             }

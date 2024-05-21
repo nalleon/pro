@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class DaoPoder extends DaoAbstract {
@@ -45,14 +44,13 @@ public class DaoPoder extends DaoAbstract {
 
         //Si existe actualiza
         //Si NO existe inserta
-        actualizar(query);
-        return false;
+        return actualizar(query);
     }
 
-    public void deletePoder(Poder poder) throws MarvelException {
+    public boolean deletePoder(Poder poder) throws MarvelException {
         String query = "delete FROM Poder as p" +
                 " where p.id='"+poder.getId()+"'";
-        actualizar(query);
+        return actualizar(query);
     }
 
     private Set<Poder> obtener(String query) throws MarvelException {
@@ -73,15 +71,7 @@ public class DaoPoder extends DaoAbstract {
             throw new MarvelException(exception.getMessage(), exception);
         } finally {
             try {
-                if (rs != null && !rs.isClosed()) {
-                    rs.close();
-                }
-                if (statement != null && !statement.isClosed()) {
-                    statement.close();
-                }
-                if (!getConexion().isClosed()) {
-                    getConexion().close();
-                }
+                closeResources(rs,statement);
             } catch (SQLException e) {
                 throw new MarvelException(e.getMessage(), e);
             }

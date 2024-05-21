@@ -1,20 +1,11 @@
 package es.ies.puerto.modelo.db.entidades;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
-@Entity
-@Table(name = "Alias")
-public class Alias implements Serializable {
-    @Id
-    String id;
 
-    @Column(name = "alias")
+public class Alias implements Serializable {
+    String id;
     String descripcion;
-    @ManyToOne
-    @JoinColumn(name = "personaje_id")
-    Personaje personaje;
-    @Transient
     String personaje_id;
 
     public Alias() {}
@@ -51,14 +42,6 @@ public class Alias implements Serializable {
 
     public void setPersonaje_id(String personaje_id) {
         this.personaje_id = personaje_id;
-    }
-
-    public Personaje getPersonaje() {
-        return personaje;
-    }
-
-    public void setPersonaje(Personaje personaje) {
-        this.personaje = personaje;
     }
 
     @Override
