@@ -12,8 +12,6 @@ import java.util.List;
 @Consumes("application/json")
 @Produces("application/json")
 public class SongService {
-
-
     private SongRepository songRepository;
 
     public SongService() {
