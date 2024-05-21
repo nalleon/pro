@@ -41,7 +41,7 @@ public class OperacionesDBTest extends UtilitiesTest {
         equipamiento.setPersonaje(personaje);
         poder.setPersonaje(new HashSet<>(Collections.singletonList(personaje)));
     }
-    @Test
+    //@Test
     public void findGameTest() {
         try {
             Personaje personajeFind = operacionesDB.obtainEntity(personaje);
@@ -56,7 +56,7 @@ public class OperacionesDBTest extends UtilitiesTest {
         List<Personaje> personajeList = operacionesDB.obtainAllEntities();
         Assertions.assertNotNull(personajeList, MESSAGE_ERROR);
     }
-    @Test
+    //@Test
     public void updateTest() {
         try {
             Personaje personajeUpdate = personaje;

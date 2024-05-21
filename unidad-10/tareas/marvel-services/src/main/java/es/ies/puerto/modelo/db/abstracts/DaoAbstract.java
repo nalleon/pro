@@ -10,11 +10,12 @@ public class DaoAbstract extends Conexion {
         super();
     }
 
-    public void actualizar(String query) throws MarvelException {
+    public boolean actualizar(String query) throws MarvelException {
         Statement statement = null;
         try {
             statement = getConexion().createStatement();
             statement.executeUpdate(query);
+            return true;
         } catch (SQLException exception) {
             throw new MarvelException(exception.getMessage(), exception);
         } finally {

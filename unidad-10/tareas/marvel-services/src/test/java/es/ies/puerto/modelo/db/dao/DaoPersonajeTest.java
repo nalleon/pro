@@ -11,7 +11,6 @@ public class DaoPersonajeTest {
     final String nombrePersonaje="nombrePersonaje";
     final String generoPersonaje="nombrePersonaje";
 
-
     final String nombrePersonajeUpdate="nombrePersonajeUpdate";
     Personaje Personaje;
 
