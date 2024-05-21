@@ -1,16 +1,26 @@
 package es.ies.puerto.modelo.db.entidades;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
-
+@Entity
+@Table(name = "Personaje")
 public class Personaje implements Serializable {
+    @Id
     private String id;
+    @Column(name = "nombre")
     private String nombre;
+    @Column(name = "genero")
     private String genero;
-
+    @OneToOne(mappedBy = "personaje", cascade = CascadeType.ALL, orphanRemoval = true)
     private Alias alias;
+    @OneToMany(mappedBy = "personaje", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Equipamiento> equipamientos;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Personaje_Poder",joinColumns =
+    @JoinColumn(name="personaje_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="poder_id",referencedColumnName = "id"))
     private Set<Poder> poderes;
 
     public Personaje() {

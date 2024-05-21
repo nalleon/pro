@@ -1,11 +1,10 @@
 package es.ies.puerto.modelo.db.entidades;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
+
 @Entity
 @Table(name="Poder")
 public class Poder implements Serializable {
@@ -14,6 +13,9 @@ public class Poder implements Serializable {
 
     @Column(name="nombre")
     String nombre;
+
+    @ManyToMany(mappedBy = "poderes", cascade = CascadeType.ALL)
+    Set<Personaje> personaje;
 
     public Poder() {
     }
@@ -41,6 +43,14 @@ public class Poder implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Set<Personaje> getPersonaje() {
+        return personaje;
+    }
+
+    public void setPersonaje(Set<Personaje> personaje) {
+        this.personaje = personaje;
     }
 
     @Override
