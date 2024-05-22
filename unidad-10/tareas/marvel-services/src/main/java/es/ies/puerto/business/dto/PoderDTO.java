@@ -1,4 +1,4 @@
-package es.ies.puerto.dto;
+package es.ies.puerto.business.dto;
 
 import java.util.Objects;
 

@@ -1,7 +1,7 @@
 package es.ies.puerto.mappers.classic;
 
-import es.ies.puerto.dto.AliasDTO;
-import es.ies.puerto.dto.PersonajeDTO;
+import es.ies.puerto.business.dto.AliasDTO;
+import es.ies.puerto.business.dto.PersonajeDTO;
 import es.ies.puerto.modelo.db.entidades.Alias;
 
 public class MapperAlias {

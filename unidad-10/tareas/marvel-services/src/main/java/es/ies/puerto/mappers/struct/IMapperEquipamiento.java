@@ -1,6 +1,6 @@
 package es.ies.puerto.mappers.struct;
 
-import es.ies.puerto.dto.EquipamientoDTO;
+import es.ies.puerto.business.dto.EquipamientoDTO;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

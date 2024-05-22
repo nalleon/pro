@@ -1,6 +1,6 @@
 package es.ies.puerto.mappers.struct;
 
-import es.ies.puerto.dto.PersonajeDTO;
+import es.ies.puerto.business.dto.PersonajeDTO;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

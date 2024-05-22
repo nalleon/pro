@@ -1,4 +1,4 @@
-package es.ies.puerto.dto;
+package es.ies.puerto.business.dto;
 
 import es.ies.puerto.modelo.db.entidades.Alias;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;

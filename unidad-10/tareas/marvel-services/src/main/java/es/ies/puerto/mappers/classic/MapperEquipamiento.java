@@ -1,6 +1,6 @@
 package es.ies.puerto.mappers.classic;
 
-import es.ies.puerto.dto.EquipamientoDTO;
+import es.ies.puerto.business.dto.EquipamientoDTO;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
 
 public class MapperEquipamiento {

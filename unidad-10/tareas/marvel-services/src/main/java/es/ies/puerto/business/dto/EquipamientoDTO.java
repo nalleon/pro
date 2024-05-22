@@ -1,16 +1,17 @@
-package es.ies.puerto.dto;
+package es.ies.puerto.business.dto;
 
 import java.util.Objects;
 
-public class AliasDTO {
+public class EquipamientoDTO {
     String id;
+    String nombre;
     String descripcion;
     String personaje_id;
 
-    public AliasDTO() {
+    public EquipamientoDTO() {
     }
 
-    public AliasDTO(String id) {
+    public EquipamientoDTO(String id) {
         this.id = id;
     }
 
@@ -20,6 +21,14 @@ public class AliasDTO {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {
@@ -40,8 +49,9 @@ public class AliasDTO {
 
     @Override
     public String toString() {
-        return "AliasDTO{" +
+        return "EquipamientoDTO{" +
                 "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", personaje_id='" + personaje_id + '\'' +
                 '}';
@@ -51,8 +61,8 @@ public class AliasDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AliasDTO aliasDTO = (AliasDTO) o;
-        return Objects.equals(id, aliasDTO.id);
+        EquipamientoDTO that = (EquipamientoDTO) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override

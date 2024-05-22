@@ -1,9 +1,9 @@
 package es.ies.puerto.mappers;
 
-import es.ies.puerto.dto.AliasDTO;
-import es.ies.puerto.dto.EquipamientoDTO;
-import es.ies.puerto.dto.PersonajeDTO;
-import es.ies.puerto.dto.PoderDTO;
+import es.ies.puerto.business.dto.AliasDTO;
+import es.ies.puerto.business.dto.EquipamientoDTO;
+import es.ies.puerto.business.dto.PersonajeDTO;
+import es.ies.puerto.business.dto.PoderDTO;
 import es.ies.puerto.modelo.db.entidades.Alias;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Personaje;

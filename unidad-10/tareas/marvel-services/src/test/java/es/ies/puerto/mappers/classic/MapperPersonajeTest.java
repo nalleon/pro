@@ -1,5 +1,5 @@
 package es.ies.puerto.mappers.classic;
-import es.ies.puerto.dto.PersonajeDTO;
+import es.ies.puerto.business.dto.PersonajeDTO;
 import es.ies.puerto.mappers.MappersHelp;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 import org.junit.jupiter.api.Assertions;

@@ -1,6 +1,6 @@
 package es.ies.puerto.mappers.classic;
 
-import es.ies.puerto.dto.AliasDTO;
+import es.ies.puerto.business.dto.AliasDTO;
 import es.ies.puerto.mappers.MappersHelp;
 import es.ies.puerto.modelo.db.entidades.Alias;
 import org.junit.jupiter.api.Assertions;

@@ -1,6 +1,6 @@
 package es.ies.puerto.mappers.struct;
 
-import es.ies.puerto.dto.PoderDTO;
+import es.ies.puerto.business.dto.PoderDTO;
 import es.ies.puerto.mappers.MappersHelp;
 import es.ies.puerto.modelo.db.entidades.Poder;
 import org.junit.jupiter.api.Assertions;
