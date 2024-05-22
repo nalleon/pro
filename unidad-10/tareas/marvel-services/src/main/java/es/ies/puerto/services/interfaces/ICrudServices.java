@@ -13,5 +13,4 @@ public interface ICrudServices {
     public Response deleteObjectById(@PathParam("id") String id) throws MarvelException;
     public Response getObjectXml(@PathParam("id") String id) throws MarvelException;
 
-
 }

@@ -9,7 +9,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.Set;
 
-@Path("/")
+@Path("/alias")
 @Consumes("application/json")
 @Produces("application/json")
 public class AliasService implements ICrudServices {
@@ -23,7 +23,7 @@ public class AliasService implements ICrudServices {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("/alias/{id}")
     @Override
     public Response getObjectById(@PathParam("id") String id) throws MarvelException {
         Alias alias = daoAlias.findAlias(new Alias(id));
@@ -35,7 +35,7 @@ public class AliasService implements ICrudServices {
     }
 
     @GET
-    @Path("/")
+    @Path("/alias/")
     @Override
     public Response getAll() throws MarvelException {
         Set<Alias> list = daoAlias.findAllAlias();
@@ -54,7 +54,7 @@ public class AliasService implements ICrudServices {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("/alias/{id}")
     @Override
     public Response deleteObjectById(@PathParam("id") String id) throws MarvelException {
         boolean deleted = daoAlias.deleteAlias(new Alias(id));
@@ -66,7 +66,7 @@ public class AliasService implements ICrudServices {
     }
 
     @GET
-    @Path("/xml/{id}")
+    @Path("/alias/xml/{id}")
     @Produces("application/xml")
     @Override
     public Response getObjectXml(@PathParam("id") String id) throws MarvelException {

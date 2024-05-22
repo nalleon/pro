@@ -9,7 +9,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.Set;
 
-@Path("/")
+@Path("/poder")
 @Consumes("application/json")
 @Produces("application/json")
 public class PoderService implements ICrudServices {
@@ -23,7 +23,7 @@ public class PoderService implements ICrudServices {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("/poder/{id}")
     @Override
     public Response getObjectById(@PathParam("id") String id) throws MarvelException {
         Poder poder = daoPoder.findPoder(new Poder(id));
@@ -35,7 +35,7 @@ public class PoderService implements ICrudServices {
     }
 
     @GET
-    @Path("/")
+    @Path("/poder/")
     @Override
     public Response getAll() throws MarvelException {
         Set<Poder> poderList = daoPoder.findAllPoder();
@@ -54,7 +54,7 @@ public class PoderService implements ICrudServices {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("/poder/{id}")
     @Override
     public Response deleteObjectById(@PathParam("id") String id) throws MarvelException {
         boolean deleted = daoPoder.deletePoder(new Poder(id));
@@ -66,7 +66,7 @@ public class PoderService implements ICrudServices {
     }
 
     @GET
-    @Path("/xml/{id}")
+    @Path("/poder/xml/{id}")
     @Produces("application/xml")
     @Override
     public Response getObjectXml(@PathParam("id") String id) throws MarvelException {

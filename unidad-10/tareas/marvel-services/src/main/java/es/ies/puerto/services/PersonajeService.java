@@ -11,7 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.Set;
 
-@Path("/")
+@Path("/personaje")
 @Consumes("application/json")
 @Produces("application/json")
 public class PersonajeService implements ICrudServices {
@@ -25,7 +25,7 @@ public class PersonajeService implements ICrudServices {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("/personaje/{id}")
     @Override
     public Response getObjectById(@PathParam("id") String id) throws MarvelException {
         Personaje poder = daoPersonaje.findPersonaje(new Personaje(id));
@@ -37,7 +37,7 @@ public class PersonajeService implements ICrudServices {
     }
 
     @GET
-    @Path("/")
+    @Path("/personaje/")
     @Override
     public Response getAll() throws MarvelException {
         Set<Personaje> list = daoPersonaje.findAllPersonaje();
@@ -55,7 +55,7 @@ public class PersonajeService implements ICrudServices {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("/personaje/{id}")
     @Override
     public Response deleteObjectById(@PathParam("id") String id) throws MarvelException {
         boolean deleted = daoPersonaje.deletePersonaje(new Personaje(id));
@@ -67,7 +67,7 @@ public class PersonajeService implements ICrudServices {
     }
 
     @GET
-    @Path("/xml/{id}")
+    @Path("/personaje/xml/{id}")
     @Produces("application/xml")
     @Override
     public Response getObjectXml(@PathParam("id") String id) throws MarvelException {
