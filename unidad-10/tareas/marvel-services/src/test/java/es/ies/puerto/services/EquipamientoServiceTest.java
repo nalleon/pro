@@ -1,8 +1,10 @@
 package es.ies.puerto.services;
 
+import es.ies.puerto.business.dto.EquipamientoDTO;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.dao.DaoEquipamiento;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
+import es.ies.puerto.services.interfaces.ICrudEquipamiento;
 import es.ies.puerto.services.interfaces.ICrudServices;
 import es.ies.puerto.utilities.TestUtilities;
 import org.junit.jupiter.api.Assertions;
@@ -18,7 +20,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class EquipamientoServiceTest  extends TestUtilities {
-    ICrudServices marvelService;
+    ICrudEquipamiento marvelService;
 
     @Mock
     DaoEquipamiento daoMarvelMock;
@@ -56,7 +58,7 @@ public class EquipamientoServiceTest  extends TestUtilities {
     @Test
     void saveSongOkTest() throws MarvelException {
         when(daoMarvelMock.updateEquipamiento(any(Equipamiento.class))).thenReturn(true);
-        Response respuesta = marvelService.addObject(new Equipamiento());
+        Response respuesta = marvelService.addObject(new EquipamientoDTO());
         Assertions.assertNotNull(respuesta);
         Assertions.assertEquals(STATUS_201,respuesta.getStatus(), MESSAGE_ERROR);
     }
@@ -64,7 +66,7 @@ public class EquipamientoServiceTest  extends TestUtilities {
     @Test
     void saveSongDuplicateTest() throws MarvelException {
         when(daoMarvelMock.updateEquipamiento(any(Equipamiento.class))).thenReturn(false);
-        Response respuesta = marvelService.addObject(new Equipamiento());
+        Response respuesta = marvelService.addObject(new EquipamientoDTO());
         Assertions.assertNotNull(respuesta);
         Assertions.assertEquals(STATUS_304,respuesta.getStatus(), MESSAGE_ERROR);
     }

@@ -4,6 +4,7 @@ import es.ies.puerto.modelo.db.entidades.Alias;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Poder;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -13,14 +14,18 @@ public class PersonajeDTO {
     private String genero;
 
     private Alias alias;
-    private Set<Equipamiento> equipamientos;
-    private Set<Poder> poderes;
+    private Set<EquipamientoDTO> equipamientos;
+    private Set<PoderDTO> poderes;
 
     public PersonajeDTO() {
+        equipamientos = new HashSet<>();
+        poderes = new HashSet<>();
     }
 
     public PersonajeDTO(String id) {
         this.id = id;
+        equipamientos = new HashSet<>();
+        poderes = new HashSet<>();
     }
 
     public String getId() {
@@ -55,19 +60,19 @@ public class PersonajeDTO {
         this.alias = alias;
     }
 
-    public Set<Equipamiento> getEquipamientos() {
+    public Set<EquipamientoDTO> getEquipamientos() {
         return equipamientos;
     }
 
-    public void setEquipamientos(Set<Equipamiento> equipamientos) {
+    public void setEquipamientos(Set<EquipamientoDTO> equipamientos) {
         this.equipamientos = equipamientos;
     }
 
-    public Set<Poder> getPoderes() {
+    public Set<PoderDTO> getPoderes() {
         return poderes;
     }
 
-    public void setPoderes(Set<Poder> poderes) {
+    public void setPoderes(Set<PoderDTO> poderes) {
         this.poderes = poderes;
     }
 

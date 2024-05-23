@@ -1,6 +1,7 @@
 package es.ies.puerto.modelo.db.entidades;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,10 +15,14 @@ public class Personaje implements Serializable {
     private Set<Poder> poderes;
 
     public Personaje() {
+        equipamientos = new HashSet<>();
+        poderes = new HashSet<>();
     }
 
     public Personaje(String id) {
         this.id = id;
+        equipamientos = new HashSet<>();
+        poderes = new HashSet<>();
     }
 
     public Personaje(String id, String nombre, String genero, Alias alias, Set<Equipamiento> equipamientos, Set<Poder> poderes) {

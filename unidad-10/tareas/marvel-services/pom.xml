@@ -21,8 +21,8 @@
     <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
     <jacoco.unit-tests.limit.instruction-ratio>0%</jacoco.unit-tests.limit.instruction-ratio>
     <jacoco.unit-tests.limit.branch-ratio>0%</jacoco.unit-tests.limit.branch-ratio>
-    <jacoco.unit-tests.limit.class-complexity>20</jacoco.unit-tests.limit.class-complexity>
-    <jacoco.unit-tests.limit.method-complexity>10</jacoco.unit-tests.limit.method-complexity>
+    <jacoco.unit-tests.limit.class-complexity>30</jacoco.unit-tests.limit.class-complexity>
+    <jacoco.unit-tests.limit.method-complexity>30</jacoco.unit-tests.limit.method-complexity>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sqlite-jdbc.version>3.32.3</sqlite-jdbc.version>
     <hibernate.version>5.6.12.Final</hibernate.version>

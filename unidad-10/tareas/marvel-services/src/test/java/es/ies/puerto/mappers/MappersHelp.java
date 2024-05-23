@@ -71,8 +71,8 @@ public class MappersHelp extends TestUtilities {
         personajeDTO.setAlias(aliasEntity);
         personajeDTO.setGenero(GENERO);
         personajeDTO.setNombre(NOMBRE_TEST);
-        personajeDTO.setPoderes(new HashSet<>(Arrays.asList(poderEntity)));
-        personajeDTO.setEquipamientos(new HashSet<>(Arrays.asList(equipamientoEntity)));
+        personajeDTO.setPoderes(new HashSet<>(Arrays.asList(poderDTO)));
+        personajeDTO.setEquipamientos(new HashSet<>(Arrays.asList(equipamientoDTO)));
 
         personajeEntity = new Personaje();
         personajeEntity.setId(PERSONAJE_ID);

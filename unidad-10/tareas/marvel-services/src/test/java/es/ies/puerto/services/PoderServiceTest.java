@@ -1,10 +1,12 @@
 package es.ies.puerto.services;
 
+import es.ies.puerto.business.dto.PoderDTO;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.dao.DaoPoder;
 import es.ies.puerto.modelo.db.dao.DaoPoder;
 import es.ies.puerto.modelo.db.entidades.Poder;
 import es.ies.puerto.modelo.db.entidades.Poder;
+import es.ies.puerto.services.interfaces.ICrudPoder;
 import es.ies.puerto.services.interfaces.ICrudServices;
 import es.ies.puerto.utilities.TestUtilities;
 import org.junit.jupiter.api.Assertions;
@@ -20,7 +22,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class PoderServiceTest extends TestUtilities {
-    ICrudServices marvelService;
+    ICrudPoder marvelService;
 
     @Mock
     DaoPoder daoMarvelMock;
@@ -58,7 +60,7 @@ public class PoderServiceTest extends TestUtilities {
     @Test
     void saveSongOkTest() throws MarvelException {
         when(daoMarvelMock.updatePoder(any(Poder.class))).thenReturn(true);
-        Response respuesta = marvelService.addObject(new Poder());
+        Response respuesta = marvelService.addObject(new PoderDTO());
         Assertions.assertNotNull(respuesta);
         Assertions.assertEquals(STATUS_201,respuesta.getStatus(), MESSAGE_ERROR);
     }
@@ -66,7 +68,7 @@ public class PoderServiceTest extends TestUtilities {
     @Test
     void saveSongDuplicateTest() throws MarvelException {
         when(daoMarvelMock.updatePoder(any(Poder.class))).thenReturn(false);
-        Response respuesta = marvelService.addObject(new Poder());
+        Response respuesta = marvelService.addObject(new PoderDTO());
         Assertions.assertNotNull(respuesta);
         Assertions.assertEquals(STATUS_304,respuesta.getStatus(), MESSAGE_ERROR);
     }

@@ -1,21 +1,25 @@
 package es.ies.puerto.services;
 
+import es.ies.puerto.business.dto.AliasDTO;
 import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.mappers.struct.IMapperAlias;
 import es.ies.puerto.modelo.db.dao.DaoAlias;
 import es.ies.puerto.modelo.db.entidades.Alias;
-import es.ies.puerto.services.interfaces.ICrudServices;
+import es.ies.puerto.services.interfaces.ICrudAlias;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.util.HashSet;
 import java.util.Set;
 
 @Path("/alias")
 @Consumes("application/json")
 @Produces("application/json")
-public class AliasService implements ICrudServices {
+public class AliasService implements ICrudAlias {
     private DaoAlias daoAlias;
 
-    public AliasService() {
+    public AliasService() throws MarvelException {
+        daoAlias = new DaoAlias();
     }
 
     public AliasService(DaoAlias daoAlias) {
@@ -23,29 +27,33 @@ public class AliasService implements ICrudServices {
     }
 
     @GET
-    @Path("/alias/{id}")
+    @Path("/{id}")
     @Override
     public Response getObjectById(@PathParam("id") String id) throws MarvelException {
-        Alias alias = daoAlias.findAlias(new Alias(id));
-        if (alias != null) {
-            return Response.ok(alias).build();
+        AliasDTO aliasDTO = IMapperAlias.INSTANCE.aliasToAliasDTO(daoAlias.findAlias(new Alias(id)));
+        if (aliasDTO != null) {
+            return Response.ok(aliasDTO).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
 
     @GET
-    @Path("/alias/")
+    @Path("/")
     @Override
     public Response getAll() throws MarvelException {
-        Set<Alias> list = daoAlias.findAllAlias();
+        Set<AliasDTO> list = new HashSet<>();
+        for (Alias aliasDB : daoAlias.findAllAlias()){
+            list.add(IMapperAlias.INSTANCE.aliasToAliasDTO(aliasDB));
+        }
         return Response.ok(list).build();
     }
 
     @POST
     @Override
-    public Response addObject(Object object) throws MarvelException {
-        boolean resultado = daoAlias.updateAlias((Alias) object);
+    public Response addObject(AliasDTO aliasDTO) throws MarvelException {
+        Alias alias = IMapperAlias.INSTANCE.aliasDTOToAlias(aliasDTO);
+        boolean resultado = daoAlias.updateAlias(alias);
         if (resultado) {
             return Response.status(Response.Status.CREATED).build();
         }
@@ -54,10 +62,12 @@ public class AliasService implements ICrudServices {
     }
 
     @DELETE
-    @Path("/alias/{id}")
+    @Path("/{id}")
     @Override
     public Response deleteObjectById(@PathParam("id") String id) throws MarvelException {
-        boolean deleted = daoAlias.deleteAlias(new Alias(id));
+        Alias alias = IMapperAlias.INSTANCE.aliasDTOToAlias(new AliasDTO(id));
+
+        boolean deleted = daoAlias.deleteAlias(alias);
         if (deleted) {
             return Response.status(Response.Status.NO_CONTENT).build();
         } else {
@@ -66,12 +76,13 @@ public class AliasService implements ICrudServices {
     }
 
     @GET
-    @Path("/alias/xml/{id}")
+    @Path("/xml/{id}")
     @Produces("application/xml")
-    @Override
     public Response getObjectXml(@PathParam("id") String id) throws MarvelException {
-        Alias alias = daoAlias.findAlias(new Alias(id));
-        if (alias != null) {
+        Alias alias = IMapperAlias.INSTANCE.aliasDTOToAlias(new AliasDTO(id));
+        Alias aliasFind = daoAlias.findAlias(alias);
+
+        if (aliasFind != null) {
             return Response.ok(alias).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();

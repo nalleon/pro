@@ -1,23 +1,28 @@
 package es.ies.puerto.services;
 
+import es.ies.puerto.business.dto.PersonajeDTO;
 import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.mappers.struct.IMapperPersonaje;
 import es.ies.puerto.modelo.db.dao.DaoPersonaje;
 import es.ies.puerto.modelo.db.dao.DaoPoder;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 import es.ies.puerto.modelo.db.entidades.Poder;
+import es.ies.puerto.services.interfaces.ICrudPersonaje;
 import es.ies.puerto.services.interfaces.ICrudServices;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.util.HashSet;
 import java.util.Set;
 
 @Path("/personaje")
 @Consumes("application/json")
 @Produces("application/json")
-public class PersonajeService implements ICrudServices {
+public class PersonajeService implements ICrudPersonaje {
     private DaoPersonaje daoPersonaje;
 
-    public PersonajeService() {
+    public PersonajeService() throws MarvelException {
+        daoPersonaje = new DaoPersonaje();
     }
 
     public PersonajeService(DaoPersonaje daoPersonaje) {
@@ -25,28 +30,35 @@ public class PersonajeService implements ICrudServices {
     }
 
     @GET
-    @Path("/personaje/{id}")
+    @Path("/{id}")
     @Override
     public Response getObjectById(@PathParam("id") String id) throws MarvelException {
-        Personaje poder = daoPersonaje.findPersonaje(new Personaje(id));
-        if (poder != null) {
-            return Response.ok(poder).build();
+        PersonajeDTO personajeDTO = IMapperPersonaje.INSTANCE.personajeToPersonajeDTO(daoPersonaje.findPersonaje(new Personaje(id)));
+        if (personajeDTO != null) {
+            return Response.ok(personajeDTO).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
 
     @GET
-    @Path("/personaje/")
+    @Path("/")
     @Override
     public Response getAll() throws MarvelException {
-        Set<Personaje> list = daoPersonaje.findAllPersonaje();
+        Set<PersonajeDTO> list = new HashSet<>();
+
+        for (Personaje personajeDb : daoPersonaje.findAllPersonaje()){
+            list.add(IMapperPersonaje.INSTANCE.personajeToPersonajeDTO(personajeDb));
+        }
+
         return Response.ok(list).build();
     }
 
     @POST
-    public Response addObject(Object object) throws MarvelException {
-        boolean resultado = daoPersonaje.updatePersonaje((Personaje) object);
+    public Response addObject(PersonajeDTO personajeDTO) throws MarvelException {
+        Personaje personaje = IMapperPersonaje.INSTANCE.personajeDTOToPersonaje(personajeDTO);
+        boolean resultado = daoPersonaje.updatePersonaje(personaje);
+
         if (resultado) {
             return Response.status(Response.Status.CREATED).build();
         }
@@ -55,10 +67,11 @@ public class PersonajeService implements ICrudServices {
     }
 
     @DELETE
-    @Path("/personaje/{id}")
+    @Path("/{id}")
     @Override
     public Response deleteObjectById(@PathParam("id") String id) throws MarvelException {
-        boolean deleted = daoPersonaje.deletePersonaje(new Personaje(id));
+        Personaje personaje = IMapperPersonaje.INSTANCE.personajeDTOToPersonaje(new PersonajeDTO(id));
+        boolean deleted = daoPersonaje.deletePersonaje(personaje);
         if (deleted) {
             return Response.status(Response.Status.NO_CONTENT).build();
         } else {
@@ -67,13 +80,13 @@ public class PersonajeService implements ICrudServices {
     }
 
     @GET
-    @Path("/personaje/xml/{id}")
+    @Path("/xml/{id}")
     @Produces("application/xml")
-    @Override
     public Response getObjectXml(@PathParam("id") String id) throws MarvelException {
-        Personaje personaje = daoPersonaje.findPersonaje(new Personaje(id));
-        if (personaje != null) {
-            return Response.ok(personaje).build();
+        Personaje personaje = IMapperPersonaje.INSTANCE.personajeDTOToPersonaje(new PersonajeDTO(id));
+        Personaje personajeFind = daoPersonaje.findPersonaje(personaje);
+        if (personajeFind != null) {
+            return Response.ok(personajeFind).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

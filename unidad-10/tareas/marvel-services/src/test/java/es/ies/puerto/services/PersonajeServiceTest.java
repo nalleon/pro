@@ -1,9 +1,11 @@
 package es.ies.puerto.services;
 
+import es.ies.puerto.business.dto.PersonajeDTO;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.dao.DaoPersonaje;
 import es.ies.puerto.modelo.db.dao.DaoPersonaje;
 import es.ies.puerto.modelo.db.entidades.Personaje;
+import es.ies.puerto.services.interfaces.ICrudPersonaje;
 import es.ies.puerto.services.interfaces.ICrudServices;
 import es.ies.puerto.utilities.TestUtilities;
 import org.junit.jupiter.api.Assertions;
@@ -19,7 +21,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class PersonajeServiceTest extends TestUtilities {
-    ICrudServices marvelService;
+    ICrudPersonaje marvelService;
 
     @Mock
     DaoPersonaje daoMarvelMock;
@@ -57,7 +59,7 @@ public class PersonajeServiceTest extends TestUtilities {
     @Test
     void saveSongOkTest() throws MarvelException {
         when(daoMarvelMock.updatePersonaje(any(Personaje.class))).thenReturn(true);
-        Response respuesta = marvelService.addObject(new Personaje());
+        Response respuesta = marvelService.addObject(new PersonajeDTO());
         Assertions.assertNotNull(respuesta);
         Assertions.assertEquals(STATUS_201,respuesta.getStatus(), MESSAGE_ERROR);
     }
@@ -65,7 +67,7 @@ public class PersonajeServiceTest extends TestUtilities {
     @Test
     void saveSongDuplicateTest() throws MarvelException {
         when(daoMarvelMock.updatePersonaje(any(Personaje.class))).thenReturn(false);
-        Response respuesta = marvelService.addObject(new Personaje());
+        Response respuesta = marvelService.addObject(new PersonajeDTO());
         Assertions.assertNotNull(respuesta);
         Assertions.assertEquals(STATUS_304,respuesta.getStatus(), MESSAGE_ERROR);
     }

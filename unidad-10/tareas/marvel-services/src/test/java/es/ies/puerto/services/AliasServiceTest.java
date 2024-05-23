@@ -1,8 +1,10 @@
 package es.ies.puerto.services;
 
+import es.ies.puerto.business.dto.AliasDTO;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.dao.DaoAlias;
 import es.ies.puerto.modelo.db.entidades.Alias;
+import es.ies.puerto.services.interfaces.ICrudAlias;
 import es.ies.puerto.services.interfaces.ICrudServices;
 import es.ies.puerto.utilities.TestUtilities;
 import org.junit.jupiter.api.Assertions;
@@ -18,7 +20,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class AliasServiceTest  extends TestUtilities {
-    ICrudServices marvelService;
+    ICrudAlias marvelService;
 
     @Mock
     DaoAlias daoMarvelMock;
@@ -56,7 +58,7 @@ public class AliasServiceTest  extends TestUtilities {
     @Test
     void saveSongOkTest() throws MarvelException {
         when(daoMarvelMock.updateAlias(any(Alias.class))).thenReturn(true);
-        Response respuesta = marvelService.addObject(new Alias());
+        Response respuesta = marvelService.addObject(new AliasDTO());
         Assertions.assertNotNull(respuesta);
         Assertions.assertEquals(STATUS_201,respuesta.getStatus(), MESSAGE_ERROR);
     }
@@ -64,7 +66,7 @@ public class AliasServiceTest  extends TestUtilities {
     @Test
     void saveSongDuplicateTest() throws MarvelException {
         when(daoMarvelMock.updateAlias(any(Alias.class))).thenReturn(false);
-        Response respuesta = marvelService.addObject(new Alias());
+        Response respuesta = marvelService.addObject(new AliasDTO());
         Assertions.assertNotNull(respuesta);
         Assertions.assertEquals(STATUS_304,respuesta.getStatus(), MESSAGE_ERROR);
     }
