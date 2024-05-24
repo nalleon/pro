@@ -11,9 +11,16 @@ public class Conexion extends AppConfig {
     private String url;
     public Conexion() throws MarvelException {
         super();
-        this.url = "jdbc:sqlite:"+getUrlBd();
+        this.url = "jdbc:sqlite:C:Users\nabil\repositorios-git\\programacion\\unidad-10\\tareas\\marvel-services\\src\\main\\resources\\mavel.db";
     }
+
     public Connection getConexion() throws MarvelException {
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
         try {
             this.con = DriverManager.getConnection(url);
         }catch (Exception exception) {
