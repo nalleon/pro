@@ -6,13 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
-@Entity
-@Table(name="Poder")
+
 public class Poder implements Serializable {
-    @Id
     String id;
 
-    @Column(name="nombre")
     String nombre;
 
     public Poder() {

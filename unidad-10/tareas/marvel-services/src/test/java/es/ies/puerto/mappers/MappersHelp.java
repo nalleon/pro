@@ -47,7 +47,6 @@ public class MappersHelp extends TestUtilities {
         aliasDTO = new AliasDTO();
         aliasDTO.setId(ALIAS_ID);
         aliasDTO.setDescripcion(DESCRIPCION);
-        aliasDTO.setPersonaje_id(PERSONAJE_ID);
 
         aliasEntity = new Alias();
         aliasEntity.setId(ALIAS_ID);
@@ -56,7 +55,6 @@ public class MappersHelp extends TestUtilities {
 
         equipamientoDTO = new EquipamientoDTO();
         equipamientoDTO.setId(EQUIPAMIENTO_ID);
-        equipamientoDTO.setPersonaje_id(PERSONAJE_ID);
         equipamientoDTO.setDescripcion(DESCRIPCION);
         equipamientoDTO.setNombre(NOMBRE_TEST);
 
@@ -68,7 +66,7 @@ public class MappersHelp extends TestUtilities {
 
         personajeDTO = new PersonajeDTO();
         personajeDTO.setId(PERSONAJE_ID);
-        personajeDTO.setAlias(aliasEntity);
+        personajeDTO.setAlias(aliasDTO);
         personajeDTO.setGenero(GENERO);
         personajeDTO.setNombre(NOMBRE_TEST);
         personajeDTO.setPoderes(new HashSet<>(Arrays.asList(poderDTO)));

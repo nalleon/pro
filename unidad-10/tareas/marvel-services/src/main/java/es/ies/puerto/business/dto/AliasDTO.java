@@ -5,7 +5,6 @@ import java.util.Objects;
 public class AliasDTO {
     String id;
     String descripcion;
-    String personaje_id;
 
     public AliasDTO() {
     }
@@ -30,20 +29,13 @@ public class AliasDTO {
         this.descripcion = descripcion;
     }
 
-    public String getPersonaje_id() {
-        return personaje_id;
-    }
 
-    public void setPersonaje_id(String personaje_id) {
-        this.personaje_id = personaje_id;
-    }
 
     @Override
     public String toString() {
         return "AliasDTO{" +
                 "id='" + id + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", personaje_id='" + personaje_id + '\'' +
                 '}';
     }
 

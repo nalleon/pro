@@ -16,7 +16,6 @@ public class MapperEquipamientoTest extends MappersHelp {
         Assertions.assertEquals(equipamientoDTO.getId(), equipamientoDTOMapper.getId(), MESSAGE_ERROR);
         Assertions.assertEquals(equipamientoDTO.getNombre(), equipamientoDTOMapper.getNombre(), MESSAGE_ERROR);
         Assertions.assertEquals(equipamientoDTO.getDescripcion(), equipamientoDTOMapper.getDescripcion(), MESSAGE_ERROR);
-        Assertions.assertEquals(equipamientoDTO.getPersonaje_id(), equipamientoDTOMapper.getPersonaje_id(), MESSAGE_ERROR);
 
     }
 
@@ -26,6 +25,5 @@ public class MapperEquipamientoTest extends MappersHelp {
         Assertions.assertEquals(equipamientoEntity.getId(), equipamientoEntityMapper.getId(), MESSAGE_ERROR);
         Assertions.assertEquals(equipamientoEntity.getNombre(), equipamientoEntityMapper.getNombre(), MESSAGE_ERROR);
         Assertions.assertEquals(equipamientoEntity.getDescripcion(), equipamientoEntityMapper.getDescripcion(), MESSAGE_ERROR);
-        Assertions.assertEquals(equipamientoEntity.getPersonaje_id(), equipamientoEntityMapper.getPersonaje_id(), MESSAGE_ERROR);
     }
 }

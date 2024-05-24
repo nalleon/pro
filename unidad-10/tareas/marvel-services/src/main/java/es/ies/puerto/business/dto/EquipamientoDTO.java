@@ -6,7 +6,6 @@ public class EquipamientoDTO {
     String id;
     String nombre;
     String descripcion;
-    String personaje_id;
 
     public EquipamientoDTO() {
     }
@@ -37,24 +36,6 @@ public class EquipamientoDTO {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public String getPersonaje_id() {
-        return personaje_id;
-    }
-
-    public void setPersonaje_id(String personaje_id) {
-        this.personaje_id = personaje_id;
-    }
-
-    @Override
-    public String toString() {
-        return "EquipamientoDTO{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", personaje_id='" + personaje_id + '\'' +
-                '}';
     }
 
     @Override

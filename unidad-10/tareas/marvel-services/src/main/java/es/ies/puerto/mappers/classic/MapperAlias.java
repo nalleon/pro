@@ -12,7 +12,6 @@ public class MapperAlias {
         AliasDTO aliasDTO = new AliasDTO();
         aliasDTO.setId(alias.getId());
         aliasDTO.setDescripcion(alias.getDescripcion());
-        aliasDTO.setPersonaje_id(alias.getPersonaje_id());
 
         return aliasDTO;
     }
@@ -24,32 +23,18 @@ public class MapperAlias {
         Alias alias = new Alias();
         alias.setId(aliasDTO.getId());
         alias.setDescripcion(aliasDTO.getDescripcion());
-        alias.setPersonaje_id(aliasDTO.getPersonaje_id());
+
         return alias;
     }
 
-    public static PersonajeDTO aliasToPersonajeDTO(Alias alias) {
-        if (alias == null) {
+    public static Alias aliasRelatePersonaje(AliasDTO aliasDTO, PersonajeDTO personajeDTO){
+        if (aliasDTO == null){
             return null;
         }
-
-        PersonajeDTO personajeDTO = new PersonajeDTO();
-        personajeDTO.setId(alias.getPersonaje_id());
-        personajeDTO.setAlias(alias);
-
-        return personajeDTO;
-    }
-
-    public static Alias personajeDTOToAlias(PersonajeDTO personajeDTO) {
-        if (personajeDTO == null) {
-            return null;
-        }
-
         Alias alias = new Alias();
-        alias.setId(personajeDTO.getAlias().getId());
-        alias.setDescripcion(personajeDTO.getAlias().getDescripcion());
+        alias.setId(aliasDTO.getId());
+        alias.setDescripcion(aliasDTO.getDescripcion());
         alias.setPersonaje_id(personajeDTO.getId());
-
         return alias;
     }
 }

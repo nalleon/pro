@@ -17,6 +17,12 @@ public class Equipamiento implements Serializable {
         this.id = id;
     }
 
+    public Equipamiento(String id, String nombre, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
+
     public Equipamiento(String id, String nombre, String descripcion, String personaje_id) {
         this.id = id;
         this.nombre = nombre;

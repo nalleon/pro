@@ -13,7 +13,7 @@ public class PersonajeDTO {
     private String nombre;
     private String genero;
 
-    private Alias alias;
+    private AliasDTO alias;
     private Set<EquipamientoDTO> equipamientos;
     private Set<PoderDTO> poderes;
 
@@ -52,11 +52,11 @@ public class PersonajeDTO {
         this.genero = genero;
     }
 
-    public Alias getAlias() {
+    public AliasDTO getAlias() {
         return alias;
     }
 
-    public void setAlias(Alias alias) {
+    public void setAlias(AliasDTO alias) {
         this.alias = alias;
     }
 

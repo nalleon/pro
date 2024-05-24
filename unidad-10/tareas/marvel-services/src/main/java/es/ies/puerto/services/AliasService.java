@@ -2,6 +2,7 @@ package es.ies.puerto.services;
 
 import es.ies.puerto.business.dto.AliasDTO;
 import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.mappers.classic.MapperAlias;
 import es.ies.puerto.mappers.struct.IMapperAlias;
 import es.ies.puerto.modelo.db.dao.DaoAlias;
 import es.ies.puerto.modelo.db.entidades.Alias;
@@ -30,7 +31,7 @@ public class AliasService implements ICrudAlias {
     @Path("/{id}")
     @Override
     public Response getObjectById(@PathParam("id") String id) throws MarvelException {
-        AliasDTO aliasDTO = IMapperAlias.INSTANCE.aliasToAliasDTO(daoAlias.findAlias(new Alias(id)));
+        AliasDTO aliasDTO = MapperAlias.aliasToAliasDTO(daoAlias.findAlias(new Alias(id)));
         if (aliasDTO != null) {
             return Response.ok(aliasDTO).build();
         } else {
@@ -44,7 +45,7 @@ public class AliasService implements ICrudAlias {
     public Response getAll() throws MarvelException {
         Set<AliasDTO> list = new HashSet<>();
         for (Alias aliasDB : daoAlias.findAllAlias()){
-            list.add(IMapperAlias.INSTANCE.aliasToAliasDTO(aliasDB));
+            list.add(MapperAlias.aliasToAliasDTO(aliasDB));
         }
         return Response.ok(list).build();
     }
@@ -52,7 +53,7 @@ public class AliasService implements ICrudAlias {
     @POST
     @Override
     public Response addObject(AliasDTO aliasDTO) throws MarvelException {
-        Alias alias = IMapperAlias.INSTANCE.aliasDTOToAlias(aliasDTO);
+        Alias alias = MapperAlias.aliasDTOToAlias(aliasDTO);
         boolean resultado = daoAlias.updateAlias(alias);
         if (resultado) {
             return Response.status(Response.Status.CREATED).build();

@@ -1,8 +1,13 @@
 package es.ies.puerto.modelo.db.dao;
 
+import es.ies.puerto.modelo.db.entidades.Alias;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Personaje;
+import es.ies.puerto.modelo.db.entidades.Poder;
 import org.junit.jupiter.api.*;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 public class DaoPersonajeTest {
@@ -29,7 +34,8 @@ public class DaoPersonajeTest {
         try {
             Personaje = new Personaje(idPersonaje,
                     nombrePersonaje,
-                    generoPersonaje,null,null,null);
+                    generoPersonaje,new Alias(),new HashSet<>(Collections.singleton(new Equipamiento())),
+                    new HashSet<>(Collections.singleton(new Poder())));
             daoPersonaje.updatePersonaje(Personaje);
         }catch (Exception e) {
             Assertions.fail(e.getMessage());

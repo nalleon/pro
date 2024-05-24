@@ -14,8 +14,6 @@ public class MapperAliasTest extends MappersHelp {
         aliasDTOMapper = IMapperAlias.INSTANCE.aliasToAliasDTO(aliasEntity);
         Assertions.assertEquals(aliasDTO.getId(), aliasDTOMapper.getId(), MESSAGE_ERROR);
         Assertions.assertEquals(aliasDTO.getDescripcion(), aliasDTOMapper.getDescripcion(), MESSAGE_ERROR);
-        Assertions.assertEquals(aliasDTO.getPersonaje_id(), aliasDTOMapper.getPersonaje_id(), MESSAGE_ERROR);
-
     }
 
     @Test
@@ -23,6 +21,5 @@ public class MapperAliasTest extends MappersHelp {
         aliasEntityMapper = IMapperAlias.INSTANCE.aliasDTOToAlias(aliasDTO);
         Assertions.assertEquals(aliasEntity.getId(), aliasEntityMapper.getId(), MESSAGE_ERROR);
         Assertions.assertEquals(aliasEntity.getDescripcion(), aliasEntityMapper.getDescripcion(), MESSAGE_ERROR);
-        Assertions.assertEquals(aliasEntity.getPersonaje_id(), aliasEntityMapper.getPersonaje_id(), MESSAGE_ERROR);
     }
 }

@@ -14,6 +14,11 @@ public class Alias implements Serializable {
         this.id = id;
     }
 
+    public Alias(String id, String descripcion) {
+        this.id = id;
+        this.descripcion = descripcion;
+    }
+
     public Alias(String id, String descripcion, String personaje_id) {
         this.id = id;
         this.descripcion = descripcion;

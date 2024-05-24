@@ -2,6 +2,7 @@ package es.ies.puerto.services;
 
 import es.ies.puerto.business.dto.EquipamientoDTO;
 import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.mappers.classic.MapperEquipamiento;
 import es.ies.puerto.mappers.struct.IMapperEquipamiento;
 import es.ies.puerto.modelo.db.dao.DaoAlias;
 import es.ies.puerto.modelo.db.dao.DaoEquipamiento;
@@ -34,8 +35,8 @@ public class EquipamientoService implements ICrudEquipamiento {
     @Path("/{id}")
     @Override
     public Response getObjectById(@PathParam("id") String id) throws MarvelException {
-        EquipamientoDTO equipamientoDTO = IMapperEquipamiento.INSTANCE.
-                equipamientoToEquipamientoDTO(daoEquipamiento.findEquipamiento(new Equipamiento(id)));
+        EquipamientoDTO equipamientoDTO = MapperEquipamiento.equipamientoToEquipamientoDTO(
+                daoEquipamiento.findEquipamiento(new Equipamiento(id)));
         if (equipamientoDTO != null) {
             return Response.ok(equipamientoDTO).build();
         } else {
@@ -49,7 +50,7 @@ public class EquipamientoService implements ICrudEquipamiento {
     public Response getAll() throws MarvelException {
         Set<EquipamientoDTO> list = new HashSet<>();
         for (Equipamiento equipamientodb : daoEquipamiento.findAllEquipamiento()){
-            list.add(IMapperEquipamiento.INSTANCE.equipamientoToEquipamientoDTO(equipamientodb));
+            list.add(MapperEquipamiento.equipamientoToEquipamientoDTO(equipamientodb));
         }
         return Response.ok(list).build();
     }
@@ -57,7 +58,7 @@ public class EquipamientoService implements ICrudEquipamiento {
     @POST
     @Override
     public Response addObject(EquipamientoDTO equipamientoDTO) throws MarvelException {
-        Equipamiento equipamiento = IMapperEquipamiento.INSTANCE.equipamientoDTOToEquipamiento(equipamientoDTO);
+        Equipamiento equipamiento = MapperEquipamiento.equipamientoDTOToEquipamiento(equipamientoDTO);
         boolean resultado = daoEquipamiento.updateEquipamiento(equipamiento);
         if (resultado) {
             return Response.status(Response.Status.CREATED).build();
@@ -70,8 +71,7 @@ public class EquipamientoService implements ICrudEquipamiento {
     @Path("/{id}")
     @Override
     public Response deleteObjectById(@PathParam("id") String id) throws MarvelException {
-        Equipamiento equipamiento = IMapperEquipamiento.INSTANCE.
-                equipamientoDTOToEquipamiento(new EquipamientoDTO(id));
+        Equipamiento equipamiento = MapperEquipamiento.equipamientoDTOToEquipamiento(new EquipamientoDTO(id));
 
         boolean deleted = daoEquipamiento.deleteEquipamiento(equipamiento);
         if (deleted) {
@@ -85,8 +85,7 @@ public class EquipamientoService implements ICrudEquipamiento {
     @Path("/xml/{id}")
     @Produces("application/xml")
     public Response getObjectXml(@PathParam("id") String id) throws MarvelException {
-        Equipamiento equipamiento = IMapperEquipamiento.INSTANCE.
-                equipamientoDTOToEquipamiento(new EquipamientoDTO(id));
+        Equipamiento equipamiento = MapperEquipamiento.equipamientoDTOToEquipamiento(new EquipamientoDTO(id));
 
         Equipamiento equipamientoFind = daoEquipamiento.findEquipamiento(equipamiento);
         if (equipamientoFind  != null) {

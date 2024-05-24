@@ -11,7 +11,7 @@ public class Conexion extends AppConfig {
     private String url;
     public Conexion() throws MarvelException {
         super();
-        this.url = "jdbc:sqlite:C:Users\nabil\repositorios-git\\programacion\\unidad-10\\tareas\\marvel-services\\src\\main\\resources\\mavel.db";
+        this.url = "jdbc:sqlite:"+getUrlBd();
     }
 
     public Connection getConexion() throws MarvelException {

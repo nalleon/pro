@@ -2,6 +2,7 @@ package es.ies.puerto.services;
 
 import es.ies.puerto.business.dto.PoderDTO;
 import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.mappers.classic.MapperPoder;
 import es.ies.puerto.mappers.struct.IMapperPoder;
 import es.ies.puerto.modelo.db.dao.DaoPoder;
 import es.ies.puerto.modelo.db.entidades.Poder;
@@ -28,10 +29,10 @@ public class PoderService implements ICrudPoder {
     }
 
     @GET
-    @Path("/poder/{id}")
+    @Path("/{id}")
     @Override
     public Response getObjectById(@PathParam("id") String id) throws MarvelException {
-        PoderDTO poderDTO = IMapperPoder.INSTANCE.poderToPoderDTO(daoPoder.findPoder(new Poder(id)));
+        PoderDTO poderDTO = MapperPoder.poderToPoderDTO(daoPoder.findPoder(new Poder(id)));
 
         if (poderDTO != null) {
             return Response.ok(poderDTO).build();
@@ -41,12 +42,12 @@ public class PoderService implements ICrudPoder {
     }
 
     @GET
-    @Path("/poder/")
+    @Path("/")
     @Override
     public Response getAll() throws MarvelException {
         Set<PoderDTO> poderList = new HashSet<>();
         for (Poder poderDb : daoPoder.findAllPoder()){
-            poderList.add(IMapperPoder.INSTANCE.poderToPoderDTO(poderDb));
+            poderList.add(MapperPoder.poderToPoderDTO(poderDb));
         }
         return Response.ok(poderList).build();
     }
@@ -54,7 +55,7 @@ public class PoderService implements ICrudPoder {
     @POST
     @Override
     public Response addObject(PoderDTO poderDTO) throws MarvelException {
-        Poder poder = IMapperPoder.INSTANCE.poderDTOToPoder(poderDTO);
+        Poder poder = MapperPoder.poderDTOToPoder(poderDTO);
         boolean resultado = daoPoder.updatePoder((poder));
         if (resultado) {
             return Response.status(Response.Status.CREATED).build();
@@ -64,10 +65,10 @@ public class PoderService implements ICrudPoder {
     }
 
     @DELETE
-    @Path("/poder/{id}")
+    @Path("/{id}")
     @Override
     public Response deleteObjectById(@PathParam("id") String id) throws MarvelException {
-        Poder poder = IMapperPoder.INSTANCE.poderDTOToPoder(new PoderDTO(id));
+        Poder poder = MapperPoder.poderDTOToPoder(new PoderDTO(id));
         boolean deleted = daoPoder.deletePoder(poder);
 
         if (deleted) {
@@ -78,10 +79,10 @@ public class PoderService implements ICrudPoder {
     }
 
     @GET
-    @Path("/poder/xml/{id}")
+    @Path("/xml/{id}")
     @Produces("application/xml")
     public Response getObjectXml(@PathParam("id") String id) throws MarvelException {
-        Poder poder = IMapperPoder.INSTANCE.poderDTOToPoder(new PoderDTO(id));
+        Poder poder = MapperPoder.poderDTOToPoder(new PoderDTO(id));
         Poder poderFind = daoPoder.findPoder(poder);
         if (poderFind != null) {
             return Response.ok(poder).build();
