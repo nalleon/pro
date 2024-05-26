@@ -56,7 +56,7 @@ public class AliasServiceTest  extends TestUtilities {
     }
 
     @Test
-    void saveSongOkTest() throws MarvelException {
+    void saveOkTest() throws MarvelException {
         when(daoMarvelMock.updateAlias(any(Alias.class))).thenReturn(true);
         Response respuesta = marvelService.addObject(new AliasDTO());
         Assertions.assertNotNull(respuesta);
@@ -64,7 +64,7 @@ public class AliasServiceTest  extends TestUtilities {
     }
 
     @Test
-    void saveSongDuplicateTest() throws MarvelException {
+    void saveDuplicateTest() throws MarvelException {
         when(daoMarvelMock.updateAlias(any(Alias.class))).thenReturn(false);
         Response respuesta = marvelService.addObject(new AliasDTO());
         Assertions.assertNotNull(respuesta);

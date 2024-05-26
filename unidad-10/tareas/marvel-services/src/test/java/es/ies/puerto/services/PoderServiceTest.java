@@ -58,7 +58,7 @@ public class PoderServiceTest extends TestUtilities {
     }
 
     @Test
-    void saveSongOkTest() throws MarvelException {
+    void saveOkTest() throws MarvelException {
         when(daoMarvelMock.updatePoder(any(Poder.class))).thenReturn(true);
         Response respuesta = marvelService.addObject(new PoderDTO());
         Assertions.assertNotNull(respuesta);
@@ -66,7 +66,7 @@ public class PoderServiceTest extends TestUtilities {
     }
 
     @Test
-    void saveSongDuplicateTest() throws MarvelException {
+    void saveDuplicateTest() throws MarvelException {
         when(daoMarvelMock.updatePoder(any(Poder.class))).thenReturn(false);
         Response respuesta = marvelService.addObject(new PoderDTO());
         Assertions.assertNotNull(respuesta);

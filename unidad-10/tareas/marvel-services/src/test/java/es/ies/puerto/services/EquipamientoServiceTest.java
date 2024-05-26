@@ -56,7 +56,7 @@ public class EquipamientoServiceTest  extends TestUtilities {
     }
 
     @Test
-    void saveSongOkTest() throws MarvelException {
+    void saveOkTest() throws MarvelException {
         when(daoMarvelMock.updateEquipamiento(any(Equipamiento.class))).thenReturn(true);
         Response respuesta = marvelService.addObject(new EquipamientoDTO());
         Assertions.assertNotNull(respuesta);
@@ -64,7 +64,7 @@ public class EquipamientoServiceTest  extends TestUtilities {
     }
 
     @Test
-    void saveSongDuplicateTest() throws MarvelException {
+    void saveDuplicateTest() throws MarvelException {
         when(daoMarvelMock.updateEquipamiento(any(Equipamiento.class))).thenReturn(false);
         Response respuesta = marvelService.addObject(new EquipamientoDTO());
         Assertions.assertNotNull(respuesta);

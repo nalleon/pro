@@ -57,7 +57,7 @@ public class PersonajeServiceTest extends TestUtilities {
     }
 
     @Test
-    void saveSongOkTest() throws MarvelException {
+    void saveOkTest() throws MarvelException {
         when(daoMarvelMock.updatePersonaje(any(Personaje.class))).thenReturn(true);
         Response respuesta = marvelService.addObject(new PersonajeDTO());
         Assertions.assertNotNull(respuesta);
@@ -65,7 +65,7 @@ public class PersonajeServiceTest extends TestUtilities {
     }
 
     @Test
-    void saveSongDuplicateTest() throws MarvelException {
+    void saveDuplicateTest() throws MarvelException {
         when(daoMarvelMock.updatePersonaje(any(Personaje.class))).thenReturn(false);
         Response respuesta = marvelService.addObject(new PersonajeDTO());
         Assertions.assertNotNull(respuesta);
