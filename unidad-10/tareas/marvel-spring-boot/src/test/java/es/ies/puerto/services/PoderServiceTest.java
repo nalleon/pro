@@ -1,15 +1,9 @@
 package es.ies.puerto.services;
 
-import es.ies.puerto.business.dto.PoderDTO;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.dao.DaoPoder;
-import es.ies.puerto.modelo.db.dao.DaoPoder;
 import es.ies.puerto.modelo.db.entidades.Poder;
-import es.ies.puerto.modelo.db.entidades.Poder;
-import es.ies.puerto.services.interfaces.ICrudPoder;
-import es.ies.puerto.services.interfaces.ICrudServices;
 import es.ies.puerto.utilities.TestUtilities;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -20,7 +14,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class PoderServiceTest extends TestUtilities {
-    ICrudPoder marvelService;
+    PoderService marvelService;
 
     @Mock
     DaoPoder daoMarvelMock;
@@ -28,7 +22,7 @@ public class PoderServiceTest extends TestUtilities {
     @BeforeEach
     public void init() {
         MockitoAnnotations.openMocks(this);
-        marvelService = new PoderService(daoMarvelMock);
+        //marvelService = new PoderService(daoMarvelMock);
     }
 
     @Test

@@ -5,7 +5,7 @@ import es.ies.puerto.modelo.db.entidades.Personaje;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(uses = {IMapperAlias.class, IMapperEquipamiento.class, IMapperPoder.class})
+@Mapper(uses = { IMapperAlias.class, IMapperEquipamiento.class, IMapperPoder.class })
 public interface IMapperPersonaje {
     IMapperPersonaje INSTANCE = Mappers.getMapper(IMapperPersonaje.class);
     Personaje personajeDTOToPersonaje(PersonajeDTO personajeDTO);
