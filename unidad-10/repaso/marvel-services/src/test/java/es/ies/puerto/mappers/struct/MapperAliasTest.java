@@ -22,6 +22,5 @@ public class MapperAliasTest extends MappersHelp {
         Assertions.assertEquals(aliasEntity.getId(), aliasEntityMapper.getId(), MESSAGE_ERROR);
         Assertions.assertEquals(aliasEntity.getDescripcion(), aliasEntityMapper.getDescripcion(), MESSAGE_ERROR);
         Assertions.assertEquals(aliasEntity.getPersonaje_id(), aliasEntityMapper.getPersonaje_id(), MESSAGE_ERROR);
-
     }
 }

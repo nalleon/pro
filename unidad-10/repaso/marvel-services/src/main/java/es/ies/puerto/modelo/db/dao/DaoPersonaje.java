@@ -135,6 +135,7 @@ public class DaoPersonaje extends DaoAbstract {
         if (personaje == null) {
             return false;
         }
+
         String query = "DELETE FROM Personaje AS p WHERE p.id = '" + personaje.getId() + "'; " +
                 "DELETE FROM Personaje_Poder AS pp WHERE pp.personaje_id = '" + personaje.getId() + "'; ";
         DaoAlias daoAlias = new DaoAlias();
