@@ -3,13 +3,14 @@ package es.ies.puerto.modelo.db.dao;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.abstracts.DaoAbstract;
 import es.ies.puerto.modelo.db.entidades.Alias;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository
 public class DaoAlias extends DaoAbstract {
     public DaoAlias() throws MarvelException {
         super();

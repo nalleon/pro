@@ -6,13 +6,14 @@ import es.ies.puerto.modelo.db.entidades.Alias;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 import es.ies.puerto.modelo.db.entidades.Poder;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
-
+@Repository
 public class DaoPersonaje extends DaoAbstract {
 
     public DaoPersonaje() throws MarvelException {

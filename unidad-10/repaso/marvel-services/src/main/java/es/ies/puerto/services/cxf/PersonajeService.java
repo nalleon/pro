@@ -1,15 +1,11 @@
-package es.ies.puerto.services;
+package es.ies.puerto.services.cxf;
 
 import es.ies.puerto.business.dto.PersonajeDTO;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.mappers.classic.MapperPersonaje;
-import es.ies.puerto.mappers.struct.IMapperPersonaje;
 import es.ies.puerto.modelo.db.dao.DaoPersonaje;
-import es.ies.puerto.modelo.db.dao.DaoPoder;
 import es.ies.puerto.modelo.db.entidades.Personaje;
-import es.ies.puerto.modelo.db.entidades.Poder;
 import es.ies.puerto.services.interfaces.ICrudPersonaje;
-import es.ies.puerto.services.interfaces.ICrudServices;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;

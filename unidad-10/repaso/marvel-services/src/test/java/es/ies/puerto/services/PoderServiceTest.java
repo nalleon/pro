@@ -4,6 +4,7 @@ import es.ies.puerto.business.dto.PoderDTO;
 import es.ies.puerto.exception.MarvelException;
 import es.ies.puerto.modelo.db.dao.DaoPoder;
 import es.ies.puerto.modelo.db.entidades.Poder;
+import es.ies.puerto.services.cxf.PoderService;
 import es.ies.puerto.services.interfaces.ICrudPoder;
 
 import es.ies.puerto.utilities.TestUtilities;
