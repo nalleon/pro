@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+@Repository("songRepository")
 public class SongRepository {
     private List<Song> lista;
 
@@ -40,4 +40,6 @@ public class SongRepository {
         Song song = new Song(id);
         return lista.remove(song);
     }
+
+
 }

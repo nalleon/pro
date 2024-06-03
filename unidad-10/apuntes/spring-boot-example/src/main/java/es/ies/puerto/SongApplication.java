@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SongApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(es.ies.puerto.SongApplication.class, args);
 	}
 
