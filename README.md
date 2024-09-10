@@ -11,3 +11,9 @@ Repositorio dedicado al módulo de Programación.
 - [Unidad 07.](/primer-curso/unidad-07)
 - [Unidad 08.](/primer-curso/unidad-08)
 - [Unidad 10.](/primer-curso/unidad-10)
+
+# Repaso - Actividades
+- [Actividad 01.](/repaso/actividad-01)
+
+# 2º DAM - Unidades
+- [Unidad 01.](/segundo-curso/unidad-01)
