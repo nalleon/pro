@@ -1,7 +1,7 @@
 package es.ies.puerto.modelo;
 
 import es.ies.puerto.config.AppConfig;
-import es.ies.puerto.exception.TiendaException;
+import es.ies.puerto.exception.ShopException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,12 +9,12 @@ import java.sql.DriverManager;
 public class Conexion extends AppConfig {
     private Connection con;
     private String url;
-    public Conexion() throws TiendaException {
+    public Conexion() throws ShopException {
         super();
         this.url="jdbc:sqlite:"+getUrlBd();
     }
 
-    public Connection getConexion() throws TiendaException {
+    public Connection getConexion() throws ShopException {
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (ClassNotFoundException e) {
@@ -25,7 +25,7 @@ public class Conexion extends AppConfig {
             this.con = DriverManager.getConnection(url);
         }catch (Exception exception) {
             System.out.println(exception.getMessage());
-            throw new TiendaException("No se ha podido establecer la conexion",
+            throw new ShopException("No se ha podido establecer la conexion",
                     exception);
         }
         return con;
