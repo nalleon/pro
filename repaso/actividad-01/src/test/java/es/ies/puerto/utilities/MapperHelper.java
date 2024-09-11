@@ -1,44 +1,44 @@
 package es.ies.puerto.utilities;
 
-import es.ies.puerto.dto.ClienteDTO;
-import es.ies.puerto.dto.PedidoDTO;
-import es.ies.puerto.modelo.entity.ClienteEntity;
-import es.ies.puerto.modelo.entity.PedidoEntity;
+import es.ies.puerto.dto.CustomerDTO;
+import es.ies.puerto.dto.OrderDTO;
+import es.ies.puerto.modelo.entity.CustomerEntity;
+import es.ies.puerto.modelo.entity.OrderEntity;
 import org.junit.jupiter.api.BeforeEach;
 
 public class MapperHelper extends TestUtilities {
-    public static final int CLIENTE_ID = 1;
-    public static final String PRODUCTO = "productoTest";
-    public static final int CANTIDAD = 1234;
+    public static final int CUSTOMER_ID = 1;
+    public static final String PRODUCT = "productTest";
+    public static final int QUANTITY = 1234;
     public static final int ID = 1;
     public static final String EMAIL = "email@test";
-    public static final String NOMBRE = "nombreTest";
-    public PedidoEntity pedido;
-    public PedidoDTO pedidoDTO;
-    public ClienteEntity clienteEntity;
-    public ClienteDTO clienteDTO;
+    public static final String NAME = "nameTest";
+    public OrderEntity orderEntity;
+    public OrderDTO orderDTO;
+    public CustomerEntity customerEntity;
+    public CustomerDTO customerDTO;
 
     @BeforeEach
     public void beforeEach(){
-        clienteEntity = new ClienteEntity();
-        clienteEntity.setId(CLIENTE_ID);
-        clienteEntity.setEmail(EMAIL);
-        clienteEntity.setNombre(NOMBRE);
+        customerEntity = new CustomerEntity();
+        customerEntity.setId(CUSTOMER_ID);
+        customerEntity.setEmail(EMAIL);
+        customerEntity.setName(NAME);
 
-        clienteDTO = new ClienteDTO();
-        clienteDTO.setId(CLIENTE_ID);
-        clienteDTO.setEmail(EMAIL);
-        clienteDTO.setNombre(NOMBRE);
+        customerDTO = new CustomerDTO();
+        customerDTO.setId(CUSTOMER_ID);
+        customerDTO.setEmail(EMAIL);
+        customerDTO.setName(NAME);
 
-        pedido = new PedidoEntity();
-        pedido.setClienteId(CLIENTE_ID);
-        pedido.setProducto(PRODUCTO);
-        pedido.setCantidad(CANTIDAD);
-        pedido.setId(ID);
+        orderEntity = new OrderEntity();
+        orderEntity.setCustomerId(CUSTOMER_ID);
+        orderEntity.setProduct(PRODUCT);
+        orderEntity.setQuantity(QUANTITY);
+        orderEntity.setId(ID);
 
-        pedidoDTO = new PedidoDTO();
-        pedidoDTO.setProducto(PRODUCTO);
-        pedidoDTO.setCantidad(CANTIDAD);
-        pedidoDTO.setId(ID);
+        orderDTO = new OrderDTO();
+        orderDTO.setProduct(PRODUCT);
+        orderDTO.setQuantity(QUANTITY);
+        orderDTO.setId(ID);
     }
 }

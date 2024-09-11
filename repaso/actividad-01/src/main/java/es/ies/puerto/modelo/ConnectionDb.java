@@ -6,15 +6,15 @@ import es.ies.puerto.exception.ShopException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class Conexion extends AppConfig {
+public class ConnectionDb extends AppConfig {
     private Connection con;
     private String url;
-    public Conexion() throws ShopException {
+    public ConnectionDb() throws ShopException {
         super();
         this.url="jdbc:sqlite:"+getUrlBd();
     }
 
-    public Connection getConexion() throws ShopException {
+    public Connection getConnectionDb() throws ShopException {
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (ClassNotFoundException e) {

@@ -1,12 +1,12 @@
 package es.ies.puerto.exception;
 
-public class TiendaException extends Exception{
+public class ShopException extends Exception{
 
-    public TiendaException(String message) {
+    public ShopException(String message) {
         super(message);
     }
 
-    public TiendaException(String message, Throwable tipo) {
-        super(message,tipo);
+    public ShopException(String message, Throwable type) {
+        super(message,type);
     }
 }

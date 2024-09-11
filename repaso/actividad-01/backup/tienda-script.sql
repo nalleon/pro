@@ -1,23 +1,23 @@
-CREATE TABLE Cliente (
+CREATE TABLE Customer (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    nombre TEXT,
+    name TEXT,
     email TEXT
 );
 
-CREATE TABLE Pedido (
+CREATE TABLE Order_Shop (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    clienteId INTEGER,
-    producto TEXT,
-    cantidad INTEGER,
-    FOREIGN KEY (clienteId) REFERENCES Cliente(id)
+    customerId INTEGER,
+    product TEXT,
+    quantity INTEGER,
+    FOREIGN KEY (customerId) REFERENCES Customer(id)
 );
 
-INSERT INTO Cliente (nombre, email) VALUES
+INSERT INTO Customer (name, email) VALUES
 ('Juan', 'juan@example.com'),
-('María', 'maria@example.com');
+('Maria', 'maria@example.com');
 
-INSERT INTO Pedido (clienteId, producto, cantidad) VALUES
-(1, 'Producto A', 2),
-(1, 'Producto B', 1),
-(2, 'Producto C', 3);
+INSERT INTO Order_Shop (customerId, product, quantity) VALUES
+(1, 'Product A', 2),
+(1, 'Product B', 1),
+(2, 'Product C', 3);
 

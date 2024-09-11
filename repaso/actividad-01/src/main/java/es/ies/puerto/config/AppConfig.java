@@ -1,30 +1,32 @@
 package es.ies.puerto.config;
 
-import es.ies.puerto.exception.TiendaException;
+import es.ies.puerto.exception.ShopException;
 
 import java.io.FileInputStream;
 import java.net.URL;
 import java.util.Properties;
 
+/**
+ * @author nalleon
+ */
 public class AppConfig {
-    private String bdName;
+    private String nameBd;
     String urlBd;
-    public AppConfig() throws TiendaException {
+    public AppConfig() throws ShopException {
         Properties properties = new Properties();
-
 
         URL urlApp = AppConfig.class.getClassLoader().getResource("app.properties");
         try (FileInputStream fis = new FileInputStream(urlApp.getPath())) {
             properties.load(fis);
-            bdName = (String) properties.get("nameBd");
+            nameBd = (String) properties.get("nameBd");
         } catch(Exception e){
-            throw new TiendaException("Se ha producido un error en la lectura del fichero:"+e.getMessage());
+            throw new ShopException("Error while reading the file path of the database: "+e.getMessage());
         }
     }
 
     public String getUrlBd() {
         if (urlBd == null) {
-            URL resource = AppConfig.class.getClassLoader().getResource(bdName);
+            URL resource = AppConfig.class.getClassLoader().getResource(nameBd);
             urlBd = resource.getPath();
         }
         return urlBd;

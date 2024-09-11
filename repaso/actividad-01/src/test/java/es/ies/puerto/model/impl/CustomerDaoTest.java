@@ -1,19 +1,20 @@
-package es.ies.puerto.dao.bd;
+package es.ies.puerto.model.impl;
 
 import es.ies.puerto.dto.CustomerDTO;
+import es.ies.puerto.modelo.impl.CustomerDao;
 import es.ies.puerto.utilities.MapperHelper;
 import org.junit.jupiter.api.*;
 
 import java.util.List;
 
-public class ClienteDaoTest extends MapperHelper {
-    static ClienteDAO clienteDAO;
+public class CustomerDaoTest extends MapperHelper {
+    static CustomerDao dao;
     CustomerDTO customerDTO;
 
     @BeforeAll
     public static void beforeAll(){
         try {
-            clienteDAO = new ClienteDAO();
+            dao = new CustomerDao();
         }catch (Exception exception) {
             Assertions.fail("Se ha producido un error:"+exception.getMessage());
         }
@@ -23,9 +24,9 @@ public class ClienteDaoTest extends MapperHelper {
         try{
             customerDTO =  new CustomerDTO();
             customerDTO.setId(ID);
-            customerDTO.setNombre(NAME);
+            customerDTO.setName(NAME);
             customerDTO.setEmail(EMAIL);
-            clienteDAO.add(customerDTO);
+            dao.addObject(customerDTO);
         } catch (Exception e){
             Assertions.fail(e.getMessage());
         }
@@ -34,7 +35,7 @@ public class ClienteDaoTest extends MapperHelper {
     @Test
     public void findAllTest() {
         try {
-            List<CustomerDTO> list = clienteDAO.findAll();
+            List<CustomerDTO> list = dao.findAllObjects();
             Assertions.assertNotNull(list, MESSAGE_ERROR);
             Assertions.assertTrue(list.size()>0);
         }catch (Exception e) {
@@ -46,7 +47,7 @@ public class ClienteDaoTest extends MapperHelper {
     @Test
     public void findOneTest() {
         try {
-           CustomerDTO customerDTOFind = clienteDAO.findById(customerDTO.getId());
+           CustomerDTO customerDTOFind = dao.findById(customerDTO.getId());
             Assertions.assertNotNull(customerDTOFind, MESSAGE_ERROR);
             Assertions.assertEquals(customerDTO, customerDTOFind, MESSAGE_ERROR);
         }catch (Exception e) {
@@ -57,17 +58,17 @@ public class ClienteDaoTest extends MapperHelper {
     @Test
     public void updateTest() {
         try {
-            CustomerDTO customerDTOFind = clienteDAO.findById(customerDTO.getId());
+            CustomerDTO customerDTOFind = dao.findById(customerDTO.getId());
             Assertions.assertNotNull(customerDTOFind);
-            customerDTOFind.setNombre("nombreUpdate");
+            customerDTOFind.setName("nombreUpdate");
             customerDTOFind.setEmail("email@update");
-            clienteDAO.update(customerDTOFind);
+            dao.updateObject(customerDTOFind);
 
-            CustomerDTO customerDTOUpdated = clienteDAO.findById(customerDTOFind.getId());
+            CustomerDTO customerDTOUpdated = dao.findById(customerDTOFind.getId());
 
             Assertions.assertNotNull(customerDTOUpdated);
             Assertions.assertEquals(customerDTOFind, customerDTOUpdated, MESSAGE_ERROR);
-            Assertions.assertEquals(customerDTOFind.getNombre(), customerDTOUpdated.getNombre(), MESSAGE_ERROR);
+            Assertions.assertEquals(customerDTOFind.getName(), customerDTOUpdated.getName(), MESSAGE_ERROR);
             Assertions.assertEquals(customerDTOFind.getEmail(), customerDTOUpdated.getEmail(), MESSAGE_ERROR);
 
         }catch (Exception e) {
@@ -79,7 +80,7 @@ public class ClienteDaoTest extends MapperHelper {
     @AfterEach
     public void afterEach(){
         try{
-            clienteDAO.delete(customerDTO.getId());
+            dao.removeObject(customerDTO.getId());
         } catch (Exception e){
             Assertions.fail(e.getMessage());
         }

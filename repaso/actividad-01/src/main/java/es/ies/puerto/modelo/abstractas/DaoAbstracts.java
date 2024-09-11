@@ -1,19 +1,19 @@
 package es.ies.puerto.modelo.abstractas;
 
-import es.ies.puerto.exception.TiendaException;
-import es.ies.puerto.modelo.Conexion;
+import es.ies.puerto.exception.ShopException;
+import es.ies.puerto.modelo.ConnectionDb;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public abstract class DaoAbstracts extends Conexion {
-    public DaoAbstracts() throws TiendaException {
+public abstract class DaoAbstracts extends ConnectionDb {
+    public DaoAbstracts() throws ShopException {
     }
-    public boolean actualizar(String query) throws TiendaException {
+    public boolean update(String query) throws ShopException {
         Statement statement = null;
         try {
-            statement = getConexion().createStatement();
+            statement = getConnectionDb().createStatement();
             statement.executeUpdate(query);
             return true;
         } catch (SQLException exception) {
@@ -23,16 +23,16 @@ public abstract class DaoAbstracts extends Conexion {
                 if (statement != null && !statement.isClosed()) {
                     statement.close();
                 }
-                if (!getConexion().isClosed()) {
-                    getConexion().close();
+                if (!getConnectionDb().isClosed()) {
+                    getConnectionDb().close();
                 }
             } catch (SQLException e) {
-                throw new TiendaException(e.getMessage(), e);
+                throw new ShopException(e.getMessage(), e);
             }
         }
     }
 
-    public void closeResources(ResultSet rs, Statement statement) throws SQLException, TiendaException {
+    public void closeResources(ResultSet rs, Statement statement) throws SQLException, ShopException {
         if (rs != null && !rs.isClosed()) {
             rs.close();
         }
@@ -40,8 +40,8 @@ public abstract class DaoAbstracts extends Conexion {
         if (statement != null && !statement.isClosed()) {
             statement.close();
         }
-        if (!getConexion().isClosed()) {
-            getConexion().close();
+        if (!getConnectionDb().isClosed()) {
+            getConnectionDb().close();
         }
     }
 }
