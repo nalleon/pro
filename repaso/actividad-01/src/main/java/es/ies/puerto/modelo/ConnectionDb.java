@@ -25,7 +25,7 @@ public class ConnectionDb extends AppConfig {
             this.con = DriverManager.getConnection(url);
         }catch (Exception exception) {
             System.out.println(exception.getMessage());
-            throw new ShopException("No se ha podido establecer la conexion",
+            throw new ShopException("CANNOT ESTABLISH CONNECTION",
                     exception);
         }
         return con;

@@ -45,4 +45,5 @@ public class CustomerDtoTest extends MapperHelper {
         Assertions.assertFalse(dto.equals(notEquals), MESSAGE_ERROR);
         Assertions.assertFalse(dto.equals(str), MESSAGE_ERROR);
     }
+
 }
