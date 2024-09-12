@@ -1,6 +1,6 @@
 # pro
 
-Repositorio dedicado al módulo de Programación.
+Repositorio dedicado al módulo de programación.
 
 # 1º DAM - Unidades
 - [Unidad 01.](/primer-curso/unidad-01)
