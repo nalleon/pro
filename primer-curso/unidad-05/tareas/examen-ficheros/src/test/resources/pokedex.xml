@@ -1,0 +1,9 @@
+<pokemon>
+   <id>247</id>
+   <nombre>nombreTest</nombre>
+   <tipos class="java.util.ArrayList">
+      <string>test</string>
+      <string>junit</string>
+   </tipos>
+   <descripcion>esto es un test</descripcion>
+</pokemon>

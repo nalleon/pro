@@ -1,0 +1,44 @@
+<pokedex>
+   <pokemon>
+      <id>001</id>
+      <nombre>Bulbasaur</nombre>
+      <tipos class="java.util.ArrayList">
+         <string>Planta</string>
+         <string>Veneno</string>
+      </tipos>
+      <descripcion>Un pequeño Pokémon con una semilla en su espalda que crece a medida que el Pokémon se desarrolla.</descripcion>
+   </pokemon>
+   <pokemon>
+      <id>002</id>
+      <nombre>Charmander</nombre>
+      <tipos class="java.util.ArrayList">
+         <string>Fuego</string>
+      </tipos>
+      <descripcion>Un pequeño lagarto con una llama ardiente en su cola.</descripcion>
+   </pokemon>
+   <pokemon>
+      <id>003</id>
+      <nombre>Squirtle</nombre>
+      <tipos class="java.util.ArrayList">
+         <string>Agua</string>
+      </tipos>
+      <descripcion>Una pequeña tortuga con una concha que puede disparar agua con gran precisión.</descripcion>
+   </pokemon>
+   <pokemon>
+      <id>004</id>
+      <nombre>Pikachu</nombre>
+      <tipos class="java.util.ArrayList">
+         <string>Eléctrico</string>
+      </tipos>
+      <descripcion>El Pokémon ratón más famoso que lanza rayos desde sus mejillas.</descripcion>
+   </pokemon>
+   <pokemon>
+      <id>005</id>
+      <nombre>Jigglypuff</nombre>
+      <tipos class="java.util.ArrayList">
+         <string>Normal</string>
+         <string>Hada</string>
+      </tipos>
+      <descripcion>Un Pokémon redondo que canta una dulce canción que puede hacer dormir a cualquiera.</descripcion>
+   </pokemon>
+</pokedex>
